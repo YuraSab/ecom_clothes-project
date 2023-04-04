@@ -35,8 +35,8 @@ const clothes = [
 
     { id: 32, name: "Рюкзак Staff roll 25L black & khaki", price: 750, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/731b9f062ed04fc2b9fe1f413f32ec20.jpeg", gender: "male", category: "backpacks_and_bags", subcategory: "backpacks",  type: "backpacks", available: true},
     { id: 33, name: "Рюкзак Staff rolltop 24L all black", price: 790, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/88/ad4532a56e604f8188d81d6c0d7b47b2.jpeg", gender: "male", category: "backpacks_and_bags", subcategory: "backpacks",  type: "backpacks", available: true},
-    { id: 34, name: "Спортивна сумка Staff black logo", price: 690, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/88/debf787fb53b4fad8c0d11594b06ae01.jpeg", gender: "male", category: "backpacks_and_bags", subcategory: "belt_bags",  type: "shoulder_bags", available: true},
-    { id: 35, name: "Сумка через плече Staff black & gray camo", price: 390, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/87/41470c6258104f448a63fc06a0cf68a2.jpeg", gender: "male", category: "backpacks_and_bags", subcategory: "belt_bags",  type: "belt_bags", available: true},
+    { id: 34, name: "Спортивна сумка Staff black logo", price: 690, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/88/debf787fb53b4fad8c0d11594b06ae01.jpeg", gender: "male", category: "backpacks_and_bags", subcategory: "shoulder_bags",  type: "shoulder_bags", available: true},
+    { id: 35, name: "Сумка через плече Staff black & gray camo", price: 390, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/87/41470c6258104f448a63fc06a0cf68a2.jpeg", gender: "male", category: "backpacks_and_bags", subcategory: "shoulder_bags",  type: "shoulder_bags", available: true},
     { id: 36, name: "Поясна сумка Staff leather white", price: 370, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/78/58395ab805914f00a4da9c2290fce59a.jpeg", gender: "male", category: "backpacks_and_bags", subcategory: "belt_bags",  type: "belt_bags", available: true},
     { id: 37, name: "Поясна сумка Staff navy", price: 370, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/62/5d5115e5367e4fd4b0368752b7098fa0.jpeg", gender: "male", category: "backpacks_and_bags", subcategory: "belt_bags",  type: "belt_bags", available: true},
 
@@ -53,6 +53,64 @@ const clothes = [
     { id: 46, name: "Ремінь Staff cord Full\n\n", price: 240, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/88/5bfa500f52ec4f148bcc439031dfbbe4.jpeg", gender: "male", category: "accessories", subcategory: "belts_glasses_stickers_wallets",  type: "belts_glasses_stickers_wallets", available: true},
     { id: 47, name: "Гаманець Staff black", price: 140, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/84/363ef306de9f4fe5807e8f402782f015.jpeg", gender: "male", category: "accessories", subcategory: "belts_glasses_stickers_wallets",  type: "belts_glasses_stickers_wallets", available: true},
 
+
+
+//     female
+
+    { id: 48, name: "Жіноча куртка Staff soft shell black", price: 1390, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/89/70a107e8cf1d4f9a916d059f475341c1.jpeg", gender: "female", category: "clothes", subcategory: "outerwear",  type: "WINDSCREEN", available: true},
+    { id: 49, name: "Жіноча куртка-сорочка Staff c2", price: 1090, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/89/a9c7be45ca9b4fd7af2810b071c249c6.jpeg", gender: "female", category: "clothes", subcategory: "outerwear",  type: "WINDSCREEN", available: true},
+    { id: 50, name: "Жіноча парка куртка Staff ni black", price: 2750, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/73/6c8ac0e60a384fad90ecd0b2f42bcda7.jpeg", gender: "female", category: "clothes", subcategory: "outerwear",  type: "winter_parks", available: true},
+    { id: 51, name: "Жіноча екошуба Staff beige", price: 2590, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/72/7565bb88f2ed4f55b576d6e64b8b4d89.jpeg", gender: "female", category: "clothes", subcategory: "outerwear",  type: "coats", available: true},
+    { id: 52, name: "Жіноча зимова куртка Staff jo black", price: 2200, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/78/161b46e3afbc4fb58e8f85e119d69204.jpeg", gender: "female", category: "clothes", subcategory: "outerwear",  type: "winter_jackets", available: true},
+
+
+
+    { id: 53, name: "Жіноча толстовка Staff black logo oversize", price: 630, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/86/1879acc1b4a74f089925851de4f94450.jpeg", gender: "female", category: "clothes", subcategory: "hoodies",  type: "hoodies", available: true},
+    { id: 54, name: "Жіночий світшот Staff logo & fire oversize", price: 880, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/88/8aa231d72d904f0998eaf1e1c7d33751.jpeg", gender: "female", category: "clothes", subcategory: "hoodies",  type: "hoodies", available: true},
+
+
+    { id: 54, name: "Жіночий світшот Staff logo & fire oversize", price: 880, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/88/8aa231d72d904f0998eaf1e1c7d33751.jpeg", gender: "female", category: "clothes", subcategory: "hoodies",  type: "hoodies", available: true},
+
+
+    { id: 55, name: "Боді Staff pink camo", price: 540, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/86/c7f907694ef64f29bcca36f5d9112ec5.jpeg", gender: "female", category: "clothes", subcategory: "body",  type: "body", available: true},
+    { id: 56, name: "Боді Staff beige", price: 590, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/89/3652f00cf7424fa1b875013653bd6260.jpeg", gender: "female", category: "clothes", subcategory: "body",  type: "body", available: true},
+
+    { id: 57, name: "Жіночі спортивні штани Staff di gray", price: 580, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/85/7d4bdcdc20df4fc08bb6611cd38b9922.jpeg", gender: "female", category: "clothes", subcategory: "pants",  type: "pants", available: true},
+    { id: 58, name: "Жіночі спортивні штани Staff di black", price: 590, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/86/7adb2069a4394f138c2d6576b6679b0c.jpeg", gender: "female", category: "clothes", subcategory: "pants",  type: "pants", available: true},
+
+    { id: 59, name: "Жіночий спортивний костюм Staff el milk oversize", price: 1470, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/88/8f59e28bb8404fe1ad5c5e2e5724e387.jpeg", gender: "female", category: "clothes", subcategory: "tracksuits",  type: "tracksuits", available: true},
+    { id: 60, name: "Жіночий спортивний костюм Staff ice pink", price: 1490, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/88/904273b0ec3a4f7daf789c11d7ce1b5f.jpeg", gender: "female", category: "clothes", subcategory: "tracksuits",  type: "tracksuits", available: true},
+
+
+    { id: 61, name: "Жіночий літній костюм Staff bam beige", price: 430, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/59/2a7747a4b1744fe2bf5e1e9e4b464fc1.jpeg", gender: "female", category: "clothes", subcategory: "set",  type: "set", available: true},
+
+
+
+    { id: 62, name: "Сукня Staff er gray", price: 590, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/c33e23a353434f3d834b9017c5e93cc1.jpeg", gender: "female", category: "clothes", subcategory: "dress",  type: "dress", available: true},
+    { id: 63, name: "Сукня Staff er beige", price: 590, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/3bcc5b1f7c774f3a8dfbf52a50d9ddf0.jpeg", gender: "female", category: "clothes", subcategory: "dress",  type: "dress", available: true},
+
+    { id: 64, name: "Купальник Staff basic white", price: 370, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/53/0d121bf1d9524f13a981f620bd75a3c1.jpeg", gender: "female", category: "clothes", subcategory: "swimwear",  type: "swimwear", available: true},
+    { id: 65, name: "Купальник Staff s white", price: 380, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/58/a8d5f91659ab4f6dac85af169bea214b.jpeg", gender: "female", category: "clothes", subcategory: "swimwear",  type: "swimwear", available: true},
+
+    { id: 66, name: "Жіночий костюм Staff me black & white", price: 1330, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/5bcdd027d3bf4f13aaeee314c6c4a5f2.jpeg", gender: "female", category: "clothes", subcategory: "suits",  type: "suits", available: true},
+
+
+    { id: 67, name: "Жіночі черевики Staff black", price: 2070, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/70/40c3a52183a84f9fb6b9efb8ba0e6fc6.jpeg", gender: "female", category: "shoe", subcategory: "winter_shoe",  type: "winter_shoe", available: true},
+    { id: 68, name: "Жіночі кеди Staff pink", price: 760, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/64/1432f884f6304fa397ad984650a79cb9.jpeg", gender: "female", category: "shoe", subcategory: "sneakers",  type: "sneakers", available: true},
+    { id: 69, name: "Жіночі кросівки Staff black", price: 1380, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/82/9e381f0cd1814fa39e9034509e60df75.jpeg", gender: "female", category: "shoe", subcategory: "sneakers",  type: "sneakers", available: true},
+
+    { id: 70, name: "Жіночий рюкзак Staff am velor dark gray", price: 690, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/86/c6dbe10daf1f4f9784bfa4ff5ec0ca2e.jpeg", gender: "female", category: "accessories", subcategory: "backpacks",  type: "backpacks", available: true},
+    { id: 71, name: "Жіночий рюкзак Staff am velor black", price: 670, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/86/80cbeaacee774fda8d16a58f331a5051.jpeg", gender: "female", category: "accessories", subcategory: "backpacks",  type: "backpacks", available: true},
+    { id: 72, name: "Поясна сумка Staff rose", price: 350, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/56/400f3b8db60f4f6796f610aa22f8d531.jpeg", gender: "female", category: "accessories", subcategory: "belt_bags",  type: "belt_bags", available: true},
+    { id: 73, name: "Поясна сумка Staff flower", price: 360, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/59/96084dc3dfbb4f3db12465373945f168.jpeg", gender: "female", category: "accessories", subcategory: "belt_bags",  type: "belt_bags", available: true},
+    { id: 74, name: "Сумка шоппер Staff leather black", price: 700, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/55/f4ec63f1134d4fa496d1f7b54022aa0a.jpeg", gender: "female", category: "accessories", subcategory: "shoulder_bags",  type: "shoulder_bags", available: true},
+    { id: 75, name: "Жіночі шкарпетки Staff white & black", price: 60, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/83/6fc639a727734f76b0b3748f33f97da9.jpeg", gender: "female", category: "accessories", subcategory: "socks",  type: "socks", available: true},
+    { id: 76, name: "Жіночі шкарпетки Staff butterflies", price: 60, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/83/699238dcdba84f9a9fa14f89f59d1ac3.jpeg", gender: "female", category: "accessories", subcategory: "socks",  type: "socks", available: true},
+    { id: 77, name: "Жіноча шапка Staff pompon beige", price: 260, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/74/26b676efbc224f828e5592b050c4ec23.jpeg", gender: "female", category: "accessories", subcategory: "winter_hats",  type: "winter_hats", available: true},
+    { id: 78, name: "Шапка Staff pompon peach", price: 260, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/73/732b089a44444f91927733cf7365624f.jpeg", gender: "female", category: "accessories", subcategory: "winter_hats",  type: "winter_hats", available: true},
+
+
+//        { id: , name: "", price: , photo: "", gender: "female", category: "", subcategory: "",  type: "", available: },
 
 ];
 
