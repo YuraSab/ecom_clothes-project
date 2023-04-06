@@ -1,0 +1,40 @@
+.main_block{
+    left: 1275px;
+    top: 33px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    /*border: 2px black solid;*/
+    gap: 8px;
+    padding: 14px;
+}
+
+
+.mode_of_operation{
+    color: black;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: bold;
+    font-family: Ubuntu,sans-serif;
+}
+
+
+.monday_friday{
+    color: black;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-family: Ubuntu,sans-serif;
+}
+.monday_friday span {
+    font-size: 11px;
+}
+
+
+.saturday_sunday{
+    color: black;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+}

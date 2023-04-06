@@ -1,0 +1,52 @@
+.main_block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+    border-bottom: 2px black solid;
+}
+
+.child_block{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 4px;
+}
+
+.left_block{
+    color: #6d6d6d;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    gap: 0 17px;
+}
+
+.left_block div:hover {
+    color: blue;
+}
+
+
+.right_block{
+    color: black;
+    font-size: 13px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    white-space: nowrap;
+    cursor: pointer;
+    padding-right: 30px;
+    gap: 0 17px;
+    display: flex;
+    align-items: center;
+
+}
+
+.phone_icon{
+    height: 20px;
+    color: black;
+}
