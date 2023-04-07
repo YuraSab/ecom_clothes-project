@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from "./TopHeaderMenu.module.css";
-import Phone_Icon from "../../assets/icons/phone.png";
-import ScheduleBlock from "./ScheduleBlock";
+import Phone_Icon from "../../../assets/icons/phone_icon.png";
+import ScheduleBlock from "../HeaderElements/SheduleBlock/ScheduleBlock";
 
 const TopHeaderMenu = () => {
 

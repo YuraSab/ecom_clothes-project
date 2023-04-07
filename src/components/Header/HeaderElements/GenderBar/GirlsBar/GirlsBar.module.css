@@ -1,0 +1,63 @@
+.mainBlock{
+    display: flex;
+    flex-direction: row;
+    /*padding-top: 10px;*/
+    /*gap: 0 38px;*/
+    font-size: 13px;
+    letter-spacing: 1.1px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/*
+.genderActivities{
+    margin-right: 38px;
+    padding-top: 10px;
+}
+.genderActivities:hover{
+    cursor: pointer;
+    padding-bottom: 7px;
+    border-bottom: white 2px solid;
+}
+*/
+
+/*  LEFT   */
+.left_block{
+    margin-right: 38px;
+    padding-top: 10px;
+}
+.left_block:hover{
+    color: black;
+    cursor: pointer;
+}
+.leftLink{
+    padding-bottom: 3px;
+    border-bottom: black 2px solid;
+}
+.leftLink:hover{
+    cursor: pointer;
+    width: fit-content;
+    color: black;
+    padding-bottom: 7px;
+    border-bottom: white 2px solid;
+}
+
+/*  RIGHT   */
+.right_block{
+    margin: 0 10px 0 0;
+    padding: 10px 13px;
+}
+.right_block:hover{
+    background: white;
+    color: black;
+}
+.rightLink{
+    padding-bottom: 3px;
+    border-bottom: black 2px solid;
+}
+.rightLink:hover{
+    width: fit-content;
+    cursor: pointer;
+    color: black;
+}

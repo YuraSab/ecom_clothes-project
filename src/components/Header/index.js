@@ -1,2 +1,2 @@
-export * from "./TopHeaderMenu";
-export * from "./BottomHeaderMenu";
+export * from "./TopHeaderMenu/TopHeaderMenu";
+export * from "./BottomHeaderMenu/BottomHeaderMenu";

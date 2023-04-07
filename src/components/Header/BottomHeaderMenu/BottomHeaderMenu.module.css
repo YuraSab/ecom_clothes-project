@@ -1,0 +1,59 @@
+.main_block{
+    background: black;
+    height: 90px;
+    padding: 0 18.5%;
+    color: white;
+
+    display: grid;
+    grid-template-areas:
+    "logo menu"
+    "logo submenu";
+
+    grid-template-columns: 125px 1fr;
+    grid-template-rows: 52px 38px;
+}
+
+
+.logo{
+    grid-area: logo;
+    align-self: center;
+}
+.logo img{
+    height: 56px;
+}
+
+.menu{
+    grid-area: menu;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.menu .gender{
+    width: 16%;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    line-height: 1.15;
+    /*font-weight: 500;*/
+    font-weight: bolder;
+}
+
+
+.submenu{
+    grid-area: submenu;
+}
+.icons_set{
+    /*display: flex;*/
+    /*align-items: start;*/
+    /*justify-content: start;*/
+    padding-left: 44%;
+    display: flex;
+    gap: 15px;
+
+}
+.icon{
+    /*height: 30px;*/
+    /*justify-self: left;*/
+}
