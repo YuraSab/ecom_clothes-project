@@ -18,8 +18,11 @@
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: repeat(3, 1fr);
+
     /*grid-template-columns: repeat(auto-fit, 1fr);*/
-    grid-template-rows: repeat(5, 40px);
+    grid-template-rows: repeat(5, 50px);
+
+
     /*grid-template-rows: 7;*/
     max-height: 270px;
 
