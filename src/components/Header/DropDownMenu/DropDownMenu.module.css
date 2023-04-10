@@ -1,0 +1,60 @@
+.mainDiv{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 122px;
+    height: 335px;
+    border-bottom: 2px black solid;
+    color: black;
+}
+
+.subDiv{
+    padding: 55px 28%;
+    /*display: flex;*/
+    /*max-height: 270px;*/
+    /*flex-direction: column;*/
+    /*flex-wrap: wrap;*/
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+    /*grid-template-columns: repeat(auto-fit, 1fr);*/
+    grid-template-rows: repeat(5, 40px);
+    /*grid-template-rows: 7;*/
+    max-height: 270px;
+
+}
+
+.category{
+    text-transform: uppercase;
+    font-family: 'Ubuntu',sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    cursor: pointer;
+    /*font-weight: 800;*/
+    font-weight: bold;
+    padding: 10px 0;
+
+}
+.category:hover{
+    padding-bottom: 4px;
+    text-decoration: underline black 2px;
+    text-underline-offset: 4px;
+}
+.subCategory{
+    text-transform: uppercase;
+    font-family: 'Ubuntu',sans-serif;
+    letter-spacing: 1.4px;
+    cursor: pointer;
+    /*font-weight: 800;*/
+    padding: 10px 0;
+
+    font-size: 12px;
+    font-weight: 400;
+    color: #6d6d6d;
+}
+.subCategory:hover{
+    padding-bottom: 4px;
+    text-decoration: underline black 1px;
+    text-underline-offset: 4px;
+}

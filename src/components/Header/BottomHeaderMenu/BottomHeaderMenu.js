@@ -8,6 +8,7 @@ import CartIcon from "../../../assets/icons/cart-icon.png";
 import LikeIcon from "../../../assets/icons/like_icon.png";
 import BoysBar from "../HeaderElements/GenderBar/BoysBar/BoysBar";
 import GirlsBar from "../HeaderElements/GenderBar/GirlsBar/GirlsBar";
+import DropDownMenu from "../DropDownMenu/DropDownMenu";
 
 
 const BottomHeaderMenu = () => {
@@ -48,6 +49,15 @@ const BottomHeaderMenu = () => {
                         :
                         <div><GirlsBar/></div>
                 }
+            </div>
+
+
+
+            <div>
+            {/*    todo  - logical operation with dropdown menu     */}
+                <DropDownMenu
+
+                />
             </div>
 
         </div>
