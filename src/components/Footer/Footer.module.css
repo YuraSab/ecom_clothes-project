@@ -1,0 +1,69 @@
+.maidDiv {
+    display: flex;
+    flex-direction: row;
+    /*padding: 0 40px;*/
+    justify-content: space-around;
+}
+
+
+.catalogList{
+    display: flex;
+    flex-direction: column;
+}
+.catalogList div{
+    font-family: Ubuntu,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    font-size: 14px;
+    line-height: 1.15;
+
+}
+.catalogList span{
+    font-size: 12px;
+    font-family: Ubuntu, sans-serif;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    font-weight: 500;
+    color: black;
+    line-height: 1.15;
+    padding-bottom: 30px;
+}
+
+.cooperate_list{
+    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.cooperate_list span{
+    padding-bottom: 30px;
+}
+.cooperate_list img{
+    width: 110px;
+}
+
+
+.icon_list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.icon_list img{
+    max-height: 30px;
+    color: black;
+}
+.download_stores{
+    display: flex;
+    flex-direction: row;
+}
+.icon_list img{
+    height: 45px;
+}

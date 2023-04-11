@@ -91,7 +91,6 @@ export const DropMenuList = [
             {
                 name: "shoes",
                 categories: [
-                    // shorts, t-shirts, thousands etc
                     {
                         name: "ЗИМОВЕ ВЗУТТЯ",
                         link: "",
@@ -168,7 +167,7 @@ export const DropMenuList = [
                     {name: "", link: "", type: "category"},
                     // РЕМЕНІ, ОКУЛЯРИ, СТІКЕРИ, ГАМАНЦІ
                     {
-                        name: "РЕМЕНІ, ОКУЛЯРИ, СТІКЕРИ, ГАМАНЦІ",
+                        name: "РЕМЕНІ, ОКУЛЯРИ, \nСТІКЕРИ, ГАМАНЦІ",
                         link: "",
                         type: "category"
                     },
@@ -181,7 +180,7 @@ export const DropMenuList = [
 
     {
         //male / female
-        gender: "male",
+        gender: "female",
         // clothes, shoes, accessories etc
         typeOfCloth: [
             {
@@ -206,10 +205,11 @@ export const DropMenuList = [
                     },
                     // ТОЛСТОВКИ, СВІТШОТИ, КОФТИ
                     {
-                        name: "ТОЛСТОВКИ, \n СВІТШОТИ, КОФТИ",
+                        name: "ТОЛСТОВКИ, \nСВІТШОТИ, КОФТИ",
                         link: "",
                         type: "category"
                     },
+                    {name: "", link: "", type: "category"},
                     // БОДІ
                     {
                         name: "БОДІ",
@@ -267,6 +267,59 @@ export const DropMenuList = [
                     // БІЛИЗНА
                     {
                         name: "БІЛИЗНА",
+                        link: "",
+                        type: "category"
+                    },
+                ]
+            },
+            // shoes
+            {
+                name: "shoes",
+                categories: [
+                    {
+                        name: "ЗИМОВЕ ВЗУТТЯ",
+                        link: "",
+                        type: "category"
+                    },
+                    {
+                        name: "КРОСІВКИ, КЕДИ",
+                        link: "",
+                        type: "category"
+                    },
+                ]
+            },
+            // Аксесуари
+            {
+                name: "shoes",
+                categories: [
+                    {
+                        name: "РЮКЗАКИ",
+                        link: "",
+                        type: "category"
+                    },
+                    {
+                        name: "СУМКИ НА ПОЯС",
+                        link: "",
+                        type: "category"
+                    },
+                    {name: "", link: "", type: "category"},
+                    {name: "", link: "", type: "category"},
+                    {name: "", link: "", type: "category"},
+                    {
+                        name: "СУМКИ ЧЕРЕЗ ПЛЕЧЕ",
+                        link: "",
+                        type: "category"
+                    },
+                    {
+                        name: "РЕМЕНІ, ШКАРПЕТКИ,\n ОКУЛЯРИ, РУКАВИЧКИ",
+                        link: "",
+                        type: "category"
+                    },
+                    {name: "", link: "", type: "category"},
+                    {name: "", link: "", type: "category"},
+                    {name: "", link: "", type: "category"},
+                    {
+                        name: "ЗИМОВІ ШАПКИ, ШАРФИ",
                         link: "",
                         type: "category"
                     },

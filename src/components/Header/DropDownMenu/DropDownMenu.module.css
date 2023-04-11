@@ -40,9 +40,14 @@
 
 }
 .category:hover{
+    /*padding-bottom: 4px;*/
+    /*text-decoration: underline black 2px;*/
+    /*text-underline-offset: 4px;*/
+
+    /*     v2     */
+    width: 75%;
     padding-bottom: 4px;
-    text-decoration: underline black 2px;
-    text-underline-offset: 4px;
+    border-bottom: 2px black solid;
 }
 .subCategory{
     text-transform: uppercase;
