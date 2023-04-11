@@ -61,7 +61,6 @@ const Footer = () => {
                     <img src={Youtube_Icon} alt={"Youtube"}/>
                 </div>
                 <div className={styles.download_stores}>
-
                     <img src={GooglePlay} alt="GooglePlay"/>
                     <img src={AppStore} alt="AppStore"/>
                 </div>
