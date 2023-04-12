@@ -1,6 +1,7 @@
 import './App.css';
 import Header from "./UI/Header/Header";
 import Footer from "./components/Footer/Footer";
+import MainLayout from "./components/Main/MainLayout";
 
 function App() {
     return (
@@ -9,7 +10,7 @@ function App() {
                 <Header/>
             </header>
             <main>
-
+                <MainLayout/>
             </main>
             <footer>
                 <Footer/>

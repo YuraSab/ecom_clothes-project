@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./BottomHeaderMenu.module.css";
 import StaffIcon from "../../../assets/icons/staff_logo.png";
 import ComebackAlive from "../../../assets/icons/comeback_alive.svg";
@@ -9,13 +9,12 @@ import LikeIcon from "../../../assets/icons/like_icon.png";
 import BoysBar from "../HeaderElements/GenderBar/BoysBar/BoysBar";
 import GirlsBar from "../HeaderElements/GenderBar/GirlsBar/GirlsBar";
 import DropDownMenu from "../DropDownMenu/DropDownMenu";
+import {NavLink, useLocation} from "react-router-dom";
 
 
 const BottomHeaderMenu = () => {
 
-    // prob stage
-    const [gender, setGender] = useState(true);
-
+    const location = useLocation();
 
     return (
         <div className={styles.main_block}>
@@ -24,37 +23,42 @@ const BottomHeaderMenu = () => {
             </div>
 
             <div className={styles.menu}>
-                <div className={styles.gender} onClick={() => setGender(true)}>
+                <NavLink
+                    className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
+                    to={'/male'}
+                >
                     Для хлопців
-                </div>
-                <div className={styles.gender}  onClick={() => setGender(false)}>
+                </NavLink>
+                <NavLink
+                    className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
+                    to={'/female'}
+                >
                     Для дівчат
-                </div>
+                </NavLink>
 
                 <div className={styles.icons_set}>
-                    <img src={ComebackAlive} alt={""} className={styles.icon}/>
-                    <img src={SearchIcon} alt={""} className={styles.icon} height={25}/>
-                    <img src={UserIcon} alt={""} className={styles.icon} height={25}/>
-                    <img src={LikeIcon} alt={""} className={styles.icon} height={25}/>
-                    <img src={CartIcon} alt={""} className={styles.icon} height={25}/>
+                    <img src={ComebackAlive} alt={""}/>
+                    <img src={SearchIcon} alt={""} height={25}/>
+                    <img src={UserIcon} alt={""} height={25}/>
+                    <img src={LikeIcon} alt={""} height={25}/>
+                    <img src={CartIcon} alt={""} height={25}/>
                 </div>
             </div>
-
 
 
             <div className={styles.submenu}>
                 {
-                    gender ?
-                        <div><BoysBar/></div>
-                        :
+                    // gender ?
+                    location.pathname.includes("female") ?
                         <div><GirlsBar/></div>
+                        :
+                        <div><BoysBar/></div>
                 }
             </div>
 
 
-
             <div>
-            {/*    todo  - logical operation with dropdown menu     */}
+                {/*    todo  - logical operation with dropdown menu     */}
                 <DropDownMenu
 
                 />

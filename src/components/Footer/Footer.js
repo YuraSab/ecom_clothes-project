@@ -7,35 +7,38 @@ import Telegram_Icon from "../../assets/icons/telegram.png";
 import Youtube_Icon from "../../assets/icons/youtube.png";
 import GooglePlay from "../../assets/icons/google-play.svg";
 import AppStore from "../../assets/icons/app-storesvg.svg";
+import {useLocation} from "react-router-dom";
 
 
 const Footer = () => {
+
+    const location = useLocation();
+
     return (
         <div className={styles.maidDiv}>
-            {/* Todo - here should be logical option: male / female block*/}
-            {/* Male */}
-            <div className={styles.catalogList}>
-                <div>КАТАЛОГ</div>
-                <span style={{color: "#EB001C"}}>ЗНИЖКИ</span>
-                <span style={{color: "#48DD00"}}>НОВИНКИ</span>
-                <span>STAFF BASIC</span>
-                <span>STAFF TACTICAL</span>
-                <span>ОДЯГ</span>
-                <span>ВЗУТТЯ</span>
-                <span>РЮКЗАКИ ТА СУМКИ</span>
-                <span>АКСЕСУАРИ</span>
-            </div>
-
-            {/* Female */}
-            {/*<div className={styles.catalogList}>*/}
-            {/*    <div>КАТАЛОГ</div>*/}
-            {/*    <span style={{color: "#EB001C"}}>ЗНИЖКИ</span>*/}
-            {/*    <span style={{color: "#48DD00"}}>НОВИНКИ</span>*/}
-            {/*    <span>ОДЯГ</span>*/}
-            {/*    <span>ВЗУТТЯ</span>*/}
-            {/*    <span>АКСЕСУАРИ</span>*/}
-            {/*</div>*/}
-
+            {
+                location.pathname.includes('female') ?
+                    <div className={styles.catalogList}>
+                        <div>КАТАЛОГ</div>
+                        <span style={{color: "#EB001C"}}>ЗНИЖКИ</span>
+                        <span style={{color: "#48DD00"}}>НОВИНКИ</span>
+                        <span>ОДЯГ</span>
+                        <span>ВЗУТТЯ</span>
+                        <span>АКСЕСУАРИ</span>
+                    </div>
+                    :
+                    <div className={styles.catalogList}>
+                        <div>КАТАЛОГ</div>
+                        <span style={{color: "#EB001C"}}>ЗНИЖКИ</span>
+                        <span style={{color: "#48DD00"}}>НОВИНКИ</span>
+                        <span>STAFF BASIC</span>
+                        <span>STAFF TACTICAL</span>
+                        <span>ОДЯГ</span>
+                        <span>ВЗУТТЯ</span>
+                        <span>РЮКЗАКИ ТА СУМКИ</span>
+                        <span>АКСЕСУАРИ</span>
+                    </div>
+            }
 
             <div className={styles.catalogList}>
                 <div>ІНФОРМАЦІЯ</div>
@@ -52,7 +55,7 @@ const Footer = () => {
             </div>
 
 
-            <div className={styles.catalogList}  style={{width: 300}}>
+            <div className={styles.catalogList} style={{width: 300}}>
                 <div>СОЦІАЛЬНІ МЕРЕЖІ</div>
                 <div className={styles.icon_list}>
                     <img src={FaceBook_Icon} alt={"FaceBook"}/>
