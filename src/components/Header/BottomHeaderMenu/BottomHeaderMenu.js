@@ -11,6 +11,7 @@ import GirlsBar from "../HeaderElements/GenderBar/GirlsBar/GirlsBar";
 import DropDownMenu from "../DropDownMenu/DropDownMenu";
 import {NavLink, useLocation} from "react-router-dom";
 import {DropMenuList} from "./ElementList_DropDownMenu";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const BottomHeaderMenu = () => {
@@ -23,9 +24,13 @@ const BottomHeaderMenu = () => {
 
     useEffect(() => {
 
-
-        return (() => setDropMenu(""))
+        // return (() => setDropMenu(""))
     }, []);
+
+    const {dropDownValue} = useSelector(({dropDownValue: {dropDownValue}}) => ({dropDownValue}) );
+    // const {cart, wishList, chosenProduct} = useSelector( ({ cart: {cart}, wishList: {wishList}, chosenProduct: {chosenProduct} }) => ({ cart, wishList, chosenProduct }) );
+    const dispatch = useDispatch();
+    // console.log(`dropDownMenu`, dropDownValue);
 
     return (
         <div className={styles.main_block}>
@@ -60,22 +65,34 @@ const BottomHeaderMenu = () => {
             <div className={styles.submenu}>
                 {
                     location.pathname.includes("female") ?
-                        <div><GirlsBar setDropMenu={setDropMenu}/></div>
+                        <div><GirlsBar /></div>
                         :
-                        <div><BoysBar setDropMenu={setDropMenu}/></div>
+                        <div><BoysBar /></div>
+                    // <div><BoysBar setDropMenu={setDropMenu}/></div>
                 }
             </div>
 
             {/*<div>*/}
-                <div hidden={dropMenu === "m-clothes" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"m-clothes"} items={DropMenuList[0].typeOfCloth[0]}/></div>
-                <div hidden={dropMenu === "m-shoes" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"m-shoes"} items={DropMenuList[0].typeOfCloth[1]}/></div>
-                <div hidden={dropMenu === "m-backpacks" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"m-backpacks"} items={DropMenuList[0].typeOfCloth[2]}/></div>
-                <div hidden={dropMenu === "m-accessories" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"m-accessories"} items={DropMenuList[0].typeOfCloth[3]}/></div>
-                <div hidden={dropMenu === "f-clothes" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"f-clothes"} items={DropMenuList[1].typeOfCloth[0]}/></div>
-                <div hidden={dropMenu === "f-shoes" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"f-shoes"} items={DropMenuList[1].typeOfCloth[1]}/></div>
-                <div hidden={dropMenu === "f-accessories" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"f-accessories"} items={DropMenuList[1].typeOfCloth[2]}/></div>
+            {/*    <div hidden={dropMenu === "m-clothes" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"m-clothes"} items={DropMenuList[0].typeOfCloth[0]}/></div>*/}
+            {/*    <div hidden={dropMenu === "m-shoes" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"m-shoes"} items={DropMenuList[0].typeOfCloth[1]}/></div>*/}
+            {/*    <div hidden={dropMenu === "m-backpacks" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"m-backpacks"} items={DropMenuList[0].typeOfCloth[2]}/></div>*/}
+            {/*    <div hidden={dropMenu === "m-accessories" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"m-accessories"} items={DropMenuList[0].typeOfCloth[3]}/></div>*/}
+            {/*    <div hidden={dropMenu === "f-clothes" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"f-clothes"} items={DropMenuList[1].typeOfCloth[0]}/></div>*/}
+            {/*    <div hidden={dropMenu === "f-shoes" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"f-shoes"} items={DropMenuList[1].typeOfCloth[1]}/></div>*/}
+            {/*    <div hidden={dropMenu === "f-accessories" ? false : true}><DropDownMenu setDropMenu={setDropMenu} category={"f-accessories"} items={DropMenuList[1].typeOfCloth[2]}/></div>*/}
 
-                {/*{dropMenu === "m-clothes" && <DropDownMenu setDropMenu={setDropMenu} category={"m-clothes"} items={DropMenuList[0].typeOfCloth[0]}/>}*/}
+
+
+            <div hidden={dropDownValue === "m-clothes" ? false : true}><DropDownMenu category={"m-clothes"} items={DropMenuList[0].typeOfCloth[0]}/></div>
+            <div hidden={dropDownValue === "m-shoes" ? false : true}><DropDownMenu  category={"m-shoes"} items={DropMenuList[0].typeOfCloth[1]}/></div>
+            <div hidden={dropDownValue === "m-backpacks" ? false : true}><DropDownMenu  category={"m-backpacks"} items={DropMenuList[0].typeOfCloth[2]}/></div>
+            <div hidden={dropDownValue === "m-accessories" ? false : true}><DropDownMenu  category={"m-accessories"} items={DropMenuList[0].typeOfCloth[3]}/></div>
+            <div hidden={dropDownValue === "f-clothes" ? false : true}><DropDownMenu category={"f-clothes"} items={DropMenuList[1].typeOfCloth[0]}/></div>
+            <div hidden={dropDownValue === "f-shoes" ? false : true}><DropDownMenu  category={"f-shoes"} items={DropMenuList[1].typeOfCloth[1]}/></div>
+            <div hidden={dropDownValue === "f-accessories" ? false : true}><DropDownMenu  category={"f-accessories"} items={DropMenuList[1].typeOfCloth[2]}/></div>
+
+
+            {/*{dropMenu === "m-clothes" && <DropDownMenu setDropMenu={setDropMenu} category={"m-clothes"} items={DropMenuList[0].typeOfCloth[0]}/>}*/}
                 {/*{dropMenu === "m-shoes" && <DropDownMenu setDropMenu={setDropMenu} category={"m-shoes"} items={DropMenuList[0].typeOfCloth[1]}/>}*/}
                 {/*{dropMenu === "m-backpacks" && <DropDownMenu setDropMenu={setDropMenu} category={"m-backpacks"} items={DropMenuList[0].typeOfCloth[2]}/>}*/}
                 {/*{dropMenu === "m-accessories" && <DropDownMenu setDropMenu={setDropMenu} category={"m-accessories"} items={DropMenuList[0].typeOfCloth[3]}/>}*/}

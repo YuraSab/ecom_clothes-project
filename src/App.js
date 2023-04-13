@@ -11,7 +11,7 @@ function App() {
                 <header>
                     <Header/>
                 </header>
-                <main>
+                <main style={{background: "lightcyan"}}>
                     <MainLayout/>
                 </main>
                 <footer>
