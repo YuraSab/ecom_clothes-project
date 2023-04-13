@@ -2,9 +2,11 @@ import React from 'react';
 
 const Male = () => {
     return (
-        <div>
-            Male
-        </div>
+        <div></div>
+        // <div style={{background: "salmon"}}>
+        //
+        //     Male
+        // </div>
     );
 };
 

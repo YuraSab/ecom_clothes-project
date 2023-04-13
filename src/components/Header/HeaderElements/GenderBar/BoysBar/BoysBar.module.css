@@ -1,67 +1,3 @@
-/*.mainBlock{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    !*padding-top: 10px;*!*/
-/*    !*gap: 0 38px;*!*/
-/*    font-size: 13px;*/
-/*    letter-spacing: 1.1px;*/
-/*    font-family: Ubuntu,sans-serif;*/
-/*    font-weight: 400;*/
-/*    line-height: 1.4;*/
-/*}*/
-
-/*!* v1 *!*/
-/*.genderActivities{*/
-/*    margin-right: 38px;*/
-/*    padding-top: 10px;*/
-/*}*/
-/*.genderActivities:hover{*/
-/*    cursor: pointer;*/
-/*    padding-bottom: 7px;*/
-/*    border-bottom: white 2px solid;*/
-/*}*/
-
-/*.clothesType{*/
-/*    !*margin: 0 16px 0 0;*!*/
-/*    !*padding: 10px;*!*/
-/*    margin: 0 10px 0 0;*/
-/*    padding: 10px 13px;*/
-/*}*/
-/*.clothesType:hover{*/
-/*    cursor: pointer;*/
-/*    background: white;*/
-/*    color: black;*/
-/*    text-decoration: underline;*/
-/*}*/
-/*!* v1 *!*/
-
-
-/*!* v2 *!*/
-/*.genderBlock{*/
-/*    margin: 0 10px 0 0;*/
-/*    padding: 10px 13px;*/
-/*}*/
-/*.genderBlock:hover{*/
-/*    background: white;*/
-/*    color: black;*/
-/*}*/
-/*.genderActivities_V2{*/
-/*    padding-bottom: 3px;*/
-/*    border-bottom: black 2px solid;*/
-/*}*/
-/*.genderActivities_V2:hover{*/
-/*    width: fit-content;*/
-/*    cursor: pointer;*/
-/*    color: black;*/
-
-/*}*/
-/*!* v2 *!*/
-
-
-
-
-
-
 .mainBlock{
     display: flex;
     flex-direction: row;
@@ -71,20 +7,8 @@
     letter-spacing: 1.1px;
     font-family: Ubuntu,sans-serif;
     font-weight: 400;
-    line-height: 1.4;
+    line-height: 1.0;
 }
-
-/*
-.genderActivities{
-    margin-right: 38px;
-    padding-top: 10px;
-}
-.genderActivities:hover{
-    cursor: pointer;
-    padding-bottom: 7px;
-    border-bottom: white 2px solid;
-}
-*/
 
 /*  LEFT   */
 .left_block{
@@ -115,6 +39,8 @@
 .right_block:hover{
     background: white;
     color: black;
+    padding-bottom: 100px;
+    bottom: 50px;
 }
 .rightLink{
     padding-bottom: 3px;

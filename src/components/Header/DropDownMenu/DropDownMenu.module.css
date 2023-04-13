@@ -3,9 +3,13 @@
     position: absolute;
     left: 0;
     top: 122px;
+    /*top: 115px;*/
+
     height: 335px;
     border-bottom: 2px black solid;
     color: black;
+    background: white;
+    z-index: 40;
 }
 
 .subDiv{
@@ -24,7 +28,8 @@
 
 
     /*grid-template-rows: 7;*/
-    max-height: 270px;
+    /*max-height: 270px;*/
+    height: 270px;
 
 }
 

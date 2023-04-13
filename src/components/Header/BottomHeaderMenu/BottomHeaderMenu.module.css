@@ -3,12 +3,10 @@
     height: 90px;
     padding: 0 18.5%;
     color: white;
-
     display: grid;
     grid-template-areas:
     "logo menu"
     "logo submenu";
-
     grid-template-columns: 125px 1fr;
     grid-template-rows: 52px 38px;
 }

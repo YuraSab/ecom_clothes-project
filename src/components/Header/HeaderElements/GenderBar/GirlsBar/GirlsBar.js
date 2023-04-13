@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./GirlsBar.module.css";
 
-const GirlsBar = () => {
+const GirlsBar = ({setDropMenu}) => {
+
+    const [myState, setMyState] = useState("");
+
+    useEffect(() => {
+        setDropMenu(myState);
+    }, [myState]);
+
+
     return (
         <div className={styles.mainBlock}>
-            {/*<div className={styles.genderActivities} style={{color: "#eb001c"}}>Знижки</div>*/}
-            {/*<div className={styles.genderActivities} style={{color: "#48DD00"}}>Новинки</div>*/}
-            {/*<div className={styles.clothesType}>Одяг</div>*/}
-            {/*<div className={styles.clothesType}>Взутя</div>*/}
-            {/*<div className={styles.clothesType}>Аксесуари</div>*/}
             <div className={styles.left_block}>
                 <div className={styles.leftLink} style={{color: "#eb001c"}}>
                     Знижки
@@ -21,13 +24,19 @@ const GirlsBar = () => {
             </div>
 
 
-            <div className={styles.right_block}>
+            <div className={styles.right_block}
+                 onMouseOver={() => setMyState("f-clothes")}
+                 onMouseOut={() => setMyState("")}>
                 <div className={styles.rightLink}>Одяг</div>
             </div>
-            <div className={styles.right_block}>
+            <div className={styles.right_block}
+                 onMouseOver={() => setMyState("f-shoes")}
+                 onMouseOut={() => setMyState("")}>
                 <div className={styles.rightLink}>Взуття</div>
             </div>
-            <div className={styles.right_block}>
+            <div className={styles.right_block}
+                 onMouseOver={() => setMyState("f-accessories")}
+                 onMouseOut={() => setMyState("")}>
                 <div className={styles.rightLink}>Аксесуари</div>
             </div>
         </div>
