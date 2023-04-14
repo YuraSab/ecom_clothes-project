@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from "./Footer.module.css";
-import MasterCard_Visa from "../../assets/icons/mastercard_visa.png";
+import MasterCard_Visa from "../../assets/pictures/mastercard_visa.png";
 import FaceBook_Icon from "../../assets/icons/facebook.png";
 import Instagram_Icon from "../../assets/icons/instagram.png";
 import Telegram_Icon from "../../assets/icons/telegram.png";
 import Youtube_Icon from "../../assets/icons/youtube.png";
-import GooglePlay from "../../assets/icons/google-play.svg";
-import AppStore from "../../assets/icons/app-storesvg.svg";
+import GooglePlay from "../../assets/pictures/google-play.svg";
+import AppStore from "../../assets/pictures/app-storesvg.svg";
 import {useLocation} from "react-router-dom";
 
 
@@ -53,8 +53,6 @@ const Footer = () => {
                 <span>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</span>
                 <img src={MasterCard_Visa} alt={"visa & mastercard"}/>
             </div>
-
-
             <div className={styles.catalogList} style={{width: 300}}>
                 <div>СОЦІАЛЬНІ МЕРЕЖІ</div>
                 <div className={styles.icon_list}>

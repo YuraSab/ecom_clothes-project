@@ -1,6 +1,5 @@
 export const DropMenuList = [
     {
-        // MALE
         //male / female
         gender: "male",
         // clothes, shoes, accessories etc
@@ -133,7 +132,7 @@ export const DropMenuList = [
             },
             // accessories
             {
-                name: "backpacks_and_bags",
+                name: "accessories",
                 categories: [
                     // КЕПКИ, ПАНАМИ
                     {
@@ -290,7 +289,7 @@ export const DropMenuList = [
             },
             // Аксесуари
             {
-                name: "shoes",
+                name: "accessories",
                 categories: [
                     {
                         name: "РЮКЗАКИ",

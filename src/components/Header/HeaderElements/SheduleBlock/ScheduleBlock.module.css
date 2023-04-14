@@ -4,12 +4,10 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    /*border: 2px black solid;*/
     gap: 8px;
     padding: 14px;
     background: white;
 }
-
 
 .mode_of_operation{
     color: black;
@@ -19,7 +17,6 @@
     font-weight: bold;
     font-family: Ubuntu,sans-serif;
 }
-
 
 .monday_friday{
     color: black;
@@ -31,7 +28,6 @@
 .monday_friday span {
     font-size: 11px;
 }
-
 
 .saturday_sunday{
     color: black;

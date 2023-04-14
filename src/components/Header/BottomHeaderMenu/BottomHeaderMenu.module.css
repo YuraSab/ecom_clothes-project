@@ -48,6 +48,7 @@
     letter-spacing: 1.2px;
     cursor: pointer;
     line-height: 1.50;
+    /*line-height: 1.1;*/
     /*font-weight: 500;*/
     font-weight: bolder;
     color: white;
@@ -62,4 +63,8 @@
     padding-left: 44%;
     display: flex;
     gap: 15px;
+}
+
+.active_category{
+    background: white;
 }

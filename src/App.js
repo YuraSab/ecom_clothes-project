@@ -1,17 +1,19 @@
 import './App.css';
-import Header from "./UI/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MainLayout from "./components/Main/MainLayout";
+import TopHeaderMenu from "./components/Header/TopHeaderMenu/TopHeaderMenu";
+import BottomHeaderMenu from "./components/Header/BottomHeaderMenu/BottomHeaderMenu";
+import React from "react";
 
 function App() {
-
 
     return (
         <div className={"pageDivineDiv"}>
                 <header>
-                    <Header/>
+                    <TopHeaderMenu/>
+                    <BottomHeaderMenu/>
                 </header>
-                <main style={{background: "lightcyan"}}>
+                <main>
                     <MainLayout/>
                 </main>
                 <footer>

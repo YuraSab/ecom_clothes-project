@@ -1,10 +1,8 @@
 .maidDiv {
     display: flex;
     flex-direction: row;
-    /*padding: 0 40px;*/
     justify-content: space-between;
 }
-
 
 .catalogList{
     display: flex;
@@ -49,7 +47,6 @@
 .cooperate_list img{
     width: 110px;
 }
-
 
 .icon_list{
     display: flex;

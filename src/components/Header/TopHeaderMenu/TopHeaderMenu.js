@@ -16,26 +16,20 @@ const TopHeaderMenu = () => {
                 <div>ДОСТАВКА, ОПЛАТА, ПОВЕРНЕННЯ</div>
                 <div>РОБОТА В КОМПАНІЇ</div>
             </div>
+
             <div
                 className={`${styles.child_block} ${styles.right_block}`}
                 onMouseOver={() => setShowSchedule(true)}
                 onMouseOut={() => setShowSchedule(false)}
             >
-                <div>
-                    <img src={Phone_Icon} alt={'phone-icon'} className={styles.phone_icon}/>
-                </div>
+                <div><img src={Phone_Icon} alt={'phone-icon'} className={styles.phone_icon}/></div>
                 <div>098 161-36-32</div>
                 <div>050 362-04-05</div>
-
             </div>
 
-
-                {
-                    showSchedule &&  <ScheduleBlock/>
-                    //   <ScheduleBlock/>
-
-                }
-
+            {
+                showSchedule && <ScheduleBlock/>
+            }
         </div>
     );
 };

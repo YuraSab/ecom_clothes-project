@@ -1,6 +1,5 @@
 import {SET_DROP_DOWN_MENU} from "../../action-types";
 
-
 const initialState = {
     dropDownValue: ""
 };
@@ -10,8 +9,7 @@ export default (state = initialState, action) => {
 
         case SET_DROP_DOWN_MENU: {
             return {
-                ...state,
-                dropDownValue: action.payload
+                ...state, dropDownValue: action.payload
             }
         }
 
