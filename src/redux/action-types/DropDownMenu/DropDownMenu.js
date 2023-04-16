@@ -1,1 +1,2 @@
 export const SET_DROP_DOWN_MENU = 'SET_DROP_DOWN_MENU';
+export const SET_GENDER = 'SET_GENDER';

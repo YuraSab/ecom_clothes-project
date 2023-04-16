@@ -1,15 +1,23 @@
-import {SET_DROP_DOWN_MENU} from "../../action-types";
+import {SET_DROP_DOWN_MENU, SET_GENDER} from "../../action-types";
 
 const initialState = {
-    dropDownValue: ""
+    dropDownValue: "",
+    gender: ""
 };
 
-export default (state = initialState, action) => {
-    switch (action.type) {
+export default (state = initialState, {payload, type}) => {
+    switch (type) {
 
         case SET_DROP_DOWN_MENU: {
             return {
-                ...state, dropDownValue: action.payload
+                ...state,
+                dropDownValue: payload,
+            }
+        }
+        case SET_GENDER: {
+            return {
+                ...state,
+                gender: payload
             }
         }
 

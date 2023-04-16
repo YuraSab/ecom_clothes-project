@@ -6,6 +6,7 @@ export const DropMenuList = [
         typeOfCloth: [
             {
                 name: "clothes",
+                title: "Одяг",
                 categories: [
                     // shorts, t-shirts, thousands etc
                     // ВЕРХНІЙ ОДЯГ
@@ -89,6 +90,7 @@ export const DropMenuList = [
             // shoes
             {
                 name: "shoes",
+                title: "Взуття",
                 categories: [
                     {
                         name: "ЗИМОВЕ ВЗУТТЯ",
@@ -105,6 +107,7 @@ export const DropMenuList = [
             // bags
             {
                 name: "backpacks_and_bags",
+                title: "Рюкзаки та сумки",
                 categories: [
                     // РЮКЗАКИ
                     {
@@ -119,9 +122,9 @@ export const DropMenuList = [
                         type: "category"
                     },
                     // for free spacing
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
                     // СУМКИ ЧЕРЕЗ ПЛЕЧЕ
                     {
                         name: "СУМКИ ЧЕРЕЗ ПЛЕЧЕ",
@@ -133,6 +136,7 @@ export const DropMenuList = [
             // accessories
             {
                 name: "accessories",
+                title: "Аксесуари",
                 categories: [
                     // КЕПКИ, ПАНАМИ
                     {
@@ -146,9 +150,9 @@ export const DropMenuList = [
                         link: "",
                         type: "category"
                     },
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
                     // ШАРФИ, РУКАВИЧКИ
                     {
                         name: "ШАРФИ, РУКАВИЧКИ",
@@ -161,9 +165,9 @@ export const DropMenuList = [
                         link: "",
                         type: "category"
                     },
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
                     // РЕМЕНІ, ОКУЛЯРИ, СТІКЕРИ, ГАМАНЦІ
                     {
                         name: "РЕМЕНІ, ОКУЛЯРИ, \nСТІКЕРИ, ГАМАНЦІ",
@@ -184,6 +188,7 @@ export const DropMenuList = [
         typeOfCloth: [
             {
                 name: "clothes",
+                title: "Одяг",
                 categories: [
                     // shorts, t-shirts, thousands etc.
                     // ВЕРХНІЙ ОДЯГ
@@ -274,6 +279,7 @@ export const DropMenuList = [
             // shoes
             {
                 name: "shoes",
+                title: "Взуття",
                 categories: [
                     {
                         name: "ЗИМОВЕ ВЗУТТЯ",
@@ -290,6 +296,7 @@ export const DropMenuList = [
             // Аксесуари
             {
                 name: "accessories",
+                title: "Аксесуари",
                 categories: [
                     {
                         name: "РЮКЗАКИ",
@@ -301,9 +308,9 @@ export const DropMenuList = [
                         link: "",
                         type: "category"
                     },
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
                     {
                         name: "СУМКИ ЧЕРЕЗ ПЛЕЧЕ",
                         link: "",
@@ -314,9 +321,9 @@ export const DropMenuList = [
                         link: "",
                         type: "category"
                     },
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
-                    {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
+                    // {name: "", link: "", type: "category"},
                     {
                         name: "ЗИМОВІ ШАПКИ, ШАРФИ",
                         link: "",

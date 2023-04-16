@@ -1,7 +1,8 @@
 .mainBlock{
     display: flex;
     flex-direction: row;
-    font-size: 13px;
+    /*font-size: 13px;*/
+    font-size: 12px;
     letter-spacing: 1.1px;
     font-family: Ubuntu,sans-serif;
     font-weight: 400;
