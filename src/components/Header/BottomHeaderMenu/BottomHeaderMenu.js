@@ -83,13 +83,16 @@ const BottomHeaderMenu = () => {
             {
                 // dropDownValue.length > 0 && gender !== "" && <DropDownMenu gender={gender} dropDownValue={dropDownValue}/>
                 // dropDownValue.length > 0 && <DropDownMenu gender={gender} dropDownValue={dropDownValue}/>
-                dropDownValue !== "" && <DropDownMenu/>
+                // dropDownValue !== "" && <DropDownMenu/>
 
                 // <div hidden={!(dropDownValue === "clothes")}>
                 //     <DropDownMenu category={"m-clothes"} items={DropMenuList[0].typeOfCloth[0]}/>
                 // </div>
-
+                // <div hidden={dropDownValue !== "m-clothes"}><DropDownMenu category={"m-clothes"} items={DropMenuList[0].typeOfCloth[0]}/></div>
             }
+
+
+
 
             {/*<div hidden={!(dropDownValue === "m-clothes")}>*/}
             {/*    <DropDownMenu category={"m-clothes"} items={DropMenuList[0].typeOfCloth[0]}/>*/}

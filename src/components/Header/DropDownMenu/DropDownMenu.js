@@ -34,8 +34,8 @@ const DropDownMenu = () => {
 
     return (
         <div className={styles.mainDiv}
-             onMouseOver={() => dispatch(onSetDropDownMenu(dropDownValue))}
-             onMouseOut={() => dispatch(onSetDropDownMenu(""))}
+             // onMouseOver={() => dispatch(onSetDropDownMenu(dropDownValue))}
+             // onMouseOut={() => dispatch(onSetDropDownMenu(""))}
         >
             <div className={styles.subDiv}>
                 {

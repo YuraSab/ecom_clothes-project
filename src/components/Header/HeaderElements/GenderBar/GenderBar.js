@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {onSetDropDownMenu, onSetGender} from "../../../../redux/action-creators/DropDownMenu";
 import {useLocation} from "react-router-dom";
 import {DropMenuList} from "../../BottomHeaderMenu/ElementList_DropDownMenu";
+import DropDownMenu from "../../DropDownMenu/DropDownMenu";
 
 // const GenderBar = ({mas}) => {
 const GenderBar = ({propGender}) => {
@@ -63,6 +64,9 @@ const GenderBar = ({propGender}) => {
                 </>
             }
 
+
+
+
             {
                 genderMas.typeOfCloth.map((el, index) => {
                     console.log(`gggggggggggggggggggggggggggggggg`,dropDownValue)
@@ -70,14 +74,21 @@ const GenderBar = ({propGender}) => {
                         <div className={styles.right_block}
                              key={index}
                              style={{
+                                 // background: "red",
+
                                  background: dropDownValue === el.name ? "white" : "black",
                                  color: dropDownValue === el.name ? "black" : "white"
                              }}
-                            // onMouseOver={() => dispatch(onSetDropDownMenu(el.name))}
-                             onMouseEnter={() => onSettingCloth(el.name)}
-                            // onMouseOut={() => dispatch(onSetDropDownMenu(""))}
+                            onMouseOver={() => dispatch(onSetDropDownMenu(el.name))}
+                             // onMouseEnter={() => onSettingCloth(el.name)}
+                            onMouseOut={() => dispatch(onSetDropDownMenu(""))}
                         >
                             <div className={styles.rightLink}>{el.title}</div>
+                            {
+                                <div style={{visibility: dropDownValue === el.name ? "visible" : "hidden"}}>
+                                <DropDownMenu />
+                                </div>
+                            }
                         </div>
                         )
                 })
