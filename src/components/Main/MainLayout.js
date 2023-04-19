@@ -9,15 +9,14 @@ const MainLayout = () => {
         <div>
             <Routes>
                 <Route path={'/'} element={<Main/>}>
-                    {/*todo - by default */}
                     <Route index element={<Male/>}/>
 
                     <Route path={'/male'} element={<Male/>}>
-                    {/*todo - products for boys*/}
+                        {/* Male pages */}
                     </Route>
 
                     <Route path={'/female'} element={<Female/>}>
-                        {/*todo - products for girls*/}
+                        {/* Female pages */}
                     </Route>
                 </Route>
             </Routes>
