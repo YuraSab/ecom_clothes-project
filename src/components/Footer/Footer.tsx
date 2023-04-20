@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styles from "./Footer.module.css";
 import MasterCard_Visa from "../../assets/pictures/mastercard_visa.png";
 import FaceBook_Icon from "../../assets/icons/facebook.png";
@@ -8,11 +8,12 @@ import Youtube_Icon from "../../assets/icons/youtube.png";
 import GooglePlay from "../../assets/pictures/google-play.svg";
 import AppStore from "../../assets/pictures/app-storesvg.svg";
 import {useLocation} from "react-router-dom";
+import {useLocationType} from "../../modules/global_elements";
 
 
-const Footer = () => {
+const Footer: FC = () => {
 
-    const location = useLocation();
+    const location = useLocation<useLocationType>();
 
     return (
         <div className={styles.maidDiv}>

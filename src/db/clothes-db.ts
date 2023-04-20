@@ -1,7 +1,7 @@
-const clothes = [
+export const clothes: clothesType[] = [
     { id: 1, name: "Футболка Staff & LBWS CAT2 дружба oversize", price: 490, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/b80bfefc0f774fb3adf39a152a963325.jpeg", gender: "male", category: "clothes", subcategory: "t-shirts", type: "t-shirts", available: true},
     { id: 2, name: "Футболка Staff & LBWS CAT2 ппо oversize", price: 490, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/e61341f735d54f0f8a61a9b2c2122ec4.jpeg", gender: "male", category: "clothes", subcategory: "t-shirts", type: "t-shirts", available: true},
-    { id: 3, name: "Жіночий топ Staff ki c1", price: 380, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/89/17b32e8a5b004fc3826dc54417c30be6.jpeg", female: "male", category: "clothes", subcategory: "t-shirts",  type: "t-shirts", available: true},
+    { id: 3, name: "Жіночий топ Staff ki c1", price: 380, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/89/17b32e8a5b004fc3826dc54417c30be6.jpeg", gender: "male", category: "clothes", subcategory: "t-shirts",  type: "t-shirts", available: true},
     { id: 4, name: "Жіночий топ Staff hap blue", price: 390, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/89/4e37f16cd29a4f6890360e6051d8e21e.jpeg", gender: "female", category: "clothes", subcategory: "t-shirts",  type: "t-shirts", available: true},
     { id: 5, name: "Трикотажні шорти Staff khaki basic", price: 460, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/60/50f3ca87ca724fb091a4f55d471dd9ba.jpeg", gender: "male", category: "clothes", subcategory: "shorts",  type: "shorts",  available: true},
     { id: 6, name: "Трикотажні шорти Staff san dark beige", price: 520, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/60/d78accfa2baf4f60b77ea6df4f5ee55e.jpeg", gender: "male", category: "clothes", subcategory: "shorts",  type: "shorts",  available: true},
@@ -79,4 +79,15 @@ const clothes = [
     { id: 77, name: "Жіноча шапка Staff pompon beige", price: 260, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/74/26b676efbc224f828e5592b050c4ec23.jpeg", gender: "female", category: "accessories", subcategory: "winter_hats",  type: "winter_hats", available: true},
     { id: 78, name: "Шапка Staff pompon peach", price: 260, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/73/732b089a44444f91927733cf7365624f.jpeg", gender: "female", category: "accessories", subcategory: "winter_hats",  type: "winter_hats", available: true},
 ];
-//        { id: , name: "", price: , photo: "", gender: "female", category: "", subcategory: "",  type: "", available: },
+
+type clothesType = {
+    id: number,
+    name: string,
+    price: number
+    photo: string,
+    gender: string,
+    category: string,
+    subcategory: string,
+    type: string,
+    available: boolean
+}

@@ -1,11 +1,11 @@
 import './App.css';
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer.tsx";
 import MainLayout from "./components/Main/MainLayout";
 import TopHeaderMenu from "./components/Header/TopHeaderMenu/TopHeaderMenu";
 import BottomHeaderMenu from "./components/Header/BottomHeaderMenu/BottomHeaderMenu";
 import React from "react";
 
-function App() {
+function App(){
 
     return (
         <div className={"pageDivineDiv"}>

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import Main from "./Main";
-import Male from "../../pages/male/Male";
-import Female from "../../pages/Female/Female";
+import Male from "../../pages/male/Male.tsx";
+import Female from "../../pages/Female/Female.tsx";
 
 const MainLayout = () => {
     return (
