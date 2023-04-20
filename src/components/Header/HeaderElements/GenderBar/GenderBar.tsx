@@ -1,11 +1,26 @@
-import React, {useEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 import styles from "./GenderBar.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {onSetDropDownMenu, onSetGender} from "../../../../redux/action-creators/DropDownMenu";
 import {DropMenuList} from "../../BottomHeaderMenu/ElementList_DropDownMenu";
-import DropDownMenu from "../../DropDownMenu/DropDownMenu";
+import DropDownMenu from "../../DropDownMenu/DropDownMenu.tsx";
 
-const GenderBar = ({propGender}) => {
+
+type GenderBar_PropsTypes = {
+    propGender: string;
+}
+type DropMenuSubItem_Types = {
+    name: string,
+    title: string,
+    categories: [],
+}
+type DropMenuList_Types = {
+    gender: string,
+    typeOfCloth: DropMenuSubItem_Types[],
+}
+
+
+const GenderBar: FC <GenderBar_PropsTypes> = ({propGender}) => {
 
     const {dropDownValue, gender} = useSelector(({headerState}) => (headerState));
     const dispatch = useDispatch();
@@ -14,8 +29,7 @@ const GenderBar = ({propGender}) => {
         dispatch(onSetGender(propGender));
     }, [propGender]);
 
-    const genderMas = DropMenuList.find(el => el.gender === gender);
-
+    const genderMas: DropMenuList_Types = DropMenuList.find(el => el.gender === gender);
 
     return (
         gender &&

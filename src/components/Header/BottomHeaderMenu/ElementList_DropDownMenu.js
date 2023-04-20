@@ -334,3 +334,14 @@ export const DropMenuList = [
         ]
     }
 ];
+
+
+// type DropMenuSubItem_Types = {
+//     name: string,
+//     title: string,
+//     categories: [],
+// }
+// type DropMenuList_Types = {
+//     gender: string,
+//     typeOfCloth: DropMenuSubItem_Types[],
+// }

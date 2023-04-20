@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styles from "./ScheduleBlock.module.css";
 
-const ScheduleBlock = () => {
+const ScheduleBlock: FC = () => {
     return (
         <div className={styles.main_block}>
             <div className={styles.mode_of_operation}>Режим роботи</div>

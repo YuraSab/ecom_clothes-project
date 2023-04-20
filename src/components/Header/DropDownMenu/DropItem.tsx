@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styles from "./DropDownMenu.module.css";
 
-const DropItem = ({el}) => {
+type myList_categories_Type = {
+    name: string,
+    link: string,
+    type: string,
+};
+// ({el}: { el: any })
+const DropItem: FC = ({el}: myList_categories_Type) => {
 
     function replaceWithBr() {
         return el.name.replace(/\n/g, "<br />")

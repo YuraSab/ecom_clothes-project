@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import styles from "./TopHeaderMenu.module.css";
 import Phone_Icon from "../../../assets/icons/phone_icon.png";
-import ScheduleBlock from "../HeaderElements/SheduleBlock/ScheduleBlock";
+import ScheduleBlock from "../HeaderElements/SheduleBlock/ScheduleBlock.tsx";
 
-const TopHeaderMenu = () => {
 
-    const [showSchedule, setShowSchedule] = useState(false);
+const TopHeaderMenu: FC = () => {
+
+    const [showSchedule, setShowSchedule] = useState<boolean>(false);
 
     return (
         <div className={styles.main_block}>

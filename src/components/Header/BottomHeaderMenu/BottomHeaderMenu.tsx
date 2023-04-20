@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styles from "./BottomHeaderMenu.module.css";
 import StaffIcon from "../../../assets/pictures/staff_logo.png";
 import ComebackAlive from "../../../assets/pictures/comeback_alive.svg";
@@ -7,12 +7,12 @@ import UserIcon from "../../../assets/icons/person_icon.png";
 import CartIcon from "../../../assets/icons/cart-icon.png";
 import LikeIcon from "../../../assets/icons/like_icon.png";
 import {NavLink, useLocation} from "react-router-dom";
-import GenderBar from "../HeaderElements/GenderBar/GenderBar";
+import GenderBar from "../HeaderElements/GenderBar/GenderBar.tsx";
+import {useLocationType} from "../../../modules/global_elements/GlobalElements";
 
+const BottomHeaderMenu: FC = () => {
 
-const BottomHeaderMenu = () => {
-
-    const location = useLocation();
+    const location = useLocation<useLocationType>();
 
     return (
         <div className={styles.main_block}>
