@@ -1,9 +1,10 @@
 import React, {FC, useEffect} from 'react';
 import styles from "./GenderBar.module.css";
-import {useDispatch, useSelector} from "react-redux";
-import {onSetDropDownMenu, onSetGender} from "../../../../redux/action-creators/DropDownMenu";
+import {onSetDropDownMenu, onSetGender} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu.ts";
 import {DropMenuList} from "../../BottomHeaderMenu/ElementList_DropDownMenu.ts";
 import DropDownMenu from "../../DropDownMenu/DropDownMenu.tsx";
+import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
+import {useAction} from "../../../../hooks/redux/useAction.ts";
 
 
 type GenderBar_PropsTypes = {
@@ -13,15 +14,16 @@ type GenderBar_PropsTypes = {
 
 const GenderBar: FC <GenderBar_PropsTypes> = ({propGender}) => {
 
-    const {dropDownValue, gender} = useSelector(({headerState}) => (headerState));
-    const dispatch = useDispatch();
+    const {dropDownValue, gender} =  useTypedSelector(state => state.headerState);
+
+    const {onSetDropDownMenu, onSetGender} = useAction();
 
     useEffect(() => {
-        dispatch(onSetGender(propGender));
+        onSetGender(propGender);
     }, [propGender]);
 
     const genderMas = DropMenuList.find(el => el.gender === gender);
-    console.log(genderMas);
+
 
     return (
         gender &&
@@ -59,8 +61,8 @@ const GenderBar: FC <GenderBar_PropsTypes> = ({propGender}) => {
                                  background: dropDownValue === el.name ? "white" : "black",
                                  color: dropDownValue === el.name ? "black" : "white"
                              }}
-                             onMouseOver={() => dispatch(onSetDropDownMenu(el.name))}
-                             onMouseOut={() => dispatch(onSetDropDownMenu(""))}
+                             onMouseOver={() => onSetDropDownMenu(el.name)}
+                             onMouseOut={() => onSetDropDownMenu("")}
                         >
                             <div className={styles.rightLink}>{el.title}</div>
 

@@ -1,8 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
 import styles from "./DropDownMenu.module.css";
 import DropItem from "./DropItem.tsx";
-import {useSelector} from "react-redux";
 import {DropMenuList} from "../BottomHeaderMenu/ElementList_DropDownMenu.ts";
+import {useTypedSelector} from "../../../hooks/redux/useTypedSelector.ts";
 
 type myList_Type = {
     name: string,
@@ -21,7 +21,8 @@ type DropMenuList_Types = {
 
 
 const DropDownMenu: FC = () => {
-    const {dropDownValue, gender} =  useSelector(({headerState}) => (headerState));
+    const {dropDownValue, gender} =  useTypedSelector(state => state.headerState);
+
     const [myList, setMyList] = useState<myList_Type | []>([]);
 
     useEffect(() => {
