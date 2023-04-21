@@ -6,7 +6,7 @@ type myList_categories_Type = {
     link: string,
     type: string,
 };
-// ({el}: { el: any })
+
 const DropItem: FC = ({el}: myList_categories_Type) => {
 
     function replaceWithBr() {

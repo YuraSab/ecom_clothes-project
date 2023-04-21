@@ -1,4 +1,4 @@
-export const DropMenuList = [
+export const DropMenuList: DropMenuList_Gender_Types[]= [
     {
         //male / female
         gender: "male",
@@ -336,12 +336,18 @@ export const DropMenuList = [
 ];
 
 
-// type DropMenuSubItem_Types = {
-//     name: string,
-//     title: string,
-//     categories: [],
-// }
-// type DropMenuList_Types = {
-//     gender: string,
-//     typeOfCloth: DropMenuSubItem_Types[],
-// }
+
+type DropMenuList_SubItem_Types = {
+ name: string,
+ link: string,
+ type: string,
+}
+type DropMenuList_Item_Types = {
+    name: string,
+    title: string,
+    categories: DropMenuList_SubItem_Types[],
+}
+type DropMenuList_Gender_Types = {
+    gender: string,
+    typeOfCloth: DropMenuList_Item_Types[],
+}

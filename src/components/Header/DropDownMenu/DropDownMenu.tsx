@@ -2,7 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 import styles from "./DropDownMenu.module.css";
 import DropItem from "./DropItem.tsx";
 import {useSelector} from "react-redux";
-import {DropMenuList} from "../BottomHeaderMenu/ElementList_DropDownMenu";
+import {DropMenuList} from "../BottomHeaderMenu/ElementList_DropDownMenu.ts";
 
 type myList_Type = {
     name: string,
@@ -14,15 +14,11 @@ type myList_categories_Type = {
     link: string,
     type: string,
 };
-// type DropMenuSubItem_Types = {
-//     name: string,
-//     title: string,
-//     categories: [],
-// }
 type DropMenuList_Types = {
     gender: string,
     typeOfCloth: myList_Type[],
 }
+
 
 const DropDownMenu: FC = () => {
     const {dropDownValue, gender} =  useSelector(({headerState}) => (headerState));
@@ -33,6 +29,7 @@ const DropDownMenu: FC = () => {
         const actualCategory: myList_Type  = actualGender.typeOfCloth.find(el => el.name === dropDownValue);
         setMyList(actualCategory);
     }, [dropDownValue, gender]);
+
 
     return (
         <div className={styles.mainDiv}>

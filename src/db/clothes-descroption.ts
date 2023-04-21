@@ -81,8 +81,6 @@ export const clothes_description: clothes_descriptionType[] = [
 
 ];
 
-//  {clothes_id: 1, fabric: '', details_and_cut: '', color: '', supervision: '', on_the_photo: '',  describe: ''},
-
 type clothes_descriptionType = {
     clothes_id: number,
     fabric: string,

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import Main from "./Main";
+import Main from "./Main.tsx";
 import Male from "../../pages/male/Male.tsx";
 import Female from "../../pages/Female/Female.tsx";
 
