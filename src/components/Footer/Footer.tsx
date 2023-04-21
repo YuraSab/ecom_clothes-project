@@ -8,11 +8,11 @@ import Youtube_Icon from "../../assets/icons/youtube.png";
 import GooglePlay from "../../assets/pictures/google-play.svg";
 import AppStore from "../../assets/pictures/app-storesvg.svg";
 import {useLocation} from "react-router-dom";
-import {useLocationType} from "../../modules/global_elements";
+
 
 const Footer: FC = () => {
 
-    const location = useLocation<useLocationType>();
+    const location = useLocation();
 
     return (
         <div className={styles.maidDiv}>

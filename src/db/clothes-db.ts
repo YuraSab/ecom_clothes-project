@@ -1,4 +1,4 @@
-export const clothes: clothesType[] = [
+export const clothes: Cloth[] = [
     { id: 1, name: "Футболка Staff & LBWS CAT2 дружба oversize", price: 490, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/b80bfefc0f774fb3adf39a152a963325.jpeg", gender: "male", category: "clothes", subcategory: "t-shirts", type: "t-shirts", available: true},
     { id: 2, name: "Футболка Staff & LBWS CAT2 ппо oversize", price: 490, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/e61341f735d54f0f8a61a9b2c2122ec4.jpeg", gender: "male", category: "clothes", subcategory: "t-shirts", type: "t-shirts", available: true},
     { id: 3, name: "Жіночий топ Staff ki c1", price: 380, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/89/17b32e8a5b004fc3826dc54417c30be6.jpeg", gender: "male", category: "clothes", subcategory: "t-shirts",  type: "t-shirts", available: true},
@@ -80,7 +80,7 @@ export const clothes: clothesType[] = [
     { id: 78, name: "Шапка Staff pompon peach", price: 260, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/73/732b089a44444f91927733cf7365624f.jpeg", gender: "female", category: "accessories", subcategory: "winter_hats",  type: "winter_hats", available: true},
 ];
 
-type clothesType = {
+interface Cloth {
     id: number,
     name: string,
     price: number

@@ -1,50 +1,43 @@
 import React, {FC, useEffect, useState} from 'react';
 import styles from "./DropDownMenu.module.css";
 import DropItem from "./DropItem.tsx";
-import {DropMenuList} from "../BottomHeaderMenu/ElementList_DropDownMenu.ts";
+import {
+    DropMenuGenderList,
+    DropMenuList,
+    DropMenuListItem,
+    DropMenuListSubItem
+} from "../BottomHeaderMenu/ElementList_DropDownMenu.ts";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector.ts";
-
-type myList_Type = {
-    name: string,
-    title: string,
-    categories: myList_categories_Type[]
-};
-type myList_categories_Type = {
-    name: string,
-    link: string,
-    type: string,
-};
-type DropMenuList_Types = {
-    gender: string,
-    typeOfCloth: myList_Type[],
-}
 
 
 const DropDownMenu: FC = () => {
-    const {dropDownValue, gender} =  useTypedSelector(state => state.headerState);
+    const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
 
-    const [myList, setMyList] = useState<myList_Type | []>([]);
+    const [myList, setMyList] = useState<DropMenuListItem | undefined>(undefined);
 
     useEffect(() => {
-        const actualGender: DropMenuList_Types = DropMenuList.find(el => el.gender === gender);
-        const actualCategory: myList_Type  = actualGender.typeOfCloth.find(el => el.name === dropDownValue);
+        const actualGender: DropMenuGenderList = DropMenuList.find(el => el.gender === gender) as DropMenuGenderList;
+        const actualCategory: DropMenuListItem = actualGender.clothList.find(el => el.name === dropDownValue) as DropMenuListItem;
         setMyList(actualCategory);
     }, [dropDownValue, gender]);
 
 
+    if(!myList) return null
+
+
     return (
-        <div className={styles.mainDiv}>
-            <div className={styles.subDiv}>
-                {
-                    myList?.categories?.map<myList_categories_Type[]>((el, index) =>
-                        <div key={index}>
-                            <DropItem el={el}/>
-                            <br/>
-                        </div>
-                    )
-                }
+            <div className={styles.mainDiv}>
+                <div className={styles.subDiv}>
+                    {
+                        myList.categories.map((el: DropMenuListSubItem, index: number) =>
+                            <div key={index}>
+                                <DropItem subItem={el}/>
+                                <br/>
+                            </div>
+                        )
+                    }
+                </div>
             </div>
-        </div>
     );
 };
 

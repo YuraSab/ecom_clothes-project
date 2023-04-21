@@ -1,9 +1,11 @@
-export const DropMenuList: DropMenuList_Gender_Types[]= [
+import {Gender} from "../../../redux/action-types";
+
+export const DropMenuList: DropMenuGenderList[] = [
     {
         //male / female
         gender: "male",
         // clothes, shoes, accessories etc
-        typeOfCloth: [
+        clothList: [
             {
                 name: "clothes",
                 title: "Одяг",
@@ -185,7 +187,8 @@ export const DropMenuList: DropMenuList_Gender_Types[]= [
         //male / female
         gender: "female",
         // clothes, shoes, accessories etc
-        typeOfCloth: [
+        // typeOfCloth
+        clothList: [
             {
                 name: "clothes",
                 title: "Одяг",
@@ -337,17 +340,17 @@ export const DropMenuList: DropMenuList_Gender_Types[]= [
 
 
 
-type DropMenuList_SubItem_Types = {
+export type DropMenuListSubItem = {
  name: string,
  link: string,
  type: string,
 }
-type DropMenuList_Item_Types = {
+export type DropMenuListItem = {
     name: string,
     title: string,
-    categories: DropMenuList_SubItem_Types[],
+    categories: DropMenuListSubItem[],
 }
-type DropMenuList_Gender_Types = {
-    gender: string,
-    typeOfCloth: DropMenuList_Item_Types[],
+export type DropMenuGenderList = {
+    gender: Gender,
+    clothList: DropMenuListItem[],
 }

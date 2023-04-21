@@ -1,20 +1,20 @@
 import React, {FC} from 'react';
 import styles from "./DropDownMenu.module.css";
+import {DropMenuListSubItem} from "../BottomHeaderMenu/ElementList_DropDownMenu";
 
-type myList_categories_Type = {
-    name: string,
-    link: string,
-    type: string,
-};
 
-const DropItem: FC = ({el}: myList_categories_Type) => {
+interface DropItemProps {
+    subItem: DropMenuListSubItem
+}
+
+const DropItem: FC<DropItemProps> = ({subItem}) => {
 
     function replaceWithBr() {
-        return el.name.replace(/\n/g, "<br />")
+        return subItem.name.replace(/\n/g, "<br />")
     }
 
     return (
-        <div className={el.type === "category" ? styles.category : styles.subCategory} dangerouslySetInnerHTML={{__html: replaceWithBr()}}></div>
+        <div className={subItem.type === "category" ? styles.category : styles.subCategory} dangerouslySetInnerHTML={{__html: replaceWithBr()}}></div>
     );
 };
 

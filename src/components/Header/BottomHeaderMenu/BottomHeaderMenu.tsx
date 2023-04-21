@@ -8,11 +8,10 @@ import CartIcon from "../../../assets/icons/cart-icon.png";
 import LikeIcon from "../../../assets/icons/like_icon.png";
 import {NavLink, useLocation} from "react-router-dom";
 import GenderBar from "../HeaderElements/GenderBar/GenderBar.tsx";
-import {useLocationType} from "../../../modules/global_elements/GlobalElements";
 
 const BottomHeaderMenu: FC = () => {
 
-    const location = useLocation<useLocationType>();
+    const location = useLocation();
 
     return (
         <div className={styles.main_block}>

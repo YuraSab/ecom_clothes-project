@@ -1,28 +1,28 @@
-import {DropDownMenu_Actions, DropDownMenu_Types,} from "../../action-types/index.ts";
+import {DropDownMenu_Actions, DropDownMenu_Types, Gender} from "../../action-types";
 
-type initialState_Type = {
+type HeaderState = {
     dropDownValue: string,
-    gender: string
+    gender: Gender
 };
 
-const initialState: initialState_Type = {
+const initialState: HeaderState = {
     dropDownValue: "",
-    gender: ""
+    gender: "male"
 };
 
-export default (state = initialState, {payload, type}: DropDownMenu_Actions) => {
-    switch (type) {
+export default (state = initialState, action: DropDownMenu_Actions): HeaderState => {
+    switch (action.type) {
 
         case DropDownMenu_Types.SET_DROP_DOWN_MENU: {
             return {
                 ...state,
-                dropDownValue: payload,
+                dropDownValue: action.payload,
             }
         }
         case DropDownMenu_Types.SET_GENDER: {
             return {
                 ...state,
-                gender: payload
+                gender: action.payload
             }
         }
 
