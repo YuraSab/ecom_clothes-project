@@ -20,5 +20,5 @@ main {
 footer {
     grid-area: footer;
     border-top: 2px solid black;
-    padding: 50px 18.5%;
+    /*padding: 50px 18.5%;*/
 }

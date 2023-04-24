@@ -1,17 +1,29 @@
+.overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 .main_block{
+    padding: 5px 20px;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 18.5%;
-    border-bottom: 2px black solid;
+    /*padding: 0 18.5%;*/
+    /*border-bottom: 2px black solid;*/
+    width: 1170px;
+    height: 20px;
 }
 
 .child_block{
     display: flex;
     flex-direction: row;
     justify-content: left;
-    padding: 4px;
+    /*padding: 4px;*/
 }
 
 .left_block{
@@ -22,10 +34,14 @@
     font-family: Ubuntu,sans-serif;
     font-weight: 500;
     white-space: nowrap;
+    box-sizing: border-box;
+    line-height: 1.15;
     cursor: pointer;
-    gap: 0 17px;
+    /*gap: 0 17px;*/
 }
-
+.left_block div{
+    padding-right: 20px;
+}
 .left_block div:hover {
     color: blue;
 }
@@ -37,7 +53,7 @@
     font-weight: 400;
     white-space: nowrap;
     cursor: pointer;
-    padding-right: 30px;
+    /*padding-right: 30px;*/
     gap: 0 17px;
     display: flex;
     align-items: center;
@@ -47,4 +63,31 @@
 .phone_icon{
     height: 20px;
     color: black;
+}
+
+
+@media screen and (max-width: 1230px){
+    .overlay{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .main_block{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1180px){
+    .numbers{
+        display: none;
+    }
+    .child_block{
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1025px){
+    .overlay{
+        display: none;
+    }
 }

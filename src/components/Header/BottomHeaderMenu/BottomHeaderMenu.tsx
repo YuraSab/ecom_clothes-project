@@ -14,46 +14,47 @@ const BottomHeaderMenu: FC = () => {
     const location = useLocation();
 
     return (
-        <div className={styles.main_block}>
-            <div className={styles.logo}>
-                <img src={StaffIcon} alt={"logo"}/>
-            </div>
 
-            <div className={styles.menu}>
-                <NavLink
-                    className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
-                    to={'/male'}
-                >
-                    Для хлопців
-                </NavLink>
-                <NavLink
-                    className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
-                    to={'/female'}
-                >
-                    Для дівчат
-                </NavLink>
-
-                <div className={styles.icons_set}>
-                    <img src={ComebackAlive} alt={""}/>
-                    <img src={SearchIcon} alt={""} height={25}/>
-                    <img src={UserIcon} alt={""} height={25}/>
-                    <img src={LikeIcon} alt={""} height={25}/>
-                    <img src={CartIcon} alt={""} height={25}/>
+            <div className={styles.main_block}>
+                <div className={styles.logo}>
+                    <img src={StaffIcon} alt={"logo"}/>
                 </div>
+
+                <div className={styles.menu}>
+                    <NavLink
+                        className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
+                        to={'/male'}
+                    >
+                        Для хлопців
+                    </NavLink>
+                    <NavLink
+                        className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
+                        to={'/female'}
+                    >
+                        Для дівчат
+                    </NavLink>
+
+                    <div className={styles.icons_set}>
+                        <img src={ComebackAlive} alt={""}/>
+                        <img src={SearchIcon} alt={""} height={25}/>
+                        <img src={UserIcon} alt={""} height={25}/>
+                        <img src={LikeIcon} alt={""} height={25}/>
+                        <img src={CartIcon} alt={""} height={25}/>
+                    </div>
+                </div>
+
+
+                <div className={styles.submenu}>
+                    {
+                        location.pathname.includes("female")
+                            ?
+                            <GenderBar propGender={"female"}/>
+                            :
+                            <GenderBar propGender={"male"}/>
+                    }
+                </div>
+
             </div>
-
-
-            <div className={styles.submenu}>
-                {
-                    location.pathname.includes("female")
-                        ?
-                        <GenderBar propGender={"female"}/>
-                        :
-                        <GenderBar propGender={"male"}/>
-                }
-            </div>
-
-        </div>
     );
 };
 
