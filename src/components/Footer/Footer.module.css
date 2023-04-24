@@ -1,15 +1,25 @@
-.maidDiv {
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.mainDiv {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 1170px;
+    padding: 0 20px;
 }
 
-.catalogList{
+.catalogList {
     display: flex;
     flex-direction: column;
 }
-.catalogList div{
-    font-family: Ubuntu,sans-serif;
+
+.catalogList div {
+    font-family: Ubuntu, sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -18,7 +28,8 @@
     line-height: 1.15;
 
 }
-.catalogList span{
+
+.catalogList span {
     font-size: 12px;
     font-family: Ubuntu, sans-serif;
     letter-spacing: 1.2px;
@@ -29,38 +40,112 @@
     padding-bottom: 30px;
 }
 
-.cooperate_list{
+.cooperate_list {
     padding-top: 64px;
     display: flex;
     flex-direction: column;
     line-height: 1.15;
-    font-family: Ubuntu,sans-serif;
+    font-family: Ubuntu, sans-serif;
     font-weight: 400;
     cursor: pointer;
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-.cooperate_list span{
+
+.cooperate_list span {
     padding-bottom: 30px;
 }
-.cooperate_list img{
+
+.cooperate_list img {
     width: 110px;
 }
 
-.icon_list{
+.icon_list {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.icon_list img{
+
+.icon_list img {
     max-height: 30px;
     color: black;
 }
-.download_stores{
+
+.download_stores {
     display: flex;
     flex-direction: row;
+    gap: 20px;
 }
-.download_stores img{
+
+.download_stores img {
     height: 45px;
 }
+
+
+/*@media screen and (max-width: 1400px){*/
+/*    .overlay{*/
+/*        display: flex;*/
+/*        justify-content: space-between;*/
+/*    }*/
+/*    .maidDiv{*/
+/*        width: 100vw;*/
+
+/*    }*/
+/*}*/
+.socialMedia {
+
+}
+
+@media screen and (max-width: 1225px) {
+    .overlay {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mainDiv {
+        width: 100%;
+        gap: 0 20px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .mainDiv {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .socialMedia {
+        padding-top: 40px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .catalog {
+        display: none;
+    }
+
+    .info {
+        display: none;
+    }
+    .cooperate_list {
+        display: none;
+    }
+    .socialMedia{
+        display: none;
+    }
+    .mainDiv{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .icon_list {
+        justify-content: space-between;
+    }
+    .download_stores{
+        justify-content: space-between;
+    }
+}
+

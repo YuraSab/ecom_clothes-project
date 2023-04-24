@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /*width: 100%;*/
 }
 
 
@@ -54,12 +55,13 @@
     white-space: nowrap;
     cursor: pointer;
     /*padding-right: 30px;*/
-    gap: 0 17px;
+    /*gap: 0 17px;*/
     display: flex;
     align-items: center;
-
 }
-
+.right_block div{
+    padding-right: 20px;
+}
 .phone_icon{
     height: 20px;
     color: black;
@@ -81,9 +83,8 @@
     .numbers{
         display: none;
     }
-    .child_block{
-        padding-right: 20px;
-    }
+
+
 }
 
 @media screen and (max-width: 1025px){

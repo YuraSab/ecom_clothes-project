@@ -1,6 +1,7 @@
 body{
     margin: 0;
     /*padding: 0 18.5%;*/
+    padding: 0;
 }
 
 .pageDivineDiv {
@@ -21,4 +22,11 @@ footer {
     grid-area: footer;
     border-top: 2px solid black;
     /*padding: 50px 18.5%;*/
+}
+
+
+@media screen and (max-width: 600px){
+    .pageDivineDiv {
+        grid-template-rows: 123px minmax(300px, 1fr) 300px;
+    }
 }

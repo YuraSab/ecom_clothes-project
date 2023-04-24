@@ -15,24 +15,30 @@ const BottomHeaderMenu: FC = () => {
 
     return (
 
+        <div className={styles.overlay}>
+
             <div className={styles.main_block}>
                 <div className={styles.logo}>
                     <img src={StaffIcon} alt={"logo"}/>
                 </div>
 
                 <div className={styles.menu}>
-                    <NavLink
-                        className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
-                        to={'/male'}
-                    >
-                        Для хлопців
-                    </NavLink>
-                    <NavLink
-                        className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
-                        to={'/female'}
-                    >
-                        Для дівчат
-                    </NavLink>
+                    <div>
+
+                        <NavLink
+                            className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
+                            to={'/male'}
+                            style={{paddingRight: 60}}
+                        >
+                            Для хлопців
+                        </NavLink>
+                        <NavLink
+                            className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
+                            to={'/female'}
+                        >
+                            Для дівчат
+                        </NavLink>
+                    </div>
 
                     <div className={styles.icons_set}>
                         <img src={ComebackAlive} alt={""}/>
@@ -55,6 +61,7 @@ const BottomHeaderMenu: FC = () => {
                 </div>
 
             </div>
+        </div>
     );
 };
 
