@@ -1,7 +1,7 @@
-import {DropDownMenu_Actions, DropDownMenu_Types, Gender} from "../../action-types";
+import {DropDownMenu_Actions, DropDownMenu_Types, DropDownValue, Gender} from "../../action-types";
 
 type HeaderState = {
-    dropDownValue: string,
+    dropDownValue: DropDownValue,
     gender: Gender
 };
 

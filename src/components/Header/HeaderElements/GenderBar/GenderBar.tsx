@@ -60,7 +60,8 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
                             <div className={styles.right_block}
                                  key={index}
                                  style={{
-                                     background: dropDownValue === el.name ? "white" : "black",
+                                     // background: dropDownValue === el.name ? "white" : "black",
+                                     background: dropDownValue === el.name ? "white" : "none",
                                      color: dropDownValue === el.name ? "black" : "white"
                                  }}
                                  onMouseOver={() => onSetDropDownMenu(el.name)}

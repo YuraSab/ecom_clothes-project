@@ -1,4 +1,4 @@
-import {Gender} from "../../../redux/action-types";
+import {DropDownValue, Gender} from "../../../redux/action-types";
 
 export const DropMenuList: DropMenuGenderList[] = [
     {
@@ -346,7 +346,7 @@ export type DropMenuListSubItem = {
  type: string,
 }
 export type DropMenuListItem = {
-    name: string,
+    name: DropDownValue,
     title: string,
     categories: DropMenuListSubItem[],
 }
