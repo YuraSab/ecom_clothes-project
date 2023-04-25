@@ -1,4 +1,4 @@
-.overlay{
+.overlay {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,11 +6,9 @@
     background: black;
 }
 
-
-.main_block{
+.main_block {
     background: black;
     height: 90px;
-    /*padding: 0 18.5%;*/
     color: white;
     display: grid;
     grid-template-areas:
@@ -22,36 +20,34 @@
     width: 1170px;
 }
 
-.logo{
+.logo {
     grid-area: logo;
     align-self: center;
 }
-.logo img{
+.logo img {
     height: 56px;
 }
-
-.menu{
+.menu {
     grid-area: menu;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
-.menu .genderLink{
+.menu .genderLink {
     width: 16%;
     text-transform: uppercase;
     font-size: 12px;
     font-family: 'Ubuntu', sans-serif;
     letter-spacing: 1.2px;
     cursor: pointer;
-    /*line-height: 1.15;*/
     line-height: 1.50;
-    /*font-weight: 500;*/
     font-weight: bolder;
     text-decoration: none;
     color: white;
 }
-.menu .genderLinkActive{
+
+.menu .genderLinkActive {
     width: 16%;
     text-transform: uppercase;
     font-size: 12px;
@@ -59,31 +55,73 @@
     letter-spacing: 1.2px;
     cursor: pointer;
     line-height: 1.50;
-    /*line-height: 1.1;*/
-    /*font-weight: 500;*/
     font-weight: bolder;
     color: white;
     text-underline-offset: 8px;
     text-decoration: solid underline white 3px;
 }
-
-.submenu{
+.submenu {
     grid-area: submenu;
 }
-.icons_set{
-    /*padding-left: 44%;*/
+.icons_set {
     display: flex;
     gap: 15px;
 }
-
-.active_category{
+.active_category {
     background: white;
+}
+.burgerMenu {
+    display: none;
 }
 
 
- /*until 1025 */
-@media screen and (max-width: 1235px){
-    .main_block{
+@media screen and (max-width: 1235px) {
+    .main_block {
         width: 100%;
+    }
+}
+@media screen and (max-width: 1025px) {
+    .genderLinks {
+        display: none;
+    }
+    .submenu {
+        display: none;
+    }
+    .overlay{
+        justify-content: space-between;
+        width: auto;
+    }
+    .main_block {
+        grid-template-areas: "burgerMenu logo menu";
+        grid-template-columns: 25% 50% 25%;
+        grid-template-rows: 90px;
+        width: 100%;
+    }
+    .burgerMenu {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        grid-area: burgerMenu;
+    }
+    .icons_set :first-child {
+        display: none;
+    }
+    .icons_set {
+        padding-left: 20%;
+    }
+    .logo{
+        display: flex;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 770px) {
+    .logo{
+        display: none;
+    }
+    .main_block {
+        justify-content: space-between;
+    }
+    .icons_set {
+        padding-left: 0;
     }
 }

@@ -6,6 +6,7 @@ import SearchIcon from "../../../assets/icons/search_icon.svg";
 import UserIcon from "../../../assets/icons/person_icon.png";
 import CartIcon from "../../../assets/icons/cart-icon.png";
 import LikeIcon from "../../../assets/icons/like_icon.png";
+import BurgerMenu from "../../../assets/icons/burger_menu.png";
 import {NavLink, useLocation} from "react-router-dom";
 import GenderBar from "../HeaderElements/GenderBar/GenderBar.tsx";
 
@@ -18,12 +19,17 @@ const BottomHeaderMenu: FC = () => {
         <div className={styles.overlay}>
 
             <div className={styles.main_block}>
+
+                <div className={styles.burgerMenu}>
+                    <img src={BurgerMenu} alt={'burger-menu'} width={19}/>
+                </div>
+
                 <div className={styles.logo}>
                     <img src={StaffIcon} alt={"logo"}/>
                 </div>
 
                 <div className={styles.menu}>
-                    <div>
+                    <div className={styles.genderLinks}>
 
                         <NavLink
                             className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}

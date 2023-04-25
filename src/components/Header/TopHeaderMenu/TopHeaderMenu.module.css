@@ -2,31 +2,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /*width: 100%;*/
 }
-
-
 
 .main_block{
     padding: 5px 20px;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /*padding: 0 18.5%;*/
-    /*border-bottom: 2px black solid;*/
     width: 1170px;
     height: 20px;
 }
-
 .child_block{
     display: flex;
     flex-direction: row;
     justify-content: left;
     /*padding: 4px;*/
 }
-
 .left_block{
     color: #6d6d6d;
     font-size: 9px;
@@ -46,7 +38,6 @@
 .left_block div:hover {
     color: blue;
 }
-
 .right_block{
     color: black;
     font-size: 13px;
@@ -54,8 +45,6 @@
     font-weight: 400;
     white-space: nowrap;
     cursor: pointer;
-    /*padding-right: 30px;*/
-    /*gap: 0 17px;*/
     display: flex;
     align-items: center;
 }
@@ -70,9 +59,7 @@
 
 @media screen and (max-width: 1230px){
     .overlay{
-        display: flex;
         justify-content: space-between;
-        align-items: center;
     }
     .main_block{
         width: 100%;

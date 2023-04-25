@@ -83,27 +83,10 @@
 }
 
 
-/*@media screen and (max-width: 1400px){*/
-/*    .overlay{*/
-/*        display: flex;*/
-/*        justify-content: space-between;*/
-/*    }*/
-/*    .maidDiv{*/
-/*        width: 100vw;*/
-
-/*    }*/
-/*}*/
-.socialMedia {
-
-}
-
 @media screen and (max-width: 1225px) {
     .overlay {
-        display: flex;
         justify-content: space-between;
-        align-items: center;
     }
-
     .mainDiv {
         width: 100%;
         gap: 0 20px;
@@ -112,10 +95,8 @@
 
 @media screen and (max-width: 960px) {
     .mainDiv {
-        display: flex;
         flex-wrap: wrap;
     }
-
     .socialMedia {
         padding-top: 40px;
     }
@@ -126,7 +107,6 @@
     .catalog {
         display: none;
     }
-
     .info {
         display: none;
     }
@@ -139,7 +119,6 @@
     .mainDiv{
         justify-content: center;
         align-items: center;
-        width: 100%;
     }
     .icon_list {
         justify-content: space-between;
