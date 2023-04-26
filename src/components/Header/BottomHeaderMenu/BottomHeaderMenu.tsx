@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import styles from "./BottomHeaderMenu.module.css";
 import StaffIcon from "../../../assets/pictures/staff_logo.png";
 import ComebackAlive from "../../../assets/pictures/comeback_alive.svg";
@@ -7,12 +7,16 @@ import UserIcon from "../../../assets/icons/person_icon.png";
 import CartIcon from "../../../assets/icons/cart-icon.png";
 import LikeIcon from "../../../assets/icons/like_icon.png";
 import BurgerMenu from "../../../assets/icons/burger_menu.png";
+import CrossIcon from "../../../assets/icons/cross_icon.png";
 import {NavLink, useLocation} from "react-router-dom";
 import GenderBar from "../HeaderElements/GenderBar/GenderBar.tsx";
+import GenderBarMobile from "../HeaderElements/GenderBarMobile/GenderBarMobile";
 
 const BottomHeaderMenu: FC = () => {
 
     const location = useLocation();
+
+    const [burgerMenuActive, setBurgerMenuActive] = useState<boolean>(false)
 
     return (
 
@@ -20,8 +24,13 @@ const BottomHeaderMenu: FC = () => {
 
             <div className={styles.main_block}>
 
-                <div className={styles.burgerMenu}>
-                    <img src={BurgerMenu} alt={'burger-menu'} width={19}/>
+                <div className={styles.burgerMenu} onClick={() => setBurgerMenuActive(prevState => !prevState)}>
+                    {
+                        burgerMenuActive ?
+                            <img src={CrossIcon} alt={'burger-menu'} width={19}/>
+                            :
+                            <img src={BurgerMenu} alt={'burger-menu'} width={19}/>
+                    }
                 </div>
 
                 <div className={styles.logo}>
@@ -65,6 +74,16 @@ const BottomHeaderMenu: FC = () => {
                             <GenderBar propGender={"male"}/>
                     }
                 </div>
+
+                {
+                    burgerMenuActive &&
+                    <GenderBarMobile
+                        propGender={location.pathname.includes("female") ? "female" : "male"}
+                        setBurgerMenuActive={setBurgerMenuActive}
+                    />
+
+                }
+
 
             </div>
         </div>

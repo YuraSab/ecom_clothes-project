@@ -119,9 +119,11 @@
         display: none;
     }
     .main_block {
+        display: flex;
         justify-content: space-between;
     }
     .icons_set {
         padding-left: 0;
+
     }
 }
