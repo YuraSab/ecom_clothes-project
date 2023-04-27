@@ -31,6 +31,9 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerM
 
     useEffect(() => {
         return (() => {
+                // todo - save picked categories in localStorage and fetch them when user comeback from desktop to mobile screen
+                onSetDropDownMenu("");
+
                 window.addEventListener("resize", (ev) => {
                     if (document.body.clientWidth > 1025) {
                         setBurgerMenuActive(false);
@@ -44,12 +47,13 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerM
     return (
         gender && genderMas ?
 
-            <div onClick={() => setBurgerMenuActive(false)}
-                 style={{inset: 0, position: "absolute", width: "100%", height: "125%"}}
+            <div
+                onClick={() => setBurgerMenuActive(false)}
+                style={{inset: 0, position: "absolute", width: "100%", height: "125%"}}
             >
 
                 <div className={styles.mainDiv}
-                    onClick={event => event.stopPropagation()}
+                     onClick={event => event.stopPropagation()}
                 >
 
                     <div className={styles.genderBar}>
@@ -106,8 +110,7 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerM
                                              background: dropDownValue === el.name ? "white" : "none",
                                              color: dropDownValue === el.name ? "black" : "white"
                                          }}
-                                        // onMouseOver={() => onSetDropDownMenu(el.name)}
-                                        // onMouseOut={() => onSetDropDownMenu("")}
+                                         onClick={() => onSetDropDownMenu(el.name)}
                                     >
                                         <div className={styles.leftLink}>{el.title}</div>
 
@@ -118,6 +121,7 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerM
                                 )
                             })
                         }
+
                     </div>
 
 
