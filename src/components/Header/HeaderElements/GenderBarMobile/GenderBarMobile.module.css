@@ -3,12 +3,18 @@
     left: 0;
     position: absolute;
     width: 370px;
-    height: 100%;
+    /*width: 310px;*/
+    /*height: 100%;*/
     background: black;
-    padding: 20px 40px 15px 20px;
+    /*padding: 20px 40px 15px 20px;*/
 
-    border-top: grey solid 1px;
-    border-bottom: grey solid 1px;
+    /*border-top: grey solid 1px;*/
+    /*border-bottom: grey solid 1px;*/
+}
+
+.genderBar{
+    border-top: #6d6d6d solid 1px;
+    padding: 20px 40px 15px 20px;
 }
 
 .genderLinks{
@@ -66,4 +72,52 @@
     padding-bottom: 3px;
 }
 
+
+
+.comebackAlive{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.FAQBar{
+    border-top: #6d6d6d solid 1px;
+    padding: 25px 40px 15px 20px;
+
+}
+.FAQLink{
+    color: #6d6d6d;
+    font-weight: 500;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Ubuntu,sans-serif;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+}
+
+.FAQMedias{
+    height: 40px;
+    display: flex;
+    gap: 0 25px;
+    align-items: center;
+    padding-top: 45px;
+}
+.FAQMedia{
+
+}
+.FAQApps{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+}
+.FAQApp{
+    border: 1px white solid;
+    border-radius: 4px;
+    height: 45px;
+}
 
