@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
-import styles from "./DropDownMenu.module.css";
-import {DropMenuListSubItem} from "../BottomHeaderMenu/ElementList_DropDownMenu";
-
+import styles from "./DropItem.module.css";
+import {DropMenuListSubItem} from "../../BottomHeaderMenu/ElementList_DropDownMenu";
 
 interface DropItemProps {
     subItem: DropMenuListSubItem

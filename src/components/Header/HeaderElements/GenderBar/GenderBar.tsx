@@ -2,7 +2,7 @@ import React, {FC, useEffect} from 'react';
 import styles from "./GenderBar.module.css";
 import {onSetDropDownMenu, onSetGender} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu.ts";
 import {DropMenuList} from "../../BottomHeaderMenu/ElementList_DropDownMenu.ts";
-import DropDownMenu from "../../DropDownMenu/DropDownMenu.tsx";
+import DropDownMenu from "../../DropDownMenu/DropDownMenuDesktop/DropDownMenu.tsx";
 import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
 import {useAction} from "../../../../hooks/redux/useAction.ts";
 import {Gender} from "../../../../redux/action-types";
@@ -41,7 +41,6 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
                     </div>
                 </div>
 
-
                 {
                     genderMas.gender === 'male' && <>
                         <div className={styles.left_block}>
@@ -52,7 +51,6 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
                         </div>
                     </>
                 }
-
 
                 {
                     genderMas.clothList.map((el, index) => {

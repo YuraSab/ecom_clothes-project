@@ -1,0 +1,22 @@
+.mainDiv {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 122px;
+    height: 335px;
+    border-bottom: 2px black solid;
+    color: black;
+    background: white;
+    z-index: 40;
+}
+
+.subDiv {
+    padding: 55px 28%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 50px);
+    height: 270px;
+}
+
+

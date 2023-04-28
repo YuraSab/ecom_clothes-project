@@ -1,9 +1,8 @@
 import React, {FC, useEffect} from 'react';
-import {Gender} from "../../../../redux/action-types";
+// import {Gender} from "../../../../redux/action-types";
 import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector";
 import styles from "./GenderBarMobile.module.css";
 import {NavLink} from "react-router-dom";
-import DropDownMenu from "../../DropDownMenu/DropDownMenu";
 import {DropMenuList} from "../../BottomHeaderMenu/ElementList_DropDownMenu";
 import {onSetDropDownMenu} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu";
 import {useAction} from "../../../../hooks/redux/useAction";
@@ -16,16 +15,20 @@ import TelegramWhite from "../../../../assets/icons/telegram_white.png";
 import YoutubeWhite from "../../../../assets/icons/youtube_white.png";
 
 
+// type GenderBarMobile_PropsTypes = {
+//     propGender: Gender,
+//     setBurgerMenuActive: (value: boolean) => void;
+// }
 type GenderBarMobile_PropsTypes = {
-    propGender: Gender,
     setBurgerMenuActive: (value: boolean) => void;
 }
 
-const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerMenuActive}) => {
+// const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerMenuActive}) => {
+const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive}) => {
 
     const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
 
-    const {onSetDropDownMenu, onSetGender} = useAction();
+    const {onSetDropDownMenu} = useAction();
 
     const genderMas = DropMenuList.find(el => el.gender === gender);
 
@@ -34,7 +37,7 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerM
                 // todo - save picked categories in localStorage and fetch them when user comeback from desktop to mobile screen
                 onSetDropDownMenu("");
 
-                window.addEventListener("resize", (ev) => {
+                window.addEventListener("resize", () => {
                     if (document.body.clientWidth > 1025) {
                         setBurgerMenuActive(false);
                     }
@@ -49,11 +52,12 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerM
 
             <div
                 onClick={() => setBurgerMenuActive(false)}
-                style={{inset: 0, position: "absolute", width: "100%", height: "125%"}}
+                className={styles.overlay}
             >
 
                 <div className={styles.mainDiv}
                      onClick={event => event.stopPropagation()}
+                     // style={{height: "calc(100% - 90px)"}}
                 >
 
                     <div className={styles.genderBar}>
@@ -106,22 +110,16 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({propGender, setBurgerM
                                     <div className={styles.left_block}
                                          key={index}
                                          style={{
-                                             // background: dropDownValue === el.name ? "white" : "black",
                                              background: dropDownValue === el.name ? "white" : "none",
                                              color: dropDownValue === el.name ? "black" : "white"
                                          }}
                                          onClick={() => onSetDropDownMenu(el.name)}
                                     >
                                         <div className={styles.leftLink}>{el.title}</div>
-
-                                        <div style={{visibility: dropDownValue === el.name ? "visible" : "hidden"}}>
-                                            <DropDownMenu/>
-                                        </div>
                                     </div>
                                 )
                             })
                         }
-
                     </div>
 
 

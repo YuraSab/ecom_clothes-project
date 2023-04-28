@@ -11,12 +11,15 @@ import CrossIcon from "../../../assets/icons/cross_icon.png";
 import {NavLink, useLocation} from "react-router-dom";
 import GenderBar from "../HeaderElements/GenderBar/GenderBar.tsx";
 import GenderBarMobile from "../HeaderElements/GenderBarMobile/GenderBarMobile";
+import DropDownMenuMobile from "../DropDownMenu/DropDOwnMenuMobile/DropDownMenuMobile";
+import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 
 const BottomHeaderMenu: FC = () => {
 
     const location = useLocation();
 
     const [burgerMenuActive, setBurgerMenuActive] = useState<boolean>(false)
+    const {dropDownValue} = useTypedSelector(state => state.headerState);
 
     return (
 
@@ -78,13 +81,15 @@ const BottomHeaderMenu: FC = () => {
                 {
                     burgerMenuActive &&
                     <GenderBarMobile
-                        propGender={location.pathname.includes("female") ? "female" : "male"}
+                        // propGender={location.pathname.includes("female") ? "female" : "male"}
                         setBurgerMenuActive={setBurgerMenuActive}
                     />
-
                 }
 
-
+                {
+                    dropDownValue && window.innerWidth < 1026 &&
+                    <DropDownMenuMobile/>
+                }
             </div>
         </div>
     );
