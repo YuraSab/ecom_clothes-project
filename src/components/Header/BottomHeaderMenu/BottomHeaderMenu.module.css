@@ -102,6 +102,10 @@
         justify-content: start;
         align-items: center;
         grid-area: burgerMenu;
+        filter: invert(100%) sepia(20%) saturate(0%) hue-rotate(327deg) brightness(105%) contrast(102%);
+    }
+    .burgerMenu:hover{
+        filter: invert(35%) sepia(3%) saturate(7%) hue-rotate(24deg) brightness(95%) contrast(92%);
     }
     .icons_set :first-child {
         display: none;
@@ -124,6 +128,5 @@
     }
     .icons_set {
         padding-left: 0;
-
     }
 }

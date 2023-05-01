@@ -4,7 +4,7 @@ export enum  DropDownMenu_Types {
 }
 
 export type DropDownValue = "" | "clothes" | "shoes" | "backpacks_and_bags" | "accessories";
-export type Gender = "male" | "female";
+export type Gender = "" | "male" | "female";
 
 
 export interface SetDropDownMenu_Action {

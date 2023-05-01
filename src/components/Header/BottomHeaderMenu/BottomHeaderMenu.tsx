@@ -6,20 +6,21 @@ import SearchIcon from "../../../assets/icons/search_icon.svg";
 import UserIcon from "../../../assets/icons/person_icon.png";
 import CartIcon from "../../../assets/icons/cart-icon.png";
 import LikeIcon from "../../../assets/icons/like_icon.png";
-import BurgerMenu from "../../../assets/icons/burger_menu.png";
-import CrossIcon from "../../../assets/icons/cross_icon.png";
 import {NavLink, useLocation} from "react-router-dom";
-import GenderBar from "../HeaderElements/GenderBar/GenderBar.tsx";
+import GenderBar from "../HeaderElements/GenderBarDesktop/GenderBar.tsx";
 import GenderBarMobile from "../HeaderElements/GenderBarMobile/GenderBarMobile";
 import DropDownMenuMobile from "../DropDownMenu/DropDOwnMenuMobile/DropDownMenuMobile";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
+import CrossSVG from "../../../assets/icons/cross_svg_icon.svg";
+import BurgerMenuSVG from "../../../assets/icons/burger_menu_svg.jpg";
 
 const BottomHeaderMenu: FC = () => {
 
     const location = useLocation();
 
     const [burgerMenuActive, setBurgerMenuActive] = useState<boolean>(false)
-    const {dropDownValue} = useTypedSelector(state => state.headerState);
+    const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
+
 
     return (
 
@@ -27,12 +28,12 @@ const BottomHeaderMenu: FC = () => {
 
             <div className={styles.main_block}>
 
-                <div className={styles.burgerMenu} onClick={() => setBurgerMenuActive(prevState => !prevState)}>
+                <div className={styles.burgerMenu} onClick={() => setBurgerMenuActive(prevState => !prevState)} >
                     {
                         burgerMenuActive ?
-                            <img src={CrossIcon} alt={'burger-menu'} width={19}/>
+                            <img src={CrossSVG}  alt={'burger-menu'} width={19}/>
                             :
-                            <img src={BurgerMenu} alt={'burger-menu'} width={19}/>
+                            <img src={BurgerMenuSVG} alt={'burger-menu'} width={19}/>
                     }
                 </div>
 
@@ -82,13 +83,14 @@ const BottomHeaderMenu: FC = () => {
                     burgerMenuActive &&
                     <GenderBarMobile
                         // propGender={location.pathname.includes("female") ? "female" : "male"}
-                        setBurgerMenuActive={setBurgerMenuActive}
+                        setBurgerMenuActive={setBurgerMenuActive} burgerMenuActive={burgerMenuActive}
                     />
                 }
 
                 {
-                    dropDownValue && window.innerWidth < 1026 &&
-                    <DropDownMenuMobile/>
+                    // dropDownValue && window.innerWidth < 1026 &&
+                    dropDownValue && gender !== "" && window.innerWidth < 1026 &&
+                    <DropDownMenuMobile setBurgerMenuActive={setBurgerMenuActive}/>
                 }
             </div>
         </div>

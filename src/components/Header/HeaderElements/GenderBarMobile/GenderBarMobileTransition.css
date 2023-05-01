@@ -1,0 +1,22 @@
+.list-transition-enter, .list-transition-appear {
+    width: 370px;
+    transform: translateX(-100%);
+    transition: left 2s;
+    opacity: 0;
+}
+.list-transition-enter-active, .list-transition-appear-active {
+    width: 0;
+    transition: all 200ms;
+    opacity: 1;
+}
+.list-transition-exit {
+    width: 370px;
+    opacity: 1;
+}
+.list-transition-exit-active {
+    width: 0;
+    color: transparent;
+    transition: right 2s;
+    transform: translateX(100%);
+    opacity: 0;
+}

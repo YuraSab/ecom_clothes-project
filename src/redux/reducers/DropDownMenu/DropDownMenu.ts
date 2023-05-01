@@ -7,7 +7,8 @@ type HeaderState = {
 
 const initialState: HeaderState = {
     dropDownValue: "",
-    gender: "male"
+    // gender: "male"
+    gender: ""
 };
 
 export default (state = initialState, action: DropDownMenu_Actions): HeaderState => {

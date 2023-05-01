@@ -11,8 +11,16 @@ import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
 import ArrowLeft from "../../../../assets/icons/arrow_left.png";
 import {useAction} from "../../../../hooks/redux/useAction";
 import {onSetDropDownMenu} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
+import "./DropDownMenuTransition.css";
 
-const DropDownMenu: FC = () => {
+type DropDownMenu_PropsTypes = {
+    setBurgerMenuActive: (value: boolean) => void;
+}
+
+
+const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
+
     const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
 
     const [myList, setMyList] = useState<DropMenuListItem | undefined>(undefined);
@@ -27,37 +35,59 @@ const DropDownMenu: FC = () => {
 
     if (!myList) return null
 
-
     return (
-        <div
-            className={styles.mainDiv}
-            style={{height: "100%"}}
-        >
-            <div className={styles.subDiv}>
-                {
-                    window.innerWidth < 1025 && <>
-                        <div className={styles.goBack}
-                             onClick={() => onSetDropDownMenu("")}
-                        >
-                            <div className={styles.arrowBack}><img src={ArrowLeft} alt={"go back"}/></div>
-                            <div className={styles.textBack}>Назад</div>
-                        </div>
-                        <div className={styles.category} style={{padding: "20px 40px 20px 20px"}}>
-                            Всі товари
-                        </div>
-                    </>
-                }
-                {
-                    myList.categories.map((el: DropMenuListSubItem, index: number) =>
-                        <div key={index}>
-                            <DropItem subItem={el}/>
-                            <br/>
-                        </div>
-                    )
-                }
-            </div>
-        </div>
+        <TransitionGroup>
+            <CSSTransition
+                in={!!myList}
+                timeout={200}
+                classNames="dropDownMenu"
+                unmountOnExit
+                appear
+            >
 
+
+                <div
+                    onClick={() => {
+                        setBurgerMenuActive(false);
+                        onSetDropDownMenu("");
+                    }}
+                    className={styles.overlay}
+                >
+                    <div
+                        style={{background: "black"}}
+                        className={styles.mainDiv}
+                        onClick={event => event.stopPropagation()}
+                    >
+
+                        <div className={styles.subDiv}>
+                            {
+                                window.innerWidth < 1025 && <>
+                                    <div className={styles.goBack}
+                                         onClick={() => onSetDropDownMenu("")}
+                                    >
+                                        <div className={styles.arrowBack}><img src={ArrowLeft} alt={"go back"}/></div>
+                                        <div className={styles.textBack}>Назад</div>
+                                    </div>
+                                    <div className={styles.category} style={{padding: "20px 40px 20px 20px"}}>
+                                        Всі товари
+                                    </div>
+                                </>
+                            }
+                            {
+                                myList.categories.map((el: DropMenuListSubItem, index: number) =>
+                                    <div key={index}>
+                                        <DropItem subItem={el}/>
+                                        <br/>
+                                    </div>
+                                )
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+            </CSSTransition>
+        </TransitionGroup>
     );
 };
 
