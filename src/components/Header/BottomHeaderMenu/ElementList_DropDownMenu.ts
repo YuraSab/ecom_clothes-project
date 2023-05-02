@@ -4,87 +4,85 @@ export const DropMenuList: DropMenuGenderList[] = [
     {
         //male / female
         gender: "male",
-        // clothes, shoes, accessories etc
         clothList: [
             {
                 name: "clothes",
                 title: "Одяг",
                 categories: [
-                    // shorts, t-shirts, thousands etc
                     // ВЕРХНІЙ ОДЯГ
                     {
                         name: "ВЕРХНІЙ ОДЯГ",
-                        link: "",
+                        link: "outerwear",
                         type: "category"
                     },
                     {
                         name: "ВІТРОВКИ, КУРТКИ",
-                        link: "",
+                        link: "jackets_and_wind-jackets",
                         type: "subcategory"
                     },
                     {
                         name: "ПАРКИ ОСІНЬ-ВЕСНА",
-                        link: "",
+                        link: "autumn-spring-parks",
                         type: "subcategory"
                     },
                     {
                         name: "ЗИМОВІ КУРТКИ",
-                        link: "",
+                        link: "winter-jackets",
                         type: "subcategory"
                     },
                     {
                         name: "СВІТШОТИ, ТОЛСТОВКИ",
-                        link: "",
+                        link: "sweatshirts",
                         type: "category"
                     },
                     // ШТАНИ
                     {
                         name: "ШТАНИ",
-                        link: "",
+                        link: "pants",
                         type: "category"
                     },
                     {
                         name: "ДЖИНСИ",
-                        link: "",
+                        link: "jeans",
                         type: "subcategory"
                     },
                     {
                         name: "СПОРТИВНІ ШТАНИ",
-                        link: "",
+                        link: "sport pants",
                         type: "subcategory"
                     },
                     {
                         name: "КАРГО, ДЖОГЕРИ, ЧИНОСИ",
-                        link: "",
+                        link: "cargos_joggers_chinos",
                         type: "subcategory"
                     },
                     {
                         name: "СПОРТИВНІ КОСТЮМИ",
-                        link: "",
+                        link: "track-suits",
                         type: "category"
                     },
                     // ПОЛО ТА ФУТБОЛКИ
                     {
                         name: "ПОЛО ТА ФУТБОЛКИ",
-                        link: "",
+                        link: "polo_and_t-shirts",
                         type: "category"
                     },
                     // ШОРТИ
                     {
                         name: "ШОРТИ",
-                        link: "",
+                        link: "shorts",
                         type: "category"
                     },
                     // ЛІТНІ КОМПЛЕКТИ
                     {
                         name: "ЛІТНІ КОМПЛЕКТИ",
-                        link: "",
+                        link: "summers-sets",
                         type: "category"
                     },
                     // БІЛИЗНА
                     {
                         name: "БІЛИЗНА",
-                        link: "",
+                        link: "underwear",
                         type: "category"
                     },
                 ]
@@ -96,12 +94,12 @@ export const DropMenuList: DropMenuGenderList[] = [
                 categories: [
                     {
                         name: "ЗИМОВЕ ВЗУТТЯ",
-                        link: "",
+                        link: "winter-shoes",
                         type: "category"
                     },
                     {
                         name: "КРОСІВКИ, КЕДИ",
-                        link: "",
+                        link: "sneakers",
                         type: "category"
                     },
                 ]
@@ -114,23 +112,19 @@ export const DropMenuList: DropMenuGenderList[] = [
                     // РЮКЗАКИ
                     {
                         name: "РЮКЗАКИ",
-                        link: "",
+                        link: "backpacks",
                         type: "category"
                     },
                     // СУМКИ НА ПОЯС
                     {
                         name: "СУМКИ НА ПОЯС",
-                        link: "",
+                        link: "belt-bags",
                         type: "category"
                     },
-                    // for free spacing
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
                     // СУМКИ ЧЕРЕЗ ПЛЕЧЕ
                     {
                         name: "СУМКИ ЧЕРЕЗ ПЛЕЧЕ",
-                        link: "",
+                        link: "shoulder_bags",
                         type: "category"
                     },
                 ]
@@ -143,37 +137,31 @@ export const DropMenuList: DropMenuGenderList[] = [
                     // КЕПКИ, ПАНАМИ
                     {
                         name: "КЕПКИ, ПАНАМИ",
-                        link: "",
+                        link: "cap_and_panamas",
                         type: "category"
                     },
                     // ЗИМОВІ ШАПКИ
                     {
                         name: "ЗИМОВІ ШАПКИ",
-                        link: "",
+                        link: "winter-hats",
                         type: "category"
                     },
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
                     // ШАРФИ, РУКАВИЧКИ
                     {
                         name: "ШАРФИ, РУКАВИЧКИ",
-                        link: "",
+                        link: "scarves_and_gloves",
                         type: "category"
                     },
                     // ШКАРПЕТКИ
                     {
                         name: "ШКАРПЕТКИ",
-                        link: "",
+                        link: "socks",
                         type: "category"
                     },
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
                     // РЕМЕНІ, ОКУЛЯРИ, СТІКЕРИ, ГАМАНЦІ
                     {
                         name: "РЕМЕНІ, ОКУЛЯРИ, \nСТІКЕРИ, ГАМАНЦІ",
-                        link: "",
+                        link: "belts_glasses_stickers_wallets",
                         type: "category"
                     },
                 ]
@@ -186,95 +174,92 @@ export const DropMenuList: DropMenuGenderList[] = [
     {
         //male / female
         gender: "female",
-        // clothes, shoes, accessories etc
         // typeOfCloth
         clothList: [
             {
                 name: "clothes",
                 title: "Одяг",
                 categories: [
-                    // shorts, t-shirts, thousands etc.
                     // ВЕРХНІЙ ОДЯГ
                     {
                         name: "ВЕРХНІЙ ОДЯГ",
-                        link: "",
+                        link: "outerwear",
                         type: "category"
                     },
                     {
                         name: "ВІТРОВКИ, КУРТКИ",
-                        link: "",
+                        link: "jackets_and_wind-jackets",
                         type: "subcategory"
                     },
                     {
                         name: "ПАЛЬТО",
-                        link: "",
+                        link: "coats",
                         type: "subcategory"
                     },
                     // ТОЛСТОВКИ, СВІТШОТИ, КОФТИ
                     {
                         name: "ТОЛСТОВКИ, \nСВІТШОТИ, КОФТИ",
-                        link: "",
+                        link: "sweatshirts",
                         type: "category"
                     },
-                    {name: "", link: "", type: "category"},
                     // БОДІ
                     {
                         name: "БОДІ",
-                        link: "",
+                        link: "body",
                         type: "category"
                     },
                     // ШТАНИ
                     {
                         name: "ШТАНИ",
-                        link: "",
+                        link: "pants",
                         type: "category"
                     },
                     // ТОПИ І ФУТБОЛКИ
                     {
                         name: "ТОПИ І ФУТБОЛКИ",
-                        link: "",
+                        link: "tops_and_t-shirts",
                         type: "category"
                     },
                     // СПОРТИВНІ КОСТЮМИ
                     {
                         name: "СПОРТИВНІ КОСТЮМИ",
-                        link: "",
+                        link: "tracksuits",
                         type: "category"
                     },
                     // ЛІТНІ КОМПЛЕКТИ
                     {
                         name: "ЛІТНІ КОМПЛЕКТИ",
-                        link: "",
+                        link: "summer-sets",
                         type: "category"
                     },
                     // ПЛАТТЯ
                     {
                         name: "ПЛАТТЯ",
-                        link: "",
+                        link: "dresses",
                         type: "category"
                     },
                     // ШОРТИ
                     {
                         name: "ШОРТИ",
-                        link: "",
+                        link: "shorts",
                         type: "category"
                     },
                     // КУПАЛЬНИКИ
                     {
                         name: "КУПАЛЬНИКИ",
-                        link: "",
+                        link: "swimwear",
                         type: "category"
                     },
                     // КОСТЮМИ
                     {
                         name: "КОСТЮМИ",
-                        link: "",
+                        link: "suits",
                         type: "category"
                     },
                     // БІЛИЗНА
                     {
                         name: "БІЛИЗНА",
-                        link: "",
+                        link: "underwear",
                         type: "category"
                     },
                 ]
@@ -286,12 +271,12 @@ export const DropMenuList: DropMenuGenderList[] = [
                 categories: [
                     {
                         name: "ЗИМОВЕ ВЗУТТЯ",
-                        link: "",
+                        link: "winter-shoes",
                         type: "category"
                     },
                     {
                         name: "КРОСІВКИ, КЕДИ",
-                        link: "",
+                        link: "sneakers",
                         type: "category"
                     },
                 ]
@@ -303,33 +288,27 @@ export const DropMenuList: DropMenuGenderList[] = [
                 categories: [
                     {
                         name: "РЮКЗАКИ",
-                        link: "",
+                        link: "backpacks",
                         type: "category"
                     },
                     {
                         name: "СУМКИ НА ПОЯС",
-                        link: "",
+                        link: "belt-bags",
                         type: "category"
                     },
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
                     {
                         name: "СУМКИ ЧЕРЕЗ ПЛЕЧЕ",
-                        link: "",
+                        link: "shoulder_bags",
                         type: "category"
                     },
                     {
                         name: "РЕМЕНІ, ШКАРПЕТКИ,\n ОКУЛЯРИ, РУКАВИЧКИ",
-                        link: "",
+                        link: "belts_glasses_stickers_wallets",
                         type: "category"
                     },
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
-                    // {name: "", link: "", type: "category"},
                     {
                         name: "ЗИМОВІ ШАПКИ, ШАРФИ",
-                        link: "",
+                        link: "winter-hats_and_scarves",
                         type: "category"
                     },
                 ]
@@ -339,10 +318,16 @@ export const DropMenuList: DropMenuGenderList[] = [
 ];
 
 
+export type linkType = "outerwear" |"jackets_and_wind-jackets" | "autumn-spring-parks" | "winter-jackets" | "sweatshirts" | "pants"
+    | "jeans" | "sport pants" | "cargos_joggers_chinos" | "track-suits" | "polo_and_t-shirts" | "shorts" | "summers-sets"
+    | "underwear" | "winter-shoes" | "sneakers" | "backpacks" | "belt-bags" | "shoulder_bags" | "cap_and_panamas" | "winter-hats"
+    | "scarves_and_gloves" | "socks" | "belts_glasses_stickers_wallets" | "coats"
+    | "body" | "tops_and_t-shirts" | "tracksuits" | "summer-sets" | "dresses" | "swimwear"
+    | "suits" | "winter-hats_and_scarves";
 
 export type DropMenuListSubItem = {
  name: string,
- link: string,
+ link: linkType,
  type: string,
 }
 export type DropMenuListItem = {

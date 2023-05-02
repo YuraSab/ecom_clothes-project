@@ -11,13 +11,12 @@ import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
 import ArrowLeft from "../../../../assets/icons/arrow_left.png";
 import {useAction} from "../../../../hooks/redux/useAction";
 import {onSetDropDownMenu} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
+import {CSSTransition} from "react-transition-group";
 import "./DropDownMenuTransition.css";
 
 type DropDownMenu_PropsTypes = {
     setBurgerMenuActive: (value: boolean) => void;
 }
-
 
 const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
 
@@ -25,6 +24,7 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
 
     const [myList, setMyList] = useState<DropMenuListItem | undefined>(undefined);
     const {onSetDropDownMenu} = useAction();
+
 
     useEffect(() => {
         const actualGender: DropMenuGenderList = DropMenuList.find(el => el.gender === gender) as DropMenuGenderList;
@@ -36,7 +36,7 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
     if (!myList) return null
 
     return (
-        <TransitionGroup>
+
             <CSSTransition
                 in={!!myList}
                 timeout={200}
@@ -54,7 +54,9 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
                     className={styles.overlay}
                 >
                     <div
-                        style={{background: "black"}}
+                        style={{background: "black",
+                            // height: '130vh'
+                    }}
                         className={styles.mainDiv}
                         onClick={event => event.stopPropagation()}
                     >
@@ -87,7 +89,6 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
 
                 </div>
             </CSSTransition>
-        </TransitionGroup>
     );
 };
 

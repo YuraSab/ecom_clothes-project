@@ -1,7 +1,7 @@
 .list-transition-enter, .list-transition-appear {
     width: 370px;
     transform: translateX(-100%);
-    transition: left 2s;
+    transition: left 200ms;
     opacity: 0;
 }
 .list-transition-enter-active, .list-transition-appear-active {
