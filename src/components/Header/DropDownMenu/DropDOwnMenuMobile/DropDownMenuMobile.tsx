@@ -11,8 +11,7 @@ import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
 import ArrowLeft from "../../../../assets/icons/arrow_left.png";
 import {useAction} from "../../../../hooks/redux/useAction";
 import {onSetDropDownMenu} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu";
-import {CSSTransition} from "react-transition-group";
-import "./DropDownMenuTransition.css";
+
 
 type DropDownMenu_PropsTypes = {
     setBurgerMenuActive: (value: boolean) => void;
@@ -33,62 +32,61 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
     }, [dropDownValue, gender]);
 
 
-    if (!myList) return null
+    // if (!myList) return null
 
     return (
 
-            <CSSTransition
-                in={!!myList}
-                timeout={200}
-                classNames="dropDownMenu"
-                unmountOnExit
-                appear
+        <div
+            onClick={() => {
+                setBurgerMenuActive(false);
+                onSetDropDownMenu("");
+            }}
+            className={styles.overlay}
+        >
+            <div
+                className={styles.dropDownMenuActive}
+                style={{
+                    transform: myList ? "translateX(0%)" : "translateX(50%)",
+                    visibility: myList ? "visible" : "hidden",
+                    height: "100%"
+                }}
             >
 
-
                 <div
-                    onClick={() => {
-                        setBurgerMenuActive(false);
-                        onSetDropDownMenu("");
-                    }}
-                    className={styles.overlay}
+                    onClick={event => event.stopPropagation()}
+                    className={styles.mainDiv}
+                    style={{background: "black"}}
                 >
-                    <div
-                        style={{background: "black",
-                            // height: '130vh'
-                    }}
-                        className={styles.mainDiv}
-                        onClick={event => event.stopPropagation()}
-                    >
-
-                        <div className={styles.subDiv}>
-                            {
-                                window.innerWidth < 1025 && <>
-                                    <div className={styles.goBack}
-                                         onClick={() => onSetDropDownMenu("")}
-                                    >
-                                        <div className={styles.arrowBack}><img src={ArrowLeft} alt={"go back"}/></div>
-                                        <div className={styles.textBack}>Назад</div>
-                                    </div>
-                                    <div className={styles.category} style={{padding: "20px 40px 20px 20px"}}>
-                                        Всі товари
-                                    </div>
-                                </>
-                            }
-                            {
-                                myList.categories.map((el: DropMenuListSubItem, index: number) =>
-                                    <div key={index}>
-                                        <DropItem subItem={el}/>
-                                        <br/>
-                                    </div>
-                                )
-                            }
-                        </div>
-
+                    <div className={styles.subDiv}>
+                        {
+                            window.innerWidth < 1025 && <>
+                                <div className={styles.goBack}
+                                     onClick={() => onSetDropDownMenu("")}
+                                >
+                                    <div className={styles.arrowBack}><img src={ArrowLeft} alt={"go back"}/></div>
+                                    <div className={styles.textBack}>Назад</div>
+                                </div>
+                                <div className={styles.category} style={{padding: "20px 40px 20px 20px"}}>
+                                    Всі товари
+                                </div>
+                            </>
+                        }
+                        {
+                            myList &&
+                            myList.categories.map((el: DropMenuListSubItem, index: number) =>
+                                <div key={index}>
+                                    <DropItem subItem={el}/>
+                                    <br/>
+                                </div>
+                            )
+                        }
+                        <div style={{height: 90}}></div>
                     </div>
 
                 </div>
-            </CSSTransition>
+
+            </div>
+        </div>
     );
 };
 

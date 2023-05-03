@@ -1,17 +1,18 @@
 .overlay{
     inset: 0;
-    position: absolute;
     width: 100%;
-    margin-top: 90px;
+    position: fixed;
     background-color: rgba(0,0,0,.3);
-    /*height: 117%;*/
-    height: 130vh;
+    margin-top: 90px;
+    padding: 0;
+    height: 100vh;
 }
 
 .mainDiv{
-    height: 130vh;
+    overflow: auto;
     background: black;
-    position: absolute;
+    position: fixed;
+    height: 100vh;
     left: 0;
     width: 370px;
 }
@@ -114,3 +115,8 @@
     height: 45px;
 }
 
+@media screen and (max-width: 770px){
+    .overlay{
+        margin-top: 70px;
+    }
+}

@@ -118,14 +118,32 @@
     }
 }
 @media screen and (max-width: 770px) {
+    .overlay{
+        position: fixed;
+        width: 100%;
+        height: 70px;
+    }
     .logo{
-        display: none;
+        /*display: none;*/
+        justify-content: start;
+    }
+    .logo img{
+        height: 35px;
     }
     .main_block {
-        display: flex;
-        justify-content: space-between;
+        height: 70px;
+        grid-template-columns: 35px 64px 1fr;
+        grid-template-rows: 70px;
+
+        /*justify-content: space-between;*/
+        align-items: center;
     }
     .icons_set {
-        padding-left: 0;
+        /*padding-left: 0;*/
+        width: 100%;
+        padding-left: 80px;
+        display: flex;
+        justify-content: end;
+        align-items: end;
     }
 }

@@ -4,6 +4,10 @@ body{
     padding: 0;
 }
 
+body, html {
+    height: 100%;
+}
+
 .pageDivineDiv {
     display: grid;
     grid-template-areas:
@@ -24,9 +28,18 @@ footer {
     /*padding: 50px 18.5%;*/
 }
 
-
+@media screen and (max-width: 1025px){
+    .pageDivineDiv {
+        grid-template-rows: 90px minmax(350px, 1fr) 510px;
+    }
+}
+@media screen and (max-width: 960px){
+    .pageDivineDiv {
+        grid-template-rows: 90px minmax(350px, 1fr) 780px;
+    }
+}
 @media screen and (max-width: 600px){
     .pageDivineDiv {
-        grid-template-rows: 123px minmax(300px, 1fr) 300px;
+        grid-template-rows: 90px minmax(300px, 1fr) 255px;
     }
 }
