@@ -48,7 +48,7 @@ export const DropMenuList: DropMenuGenderList[] = [
                     },
                     {
                         name: "СПОРТИВНІ ШТАНИ",
-                        link: "sport pants",
+                        link: "sport-pants",
                         type: "subcategory"
                     },
                     {
@@ -76,7 +76,7 @@ export const DropMenuList: DropMenuGenderList[] = [
                     // ЛІТНІ КОМПЛЕКТИ
                     {
                         name: "ЛІТНІ КОМПЛЕКТИ",
-                        link: "summers-sets",
+                        link: "summer-sets",
                         type: "category"
                     },
                     // БІЛИЗНА
@@ -124,7 +124,7 @@ export const DropMenuList: DropMenuGenderList[] = [
                     // СУМКИ ЧЕРЕЗ ПЛЕЧЕ
                     {
                         name: "СУМКИ ЧЕРЕЗ ПЛЕЧЕ",
-                        link: "shoulder_bags",
+                        link: "shoulder-bags",
                         type: "category"
                     },
                 ]
@@ -137,7 +137,7 @@ export const DropMenuList: DropMenuGenderList[] = [
                     // КЕПКИ, ПАНАМИ
                     {
                         name: "КЕПКИ, ПАНАМИ",
-                        link: "cap_and_panamas",
+                        link: "caps_and_panamas",
                         type: "category"
                     },
                     // ЗИМОВІ ШАПКИ
@@ -205,7 +205,7 @@ export const DropMenuList: DropMenuGenderList[] = [
                     // БОДІ
                     {
                         name: "БОДІ",
-                        link: "body",
+                        link: "bodies",
                         type: "category"
                     },
                     // ШТАНИ
@@ -223,7 +223,7 @@ export const DropMenuList: DropMenuGenderList[] = [
                     // СПОРТИВНІ КОСТЮМИ
                     {
                         name: "СПОРТИВНІ КОСТЮМИ",
-                        link: "tracksuits",
+                        link: "track-suits",
                         type: "category"
                     },
                     // ЛІТНІ КОМПЛЕКТИ
@@ -298,7 +298,7 @@ export const DropMenuList: DropMenuGenderList[] = [
                     },
                     {
                         name: "СУМКИ ЧЕРЕЗ ПЛЕЧЕ",
-                        link: "shoulder_bags",
+                        link: "shoulder-bags",
                         type: "category"
                     },
                     {
@@ -318,12 +318,11 @@ export const DropMenuList: DropMenuGenderList[] = [
 ];
 
 
-export type linkType = "outerwear" |"jackets_and_wind-jackets" | "autumn-spring-parks" | "winter-jackets" | "sweatshirts" | "pants"
-    | "jeans" | "sport pants" | "cargos_joggers_chinos" | "track-suits" | "polo_and_t-shirts" | "shorts" | "summers-sets"
-    | "underwear" | "winter-shoes" | "sneakers" | "backpacks" | "belt-bags" | "shoulder_bags" | "cap_and_panamas" | "winter-hats"
-    | "scarves_and_gloves" | "socks" | "belts_glasses_stickers_wallets" | "coats"
-    | "body" | "tops_and_t-shirts" | "tracksuits" | "summer-sets" | "dresses" | "swimwear"
-    | "suits" | "winter-hats_and_scarves";
+export type linkType = "outerwear" |"jackets_and_wind-jackets" | "autumn-spring-parks" | "winter-jackets" | "sweatshirts"
+    | "pants" | "jeans" | "sport-pants" | "cargos_joggers_chinos" | "track-suits" | "polo_and_t-shirts" | "shorts"
+    | "underwear" | "winter-shoes" | "sneakers" | "backpacks" | "belt-bags" | "shoulder-bags" | "caps_and_panamas"
+    | "winter-hats" | "scarves_and_gloves" | "socks" | "belts_glasses_stickers_wallets" | "coats" | "bodies"
+    | "tops_and_t-shirts" | "summer-sets" | "dresses" | "swimwear" | "suits" | "winter-hats_and_scarves";
 
 export type DropMenuListSubItem = {
  name: string,
