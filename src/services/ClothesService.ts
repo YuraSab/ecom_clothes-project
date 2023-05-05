@@ -1,5 +1,7 @@
 import {Cloth, clothes} from "../db/clothes-db";
 import {linkType} from "../components/Header/BottomHeaderMenu/ElementList_DropDownMenu";
+import {Gender} from "../redux/action-types";
+
 
 class ClothesService {
     // url on db
@@ -7,14 +9,14 @@ class ClothesService {
 
 
     // todo - make fetch/axios request when will be created db
-    getClothesByCategory(category: linkType, gender: "male" | "female") {
+    getClothesByCategory(category: linkType, gender: Gender) {
         // this will be renewed
         return clothes
             .filter(el => el.gender === gender)
             .filter(el => el.subcategory === category);
     }
 
-    getClothesByCategories(category: linkType[], gender: "male" | "female") {
+    getClothesByCategories(category: linkType[], gender: Gender) {
         // this will be renewed
         let clothesMas: Cloth[] = [];
         const genderFilter = clothes.filter(el => el.gender === gender);

@@ -18,11 +18,12 @@ const MainLayout = () => {
                             DropMenuList[0].clothList.map(
                                 el => {
                                     let masOfCategories = el.categories.map(el => el.link);
+                                    let name = el.title;
 
                                     return(
                                         <Route
                                             path={`${el.name}`}
-                                            element={<CategoryList category={masOfCategories}/>}
+                                            element={<CategoryList category={masOfCategories} name={name}/>}
                                             key={el.name}
                                         />
                                     )
@@ -34,7 +35,7 @@ const MainLayout = () => {
                                 el => el.categories.map(el =>
                                     <Route
                                         path={`${el.link}`}
-                                        element={<CategoryList category={el.link}/>}
+                                        element={<CategoryList category={el.link} name={el.name}/>}
                                         key={el.name}
                                     />
                                 )
@@ -47,11 +48,12 @@ const MainLayout = () => {
                             DropMenuList[1].clothList.map(
                                 el => {
                                     let masOfCategories = el.categories.map(el => el.link);
+                                    let name = el.title;
 
                                     return(
                                         <Route
                                             path={`${el.name}`}
-                                            element={<CategoryList category={masOfCategories}/>}
+                                            element={<CategoryList category={masOfCategories} name={name}/>}
                                             key={el.name}
                                         />
                                     )
@@ -63,7 +65,7 @@ const MainLayout = () => {
                                 el => el.categories.map(el =>
                                     <Route
                                         path={`${el.link}`}
-                                        element={<CategoryList category={el.link}/>}
+                                        element={<CategoryList category={el.link}  name={el.name}/>}
                                         key={el.name}
                                     />
                                 )

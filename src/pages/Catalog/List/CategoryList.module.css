@@ -1,0 +1,79 @@
+.main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px 200px 20px;
+}
+.contentBlock{
+    height: 100%;
+    width: 1170px;
+}
+.list{
+    width: 100%;
+    display: grid;
+    gap: 50px 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+.pathBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.caption{
+    width: 240px;
+    font-size: 34px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.pathList{
+    padding: 30px 0;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pathList span{
+    color: #999;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+}
+
+
+
+@media screen and (max-width: 1225px){
+    .main{
+        display: block;
+    }
+    .contentBlock{
+        width: 100%;
+    }
+    .list{
+        gap: 40px 20px;
+        grid-template-rows: repeat(auto-fill, 1fr);
+    }
+}
+@media screen and (max-width: 1025px) {
+    .list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 1225px) {
+    .list {
+        gap: 30px 20px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
