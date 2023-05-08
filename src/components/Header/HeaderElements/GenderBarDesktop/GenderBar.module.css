@@ -36,17 +36,15 @@
     padding: 10px 13px;
 }
 .right_block:hover{
-    background: white;
-    color: black;
     padding-bottom: 100px;
     bottom: 50px;
 }
 .rightLink{
     padding-bottom: 3px;
     border-bottom: black 2px solid;
+    text-decoration: none;
 }
 .rightLink:hover{
     width: fit-content;
     cursor: pointer;
-    color: black;
 }

@@ -13,7 +13,7 @@ const MainLayout = () => {
                 <Route path={'/'} element={<Main/>}>
                     <Route index element={<Navigate to="/male" replace/>}/>
 
-                    <Route path={'/male'} element={<Male/>}>
+                    <Route path={'/male/*'} element={<Male/>}>
                         {
                             DropMenuList[0].clothList.map(
                                 el => {
@@ -31,6 +31,7 @@ const MainLayout = () => {
                             )
                         }
                         {
+
                             DropMenuList[0].clothList.map(
                                 el => el.categories.map(el =>
                                     <Route
@@ -43,14 +44,14 @@ const MainLayout = () => {
                         }
                     </Route>
 
-                    <Route path={'/female'} element={<Female/>}>
+                    <Route path={'/female/'} element={<Female/>}>
                         {
                             DropMenuList[1].clothList.map(
                                 el => {
                                     let masOfCategories = el.categories.map(el => el.link);
                                     let name = el.title;
 
-                                    return(
+                                    return (
                                         <Route
                                             path={`${el.name}`}
                                             element={<CategoryList category={masOfCategories} name={name}/>}
@@ -65,7 +66,7 @@ const MainLayout = () => {
                                 el => el.categories.map(el =>
                                     <Route
                                         path={`${el.link}`}
-                                        element={<CategoryList category={el.link}  name={el.name}/>}
+                                        element={<CategoryList category={el.link} name={el.name}/>}
                                         key={el.name}
                                     />
                                 )
@@ -74,7 +75,6 @@ const MainLayout = () => {
                     </Route>
                 </Route>
             </Routes>
-
         </div>
     );
 };

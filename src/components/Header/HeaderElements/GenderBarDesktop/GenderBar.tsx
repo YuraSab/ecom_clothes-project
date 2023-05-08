@@ -6,6 +6,7 @@ import DropDownMenu from "../../DropDownMenu/DropDownMenuDesktop/DropDownMenu.ts
 import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
 import {useAction} from "../../../../hooks/redux/useAction.ts";
 import {Gender} from "../../../../redux/action-types";
+import {Link} from "react-router-dom";
 
 
 type GenderBar_PropsTypes = {
@@ -65,7 +66,13 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
                                  onMouseOver={() => onSetDropDownMenu(el.name)}
                                  onMouseOut={() => onSetDropDownMenu("")}
                             >
-                                <div className={styles.rightLink}>{el.title}</div>
+                                <Link
+                                    to={`${gender}/${el.name}`}
+                                    className={styles.rightLink}
+                                    style={{color: dropDownValue === el.name ? "black" : "white"
+                                }}>
+                                    {el.title}
+                                </Link>
 
                                 <div style={{visibility: dropDownValue === el.name ? "visible" : "hidden"}}>
                                     <DropDownMenu/>

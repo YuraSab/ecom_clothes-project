@@ -11,6 +11,7 @@ import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
 import ArrowLeft from "../../../../assets/icons/arrow_left.png";
 import {useAction} from "../../../../hooks/redux/useAction";
 import {onSetDropDownMenu} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu";
+import {Link} from "react-router-dom";
 
 
 type DropDownMenu_PropsTypes = {
@@ -66,18 +67,20 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
                                     <div className={styles.arrowBack}><img src={ArrowLeft} alt={"go back"}/></div>
                                     <div className={styles.textBack}>Назад</div>
                                 </div>
-                                <div className={styles.category} style={{padding: "20px 40px 20px 20px"}}>
-                                    Всі товари
-                                </div>
+                                <Link to={`/${gender}/${dropDownValue}`} style={{textDecoration: "none"}}>
+                                    <div className={styles.category} style={{padding: "20px 40px 20px 20px"}}>
+                                        Всі товари
+                                    </div>
+                                </Link>
                             </>
                         }
                         {
                             myList &&
                             myList.categories.map((el: DropMenuListSubItem, index: number) =>
-                                <div key={index}>
+                                <Link to={`/male/${el.link}`} key={index} style={{textDecoration: "none"}}>
                                     <DropItem subItem={el}/>
                                     <br/>
-                                </div>
+                                </Link>
                             )
                         }
                         <div style={{height: 90}}></div>

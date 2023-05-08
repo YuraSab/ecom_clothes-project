@@ -27,9 +27,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
             let clothesList: Cloth[] = ClothesService.getClothesByCategory(category, actualGender);
             setClothesList(clothesList);
         }
-    }, [])
+    }, [category])
 
     return (
+
         <div className={styles.main}>
             <div className={styles.contentBlock}>
 
@@ -54,6 +55,7 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
                 <div className={styles.list}>
                     {
+                        clothesList.length > 0 &&
                         clothesList.map(el => <CategoryItem key={el.id} item={el}/>)
                     }
                 </div>
