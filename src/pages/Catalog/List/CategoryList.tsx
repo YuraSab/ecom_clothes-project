@@ -5,11 +5,14 @@ import {Cloth} from "../../../db/clothes-db";
 import styles from "./CategoryList.module.css";
 import CategoryItem from "../ListItem/CategoryItem";
 import {useLocation} from "react-router-dom";
+import ReactSlider from "react-slider";
+import "./Slider.css";
 
 export type CategoryList_PropsType = {
     category: linkType[] | linkType;
     name: string | string[];
 }
+type SliderValue = number | [number, number];
 
 const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
@@ -18,6 +21,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
     const location = useLocation();
     const actualGender = location.pathname.includes('female') ? "female" : "male";
+
+    const [price, setPrice] = useState<SliderValue>([0, 100]);
+
+
 
     useEffect(() => {
         if (Array.isArray(category)) {
@@ -28,6 +35,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
             setClothesList(clothesList);
         }
     }, [category])
+
+
+
+
 
     return (
 
@@ -52,6 +63,57 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                         </span>
                     </div>
                 </div>
+
+                {/*<div className={styles.container}>*/}
+                {/*    <div*/}
+                {/*        // className={`${styles.minValue} ${styles.numberVal}`}*/}
+                {/*    >*/}
+                {/*        <input type={"number"} min={0} max={10000} value={2500} disabled/>*/}
+                {/*    </div>*/}
+                {/*    &nbsp; -*/}
+                {/*    <div className={styles.rangeSlider}>*/}
+                {/*        <div className={styles.progress}></div>*/}
+                {/*        <input type="range"*/}
+                {/*               // className={rangeMin}*/}
+                {/*               min={0} max={10000} value={2500}/>*/}
+                {/*        <input type="range"*/}
+                {/*               // className={range - max}*/}
+                {/*               min={0} max={10000} value={7500}/>*/}
+                {/*    </div>*/}
+                {/*    - &nbsp;*/}
+                {/*    <div*/}
+                {/*        // className={`${styles.minValue} ${styles.numberVal}`}*/}
+                {/*    >*/}
+                {/*        <input type={"number"} min={0} max={10000} value={7500} disabled/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                <div>
+
+                    <ReactSlider
+                        className="horizontal-slider"
+                        thumbClassName="example-thumb"
+                        trackClassName="example-track"
+                        defaultValue: SliderValue ={[0, 100]}
+                        min={0}
+                        max={100}
+                        // ariaLabel={['Lower thumb', 'Upper thumb']}
+                        ariaValuetext={state => `Thumb value ${state.valueNow}`}
+                        renderThumb={(props) => <div {...props}></div>}
+                        // renderThumb={<div className={"example-thumb"}></div>}
+                        pearling
+                        minDistance={10}
+                        // onChange={(value, index) => console.log(`onChange: ${JSON.stringify({ value, index })}`)}
+                        onChange={(value) => setPrice(value)}
+                    />
+                    <hr/><br/>
+                    <b>From: {price[0]}</b><br/>
+                    <hr/><br/>
+                    <b>To: {price[1]}</b><br/>
+                    <hr/><br/>
+
+                </div>
+
 
                 <div className={styles.list}>
                     {

@@ -1,14 +1,16 @@
-.main{
+.main {
     height: 100%;
     display: flex;
     justify-content: center;
     padding: 50px 20px 200px 20px;
 }
-.contentBlock{
+
+.contentBlock {
     height: 100%;
     width: 1170px;
 }
-.list{
+
+.list {
     width: 100%;
     display: grid;
     gap: 50px 20px;
@@ -16,16 +18,17 @@
 }
 
 
-.pathBlock{
+.pathBlock {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.caption{
-    width: 240px;
+
+.caption {
+    width: 600px;
     font-size: 34px;
-    font-family: Ubuntu,sans-serif;
+    font-family: Ubuntu, sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 6px;
@@ -33,47 +36,128 @@
     padding: 0;
     text-align: center;
 }
-.pathList{
+
+.pathList {
     padding: 30px 0;
-    width: 240px;
+    width: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.pathList span{
+
+.pathList span {
     color: #999;
     font-size: 12px;
     cursor: pointer;
-    font-family: Ubuntu,sans-serif;
+    font-family: Ubuntu, sans-serif;
     font-weight: 400;
 }
 
 
+/*.container {*/
+/*    position: relative;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    width: 600px;*/
+/*    height: 80px;*/
+/*    background: #fff;*/
+/*    border-radius: 20px;*/
+/*}*/
 
-@media screen and (max-width: 1225px){
-    .main{
+/*.container input[type="number"] {*/
+/*    width: 50px;*/
+/*    height: 30px;*/
+/*    background: #fff;*/
+/*    border: 1px solid #ddd;*/
+/*    font-size: 15px;*/
+/*    font-weight: 700;*/
+/*    text-align: center;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.container input[type="number"]::-webkit-outer-spin-button,*/
+/*.container input[type="number"]::-webkit-inner-spin-button {*/
+/*    -webkit-appearance: none;*/
+/*}*/
+
+/*.container .range-slider {*/
+/*    position: relative;*/
+/*    width: 400px;*/
+/*    height: 5px;*/
+/*    background: #ddd;*/
+/*    outline: none;*/
+/*    top: 1px;*/
+/*    margin: 10px;*/
+/*}*/
+
+/*.container .range-slider .progress {*/
+/*    left: 25%;*/
+/*    right: 25%;*/
+/*    height: 100%;*/
+/*    background: #17a288;*/
+/*    border-radius: 50px;*/
+/*    position: absolute;*/
+/*}*/
+
+/*.container .range-slider input[type="range"] {*/
+/*    position: absolute;*/
+/*    top: -8px;*/
+/*    left: -5px;*/
+/*    width: 101%;*/
+/*    -webkit-appearance: none;*/
+/*    pointer-events: none;*/
+/*    background: none;*/
+/*    outline: none;*/
+/*}*/
+
+/*.container .range-slider input::-webkit-slider-thumb {*/
+/*    pointer-events: auto;*/
+/*    -webkit-appearance: none;*/
+/*    width: 17px;*/
+/*    height: 17px;*/
+/*    background: #17a288;*/
+/*    border-radius: 50px;*/
+/*}*/
+
+
+@media screen and (max-width: 1225px) {
+    .main {
         display: block;
     }
-    .contentBlock{
+
+    .contentBlock {
         width: 100%;
     }
-    .list{
+
+    .list {
         gap: 40px 20px;
         grid-template-rows: repeat(auto-fill, 1fr);
     }
 }
+
 @media screen and (max-width: 1025px) {
-    .list{
+    .list {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 @media screen and (max-width: 1225px) {
     .list {
         gap: 30px 20px;
     }
 }
+
 @media screen and (max-width: 600px) {
-    .list{
+    .list {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .caption {
+        width: 450px;
+    }
+
+    .pathList {
+        width: 450px;
     }
 }
