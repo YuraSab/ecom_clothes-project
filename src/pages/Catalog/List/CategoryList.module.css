@@ -54,71 +54,102 @@
 }
 
 
-/*.container {*/
-/*    position: relative;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    width: 600px;*/
-/*    height: 80px;*/
-/*    background: #fff;*/
-/*    border-radius: 20px;*/
-/*}*/
+.filterSortBar{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
 
-/*.container input[type="number"] {*/
-/*    width: 50px;*/
-/*    height: 30px;*/
-/*    background: #fff;*/
-/*    border: 1px solid #ddd;*/
-/*    font-size: 15px;*/
-/*    font-weight: 700;*/
-/*    text-align: center;*/
-/*    border-radius: 5px;*/
-/*}*/
+.fromTo{
+    color: #777;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.15;
+}
+.priceTitle{
+    padding-top: 25px;
+    font-size: 13px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: black;
+}
+.priceInput{
+    width: 60px;
+    padding: 4px;
+    border: 1px solid #dfddda;
+    border-radius: 4px;
+    appearance: none;
+    outline: none;
+    font-size: 16px;
+    color: #000;
+    overflow: visible;
+    line-height: 1.15;
+}
 
-/*.container input[type="number"]::-webkit-outer-spin-button,*/
-/*.container input[type="number"]::-webkit-inner-spin-button {*/
-/*    -webkit-appearance: none;*/
-/*}*/
+.sizeBlock{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 120px;
+}
+.title{
+    text-transform: uppercase;
+    width: 90%;
+    /*height: 60px;*/
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 2px solid #dfddda;
+    height: 50%;
+    font-size: 13px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+.applyBlock{
+    display: flex;
+    /*align-items: center;*/
+    justify-content: center;
+    flex-direction: column;
+}
+.applyBlock .apply{
+    height: 50%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.applyBlock .applyTitle{
+    font-size: 13px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+.unset{
+    height: 50%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(51, 51, 51);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
 
-/*.container .range-slider {*/
-/*    position: relative;*/
-/*    width: 400px;*/
-/*    height: 5px;*/
-/*    background: #ddd;*/
-/*    outline: none;*/
-/*    top: 1px;*/
-/*    margin: 10px;*/
-/*}*/
-
-/*.container .range-slider .progress {*/
-/*    left: 25%;*/
-/*    right: 25%;*/
-/*    height: 100%;*/
-/*    background: #17a288;*/
-/*    border-radius: 50px;*/
-/*    position: absolute;*/
-/*}*/
-
-/*.container .range-slider input[type="range"] {*/
-/*    position: absolute;*/
-/*    top: -8px;*/
-/*    left: -5px;*/
-/*    width: 101%;*/
-/*    -webkit-appearance: none;*/
-/*    pointer-events: none;*/
-/*    background: none;*/
-/*    outline: none;*/
-/*}*/
-
-/*.container .range-slider input::-webkit-slider-thumb {*/
-/*    pointer-events: auto;*/
-/*    -webkit-appearance: none;*/
-/*    width: 17px;*/
-/*    height: 17px;*/
-/*    background: #17a288;*/
-/*    border-radius: 50px;*/
-/*}*/
+.sortBlock{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 120px;
+}
 
 
 @media screen and (max-width: 1225px) {
