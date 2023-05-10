@@ -14,8 +14,7 @@ export type CategoryList_PropsType = {
     name: string | string[];
 }
 type SliderValue = { min: number, max: number };
-// type SliderValue = number[] | {min: number, max: number};
-//[number, number] |
+
 
 const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
@@ -30,9 +29,8 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     // const [sort, setSort] = useState("");
 
     const [minMax, setMinMax] = useState({min: 0, max: 100});
-    // const [inputMinMax, setInputMinMax] = useState({min: 0, max: 100});
-    // let minimum = 0;
-    // let maximum = 100;
+    const [inputMinMax, setInputMinMax] = useState({min: 0, max: 100});
+    const [inputActive, setInputActive] = useState(false);
 
 
     useEffect(() => {
@@ -42,9 +40,9 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
             let minimal = Math.min(...clothesList.map(el => el.price));
             let maximal = Math.max(...clothesList.map(el => el.price));
             setMinMax({min: minimal, max: maximal});
-            console.log(minimal, maximal);
             setClothesList(clothesList);
             setPrice({min: minimal, max: maximal});
+            setInputMinMax({min: minimal, max: maximal});
         } else {
             let clothesList: Cloth[] = ClothesService.getClothesByCategory(category, actualGender);
             let minimal = Math.min(...clothesList.map(el => el.price));
@@ -52,41 +50,66 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
             console.log(minimal, maximal);
             setClothesList(clothesList);
             setPrice({min: minimal, max: maximal});
+            setInputMinMax({min: minimal, max: maximal});
         }
     }, [category])
 
 
-    // let maximal = 0;
-    // let minimal = 100;
-    //
-    // if (clothesList.length > 0) {
-    //     maximal = Math.max(...clothesList.map(el => el.price));
-    //     minimal = Math.min(...clothesList.map(el => el.price));
-    //     // console.log(minimal, maximal)
-    // }
-    // minimal > 0 && setPrice( {min: minimal, max: maximal});
-
-    let filterCondition = price.min === 0 && price.max === 100;
-    console.log(filterCondition);
-    console.log("filters", filters);
+    let filterCondition = price.min === minMax.min && price.max === minMax.max;
 
 
-    const dropFilters = () => {
-        setPrice({min: 0, max: 100});
-        setFilters(false);
-    }
+    const onBlur = () => {
+        // console.log(event.target.value)
+        if (inputMinMax.min >= minMax.min && inputMinMax.min <= minMax.max
+            && inputMinMax.max >= minMax.min && inputMinMax.max <= minMax.max
+        ) {
+            setFilters(true)
+            setPrice({
+                min: inputMinMax.min,
+                max: inputMinMax.max
+            })
+        } else {
+            setFilters(false)
+            setInputMinMax({
+                min: price.min,
+                max: price.max
+            })
+        }
+        setInputActive(false);
+
+    };
+
 
     const applyFilters = () => {
-        setFilters(true);
-        // setClothesList(prevState => console.log(prevState)
-        // {
-        // return(
-        // prevState.filter()
-        // )
-        // })
+        if(!filterCondition) {
 
-        console.log(clothesList);
+            setFilters(true);
+            let filteredMas;
+            if (Array.isArray(category)) {
+                filteredMas = ClothesService.getClothesByCategories(category, actualGender);
+            } else {
+                filteredMas = ClothesService.getClothesByCategory(category, actualGender);
+            }
+            filteredMas =  filteredMas.filter(el => el.price >= price.min && el.price <= price.max);
+            setClothesList(filteredMas);
+        }
     }
+
+    const dropFilters = () => {
+        if (filters) {
+            setPrice({min: minMax.min, max: minMax.max});
+            setFilters(false);
+            setInputActive(false)
+            if (Array.isArray(category)) {
+                let clothesList: Cloth[] = ClothesService.getClothesByCategories(category, actualGender);
+                setClothesList(clothesList);
+            } else {
+                let clothesList: Cloth[] = ClothesService.getClothesByCategory(category, actualGender);
+                setClothesList(clothesList);
+            }
+        }
+    }
+
 
     return (
 
@@ -123,24 +146,28 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                         <div>
                             {/*{ minimum > 0 &&*/}
 
-                                <ReactSlider
-                                    className="horizontal-slider"
-                                    thumbClassName="example-thumb"
-                                    trackClassName="example-track"
-                                    defaultValue={[price.min, price.max]}
-                                    // min={0}
-                                    // max={100}
-                                    // min={0}
-                                    // max={3000}
-                                    min={minMax.min}
-                                    max={minMax.max}
-                                    value={[price.min, price.max]}
-                                    ariaValuetext={state => `Thumb value ${state.valueNow}`}
-                                    renderThumb={(props) => <div {...props}></div>}
-                                    pearling
-                                    minDistance={10}
-                                    onChange={(value) => setPrice({min: value[0], max: value[1]})}
-                                />
+                            <ReactSlider
+                                className="horizontal-slider"
+                                thumbClassName="example-thumb"
+                                trackClassName="example-track"
+                                defaultValue={[price.min, price.max]}
+                                // min={0}
+                                // max={100}
+                                // min={0}
+                                // max={3000}
+                                min={minMax.min}
+                                max={minMax.max}
+                                value={[price.min, price.max]}
+                                ariaValuetext={state => `Thumb value ${state.valueNow}`}
+                                renderThumb={(props) => <div {...props}></div>}
+                                pearling
+                                minDistance={10}
+                                onChange={(value) => {
+                                    setFilters(true)
+                                    setPrice({min: value[0], max: value[1]})
+                                }
+                                }
+                            />
                             {/*}*/}
                         </div>
 
@@ -151,20 +178,18 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                 <input
                                     className={styles.priceInput}
                                     type={"number"}
-                                    value={price.min}
+                                    // value={inputMinMax.min}
+                                    value={inputActive ? inputMinMax.min : price.min}
+                                    onBlur={() => onBlur()}
 
                                     onChange={event => {
-                                        if (
-                                            !isNaN(parseInt(event.target.value)) &&
-                                            parseInt(event.target.value) >= minMax.min &&
-                                            parseInt(event.target.value) <= minMax.max
-                                        ) {
-                                            setPrice((prevState) => ({
-                                                min: parseInt(event.target.value),
-                                                max: prevState.max
-                                            }));
-                                        }
-                                    }}
+                                        setInputActive(true);
+                                        setInputMinMax((prevState) => ({
+                                            min: parseInt(event.target.value),
+                                            max: prevState.max
+                                        }))
+                                    }
+                                    }
                                 />
                             </div>
 
@@ -173,20 +198,18 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                 <input
                                     className={styles.priceInput}
                                     type={"number"}
-                                    value={price.max}
-                                    onBlur={() => console.log("ooooouuuuttt!") }
+                                    // value={inputMinMax.max}
+                                    value={inputActive ? inputMinMax.max : price.max}
+                                    onBlur={() => onBlur()}
+
                                     onChange={event => {
-                                        if (
-                                            !isNaN(parseInt(event.target.value)) &&
-                                            parseInt(event.target.value) >= minMax.min &&
-                                            parseInt(event.target.value) <= minMax.max
-                                        ) {
-                                            setPrice((prevState) => ({
-                                                min: prevState.min,
-                                                max: parseInt(event.target.value)
-                                            }));
-                                        }
-                                    }}
+                                        setInputActive(true);
+                                        setInputMinMax((prevState) => ({
+                                            min: prevState.min,
+                                            max: parseInt(event.target.value)
+                                        }))
+                                    }
+                                    }
                                 />
                             </div>
                         </div>
@@ -199,9 +222,9 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
                     <div className={styles.applyBlock}>
                         <div className={styles.apply} style={{background: "#dfddda"}}
-                             onClick={() => !filterCondition &&
-                                 applyFilters()
-                             }
+                             // onClick={() => filterCondition &&
+                             //     applyFilters()
+                             // }
                         >
                             <div>
                                 <img src={SettingsIcon} alt={"apply filters"} height={25} style={{padding: "0 10px"}}/>
@@ -209,13 +232,13 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                             <div
                                 className={styles.applyTitle}
                                 style={{padding: "0 10px", color: filterCondition ? "grey" : "black"}}
+                                onClick={() => applyFilters()}
                             >
                                 ЗАСТОСУВАТИ
                             </div>
                         </div>
                         <div className={styles.unset}
-                             onClick={() => !filterCondition &&
-                                 dropFilters()
+                             onClick={() => dropFilters()
                              }
                              style={{color: filterCondition ? "grey" : "black"}}
                         >
