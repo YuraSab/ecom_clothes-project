@@ -23,7 +23,10 @@ const MainLayout = () => {
                                     return(
                                         <Route
                                             path={`${el.name}`}
-                                            element={<CategoryList category={masOfCategories} name={name}/>}
+                                            element={<CategoryList
+                                                category={masOfCategories}
+                                                name={name}
+                                            />}
                                             key={el.name}
                                         />
                                     )

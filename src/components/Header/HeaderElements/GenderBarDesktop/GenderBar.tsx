@@ -71,7 +71,10 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
                                     className={styles.rightLink}
                                     style={{color: dropDownValue === el.name ? "black" : "white"
                                 }}>
+                                    <div style={{ display: "flex", justifyContent: "center", height: "25px"}}>
+
                                     {el.title}
+                                    </div>
                                 </Link>
 
                                 <div style={{visibility: dropDownValue === el.name ? "visible" : "hidden"}}>

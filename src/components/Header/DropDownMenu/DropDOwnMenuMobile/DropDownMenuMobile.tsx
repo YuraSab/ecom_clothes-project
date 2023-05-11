@@ -49,7 +49,7 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
                 style={{
                     transform: myList ? "translateX(0%)" : "translateX(50%)",
                     visibility: myList ? "visible" : "hidden",
-                    height: "100%"
+                    height: "100%",
                 }}
             >
 

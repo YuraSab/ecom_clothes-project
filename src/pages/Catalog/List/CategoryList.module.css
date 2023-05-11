@@ -15,6 +15,7 @@
     display: grid;
     gap: 50px 20px;
     grid-template-columns: repeat(4, 1fr);
+    /*z-index: 45;*/
 }
 
 
@@ -54,10 +55,19 @@
 }
 
 
+
 .filterSortBar{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 25%);
+    /*grid-template-columns: repeat(4, 25%);*/
+    gap: 50px 20px;
+    grid-template-columns: repeat(4, 1fr);
+    height: 120px;
+    padding-bottom: 50px;
+}
+.priceBlock{
+    display: flex;
+    flex-direction: column;
 }
 
 .fromTo{
@@ -114,6 +124,7 @@
     /*align-items: center;*/
     justify-content: center;
     flex-direction: column;
+    height: 120px;
 }
 .applyBlock .apply{
     height: 50%;
@@ -140,16 +151,62 @@
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
+    cursor: pointer;
 }
+
 
 .sortBlock{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 120px;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*flex-direction: column;*/
+    /*height: 120px;*/
 }
+
+.sort{
+    width: 100%;
+    background: yellowgreen;
+
+}
+.sortTitle{
+    text-transform: uppercase;
+    /*height: 60px;*/
+    /*height: 16px;*/
+
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*cursor: pointer;*/
+    /*border-bottom: 2px solid #dfddda;*/
+    /*height: 50%;*/
+    font-size: 13px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+.sortList{
+    /*width: 100%;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    position: absolute;
+    height: 240px;
+    padding: 22px 20px 0 20px;
+}
+.sortItem{
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    padding-bottom: 30px;
+    /*width: 65px;*/
+
+    /*padding: 15px;*/
+    /*margin: 3px 10px 3px 0;*/
+}
+
+
 
 
 @media screen and (max-width: 1225px) {
@@ -165,19 +222,84 @@
         gap: 40px 20px;
         grid-template-rows: repeat(auto-fill, 1fr);
     }
+    .sortList{
+        width: 19.5%;
+    }
 }
+
+@media screen and (max-width: 1190px) {
+    .sortList{
+        width: calc(((100vw - 40px) - 60px) - 75% + 20px);
+    }
+}
+@media screen and (max-width: 1170px) {
+    .sortList{
+        height: 270px;
+    }
+}
+
 
 @media screen and (max-width: 1025px) {
     .list {
         grid-template-columns: repeat(3, 1fr);
     }
+    .filterSortBar{
+        display: grid;
+        gap: 10px 20px;
+        grid-template-areas:
+        "price size apply"
+        "sort sort sort";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        height: 240px;
+        padding-bottom: 30px;
+    }
+    .priceBlock{
+        grid-area: price;
+    }
+    .sizeBlock{
+        grid-area: size;
+    }
+    .applyBlock{
+        grid-area: apply;
+    }
+    .sortBlock{
+        grid-area: sort;
+    }
+    .unset{
+        padding-left: 21px;
+        justify-content: start;
+        color: black;
+    }
+    .sortList{
+        width: 90vw;
+    }
+
+    .sortItem{
+        width: 90vw;
+    }
+/*    to 770*/
 }
 
-@media screen and (max-width: 1225px) {
-    .list {
-        gap: 30px 20px;
+@media screen and (max-width: 946px) {
+    .sortList{
+        /*width: calc(100vw - 40px);*/
+        width: 90%;
+    }
+    .sortItem{
+        width: 90%;
     }
 }
+@media screen and (max-width: 812px) {
+
+    .sortList{
+        width: calc(90% - 4px);
+    }
+    .sortItem{
+        width: calc(90% - 4px);
+    }
+}
+
 
 @media screen and (max-width: 600px) {
     .list {

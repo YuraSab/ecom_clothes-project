@@ -6,6 +6,8 @@
     margin-top: 90px;
     padding: 0;
     height: 100%;
+    z-index: 60;
+
 }
 
 .mainDiv {

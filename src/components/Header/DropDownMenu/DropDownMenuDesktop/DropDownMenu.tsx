@@ -38,8 +38,8 @@ const DropDownMenu: FC = () => {
             <div className={styles.subDiv}>
                 {
                     myList.categories.map((el: DropMenuListSubItem, index: number) =>
-                        <Link to={`/${gender}/${el.link}`} style={{textDecoration: "none"}}>
-                            <div key={index}>
+                        <Link to={`/${gender}/${el.link}`} style={{textDecoration: "none"}} key={index}>
+                            <div>
                                 <DropItem subItem={el}/>
                                 <br/>
                             </div>
