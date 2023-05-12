@@ -41,6 +41,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     const [sortActive, setSortActive] = useState<boolean>(false);
     const [sort, setSort] = useState<SortValue>("");
 
+
+    const [mobileSort, setMobileSort] = useState<boolean>(false);
+    const [mobileFilters, setMobileFilters] = useState<boolean>(false);
+
     const sortVariants = [
         {title: "від дешевших до дорощих", value: "lower-price"},
         {title: "від дорогих до дешевших", value: "higher-price"},
@@ -153,6 +157,14 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
 
                 <div className={styles.filterSortBar}>
+
+                    {
+                        window.innerWidth < 770 &&
+                        <div style={{display: "flex", width: "100%", justifyContent: "space-between", alignItems: "center"}}>
+                            <div>фільтр</div>
+                            <div>сортувати</div>
+                        </div>
+                    }
 
 
                     <div className={styles.priceBlock}>
@@ -282,11 +294,11 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                 Сортування
                                 {
                                     sortActive &&
-                                    <div  onClick={(event) => {
+                                    <div onClick={(event) => {
                                         event.stopPropagation();
                                         setSortActive(false)
                                     }}>
-                                <img src={CrossIcon} alt={"close"} height={15}/>
+                                        <img src={CrossIcon} alt={"close"} height={15}/>
 
                                     </div>
                                 }

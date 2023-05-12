@@ -8,11 +8,13 @@ type CategoryItem_propsType = {
 
 const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
 
+    console.log(window.innerWidth)
     return (
         <div className={styles.main}>
             <div>
                 <img src={item.photo}
                      alt={item.name}
+                    // width={window.innerWidth >= 660 ? "100%" : "70%"}
                     width={"100%"}
                 />
             </div>
