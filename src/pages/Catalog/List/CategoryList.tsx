@@ -15,7 +15,7 @@ export type CategoryList_PropsType = {
     name: string | string[];
 }
 type SliderValue = { min: number, max: number };
-type SortValue = "" | "lower-price" | "higher-price" | "newer" | "older" | "discount";
+type SortValue = "" | "lower-price" | "higher-price" | "newer" | "older" | "discount" | string;
 
 // від дешевших до дорощих, від дорогих до дешевших, спочатку нові, сочатку старі, спочатку зі знижками
 // lower-price, higher-price, newer, older, discount
@@ -42,8 +42,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     const [sort, setSort] = useState<SortValue>("");
 
 
-    const [mobileSort, setMobileSort] = useState<boolean>(false);
-    const [mobileFilters, setMobileFilters] = useState<boolean>(false);
+    const [windowWidth, setWindowWidth] = useState<number>(0);
+
+    const [mobileSortActive, setMobileSortActive] = useState<boolean>(false);
+    const [mobileFiltersActive, setMobileFiltersActive] = useState<boolean>(false);
 
     const sortVariants = [
         {title: "від дешевших до дорощих", value: "lower-price"},
@@ -72,14 +74,58 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
             setPrice({min: minimal, max: maximal});
             setInputMinMax({min: minimal, max: maximal});
         }
-    }, [category])
+    }, [category, sort])
+
+
+    useEffect(() => {
+
+        const trackWindowWidth = () => {
+            setWindowWidth(document.body.clientWidth);
+        };
+
+        window.addEventListener("resize", trackWindowWidth)
+
+        return (() => {
+            window.removeEventListener("resize", trackWindowWidth);
+        })
+    }, []);
+
+
+    useEffect(() => {
+        // todo - useEffect setting filters to localStorage, when location changes - filters cleanings
+        let sortedClothesList;
+        if ( clothesList.length > 0 && sort === "" || sort === "newer" || sort === "discount") {
+            sortedClothesList = clothesList.sort(function (a, b) {
+                return a.id - b.id;
+            });
+            setClothesList(sortedClothesList);
+        }
+        if (sort === "older") {
+            sortedClothesList = clothesList.sort(function (a, b) {
+                return b.id - a.id;
+            });
+            setClothesList(sortedClothesList);
+        }
+        if (sort === "higher-price") {
+            sortedClothesList = clothesList.sort(function (a, b) {
+                return a.price - b.price;
+            });
+            setClothesList(sortedClothesList);
+        }
+        if (sort === "lower-price") {
+            sortedClothesList = clothesList.sort(function (a, b) {
+                return b.price - a.price;
+            });
+            setClothesList(sortedClothesList);
+        }
+
+    }, [sort]);
 
 
     let filterCondition = price.min === minMax.min && price.max === minMax.max;
 
 
     const onBlur = () => {
-        // console.log(event.target.value)
         if (inputMinMax.min >= minMax.min && inputMinMax.min <= minMax.max
             && inputMinMax.max >= minMax.min && inputMinMax.max <= minMax.max
         ) {
@@ -131,6 +177,13 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     }
 
 
+    const onSetOverFlow = (value: "auto" | "hidden") => {
+        document.body.style.overflow = value;
+    }
+
+
+
+
     return (
 
         <div className={styles.main}>
@@ -156,174 +209,414 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                 </div>
 
 
-                <div className={styles.filterSortBar}>
+                {
+                    // windowWidth > 770 ?
+                    window.innerWidth >= 770 ?
 
-                    {
-                        window.innerWidth < 770 &&
-                        <div style={{display: "flex", width: "100%", justifyContent: "space-between", alignItems: "center"}}>
-                            <div>фільтр</div>
-                            <div>сортувати</div>
-                        </div>
-                    }
+                        <div className={styles.filterSortBar}>
 
+                            <div className={styles.priceBlock}>
+                                <label className={styles.priceTitle}>
+                                    ЦІНА
+                                </label>
+                                <div>
+                                    {clothesList.length > 0 &&
+                                        <ReactSlider
+                                            className="horizontal-slider"
+                                            thumbClassName="example-thumb"
+                                            trackClassName="example-track"
+                                            defaultValue={[price.min, price.max]}
+                                            // min={0}
+                                            // max={100}
+                                            // min={0}
+                                            // max={3000}
+                                            min={minMax.min}
+                                            max={minMax.max}
+                                            value={[price.min, price.max]}
+                                            ariaValuetext={state => `Thumb value ${state.valueNow}`}
+                                            renderThumb={(props) => <div {...props}></div>}
+                                            pearling
+                                            minDistance={10}
+                                            onChange={(value) => {
+                                                setFilters(true)
+                                                setPrice({min: value[0], max: value[1]})
+                                            }}
+                                        />
+                                    }
+                                </div>
 
-                    <div className={styles.priceBlock}>
-                        <label className={styles.priceTitle}>
-                            ЦІНА
-                        </label>
-                        <div>
-                            {clothesList.length > 0 &&
-                                <ReactSlider
-                                    className="horizontal-slider"
-                                    thumbClassName="example-thumb"
-                                    trackClassName="example-track"
-                                    defaultValue={[price.min, price.max]}
-                                    // min={0}
-                                    // max={100}
-                                    // min={0}
-                                    // max={3000}
-                                    min={minMax.min}
-                                    max={minMax.max}
-                                    value={[price.min, price.max]}
-                                    ariaValuetext={state => `Thumb value ${state.valueNow}`}
-                                    renderThumb={(props) => <div {...props}></div>}
-                                    pearling
-                                    minDistance={10}
-                                    onChange={(value) => {
-                                        setFilters(true)
-                                        setPrice({min: value[0], max: value[1]})
-                                    }}
-                                />
-                            }
-                        </div>
+                                <div style={{display: "flex", justifyContent: "space-between"}}>
+                                    <div>
+                                        <span className={styles.fromTo}>від:</span>
+                                        <input
+                                            className={styles.priceInput}
+                                            type={"number"}
+                                            // value={inputMinMax.min}
+                                            value={inputActive ? inputMinMax.min : price.min}
+                                            onBlur={() => onBlur()}
 
-                        <div style={{display: "flex", justifyContent: "space-between"}}>
-                            <div>
-                                <span className={styles.fromTo}>від:</span>
-                                <input
-                                    className={styles.priceInput}
-                                    type={"number"}
-                                    // value={inputMinMax.min}
-                                    value={inputActive ? inputMinMax.min : price.min}
-                                    onBlur={() => onBlur()}
+                                            onChange={event => {
+                                                setInputActive(true);
+                                                setInputMinMax((prevState) => ({
+                                                    min: parseInt(event.target.value),
+                                                    max: prevState.max
+                                                }))
+                                            }}
+                                        />
+                                    </div>
+                                    <div>
+                                        <span className={styles.fromTo}>до:</span>
+                                        <input
+                                            className={styles.priceInput}
+                                            type={"number"}
+                                            // value={inputMinMax.max}
+                                            value={inputActive ? inputMinMax.max : price.max}
+                                            onBlur={() => onBlur()}
 
-                                    onChange={event => {
-                                        setInputActive(true);
-                                        setInputMinMax((prevState) => ({
-                                            min: parseInt(event.target.value),
-                                            max: prevState.max
-                                        }))
-                                    }}
-                                />
+                                            onChange={event => {
+                                                setInputActive(true);
+                                                setInputMinMax((prevState) => ({
+                                                    min: prevState.min,
+                                                    max: parseInt(event.target.value)
+                                                }))
+                                            }}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <span className={styles.fromTo}>до:</span>
-                                <input
-                                    className={styles.priceInput}
-                                    type={"number"}
-                                    // value={inputMinMax.max}
-                                    value={inputActive ? inputMinMax.max : price.max}
-                                    onBlur={() => onBlur()}
 
-                                    onChange={event => {
-                                        setInputActive(true);
-                                        setInputMinMax((prevState) => ({
-                                            min: prevState.min,
-                                            max: parseInt(event.target.value)
-                                        }))
-                                    }}
-                                />
+
+                            <div className={styles.sizeBlock}>
+                                <div className={styles.title}>Розмір</div>
+                            </div>
+
+
+                            <div className={styles.applyBlock}>
+                                <div className={styles.apply}
+                                     style={{background: "#dfddda"}}
+                                     onClick={() => applyFilters()}
+                                >
+                                    <div>
+                                        <img src={SettingsIcon} alt={"apply filters"} height={25}
+                                             style={{padding: "0 10px"}}/>
+                                    </div>
+                                    <div
+                                        className={styles.applyTitle}
+                                        style={{padding: "0 10px", color: filterCondition ? "grey" : "black"}}
+                                    >
+                                        ЗАСТОСУВАТИ
+                                    </div>
+                                </div>
+                                <div className={styles.unset}
+                                     onClick={() => dropFilters()}
+                                     style={{color: filterCondition ? "grey" : "black"}}
+                                >
+                                    скинути фільтр
+                                </div>
+                            </div>
+
+
+                            <div className={styles.sortBlock}>
+                                <div className={styles.sort} style={{
+                                    background: sortActive ? "white" : "none",
+                                    // padding: "5%",
+                                    // border: sortActive ? "1px grey solid" : "1px white solid",
+                                    height: sortActive ? 322 : 60,
+                                    zIndex: 49,
+                                    boxShadow: sortActive ? "0 5px 28px 3px rgba(0,0,0,.3)" : "none",
+                                }}>
+                                    <div className={styles.sortTitle}
+                                         style={{
+                                             // padding: "22px 21px 0 21px",
+                                             background: sortActive ? "white" : "none",
+                                             display: "flex",
+                                             alignItems: "center",
+                                             justifyContent: "space-between",
+                                             padding: "0 21px",
+                                             height: 60,
+                                             borderBottom: sortActive ? "none" : "2px solid #dfddda",
+                                             cursor: "pointer"
+                                         }}
+                                         onClick={() => setSortActive(true)}
+
+                                    >
+                                        Сортування
+                                        {
+                                            sortActive &&
+                                            <div onClick={(event) => {
+                                                event.stopPropagation();
+                                                setSortActive(false)
+                                            }}>
+                                                <img src={CrossIcon} alt={"close"} height={15}/>
+
+                                            </div>
+                                        }
+                                    </div>
+                                    {sortActive &&
+                                        <div className={styles.sortList}
+                                             style={{
+                                                 background: sortActive ? "white" : "none",
+                                                 // padding: "0 20px",
+                                                 zIndex: 48,
+                                                 // padding: "22px 20px 0 20px",
+                                                 // border: "2px black solid"
+
+                                             }}
+                                        >
+                                            {
+                                                sortVariants.map(el => <div
+                                                    className={styles.sortItem}
+                                                    onClick={() => setSort(el.value)}
+                                                >{el.title}</div>)
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                                <div className={styles.unset}>{sort === "" ? "спочатку нові" : sort}</div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <div className={styles.sizeBlock}>
-                        <div className={styles.title}>Розмір</div>
-                    </div>
+                        :
 
 
-                    <div className={styles.applyBlock}>
-                        <div className={styles.apply}
-                             style={{background: "#dfddda"}}
-                             onClick={() => applyFilters()}
-                        >
-                            <div>
-                                <img src={SettingsIcon} alt={"apply filters"} height={25} style={{padding: "0 10px"}}/>
-                            </div>
-                            <div
-                                className={styles.applyTitle}
-                                style={{padding: "0 10px", color: filterCondition ? "grey" : "black"}}
+                        <div className={styles.filterSortBar_mobile}>
+                            <div className={styles.filterSortButtons_mobile}
+                                 style={{borderRight: "1px #999 solid"}}
+                                 onClick={() => {
+                                     setMobileFiltersActive(true)
+                                     onSetOverFlow("hidden")
+                                 }
+                                 }
                             >
-                                ЗАСТОСУВАТИ
+                                фільтрувати
                             </div>
-                        </div>
-                        <div className={styles.unset}
-                             onClick={() => dropFilters()}
-                             style={{color: filterCondition ? "grey" : "black"}}
-                        >
-                            скинути фільтр
-                        </div>
-                    </div>
-
-
-                    <div className={styles.sortBlock}>
-                        <div className={styles.sort} style={{
-                            background: sortActive ? "white" : "none",
-                            // padding: "5%",
-                            // border: sortActive ? "1px grey solid" : "1px white solid",
-                            height: sortActive ? 322 : 60,
-                            zIndex: 49,
-                            boxShadow: sortActive ? "0 5px 28px 3px rgba(0,0,0,.3)" : "none",
-                        }}>
-                            <div className={styles.sortTitle}
-                                 style={{
-                                     // padding: "22px 21px 0 21px",
-                                     background: sortActive ? "white" : "none",
-                                     display: "flex",
-                                     alignItems: "center",
-                                     justifyContent: "space-between",
-                                     padding: "0 21px",
-                                     height: 60,
-                                     borderBottom: sortActive ? "none" : "2px solid #dfddda",
-                                     cursor: "pointer"
+                            <div className={styles.filterSortButtons_mobile}
+                                 onClick={() => {
+                                     setMobileSortActive(true);
+                                     onSetOverFlow("hidden");
                                  }}
-                                 onClick={() => setSortActive(true)}
-
                             >
-                                Сортування
-                                {
-                                    sortActive &&
-                                    <div onClick={(event) => {
-                                        event.stopPropagation();
-                                        setSortActive(false)
-                                    }}>
-                                        <img src={CrossIcon} alt={"close"} height={15}/>
+                                сортувати
+                            </div>
+
+                            {
+                                mobileFiltersActive &&
+
+                                <div className={styles.overlay}>
+                                    <div className={styles.mobileFilterBlock}
+                                         onClick={(event) => {
+                                             event.stopPropagation();
+
+                                         }}
+                                    >
+
+
+                                        <div
+                                            className={styles.title_cross_block}
+                                        >
+                                            <div>
+                                                фільтр
+                                            </div>
+                                            <img src={CrossIcon} alt={"close"} height={14}
+                                                 onClick={() => {
+                                                     setMobileFiltersActive(false);
+                                                     onSetOverFlow("auto")
+                                                 }}/>
+                                        </div>
+
+
+                                        {/* todo - price and size block (in flex) */}
+                                        <div style={{display: "flex"}}>
+
+
+                                            <div className={styles.priceBlock}>
+                                                <label className={styles.priceTitle}>
+                                                    ЦІНА
+                                                </label>
+                                                <div>
+                                                    {clothesList.length > 0 &&
+                                                        <ReactSlider
+                                                            className="horizontal-slider"
+                                                            thumbClassName="example-thumb"
+                                                            trackClassName="example-track"
+                                                            defaultValue={[price.min, price.max]}
+                                                            // min={0}
+                                                            // max={100}
+                                                            // min={0}
+                                                            // max={3000}
+                                                            min={minMax.min}
+                                                            max={minMax.max}
+                                                            value={[price.min, price.max]}
+                                                            ariaValuetext={state => `Thumb value ${state.valueNow}`}
+                                                            renderThumb={(props) => <div {...props}></div>}
+                                                            pearling
+                                                            minDistance={10}
+                                                            onChange={(value) => {
+                                                                setFilters(true)
+                                                                setPrice({min: value[0], max: value[1]})
+                                                            }}
+                                                        />
+                                                    }
+                                                </div>
+
+                                                <div style={{display: "flex", justifyContent: "space-between"}}>
+                                                    <div>
+                                                        <span className={styles.fromTo}>від:</span>
+                                                        <input
+                                                            className={styles.priceInput}
+                                                            type={"number"}
+                                                            // value={inputMinMax.min}
+                                                            value={inputActive ? inputMinMax.min : price.min}
+                                                            onBlur={() => onBlur()}
+
+                                                            onChange={event => {
+                                                                setInputActive(true);
+                                                                setInputMinMax((prevState) => ({
+                                                                    min: parseInt(event.target.value),
+                                                                    max: prevState.max
+                                                                }))
+                                                            }}
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <span className={styles.fromTo}>до:</span>
+                                                        <input
+                                                            className={styles.priceInput}
+                                                            type={"number"}
+                                                            // value={inputMinMax.max}
+                                                            value={inputActive ? inputMinMax.max : price.max}
+                                                            onBlur={() => onBlur()}
+
+                                                            onChange={event => {
+                                                                setInputActive(true);
+                                                                setInputMinMax((prevState) => ({
+                                                                    min: prevState.min,
+                                                                    max: parseInt(event.target.value)
+                                                                }))
+                                                            }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div className={styles.sizeBlock}>
+                                                <div className={styles.title}>Розмір</div>
+                                            </div>
+
+                                        </div>
+
+                                        <div className={styles.applyBlock}>
+                                            <div className={styles.apply}
+                                                 style={{background: "#dfddda"}}
+                                                 onClick={() => applyFilters()}
+                                            >
+                                                <div>
+                                                    <img src={SettingsIcon} alt={"apply filters"} height={25}
+                                                         style={{padding: "0 10px"}}/>
+                                                </div>
+                                                <div
+                                                    className={styles.applyTitle}
+                                                    style={{
+                                                        padding: "0 10px",
+                                                        color: filterCondition ? "grey" : "black"
+                                                    }}
+                                                >
+                                                    ЗАСТОСУВАТИ
+                                                </div>
+                                            </div>
+                                            <div className={styles.unset}
+                                                 onClick={() => dropFilters()}
+                                                 style={{color: filterCondition ? "grey" : "black"}}
+                                            >
+                                                скинути фільтр
+                                            </div>
+                                        </div>
+
 
                                     </div>
-                                }
-                            </div>
-                            {sortActive &&
-                                <div className={styles.sortList}
-                                     style={{
-                                         background: sortActive ? "white" : "none",
-                                         // padding: "0 20px",
-                                         zIndex: 48,
-                                         // padding: "22px 20px 0 20px",
-                                         // border: "2px black solid"
+                                </div>
+                            }
+                            {
+                                mobileSortActive &&
+                                <div className={styles.overlay}>
+                                    <div className={styles.mobileFilterBlock} style={{height: 170}}>
 
-                                     }}
-                                >
-                                    {
-                                        sortVariants.map(el => <div className={styles.sortItem}>{el.title}</div>)
-                                    }
+
+                                        <div className={styles.title_cross_block}>
+                                            <div>
+                                                сортувати
+                                            </div>
+                                            <img src={CrossIcon} alt={"close"} height={14}
+                                                 onClick={() => {
+                                                     setMobileSortActive(false);
+                                                     onSetOverFlow("auto")
+                                                 }}/>
+                                        </div>
+
+
+                                        <div className={styles.sortBlock}>
+                                            <div className={styles.sort} style={{
+                                                background: sortActive ? "white" : "none",
+                                                // padding: "5%",
+                                                // border: sortActive ? "1px grey solid" : "1px white solid",
+                                                height: sortActive ? 322 : 60,
+                                                zIndex: 49,
+                                                boxShadow: sortActive ? "0 5px 28px 3px rgba(0,0,0,.3)" : "none",
+                                            }}>
+                                                <div className={styles.sortTitle}
+                                                     style={{
+                                                         // padding: "22px 21px 0 21px",
+                                                         background: sortActive ? "white" : "none",
+                                                         display: "flex",
+                                                         alignItems: "center",
+                                                         justifyContent: "space-between",
+                                                         padding: "0 21px",
+                                                         height: 60,
+                                                         borderBottom: sortActive ? "none" : "2px solid #dfddda",
+                                                         cursor: "pointer"
+                                                     }}
+                                                     onClick={() => setSortActive(true)}
+                                                >
+                                                    Сортування
+                                                    {
+                                                        sortActive &&
+                                                        <div onClick={(event) => {
+                                                            event.stopPropagation();
+                                                            setSortActive(false)
+                                                        }}>
+                                                            <img src={CrossIcon} alt={"close"} height={15}/>
+
+                                                        </div>
+                                                    }
+                                                </div>
+                                                {sortActive &&
+                                                    <div className={styles.sortList}
+                                                         style={{
+                                                             background: sortActive ? "white" : "none",
+                                                             // padding: "0 20px",
+                                                             zIndex: 48,
+                                                             // padding: "22px 20px 0 20px",
+                                                             // border: "2px black solid"
+
+                                                         }}
+                                                    >
+                                                        {
+                                                            sortVariants.map(el => <div
+                                                                onClick={() => setSort(el.value)}
+                                                                className={styles.sortItem}>{el.title}</div>)
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+                                            <div className={styles.unset}>{sort === "" ? "спочатку нові" : sort}</div>
+                                        </div>
+                                    </div>
                                 </div>
                             }
                         </div>
-                        <div className={styles.unset}>{sort === "" ? "спочатку нові" : sort}</div>
-                    </div>
-
-                </div>
+                }
 
 
                 <div className={styles.list}>

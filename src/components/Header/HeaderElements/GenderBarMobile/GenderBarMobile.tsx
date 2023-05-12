@@ -44,6 +44,7 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                 }
             })
             document.body.style.overflowY = 'auto';
+
         })
     }, []);
 

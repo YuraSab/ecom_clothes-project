@@ -8,7 +8,6 @@ type CategoryItem_propsType = {
 
 const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
 
-    console.log(window.innerWidth)
     return (
         <div className={styles.main}>
             <div>
