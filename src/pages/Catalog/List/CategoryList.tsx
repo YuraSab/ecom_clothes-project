@@ -5,10 +5,11 @@ import {Cloth} from "../../../db/clothes-db";
 import styles from "./CategoryList.module.css";
 import CategoryItem from "../ListItem/CategoryItem";
 import {useLocation} from "react-router-dom";
-import ReactSlider from "react-slider";
 import "./Slider.css";
 import SettingsIcon from "../../../assets/icons/settings.png";
 import CrossIcon from "../../../assets/icons/cross_svg_icon.svg";
+import ReactSliderElement from "./Filter-Sort_elelments/ReactSliderElement";
+import PriceInputMinimal from "./Filter-Sort_elelments/PriceInputElement";
 
 export type CategoryList_PropsType = {
     category: linkType[] | linkType;
@@ -116,7 +117,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
     let filterCondition = price.min === minMax.min && price.max === minMax.max;
 
-
     const onBlur = () => {
         if (inputMinMax.min >= minMax.min && inputMinMax.min <= minMax.max
             && inputMinMax.max >= minMax.min && inputMinMax.max <= minMax.max
@@ -176,7 +176,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
         <div className={styles.main}>
             <div className={styles.contentBlock}>
 
-
                 <div className={styles.pathBlock}>
                     <div className={styles.caption}>
                         {name}
@@ -196,81 +195,56 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                     </div>
                 </div>
 
-
                 {
                     window.innerWidth >= 770 ?
                         <div className={styles.filterSortBar}>
 
-
                             <div className={styles.priceBlock}>
-
                                 <label className={styles.priceTitle}>
                                     ЦІНА
                                 </label>
                                 <div>
-                                    {clothesList.length > 0 &&
-                                        <ReactSlider
-                                            className="horizontal-slider"
-                                            thumbClassName="example-thumb"
-                                            trackClassName="example-track"
-                                            defaultValue={[price.min, price.max]}
-                                            min={minMax.min}
-                                            max={minMax.max}
-                                            value={[price.min, price.max]}
-                                            ariaValuetext={state => `Thumb value ${state.valueNow}`}
-                                            renderThumb={(props) => <div {...props}></div>}
-                                            pearling
-                                            minDistance={10}
-                                            onChange={(value) => {
-                                                setFilters(true)
-                                                setPrice({min: value[0], max: value[1]})
-                                            }}
+                                    {
+                                        clothesList &&
+                                        <ReactSliderElement
+                                            price={price}
+                                            minMax={minMax}
+                                            setFilters={setFilters}
+                                            setPrice={setPrice}
                                         />
                                     }
                                 </div>
-
                                 <div style={{display: "flex", justifyContent: "space-between"}}>
                                     <div>
                                         <span className={styles.fromTo}>від:</span>
-                                        <input
-                                            className={styles.priceInput}
-                                            type={"number"}
-                                            value={inputActive ? inputMinMax.min : price.min}
-                                            onBlur={() => onBlur()}
-                                            onChange={event => {
-                                                setInputActive(true);
-                                                setInputMinMax((prevState) => ({
-                                                    min: parseInt(event.target.value),
-                                                    max: prevState.max
-                                                }))
-                                            }}
+                                        <PriceInputMinimal
+                                            typeOfInput={"min"}
+                                            inputActive={inputActive}
+                                            inputMinMax={inputMinMax}
+                                            setInputActive={setInputActive}
+                                            setInputMinMax={setInputMinMax}
+                                            price={price}
+                                            onBlur={onBlur}
                                         />
                                     </div>
                                     <div>
                                         <span className={styles.fromTo}>до:</span>
-                                        <input
-                                            className={styles.priceInput}
-                                            type={"number"}
-                                            value={inputActive ? inputMinMax.max : price.max}
-                                            onBlur={() => onBlur()}
-
-                                            onChange={event => {
-                                                setInputActive(true);
-                                                setInputMinMax((prevState) => ({
-                                                    min: prevState.min,
-                                                    max: parseInt(event.target.value)
-                                                }))
-                                            }}
+                                        <PriceInputMinimal
+                                            typeOfInput={"max"}
+                                            inputActive={inputActive}
+                                            inputMinMax={inputMinMax}
+                                            setInputActive={setInputActive}
+                                            setInputMinMax={setInputMinMax}
+                                            price={price}
+                                            onBlur={onBlur}
                                         />
                                     </div>
                                 </div>
                             </div>
 
-
                             <div className={styles.sizeBlock}>
                                 <div className={styles.title}>Розмір</div>
                             </div>
-
 
                             <div className={styles.applyBlock}>
                                 <div className={styles.apply} onClick={() => applyFilters()}>
@@ -289,7 +263,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                     скинути фільтр
                                 </div>
                             </div>
-
 
                             <div className={styles.sortBlock}>
                                 <div className={styles.sort} style={{
@@ -316,7 +289,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                             />
                                         }
                                     </div>
-
                                     {sortActive &&
                                         <div className={styles.sortList}
                                              style={{background: sortActive ? "white" : "none"}}
@@ -328,22 +300,19 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                         setSort(el.value)
                                                         dropFilters()
                                                     }}
+                                                    key={el.value}
                                                 >{el.title}</div>)
                                             }
                                         </div>
                                     }
                                 </div>
-                                <div className={styles.unset}>{sort === "" ? "спочатку нові" : sort}</div>
+                                <div className={styles.unset}>{sort === "" ? "спочатку нові" : sortVariants.find(el => el.value === sort)?.title}</div>
                             </div>
                         </div>
 
-
                         :
 
-
                         <div className={styles.filterSortBar_mobile}>
-
-
                             <div className={styles.filterSortButtons_mobile}
                                  style={{borderRight: "1px #999 solid"}}
                                  onClick={() => {
@@ -362,15 +331,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                 сортувати
                             </div>
 
-
                             {
                                 mobileFiltersActive &&
-
                                 <div className={styles.overlay}>
-
-
                                     <div className={styles.mobileFilterBlock}>
-
 
                                         <div className={styles.title_cross_block}>
                                             <div>фільтр</div>
@@ -382,7 +346,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                             />
                                         </div>
 
-
                                         <div style={{display: "flex"}}>
                                             <div className={styles.priceBlock}>
                                                 <label className={styles.priceTitle}>
@@ -390,68 +353,45 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                 </label>
                                                 <div>
                                                     {clothesList.length > 0 &&
-                                                        <ReactSlider
-                                                            className="horizontal-slider"
-                                                            thumbClassName="example-thumb"
-                                                            trackClassName="example-track"
-                                                            defaultValue={[price.min, price.max]}
-                                                            min={minMax.min}
-                                                            max={minMax.max}
-                                                            value={[price.min, price.max]}
-                                                            ariaValuetext={state => `Thumb value ${state.valueNow}`}
-                                                            renderThumb={(props) => <div {...props}></div>}
-                                                            pearling
-                                                            minDistance={10}
-                                                            onChange={(value) => {
-                                                                setFilters(true)
-                                                                setPrice({min: value[0], max: value[1]})
-                                                            }}
+                                                        <ReactSliderElement
+                                                            price={price}
+                                                            minMax={minMax}
+                                                            setFilters={setFilters}
+                                                            setPrice={setPrice}
                                                         />
                                                     }
                                                 </div>
-
-
                                                 <div style={{display: "flex", justifyContent: "space-between"}}>
                                                     <div>
                                                         <span className={styles.fromTo}>від:</span>
-                                                        <input
-                                                            className={styles.priceInput}
-                                                            type={"number"}
-                                                            value={inputActive ? inputMinMax.min : price.min}
-                                                            onBlur={() => onBlur()}
-                                                            onChange={event => {
-                                                                setInputActive(true);
-                                                                setInputMinMax((prevState) => ({
-                                                                    min: parseInt(event.target.value),
-                                                                    max: prevState.max
-                                                                }))
-                                                            }}
+                                                        <PriceInputMinimal
+                                                            typeOfInput={"min"}
+                                                            inputActive={inputActive}
+                                                            inputMinMax={inputMinMax}
+                                                            setInputActive={setInputActive}
+                                                            setInputMinMax={setInputMinMax}
+                                                            price={price}
+                                                            onBlur={onBlur}
                                                         />
                                                     </div>
                                                     <div>
                                                         <span className={styles.fromTo}>до:</span>
-                                                        <input
-                                                            className={styles.priceInput}
-                                                            type={"number"}
-                                                            value={inputActive ? inputMinMax.max : price.max}
-                                                            onBlur={() => onBlur()}
-                                                            onChange={event => {
-                                                                setInputActive(true);
-                                                                setInputMinMax((prevState) => ({
-                                                                    max: parseInt(event.target.value),
-                                                                    min: prevState.min
-                                                                }))
-                                                            }}
+                                                        <PriceInputMinimal
+                                                            typeOfInput={"max"}
+                                                            inputActive={inputActive}
+                                                            inputMinMax={inputMinMax}
+                                                            setInputActive={setInputActive}
+                                                            setInputMinMax={setInputMinMax}
+                                                            price={price}
+                                                            onBlur={onBlur}
                                                         />
                                                     </div>
                                                 </div>
                                             </div>
 
-
                                             <div className={styles.sizeBlock}>
                                                 <div className={styles.title}>Розмір</div>
                                             </div>
-
                                         </div>
 
                                         <div className={styles.applyBlock}>
@@ -474,17 +414,16 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                             </div>
                                         </div>
 
-
                                     </div>
                                 </div>
                             }
                             {
                                 mobileSortActive &&
                                 <div className={styles.overlay}>
-
                                     <div className={styles.mobileFilterBlock}
                                          style={{height: 170}}
                                     >
+
                                         <div className={styles.title_cross_block}>
                                             <div>
                                                 сортувати
@@ -528,17 +467,18 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                     >
                                                         {
                                                             sortVariants.map(el => <div
+                                                                className={styles.sortItem}
                                                                 onClick={() => {
                                                                     setSort(el.value)
                                                                     dropFilters()
                                                                 }}
-                                                                className={styles.sortItem}>{el.title}
-                                                            </div>)
+                                                                key={el.value}
+                                                            >{el.title}</div>)
                                                         }
                                                     </div>
                                                 }
                                             </div>
-                                            <div className={styles.unset}>{sort === "" ? "спочатку нові" : sort}</div>
+                                            <div className={styles.unset}>{sort === "" ? "спочатку нові" : sortVariants.find(el => el.value === sort)?.title}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -546,15 +486,12 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                         </div>
                 }
 
-
                 <div className={styles.list}>
                     {
                         clothesList.length > 0 &&
                         clothesList.map(el => <CategoryItem key={el.id} item={el}/>)
                     }
                 </div>
-
-
             </div>
         </div>
     );
