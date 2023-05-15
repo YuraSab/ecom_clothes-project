@@ -17,8 +17,6 @@ export type CategoryList_PropsType = {
 type SliderValue = { min: number, max: number };
 type SortValue = "" | "lower-price" | "higher-price" | "newer" | "older" | "discount" | string;
 
-// від дешевших до дорощих, від дорогих до дешевших, спочатку нові, сочатку старі, спочатку зі знижками
-// lower-price, higher-price, newer, older, discount
 const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
     const ClothesService = clothesService;
@@ -41,11 +39,11 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     const [sortActive, setSortActive] = useState<boolean>(false);
     const [sort, setSort] = useState<SortValue>("");
 
-
-    const [windowWidth, setWindowWidth] = useState<number>(0);
-
     const [mobileSortActive, setMobileSortActive] = useState<boolean>(false);
     const [mobileFiltersActive, setMobileFiltersActive] = useState<boolean>(false);
+
+    // track window wide changes
+    const [windowWidth, setWindowWidth] = useState<number>(0);
 
     const sortVariants = [
         {title: "від дешевших до дорощих", value: "lower-price"},
@@ -57,32 +55,27 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
 
     useEffect(() => {
+        let minimal;
+        let maximal;
+        let clothesList: Cloth[];
         if (Array.isArray(category)) {
-            let clothesList: Cloth[] = ClothesService.getClothesByCategories(category, actualGender);
-            let minimal = Math.min(...clothesList.map(el => el.price));
-            let maximal = Math.max(...clothesList.map(el => el.price));
-            setMinMax({min: minimal, max: maximal});
-            setClothesList(clothesList);
-            setPrice({min: minimal, max: maximal});
-            setInputMinMax({min: minimal, max: maximal});
+            clothesList = ClothesService.getClothesByCategories(category, actualGender);
         } else {
-            let clothesList: Cloth[] = ClothesService.getClothesByCategory(category, actualGender);
-            let minimal = Math.min(...clothesList.map(el => el.price));
-            let maximal = Math.max(...clothesList.map(el => el.price));
-            setMinMax({min: minimal, max: maximal});
-            setClothesList(clothesList);
-            setPrice({min: minimal, max: maximal});
-            setInputMinMax({min: minimal, max: maximal});
+            clothesList = ClothesService.getClothesByCategory(category, actualGender);
         }
-    }, [category, sort])
+        minimal = Math.min(...clothesList.map(el => el.price));
+        maximal = Math.max(...clothesList.map(el => el.price));
+        setMinMax({min: minimal, max: maximal});
+        setPrice({min: minimal, max: maximal});
+        setInputMinMax({min: minimal, max: maximal});
+        setClothesList(clothesList);
+    }, [category, sort]);
 
 
     useEffect(() => {
-
         const trackWindowWidth = () => {
             setWindowWidth(document.body.clientWidth);
         };
-
         window.addEventListener("resize", trackWindowWidth)
 
         return (() => {
@@ -108,17 +101,16 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
         }
         if (sort === "higher-price") {
             sortedClothesList = clothesList.sort(function (a, b) {
-                return a.price - b.price;
+                return b.price - a.price;
             });
             setClothesList(sortedClothesList);
         }
         if (sort === "lower-price") {
             sortedClothesList = clothesList.sort(function (a, b) {
-                return b.price - a.price;
+                return a.price - b.price;
             });
             setClothesList(sortedClothesList);
         }
-
     }, [sort]);
 
 
@@ -142,13 +134,11 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
             })
         }
         setInputActive(false);
-
     };
 
 
     const applyFilters = () => {
         if (!filterCondition) {
-
             setFilters(true);
             let filteredMas;
             if (Array.isArray(category)) {
@@ -175,7 +165,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
             }
         }
     }
-
 
     const onSetOverFlow = (value: "auto" | "hidden") => {
         document.body.style.overflow = value;
@@ -248,7 +237,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                             type={"number"}
                                             value={inputActive ? inputMinMax.min : price.min}
                                             onBlur={() => onBlur()}
-
                                             onChange={event => {
                                                 setInputActive(true);
                                                 setInputMinMax((prevState) => ({
@@ -336,7 +324,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                             {
                                                 sortVariants.map(el => <div
                                                     className={styles.sortItem}
-                                                    onClick={() => setSort(el.value)}
+                                                    onClick={() => {
+                                                        setSort(el.value)
+                                                        dropFilters()
+                                                    }}
                                                 >{el.title}</div>)
                                             }
                                         </div>
@@ -447,8 +438,8 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                             onChange={event => {
                                                                 setInputActive(true);
                                                                 setInputMinMax((prevState) => ({
-                                                                    min: prevState.min,
-                                                                    max: parseInt(event.target.value)
+                                                                    max: parseInt(event.target.value),
+                                                                    min: prevState.min
                                                                 }))
                                                             }}
                                                         />
@@ -537,7 +528,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                     >
                                                         {
                                                             sortVariants.map(el => <div
-                                                                onClick={() => setSort(el.value)}
+                                                                onClick={() => {
+                                                                    setSort(el.value)
+                                                                    dropFilters()
+                                                                }}
                                                                 className={styles.sortItem}>{el.title}
                                                             </div>)
                                                         }

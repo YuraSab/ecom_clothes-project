@@ -13,8 +13,7 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
             <div>
                 <img src={item.photo}
                      alt={item.name}
-                    // width={window.innerWidth >= 660 ? "100%" : "70%"}
-                    width={"100%"}
+                     width={"100%"}
                 />
             </div>
             <div>{item.name}</div>
