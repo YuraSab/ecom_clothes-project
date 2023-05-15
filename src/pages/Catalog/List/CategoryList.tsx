@@ -94,7 +94,7 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     useEffect(() => {
         // todo - useEffect setting filters to localStorage, when location changes - filters cleanings
         let sortedClothesList;
-        if ( clothesList.length > 0 && sort === "" || sort === "newer" || sort === "discount") {
+        if (clothesList.length > 0 && sort === "" || sort === "newer" || sort === "discount") {
             sortedClothesList = clothesList.sort(function (a, b) {
                 return a.id - b.id;
             });
@@ -182,12 +182,11 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     }
 
 
-
-
     return (
 
         <div className={styles.main}>
             <div className={styles.contentBlock}>
+
 
                 <div className={styles.pathBlock}>
                     <div className={styles.caption}>
@@ -210,12 +209,12 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
 
                 {
-                    // windowWidth > 770 ?
                     window.innerWidth >= 770 ?
-
                         <div className={styles.filterSortBar}>
 
+
                             <div className={styles.priceBlock}>
+
                                 <label className={styles.priceTitle}>
                                     ЦІНА
                                 </label>
@@ -226,10 +225,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                             thumbClassName="example-thumb"
                                             trackClassName="example-track"
                                             defaultValue={[price.min, price.max]}
-                                            // min={0}
-                                            // max={100}
-                                            // min={0}
-                                            // max={3000}
                                             min={minMax.min}
                                             max={minMax.max}
                                             value={[price.min, price.max]}
@@ -251,7 +246,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                         <input
                                             className={styles.priceInput}
                                             type={"number"}
-                                            // value={inputMinMax.min}
                                             value={inputActive ? inputMinMax.min : price.min}
                                             onBlur={() => onBlur()}
 
@@ -269,7 +263,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                         <input
                                             className={styles.priceInput}
                                             type={"number"}
-                                            // value={inputMinMax.max}
                                             value={inputActive ? inputMinMax.max : price.max}
                                             onBlur={() => onBlur()}
 
@@ -292,17 +285,11 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
 
                             <div className={styles.applyBlock}>
-                                <div className={styles.apply}
-                                     style={{background: "#dfddda"}}
-                                     onClick={() => applyFilters()}
-                                >
-                                    <div>
-                                        <img src={SettingsIcon} alt={"apply filters"} height={25}
-                                             style={{padding: "0 10px"}}/>
-                                    </div>
+                                <div className={styles.apply} onClick={() => applyFilters()}>
+                                    <img src={SettingsIcon} alt={"apply filters"} height={25}/>
                                     <div
                                         className={styles.applyTitle}
-                                        style={{padding: "0 10px", color: filterCondition ? "grey" : "black"}}
+                                        style={{color: filterCondition ? "grey" : "black"}}
                                     >
                                         ЗАСТОСУВАТИ
                                     </div>
@@ -319,49 +306,32 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                             <div className={styles.sortBlock}>
                                 <div className={styles.sort} style={{
                                     background: sortActive ? "white" : "none",
-                                    // padding: "5%",
-                                    // border: sortActive ? "1px grey solid" : "1px white solid",
                                     height: sortActive ? 322 : 60,
-                                    zIndex: 49,
                                     boxShadow: sortActive ? "0 5px 28px 3px rgba(0,0,0,.3)" : "none",
                                 }}>
                                     <div className={styles.sortTitle}
                                          style={{
-                                             // padding: "22px 21px 0 21px",
                                              background: sortActive ? "white" : "none",
-                                             display: "flex",
-                                             alignItems: "center",
-                                             justifyContent: "space-between",
-                                             padding: "0 21px",
-                                             height: 60,
                                              borderBottom: sortActive ? "none" : "2px solid #dfddda",
-                                             cursor: "pointer"
                                          }}
                                          onClick={() => setSortActive(true)}
-
                                     >
                                         Сортування
                                         {
                                             sortActive &&
-                                            <div onClick={(event) => {
-                                                event.stopPropagation();
-                                                setSortActive(false)
-                                            }}>
-                                                <img src={CrossIcon} alt={"close"} height={15}/>
-
-                                            </div>
+                                            <img src={CrossIcon}
+                                                 alt={"close"} height={15}
+                                                 onClick={(event) => {
+                                                     event.stopPropagation();
+                                                     setSortActive(false)
+                                                 }}
+                                            />
                                         }
                                     </div>
+
                                     {sortActive &&
                                         <div className={styles.sortList}
-                                             style={{
-                                                 background: sortActive ? "white" : "none",
-                                                 // padding: "0 20px",
-                                                 zIndex: 48,
-                                                 // padding: "22px 20px 0 20px",
-                                                 // border: "2px black solid"
-
-                                             }}
+                                             style={{background: sortActive ? "white" : "none"}}
                                         >
                                             {
                                                 sortVariants.map(el => <div
@@ -381,13 +351,14 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
 
                         <div className={styles.filterSortBar_mobile}>
+
+
                             <div className={styles.filterSortButtons_mobile}
                                  style={{borderRight: "1px #999 solid"}}
                                  onClick={() => {
                                      setMobileFiltersActive(true)
                                      onSetOverFlow("hidden")
-                                 }
-                                 }
+                                 }}
                             >
                                 фільтрувати
                             </div>
@@ -400,36 +371,28 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                 сортувати
                             </div>
 
+
                             {
                                 mobileFiltersActive &&
 
                                 <div className={styles.overlay}>
-                                    <div className={styles.mobileFilterBlock}
-                                         onClick={(event) => {
-                                             event.stopPropagation();
-
-                                         }}
-                                    >
 
 
-                                        <div
-                                            className={styles.title_cross_block}
-                                        >
-                                            <div>
-                                                фільтр
-                                            </div>
+                                    <div className={styles.mobileFilterBlock}>
+
+
+                                        <div className={styles.title_cross_block}>
+                                            <div>фільтр</div>
                                             <img src={CrossIcon} alt={"close"} height={14}
                                                  onClick={() => {
                                                      setMobileFiltersActive(false);
                                                      onSetOverFlow("auto")
-                                                 }}/>
+                                                 }}
+                                            />
                                         </div>
 
 
-                                        {/* todo - price and size block (in flex) */}
                                         <div style={{display: "flex"}}>
-
-
                                             <div className={styles.priceBlock}>
                                                 <label className={styles.priceTitle}>
                                                     ЦІНА
@@ -441,10 +404,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                             thumbClassName="example-thumb"
                                                             trackClassName="example-track"
                                                             defaultValue={[price.min, price.max]}
-                                                            // min={0}
-                                                            // max={100}
-                                                            // min={0}
-                                                            // max={3000}
                                                             min={minMax.min}
                                                             max={minMax.max}
                                                             value={[price.min, price.max]}
@@ -460,16 +419,15 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                     }
                                                 </div>
 
+
                                                 <div style={{display: "flex", justifyContent: "space-between"}}>
                                                     <div>
                                                         <span className={styles.fromTo}>від:</span>
                                                         <input
                                                             className={styles.priceInput}
                                                             type={"number"}
-                                                            // value={inputMinMax.min}
                                                             value={inputActive ? inputMinMax.min : price.min}
                                                             onBlur={() => onBlur()}
-
                                                             onChange={event => {
                                                                 setInputActive(true);
                                                                 setInputMinMax((prevState) => ({
@@ -484,10 +442,8 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                         <input
                                                             className={styles.priceInput}
                                                             type={"number"}
-                                                            // value={inputMinMax.max}
                                                             value={inputActive ? inputMinMax.max : price.max}
                                                             onBlur={() => onBlur()}
-
                                                             onChange={event => {
                                                                 setInputActive(true);
                                                                 setInputMinMax((prevState) => ({
@@ -509,19 +465,12 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
                                         <div className={styles.applyBlock}>
                                             <div className={styles.apply}
-                                                 style={{background: "#dfddda"}}
                                                  onClick={() => applyFilters()}
                                             >
-                                                <div>
-                                                    <img src={SettingsIcon} alt={"apply filters"} height={25}
-                                                         style={{padding: "0 10px"}}/>
-                                                </div>
+                                                <img src={SettingsIcon} alt={"apply filters"} height={25}/>
                                                 <div
                                                     className={styles.applyTitle}
-                                                    style={{
-                                                        padding: "0 10px",
-                                                        color: filterCondition ? "grey" : "black"
-                                                    }}
+                                                    style={{color: filterCondition ? "grey" : "black"}}
                                                 >
                                                     ЗАСТОСУВАТИ
                                                 </div>
@@ -541,9 +490,10 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                             {
                                 mobileSortActive &&
                                 <div className={styles.overlay}>
-                                    <div className={styles.mobileFilterBlock} style={{height: 170}}>
 
-
+                                    <div className={styles.mobileFilterBlock}
+                                         style={{height: 170}}
+                                    >
                                         <div className={styles.title_cross_block}>
                                             <div>
                                                 сортувати
@@ -559,23 +509,13 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                         <div className={styles.sortBlock}>
                                             <div className={styles.sort} style={{
                                                 background: sortActive ? "white" : "none",
-                                                // padding: "5%",
-                                                // border: sortActive ? "1px grey solid" : "1px white solid",
                                                 height: sortActive ? 322 : 60,
-                                                zIndex: 49,
                                                 boxShadow: sortActive ? "0 5px 28px 3px rgba(0,0,0,.3)" : "none",
                                             }}>
                                                 <div className={styles.sortTitle}
                                                      style={{
-                                                         // padding: "22px 21px 0 21px",
                                                          background: sortActive ? "white" : "none",
-                                                         display: "flex",
-                                                         alignItems: "center",
-                                                         justifyContent: "space-between",
-                                                         padding: "0 21px",
-                                                         height: 60,
                                                          borderBottom: sortActive ? "none" : "2px solid #dfddda",
-                                                         cursor: "pointer"
                                                      }}
                                                      onClick={() => setSortActive(true)}
                                                 >
@@ -593,19 +533,13 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                                                 </div>
                                                 {sortActive &&
                                                     <div className={styles.sortList}
-                                                         style={{
-                                                             background: sortActive ? "white" : "none",
-                                                             // padding: "0 20px",
-                                                             zIndex: 48,
-                                                             // padding: "22px 20px 0 20px",
-                                                             // border: "2px black solid"
-
-                                                         }}
+                                                         style={{background: sortActive ? "white" : "none"}}
                                                     >
                                                         {
                                                             sortVariants.map(el => <div
                                                                 onClick={() => setSort(el.value)}
-                                                                className={styles.sortItem}>{el.title}</div>)
+                                                                className={styles.sortItem}>{el.title}
+                                                            </div>)
                                                         }
                                                     </div>
                                                 }
@@ -625,6 +559,8 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                         clothesList.map(el => <CategoryItem key={el.id} item={el}/>)
                     }
                 </div>
+
+
             </div>
         </div>
     );

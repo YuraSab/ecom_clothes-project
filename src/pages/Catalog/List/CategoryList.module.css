@@ -4,18 +4,17 @@
     justify-content: center;
     padding: 50px 20px 200px 20px;
 }
-
 .contentBlock {
     height: 100%;
     width: 1170px;
 }
+
 
 .list {
     width: 100%;
     display: grid;
     gap: 50px 20px;
     grid-template-columns: repeat(4, 1fr);
-    /*z-index: 45;*/
 }
 
 
@@ -25,7 +24,6 @@
     align-items: center;
     flex-direction: column;
 }
-
 .caption {
     width: 600px;
     font-size: 34px;
@@ -37,7 +35,6 @@
     padding: 0;
     text-align: center;
 }
-
 .pathList {
     padding: 30px 0;
     width: 600px;
@@ -45,7 +42,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .pathList span {
     color: #999;
     font-size: 12px;
@@ -58,7 +54,6 @@
 .filterSortBar {
     width: 100%;
     display: grid;
-    /*grid-template-columns: repeat(4, 25%);*/
     gap: 50px 20px;
     grid-template-columns: repeat(4, 1fr);
     height: 120px;
@@ -111,7 +106,6 @@
 .title {
     text-transform: uppercase;
     width: 90%;
-    /*height: 60px;*/
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -125,7 +119,6 @@
 
 .applyBlock {
     display: flex;
-    /*align-items: center;*/
     justify-content: center;
     flex-direction: column;
     height: 120px;
@@ -138,6 +131,10 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    background: #dfddda;
+}
+.applyBlock .apply img {
+    padding: 0 10px;
 }
 
 .applyBlock .applyTitle {
@@ -146,6 +143,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.2px;
+    padding: 0 10px;
 }
 
 .unset {
@@ -164,42 +162,33 @@
 
 .sortBlock {
     width: 100%;
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*flex-direction: column;*/
-    /*height: 120px;*/
 }
 
 .sort {
     width: 100%;
     background: yellowgreen;
-
+    z-index: 49;
 }
 
 .sortTitle {
     text-transform: uppercase;
-    /*height: 60px;*/
-    /*height: 16px;*/
-
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*cursor: pointer;*/
-    /*border-bottom: 2px solid #dfddda;*/
-    /*height: 50%;*/
     font-size: 13px;
     font-family: Ubuntu, sans-serif;
     font-weight: 700;
     letter-spacing: 1.2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 21px;
+    height: 60px;
+    cursor: pointer;
 }
 
 .sortList {
-    /*width: 100%;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
     position: absolute;
     height: 240px;
     padding: 22px 20px 0 20px;
+    z-index: 48;
 }
 
 .sortItem {
@@ -210,10 +199,6 @@
     font-weight: 300;
     font-size: 14px;
     padding-bottom: 30px;
-    /*width: 65px;*/
-
-    /*padding: 15px;*/
-    /*margin: 3px 10px 3px 0;*/
 }
 
 
@@ -221,16 +206,13 @@
     .main {
         display: block;
     }
-
     .contentBlock {
         width: 100%;
     }
-
     .list {
         gap: 40px 20px;
         grid-template-rows: repeat(auto-fill, 1fr);
     }
-
     .sortList {
         width: 19.5%;
     }
@@ -253,7 +235,6 @@
     .list {
         grid-template-columns: repeat(3, 1fr);
     }
-
     .filterSortBar {
         display: grid;
         gap: 10px 20px;
@@ -265,43 +246,33 @@
         height: 240px;
         padding-bottom: 30px;
     }
-
     .priceBlock {
         grid-area: price;
     }
-
     .sizeBlock {
         grid-area: size;
     }
-
     .applyBlock {
         grid-area: apply;
     }
-
     .sortBlock {
         grid-area: sort;
     }
-
     .unset {
         padding-left: 21px;
         justify-content: start;
         color: black;
     }
-
     .sortList {
         width: 90vw;
     }
-
     .sortItem {
         width: 90vw;
     }
-
-    /*    to 770*/
 }
 
 @media screen and (max-width: 946px) {
     .sortList {
-        /*width: calc(100vw - 40px);*/
         width: 90%;
     }
 
@@ -351,15 +322,10 @@
         align-items: center;
     }
     .mobileFilterBlock{
-        /*inset: 0;*/
         position: absolute;
         height: 340px;
-        /*width: 400px;*/
         width: calc(100% - 40px);
-        /*width: 100%;*/
-        /*margin: 0 20px;*/
         background: white;
-        /*width: calc(100% - 20px);*/
     }
     .title_cross_block{
         display: flex;
@@ -395,8 +361,6 @@
         padding-left: 0;
         justify-content: center;
     }
-
-
     .sortBlock .unset{
         justify-content: start;
         padding: 20px;
@@ -404,22 +368,16 @@
     .sortTitle{
         width: calc(100% - 80px);
     }
-
-
 }
 
 @media screen and (max-width: 600px) {
     .list {
         grid-template-columns: repeat(2, 1fr);
     }
-
     .caption {
         width: 450px;
     }
-
     .pathList {
         width: 450px;
     }
 }
-
-
