@@ -81,7 +81,7 @@ export const clothes_description: ClothesDescription[] = [
 
 ];
 
-interface ClothesDescription {
+export interface ClothesDescription {
     clothes_id: number,
     fabric: string,
     details_and_cut: string,

@@ -5,6 +5,7 @@ import Male from "../../pages/Male/Male.tsx";
 import Female from "../../pages/Female/Female.tsx";
 import {DropMenuList} from "../Header/BottomHeaderMenu/ElementList_DropDownMenu";
 import CategoryList from "../../pages/Catalog/List/CategoryList";
+import ChosenItem from "../../pages/Catalog/ChosenItem/ChosenItem";
 
 const MainLayout = () => {
     return (
@@ -13,6 +14,7 @@ const MainLayout = () => {
                 <Route path={'/'} element={<Main/>}>
                     <Route index element={<Navigate to="/male" replace/>}/>
 
+                    <Route path={'/one-item'} element={<ChosenItem/>}/>
                     <Route path={'/male/*'} element={<Male/>}>
                         {
                             DropMenuList[0].clothList.map(

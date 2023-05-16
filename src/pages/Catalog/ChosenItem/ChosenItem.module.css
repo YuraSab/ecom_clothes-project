@@ -1,0 +1,127 @@
+.overlay{
+    display: flex;
+    justify-content: center;
+}
+.main{
+    width: 1170px;
+    padding: 70px 20px;
+    display: grid;
+    grid-template-areas: "picture info";
+    grid-template-columns: 50% 50%;
+}
+.picturesBlock{
+    grid-area: picture;
+    display: grid;
+    grid-template-areas: "imgList imgChosen";
+    grid-template-columns: 14% 86%;
+}
+.picturesBlock .imgList{
+    grid-area: imgList;
+}
+.picturesBlock .imgList img{
+    height: 100px;
+}
+.picturesBlock .imgChosen{
+    grid-area: imgChosen;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    padding: 0 2%;
+}
+.picturesBlock .imgChosen img {
+    width: 100%;
+}
+
+
+
+.info{
+    grid-area: info;
+    padding-left: 60px;
+}
+.pathBlock {
+    color: #999;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 1.15;
+    initial-letter: 2;
+}
+.pathList {
+    padding: 30px 0;
+    width: 600px;
+}
+.title{
+    margin: 0;
+    padding: 0;
+    font-size: 34px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    line-height: 1.15;
+    display: flex;
+}
+.title div{
+    width: 90%;
+}
+.infoSpans{
+    padding-top: 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    line-height: 1.15;
+    display: flex;
+    gap: 0 25px;
+}
+
+.price{
+    font-size: 26px;
+    margin-top: 10px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 500;
+    padding-bottom: 40px;
+    border-bottom: 1px grey solid;
+}
+.add{
+    display: flex;
+    justify-content: space-between;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    width: 100%;
+    font-size: 12px;
+    cursor: pointer;
+    padding-top: 40px;
+}
+
+.add div{
+    width: 250px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.descriptionOverlay{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.descriptionBlock{
+    width: 570px;
+}
+.descriptionTitle{
+    cursor: pointer;
+    font-size: 20px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+.descriptionValue{
+    margin: 55px 0;
+    line-height: 1.8;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}

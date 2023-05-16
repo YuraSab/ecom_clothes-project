@@ -1,6 +1,7 @@
 import {Cloth, clothes} from "../db/clothes-db";
 import {linkType} from "../components/Header/BottomHeaderMenu/ElementList_DropDownMenu";
 import {Gender} from "../redux/action-types";
+import {clothes_description} from "../db/cloth-descroptions";
 
 
 class ClothesService {
@@ -27,6 +28,13 @@ class ClothesService {
         return clothesMas;
     }
 
+
+    getClothesById(id: number) {
+        return clothes.find(el => el.id === id);
+    }
+    getClothesDetailsById(id: number) {
+        return clothes_description.find(el => el.clothes_id === id);
+    }
 }
 
 export const clothesService = new ClothesService();
