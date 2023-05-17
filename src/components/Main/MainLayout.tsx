@@ -14,7 +14,9 @@ const MainLayout = () => {
                 <Route path={'/'} element={<Main/>}>
                     <Route index element={<Navigate to="/male" replace/>}/>
 
-                    <Route path={'/one-item'} element={<ChosenItem/>}/>
+                    <Route path={'male/:id'} element={<ChosenItem/>}/>
+                    <Route path={'female/:id'} element={<ChosenItem/>}/>
+
                     <Route path={'/male/*'} element={<Male/>}>
                         {
                             DropMenuList[0].clothList.map(

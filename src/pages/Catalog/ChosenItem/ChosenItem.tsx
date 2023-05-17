@@ -5,6 +5,8 @@ import {ClothesDescription} from "../../../db/cloth-descroptions";
 import styles from "./ChosenItem.module.css";
 import {DropMenuList} from "../../../components/Header/BottomHeaderMenu/ElementList_DropDownMenu";
 import Like from "../../../assets/icons/like_icon.png";
+import {useParams} from "react-router-dom";
+import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 
 type PhotoItem = {
     id: number;
@@ -13,6 +15,9 @@ type PhotoItem = {
 
 const ChosenItem = () => {
 
+    const {id} = useParams();
+    const {gender} = useTypedSelector(state => state.headerState);
+
     const [chosenItem, setChosenItem] = useState<Cloth | null | undefined>(null);
     const [chosenItemDetails, setChosenItemDetails] = useState<ClothesDescription | null | undefined>(null);
     // here would like to be photos which have been injected from db wit images
@@ -20,19 +25,19 @@ const ChosenItem = () => {
     const [chosenItemPhoto, setChosenItemPhoto] = useState<number>(0);
 
     const ClothesService = clothesService;
-    console.log(chosenItem)
 
     useEffect(() => {
-        let cloth = ClothesService.getClothesById(4);
-        let clothDetails = ClothesService.getClothesDetailsById(4);
+        let cloth = ClothesService.getClothesById(Number(id));
+        let clothDetails = ClothesService.getClothesDetailsById(Number(id));
         if (cloth) {
             setChosenItemPhotos([{id: 0, src: cloth.photo}, {id: 1, src: cloth.photo}, {id: 2, src: cloth.photo}, {id: 3, src: cloth.photo}]);
             setChosenItemPhoto(0);
-
             setChosenItem(cloth);
         }
         setChosenItemDetails(clothDetails);
-    }, []);
+
+        window.scrollTo(0, 0);
+    }, [id]);
 
 
     return (
@@ -47,7 +52,7 @@ const ChosenItem = () => {
                                     chosenItemPhotos.map((el) =>
                                         <img src={el.src}
                                              alt={"photo"}
-                                             style={{opacity: el.id === chosenItemPhoto ? 1 : 0.7}}
+                                             style={{opacity: el.id === chosenItemPhoto || window.innerWidth < 1086 ? 1 : 0.7}}
                                              key={el.id}
                                              onClick={() => setChosenItemPhoto(el.id)}
                                         />
@@ -69,15 +74,15 @@ const ChosenItem = () => {
                             <span style={{padding: 10}}>&mdash;&mdash;</span>
                                 </span>
                                     <span>
-                                    Для хлопцв
+                                    {gender === "male" ? "Для хлопців" : "Для дівчат"}
                                     <span style={{padding: 10}}>&mdash;&mdash;</span>
                                 </span>
                                     <span>
-                                    {DropMenuList?.find(el => el.gender === "female")?.clothList.find(el => el.name === chosenItem?.category)?.title}
+                                    {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.title}
                                         <span style={{padding: 10}}>&mdash;&mdash;</span>
                                 </span>
                                     <span style={{color: "black"}}>
-                                    {DropMenuList?.find(el => el.gender === "female")?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.name}
+                                    {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.name}
                                 </span>
                                 </div>
                             </div>
@@ -94,7 +99,7 @@ const ChosenItem = () => {
                             АРТИКУЛ: {chosenItem.id}
                             </span>
                                 <span>
-                            КАТЕГОРІЯ: {DropMenuList?.find(el => el.gender === "female")?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.name}
+                            КАТЕГОРІЯ: {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.name}
                             </span>
                                 <span>
                             БРЕНД: STAFF
@@ -107,7 +112,7 @@ const ChosenItem = () => {
 
 
                             <div className={styles.add}>
-                                <div style={{background: "rgb(0, 94, 15);", color: "rgb(255, 255, 255)"}}>
+                                <div style={{background: "rgb(0, 94, 15)", color: "rgb(255, 255, 255)"}}>
                                     Додати в кошик
                                 </div>
                                 <div style={{background: "rgb(199, 199, 199)", color: "black"}}>

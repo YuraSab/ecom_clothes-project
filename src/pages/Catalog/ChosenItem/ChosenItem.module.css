@@ -23,8 +23,6 @@
 }
 .picturesBlock .imgChosen{
     grid-area: imgChosen;
-    /*display: flex;*/
-    /*justify-content: center;*/
     padding: 0 2%;
 }
 .picturesBlock .imgChosen img {
@@ -102,6 +100,7 @@
 
 
 .descriptionOverlay{
+    padding-top: 70px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -124,4 +123,105 @@
     font-family: Ubuntu,sans-serif;
     font-weight: 400;
     font-size: 14px;
+}
+
+@media screen and (max-width: 1335px) {
+    .main{
+        width: calc(100% - 40px);
+        grid-template-columns: 600px 1fr;
+    }
+    .picturesBlock{
+        width: 600px;
+    }
+    .pathList {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 1215px){
+    .add{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+    }
+    .add div{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1215px){
+    .pathList {
+        width: 350px;
+    }
+}
+@media screen and (max-width: 1086px){
+    .main{
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .imgChosen{
+        display: none;
+    }
+    .picturesBlock{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .imgList{
+        overflow-x: auto;
+        max-width: 98vw;
+        display: flex;
+    }
+    .picturesBlock .imgList img{
+        height: 600px;
+    }
+    .info{
+        padding: 0 20px;
+    }
+    .pathList{
+        width: 100%;
+    }
+    .title{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .title div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .infoSpans{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .price{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .add{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .add div{
+        width: calc((100% - 60px) / 2);
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 725px) {
+    .descriptionOverlay{
+        overflow: hidden;
+    }
+    .descriptionBlock{
+        width: 90%;
+        overflow: hidden;
+    }
 }
