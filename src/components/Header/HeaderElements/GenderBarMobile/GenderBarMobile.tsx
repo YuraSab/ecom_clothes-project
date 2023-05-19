@@ -2,7 +2,7 @@ import React, {FC, useEffect} from 'react';
 import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector";
 import styles from "./GenderBarMobile.module.css";
 import {NavLink} from "react-router-dom";
-import {DropMenuList} from "../../BottomHeaderMenu/ElementList_DropDownMenu";
+import {DropMenuList} from "../../HeaderLinks/ElementList_DropDownMenu";
 import {onSetDropDownMenu} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu";
 import {useAction} from "../../../../hooks/redux/useAction";
 import ComebackAlive from "../../../../assets/pictures/comeback_alive.svg";

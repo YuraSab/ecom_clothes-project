@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {linkType} from "../../../components/Header/BottomHeaderMenu/ElementList_DropDownMenu";
+import {linkType} from "../../../components/Header/HeaderLinks/ElementList_DropDownMenu";
 import {clothesService} from "../../../services/ClothesService";
 import {Cloth} from "../../../db/clothes-db";
 import styles from "./CategoryList.module.css";

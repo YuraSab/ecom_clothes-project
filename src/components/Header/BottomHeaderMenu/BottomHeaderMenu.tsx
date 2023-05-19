@@ -82,13 +82,11 @@ const BottomHeaderMenu: FC = () => {
                 {
                     burgerMenuActive &&
                     <GenderBarMobile
-                        // propGender={location.pathname.includes("female") ? "female" : "male"}
                         setBurgerMenuActive={setBurgerMenuActive} burgerMenuActive={burgerMenuActive}
                     />
                 }
 
                 {
-                    // dropDownValue && window.innerWidth < 1026 &&
                     dropDownValue && gender !== "" && window.innerWidth < 1026 &&
                     <DropDownMenuMobile setBurgerMenuActive={setBurgerMenuActive}/>
                 }

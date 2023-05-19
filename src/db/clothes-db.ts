@@ -1,4 +1,4 @@
-import {linkType} from "../components/Header/BottomHeaderMenu/ElementList_DropDownMenu";
+import {linkType} from "../components/Header/HeaderLinks/ElementList_DropDownMenu";
 
 export const clothes: Cloth[] = [
     { id: 1, name: "Футболка Staff & LBWS CAT2 дружба oversize", price: 490, photo: "https://static.staff-clothes.com/media/cache/image_product_desktop_product_thumbnail/image_product/0002/90/b80bfefc0f774fb3adf39a152a963325.jpeg", gender: "male", category: "clothes", subcategory: "polo_and_t-shirts", type: "t-shirts", available: true},

@@ -1,5 +1,5 @@
 import {Cloth, clothes} from "../db/clothes-db";
-import {linkType} from "../components/Header/BottomHeaderMenu/ElementList_DropDownMenu";
+import {linkType} from "../components/Header/HeaderLinks/ElementList_DropDownMenu";
 import {Gender} from "../redux/action-types";
 import {clothes_description} from "../db/cloth-descroptions";
 

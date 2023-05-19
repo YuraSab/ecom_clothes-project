@@ -55,9 +55,7 @@ const Footer: FC = () => {
                     <span>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</span>
                     <img src={MasterCard_Visa} alt={"visa & mastercard"}/>
                 </div>
-                <div className={styles.catalogList}
-                     // style={{width: 300}}
-                >
+                <div className={styles.catalogList}>
                     <div className={styles.socialMedia}>СОЦІАЛЬНІ МЕРЕЖІ</div>
                     <div className={styles.icon_list}>
                         <img src={FaceBook_Icon} alt={"FaceBook"}/>

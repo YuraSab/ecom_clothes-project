@@ -3,7 +3,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import Main from "./Main.tsx";
 import Male from "../../pages/Male/Male.tsx";
 import Female from "../../pages/Female/Female.tsx";
-import {DropMenuList} from "../Header/BottomHeaderMenu/ElementList_DropDownMenu";
+import {DropMenuList} from "../Header/HeaderLinks/ElementList_DropDownMenu";
 import CategoryList from "../../pages/Catalog/List/CategoryList";
 import ChosenItem from "../../pages/Catalog/ChosenItem/ChosenItem";
 

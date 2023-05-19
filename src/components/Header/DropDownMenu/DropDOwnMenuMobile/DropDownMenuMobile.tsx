@@ -6,7 +6,7 @@ import {
     DropMenuList,
     DropMenuListItem,
     DropMenuListSubItem
-} from "../../BottomHeaderMenu/ElementList_DropDownMenu.ts";
+} from "../../HeaderLinks/ElementList_DropDownMenu.ts";
 import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
 import ArrowLeft from "../../../../assets/icons/arrow_left.png";
 import {useAction} from "../../../../hooks/redux/useAction";

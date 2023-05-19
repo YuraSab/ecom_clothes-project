@@ -3,7 +3,7 @@ import {clothesService} from "../../../services/ClothesService";
 import {Cloth} from "../../../db/clothes-db";
 import {ClothesDescription} from "../../../db/cloth-descroptions";
 import styles from "./ChosenItem.module.css";
-import {DropMenuList} from "../../../components/Header/BottomHeaderMenu/ElementList_DropDownMenu";
+import {DropMenuList} from "../../../components/Header/HeaderLinks/ElementList_DropDownMenu";
 import Like from "../../../assets/icons/like_icon.png";
 import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";

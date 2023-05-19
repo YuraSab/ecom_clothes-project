@@ -124,7 +124,6 @@
         height: 70px;
     }
     .logo{
-        /*display: none;*/
         justify-content: start;
     }
     .logo img{
@@ -134,12 +133,9 @@
         height: 70px;
         grid-template-columns: 35px 64px 1fr;
         grid-template-rows: 70px;
-
-        /*justify-content: space-between;*/
         align-items: center;
     }
     .icons_set {
-        /*padding-left: 0;*/
         width: 100%;
         padding-left: 80px;
         display: flex;

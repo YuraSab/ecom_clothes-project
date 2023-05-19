@@ -1,7 +1,7 @@
 import React, {FC, useEffect} from 'react';
 import styles from "./GenderBar.module.css";
 import {onSetDropDownMenu, onSetGender} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu.ts";
-import {DropMenuList} from "../../BottomHeaderMenu/ElementList_DropDownMenu.ts";
+import {DropMenuList} from "../../HeaderLinks/ElementList_DropDownMenu.ts";
 import DropDownMenu from "../../DropDownMenu/DropDownMenuDesktop/DropDownMenu.tsx";
 import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
 import {useAction} from "../../../../hooks/redux/useAction.ts";
