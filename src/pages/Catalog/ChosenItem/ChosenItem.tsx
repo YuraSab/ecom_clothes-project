@@ -30,7 +30,10 @@ const ChosenItem = () => {
         let cloth = ClothesService.getClothesById(Number(id));
         let clothDetails = ClothesService.getClothesDetailsById(Number(id));
         if (cloth) {
-            setChosenItemPhotos([{id: 0, src: cloth.photo}, {id: 1, src: cloth.photo}, {id: 2, src: cloth.photo}, {id: 3, src: cloth.photo}]);
+            setChosenItemPhotos([{id: 0, src: cloth.photo}, {id: 1, src: cloth.photo}, {
+                id: 2,
+                src: cloth.photo
+            }, {id: 3, src: cloth.photo}]);
             setChosenItemPhoto(0);
             setChosenItem(cloth);
         }
@@ -75,7 +78,7 @@ const ChosenItem = () => {
                                 </span>
                                     <span>
                                     {gender === "male" ? "Для хлопців" : "Для дівчат"}
-                                    <span style={{padding: 10}}>&mdash;&mdash;</span>
+                                        <span style={{padding: 10}}>&mdash;&mdash;</span>
                                 </span>
                                     <span>
                                     {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.title}
@@ -129,14 +132,29 @@ const ChosenItem = () => {
                 <div className={styles.descriptionBlock}>
                     <div className={styles.descriptionTitle}>Опис</div>
                     <div className={styles.descriptionValue}>
-                        <div>{chosenItemDetails?.describe}</div><br/>
-                        <div>Матеріал: <br/>{chosenItemDetails?.fabric}</div><br/>
-                        <div>Деталі та крій: <br/>{chosenItemDetails?.details_and_cut}</div><br/>
-                        <div>Колір: <br/>{chosenItemDetails?.color}</div><br/>
-                        <div>Догляд: <br/>{chosenItemDetails?.supervision}</div><br/>
-                        <div>На фото: <br/>{chosenItemDetails?.on_the_photo}</div><br/>
+                        <div>{chosenItemDetails?.describe}</div>
+                        <br/>
+                        <div>Матеріал: <br/>{chosenItemDetails?.fabric}</div>
+                        <br/>
+                        <div>Деталі та крій: <br/>{chosenItemDetails?.details_and_cut}</div>
+                        <br/>
+                        <div>Колір: <br/>{chosenItemDetails?.color}</div>
+                        <br/>
+                        <div>Догляд: <br/>{chosenItemDetails?.supervision}</div>
+                        <br/>
+                        <div>На фото: <br/>{chosenItemDetails?.on_the_photo}</div>
+                        <br/>
                     </div>
                 </div>
+            </div>
+
+            {/* todo - comments and questions */}
+            <div>
+                <div>
+                    <div>ВІДГУКИ (0)</div>
+                    <div>ПИТАННЯ (1)</div>
+                </div>
+                <div>Додати відгук / питання</div>
             </div>
         </>
     );
