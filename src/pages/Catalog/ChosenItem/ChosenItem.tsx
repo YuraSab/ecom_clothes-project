@@ -7,6 +7,8 @@ import {DropMenuList} from "../../../components/Header/HeaderLinks/ElementList_D
 import Like from "../../../assets/icons/like_icon.png";
 import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
+import {onAddResponse, onDeleteResponse} from "../../../redux/action-creators/Response/Response";
+import {useAction} from "../../../hooks/redux/useAction";
 
 type PhotoItem = {
     id: number;
@@ -17,6 +19,9 @@ const ChosenItem = () => {
 
     const {id} = useParams();
     const {gender} = useTypedSelector(state => state.headerState);
+    const {responses} = useTypedSelector(state => state.responseReducer);
+    const {onAddResponse, onDeleteResponse} = useAction();
+
 
     const [chosenItem, setChosenItem] = useState<Cloth | null | undefined>(null);
     const [chosenItemDetails, setChosenItemDetails] = useState<ClothesDescription | null | undefined>(null);
@@ -41,6 +46,9 @@ const ChosenItem = () => {
 
         window.scrollTo(0, 0);
     }, [id]);
+
+
+
 
 
     return (
@@ -149,10 +157,27 @@ const ChosenItem = () => {
             </div>
 
             {/* todo - comments and questions */}
-            <div>
-                <div>
-                    <div>ВІДГУКИ (0)</div>
-                    <div>ПИТАННЯ (1)</div>
+            <div style={{width: "100%", display: "flex", justifyContent: "center"}}>
+                <div style={{display: "flex", gap: 40, width: "100%", justifyContent: "space-between"}}>
+                    {/*<div>ВІДГУКИ (0)</div>*/}
+                    {/*<div>ПИТАННЯ (1)</div>*/}
+                    <div
+                        style={{width: 120, height: 50, background: "beige"}}
+                        onClick={() =>
+                            onAddResponse({
+                            id_response: responses.length+1,
+                            id_user: 4,
+                            id_product: Number(id),
+                            text: "New response",
+                            date: new Date(),
+                            edited: false,
+                        })}
+                    >Додати відгук</div>
+
+                    <div>{responses.map(el =>
+                        <div
+                            onClick={() => onDeleteResponse(1)}
+                        >Видалити відгук відгук #{el.id_response}</div>)}</div>
                 </div>
                 <div>Додати відгук / питання</div>
             </div>
