@@ -1,10 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
-import {Like, Response} from "../../redux/action-types";
+import {Like, Response} from "../../../redux/action-types";
 import styles from "./ResponseItem.module.css";
-import UserBlack_Icon from "../../assets/icons/user_black.png";
-import Like_Icon from "../../assets/icons/like_black_icon.png";
-import Response_Icon from "../../assets/icons/response_icon.png";
-import {useTypedSelector} from "../../hooks/redux/useTypedSelector";
+import UserBlack_Icon from "../../../assets/icons/user_black.png";
+import Like_Icon from "../../../assets/icons/like_black_icon.png";
+import Response_Icon from "../../../assets/icons/response_icon.png";
+import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 
 type ResponseItem_Props = {
     item: Response;

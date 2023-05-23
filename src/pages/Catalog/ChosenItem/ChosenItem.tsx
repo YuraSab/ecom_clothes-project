@@ -11,7 +11,8 @@ import {onAddResponse, onDeleteResponse} from "../../../redux/action-creators/Re
 import {useAction} from "../../../hooks/redux/useAction";
 import {Response} from "../../../redux/action-types";
 import WhitePlus from "../../../assets/icons/wite_plus.png";
-import ResponseItem from "../../../ui/response/ResponseItem";
+import ResponseItem from "../../../ui/response/ResponseItem/ResponseItem";
+import AddResponse from "../../../ui/response/AddResponse/AddResponse";
 
 type PhotoItem = {
     id: number;
@@ -34,6 +35,7 @@ const ChosenItem = () => {
 
     const [actualResponses, setActualResponses] = useState<Response[] | []>([]);
     const [responsesOrQuestions, setResponsesOrQuestions] = useState<"response" | "question">("response");
+    const [responseOrQuestionActive, setResponseOrQuestionActive] = useState<boolean>(false);
 
     const ClothesService = clothesService;
 
@@ -166,7 +168,7 @@ const ChosenItem = () => {
             </div>
 
             {/* todo - comments and questions */}
-            <div className={styles.descriptionOverlay}>
+            <div className={styles.descriptionOverlay} style={{paddingBottom: 75}}>
                 <div className={styles.descriptionBlock}>
 
                     <div className={styles.responseQuestionBlock}>
@@ -184,37 +186,34 @@ const ChosenItem = () => {
                     </div>
 
                     <div className={styles.responseQuestionBlock} style={{paddingTop: 40}}
-                         onClick={() =>
-                             onAddResponse({
-                                 id_response: responses.length+1,
-                                 id_user: 4,
-                                 id_product: Number(id),
-                                 text: "New response",
-                                 date: new Date(),
-                                 edited: false,
-                             })}
+                         // onClick={() =>
+                         //     onAddResponse({
+                         //         id_response: responses.length+1,
+                         //         id_user: 4,
+                         //         id_product: Number(id),
+                         //         text: "New response",
+                         //         date: new Date(),
+                         //         edited: false,
+                         //     })}
                     >
-                        <div className={styles.addResponseOrQuestion}>
+                        <div className={styles.addResponseOrQuestion} onClick={() => setResponseOrQuestionActive(true)}>
                             <img src={WhitePlus} alt={`Додати ${responsesOrQuestions === "response" ? "відгук" : "питання"}`}/>
                             <div>Додати {responsesOrQuestions === "response" ? "відгук" : "питання"}</div>
                         </div>
                     </div>
-                    {/*onClick={() =>*/}
-                    {/*//     onAddResponse({*/}
-                    {/*//     id_response: responses.length+1,*/}
-                    {/*//     id_user: 4,*/}
-                    {/*//     id_product: Number(id),*/}
-                    {/*//     text: "New response",*/}
-                    {/*//     date: new Date(),*/}
-                    {/*//     edited: false,*/}
-                    {/*// })}*/}
-                    {/*<div>{actualResponses.map(el =>*/}
-                    {/*    <div*/}
-                    {/*        onClick={() => onDeleteResponse(el.id_response)}*/}
-                    {/*    >Видалити відгук відгук #{el.id_response}</div>)}*/}
-                    {/*</div>*/}
+
 
                     <div>{actualResponses.map(el => <ResponseItem item={el} key={el.id_response}/>)}</div>
+
+                    {
+                        // todo - below case is for no authorised users
+                        // responseOrQuestionActive && responsesOrQuestions === "response" && <AddResponse_NonAuthorised setResponseOrQuestionActive={setResponseOrQuestionActive}/>
+
+                        responseOrQuestionActive && responsesOrQuestions === "response" &&
+                        <AddResponse
+                            setResponseOrQuestionActive={setResponseOrQuestionActive}
+                        />
+                    }
                 </div>
             </div>
         </>

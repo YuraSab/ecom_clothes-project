@@ -1,0 +1,116 @@
+.overlay{
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.3);
+    padding: 0;
+    z-index: 60;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainDiv{
+    width: 470px;
+    background: white;
+}
+.chooseData{
+    padding: 50px;
+}
+
+.login{
+    display: flex;
+    justify-content: space-between;
+}
+.login div{
+    font-family: Ubuntu,sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 3px solid #000;
+}
+
+.accountOrMedia{
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accountOrMediaCaption{
+    font-size: 11px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 1.2px;
+    line-height: 1.15;
+}
+
+input{
+    border: 0;
+    border-bottom: 1px solid #b3b3b3;
+    width: 200px;
+    height: 21px;
+}
+
+label{
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: grey;
+}
+
+.restore_access{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.log_sign_in{
+    padding-top: 40px;
+    display: flex;
+    width: 100%;
+}
+.log_sign_in div{
+    width: 50%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.leftResponse{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.leftResponse div{
+    width: 200px;
+    height: 46px;
+    background: black;
+    color: white;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    font-family: Ubuntu,sans-serif;
+
+    align-items: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+textarea{
+    width: 100%;
+    height: 240px;
+}
