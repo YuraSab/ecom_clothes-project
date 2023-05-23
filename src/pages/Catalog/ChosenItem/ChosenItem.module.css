@@ -125,6 +125,41 @@
     font-size: 14px;
 }
 
+.responseQuestionBlock{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.responseQuestionButton{
+    width: 136px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+    /*padding-bottom: 4px;*/
+    color: black;
+}
+.addResponseOrQuestion{
+    padding: 20px 25px;
+    width: 220px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: black;
+    color: white;
+}
+
+
 @media screen and (max-width: 1335px) {
     .main{
         width: calc(100% - 40px);

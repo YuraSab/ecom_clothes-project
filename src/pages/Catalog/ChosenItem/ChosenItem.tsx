@@ -9,10 +9,13 @@ import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import {onAddResponse, onDeleteResponse} from "../../../redux/action-creators/Response/Response";
 import {useAction} from "../../../hooks/redux/useAction";
+import {Response} from "../../../redux/action-types";
+import WhitePlus from "../../../assets/icons/wite_plus.png";
+import ResponseItem from "../../../ui/response/ResponseItem";
 
 type PhotoItem = {
     id: number;
-    src: string
+    src: string;
 }
 
 const ChosenItem = () => {
@@ -28,6 +31,9 @@ const ChosenItem = () => {
     // here would like to be photos which have been injected from db wit images
     const [chosenItemPhotos, setChosenItemPhotos] = useState<PhotoItem[] | [] | undefined>([]);
     const [chosenItemPhoto, setChosenItemPhoto] = useState<number>(0);
+
+    const [actualResponses, setActualResponses] = useState<Response[] | []>([]);
+    const [responsesOrQuestions, setResponsesOrQuestions] = useState<"response" | "question">("response");
 
     const ClothesService = clothesService;
 
@@ -48,7 +54,10 @@ const ChosenItem = () => {
     }, [id]);
 
 
-
+    useEffect(() => {
+        const filtered = responses.filter(el => el.id_product === Number(id));
+        setActualResponses(filtered);
+    }, [responses]);
 
 
     return (
@@ -157,29 +166,56 @@ const ChosenItem = () => {
             </div>
 
             {/* todo - comments and questions */}
-            <div style={{width: "100%", display: "flex", justifyContent: "center"}}>
-                <div style={{display: "flex", gap: 40, width: "100%", justifyContent: "space-between"}}>
-                    {/*<div>ВІДГУКИ (0)</div>*/}
-                    {/*<div>ПИТАННЯ (1)</div>*/}
-                    <div
-                        style={{width: 120, height: 50, background: "beige"}}
-                        onClick={() =>
-                            onAddResponse({
-                            id_response: responses.length+1,
-                            id_user: 4,
-                            id_product: Number(id),
-                            text: "New response",
-                            date: new Date(),
-                            edited: false,
-                        })}
-                    >Додати відгук</div>
+            <div className={styles.descriptionOverlay}>
+                <div className={styles.descriptionBlock}>
 
-                    <div>{responses.map(el =>
-                        <div
-                            onClick={() => onDeleteResponse(1)}
-                        >Видалити відгук відгук #{el.id_response}</div>)}</div>
+                    <div className={styles.responseQuestionBlock}>
+                        <div onClick={() => setResponsesOrQuestions("response")}
+                             className={styles.responseQuestionButton}
+                             style={{borderBottom: responsesOrQuestions === "response" ? "2px black solid" : "none"}}>
+                            ВІДГУКИ
+                        </div>
+
+                        <div onClick={() => setResponsesOrQuestions("question")}
+                             className={styles.responseQuestionButton}
+                             style={{borderBottom: responsesOrQuestions === "question" ? "2px black solid" : "none"}}>
+                            ПИТАННЯ
+                        </div>
+                    </div>
+
+                    <div className={styles.responseQuestionBlock} style={{paddingTop: 40}}
+                         onClick={() =>
+                             onAddResponse({
+                                 id_response: responses.length+1,
+                                 id_user: 4,
+                                 id_product: Number(id),
+                                 text: "New response",
+                                 date: new Date(),
+                                 edited: false,
+                             })}
+                    >
+                        <div className={styles.addResponseOrQuestion}>
+                            <img src={WhitePlus} alt={`Додати ${responsesOrQuestions === "response" ? "відгук" : "питання"}`}/>
+                            <div>Додати {responsesOrQuestions === "response" ? "відгук" : "питання"}</div>
+                        </div>
+                    </div>
+                    {/*onClick={() =>*/}
+                    {/*//     onAddResponse({*/}
+                    {/*//     id_response: responses.length+1,*/}
+                    {/*//     id_user: 4,*/}
+                    {/*//     id_product: Number(id),*/}
+                    {/*//     text: "New response",*/}
+                    {/*//     date: new Date(),*/}
+                    {/*//     edited: false,*/}
+                    {/*// })}*/}
+                    {/*<div>{actualResponses.map(el =>*/}
+                    {/*    <div*/}
+                    {/*        onClick={() => onDeleteResponse(el.id_response)}*/}
+                    {/*    >Видалити відгук відгук #{el.id_response}</div>)}*/}
+                    {/*</div>*/}
+
+                    <div>{actualResponses.map(el => <ResponseItem item={el} key={el.id_response}/>)}</div>
                 </div>
-                <div>Додати відгук / питання</div>
             </div>
         </>
     );
