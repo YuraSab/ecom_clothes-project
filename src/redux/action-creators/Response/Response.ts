@@ -22,7 +22,6 @@ export const onSetResponses = (value: Payload<SetResponses_Action>) => {
     }
 }
 export const onAddResponse = (value: Payload<AddResponse_Action>) => {
-    console.log(value)
     return(dispatch: Dispatch<AddResponse_Action>) => {
         dispatch({
             type: Response_Types.ADD_RESPONSE,

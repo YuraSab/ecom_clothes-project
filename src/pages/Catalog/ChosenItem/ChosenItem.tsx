@@ -7,8 +7,6 @@ import {DropMenuList} from "../../../components/Header/HeaderLinks/ElementList_D
 import Like from "../../../assets/icons/like_icon.png";
 import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
-import {onAddResponse, onDeleteResponse} from "../../../redux/action-creators/Response/Response";
-import {useAction} from "../../../hooks/redux/useAction";
 import {Response} from "../../../redux/action-types";
 import WhitePlus from "../../../assets/icons/wite_plus.png";
 import ResponseItem from "../../../ui/response/ResponseItem/ResponseItem";
@@ -23,8 +21,7 @@ const ChosenItem = () => {
 
     const {id} = useParams();
     const {gender} = useTypedSelector(state => state.headerState);
-    const {responses} = useTypedSelector(state => state.responseReducer);
-    const {onAddResponse, onDeleteResponse} = useAction();
+    const {responses, parent_child_comments} = useTypedSelector(state => state.responseReducer);
 
 
     const [chosenItem, setChosenItem] = useState<Cloth | null | undefined>(null);
@@ -37,7 +34,11 @@ const ChosenItem = () => {
     const [responsesOrQuestions, setResponsesOrQuestions] = useState<"response" | "question">("response");
     const [responseOrQuestionActive, setResponseOrQuestionActive] = useState<boolean>(false);
 
+    const [actualResponsesParent, setActualResponsesParent] = useState<Response[]>([]);
+
     const ClothesService = clothesService;
+
+
 
     useEffect(() => {
         let cloth = ClothesService.getClothesById(Number(id));
@@ -60,6 +61,20 @@ const ChosenItem = () => {
         const filtered = responses.filter(el => el.id_product === Number(id));
         setActualResponses(filtered);
     }, [responses]);
+
+    useEffect(() => {
+        function isChild() {
+            let onlyParentMas = [];
+            for(let i = 0; i < actualResponses.length; i++) {
+                let ifChild = parent_child_comments.find(el => el.id_child_response === actualResponses[i].id_response);
+                if(!ifChild) {
+                    onlyParentMas.push(actualResponses[i])
+                }
+            }
+            setActualResponsesParent(onlyParentMas);
+        }
+        isChild();
+    }, [actualResponses]);
 
 
     return (
@@ -185,34 +200,26 @@ const ChosenItem = () => {
                         </div>
                     </div>
 
-                    <div className={styles.responseQuestionBlock} style={{paddingTop: 40}}
-                         // onClick={() =>
-                         //     onAddResponse({
-                         //         id_response: responses.length+1,
-                         //         id_user: 4,
-                         //         id_product: Number(id),
-                         //         text: "New response",
-                         //         date: new Date(),
-                         //         edited: false,
-                         //     })}
-                    >
+                    <div className={styles.responseQuestionBlock} style={{paddingTop: 40}}>
                         <div className={styles.addResponseOrQuestion} onClick={() => setResponseOrQuestionActive(true)}>
                             <img src={WhitePlus} alt={`Додати ${responsesOrQuestions === "response" ? "відгук" : "питання"}`}/>
                             <div>Додати {responsesOrQuestions === "response" ? "відгук" : "питання"}</div>
                         </div>
                     </div>
 
-
-                    <div>{actualResponses.map(el => <ResponseItem item={el} key={el.id_response}/>)}</div>
+                    {
+                        responsesOrQuestions === "response" ?
+                            <div>{actualResponsesParent.map(el => <ResponseItem  item={el} key={el.id_response}/>)}</div>
+                            :
+                            null
+                    }
 
                     {
                         // todo - below case is for no authorised users
                         // responseOrQuestionActive && responsesOrQuestions === "response" && <AddResponse_NonAuthorised setResponseOrQuestionActive={setResponseOrQuestionActive}/>
 
                         responseOrQuestionActive && responsesOrQuestions === "response" &&
-                        <AddResponse
-                            setResponseOrQuestionActive={setResponseOrQuestionActive}
-                        />
+                        <AddResponse setResponseOrQuestionActive={setResponseOrQuestionActive}/>
                     }
                 </div>
             </div>

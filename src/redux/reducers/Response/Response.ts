@@ -27,7 +27,6 @@ export default (state = initialState, action: Response_Actions): InitialState_ty
             }
         }
         case Response_Types.ADD_RESPONSE: {
-            console.log("dsds");
             return {
                 ...state,
                 responses: [...state.responses, action.payload],
