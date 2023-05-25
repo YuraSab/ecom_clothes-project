@@ -1,0 +1,22 @@
+.date{
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 10px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+}
+
+.userName{
+    font-size: 16px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.text{
+    word-break: break-word;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 10px;
+}

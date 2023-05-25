@@ -7,10 +7,12 @@ import {DropMenuList} from "../../../components/Header/HeaderLinks/ElementList_D
 import Like from "../../../assets/icons/like_icon.png";
 import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
-import {Response} from "../../../redux/action-types";
+import {Question, Response} from "../../../redux/action-types";
 import WhitePlus from "../../../assets/icons/wite_plus.png";
 import ResponseItem from "../../../ui/response/ResponseItem/ResponseItem";
 import AddResponse from "../../../ui/response/AddResponse/AddResponse";
+import AddQuestion from "../../../ui/question/AddQuestion/AddQuestion";
+import QuestionItem from "../../../ui/question/QuestionItem/QuestionItem";
 
 type PhotoItem = {
     id: number;
@@ -22,7 +24,7 @@ const ChosenItem = () => {
     const {id} = useParams();
     const {gender} = useTypedSelector(state => state.headerState);
     const {responses, parent_child_comments} = useTypedSelector(state => state.responseReducer);
-
+    const {questions, responses_on_questions} = useTypedSelector(state => state.questionReducer);
 
     const [chosenItem, setChosenItem] = useState<Cloth | null | undefined>(null);
     const [chosenItemDetails, setChosenItemDetails] = useState<ClothesDescription | null | undefined>(null);
@@ -30,14 +32,16 @@ const ChosenItem = () => {
     const [chosenItemPhotos, setChosenItemPhotos] = useState<PhotoItem[] | [] | undefined>([]);
     const [chosenItemPhoto, setChosenItemPhoto] = useState<number>(0);
 
-    const [actualResponses, setActualResponses] = useState<Response[] | []>([]);
     const [responsesOrQuestions, setResponsesOrQuestions] = useState<"response" | "question">("response");
     const [responseOrQuestionActive, setResponseOrQuestionActive] = useState<boolean>(false);
 
+    const [actualResponses, setActualResponses] = useState<Response[] | []>([]);
     const [actualResponsesParent, setActualResponsesParent] = useState<Response[]>([]);
 
-    const ClothesService = clothesService;
+    const [actualQuestions, setActualQuestions] = useState<Question[]>([]);
+    const [actualQuestionsResponses, setActualQuestionsResponses] = useState<Question[]>([]);
 
+    const ClothesService = clothesService;
 
 
     useEffect(() => {
@@ -65,18 +69,37 @@ const ChosenItem = () => {
     useEffect(() => {
         function isChild() {
             let onlyParentMas = [];
-            for(let i = 0; i < actualResponses.length; i++) {
+            for (let i = 0; i < actualResponses.length; i++) {
                 let ifChild = parent_child_comments.find(el => el.id_child_response === actualResponses[i].id_response);
-                if(!ifChild) {
+                if (!ifChild) {
                     onlyParentMas.push(actualResponses[i])
                 }
             }
             setActualResponsesParent(onlyParentMas);
         }
+
         isChild();
     }, [actualResponses]);
 
 
+    useEffect(() => {
+        const filtered = questions.filter(el => el.id_product === Number(id));
+        setActualQuestions(filtered);
+
+        function isChild() {
+            let onlyParentMas = [];
+            for (let i = 0; i < questions.length; i++) {
+                let ifChild = responses_on_questions.find(el => el.id_question === filtered[i].id_question);
+                if (!ifChild) {
+                    onlyParentMas.push(filtered[i])
+                }
+            }
+            setActualQuestionsResponses(onlyParentMas);
+        }
+        isChild();
+    }, [questions]);
+
+    console.log(questions)
     return (
         <>
             <div className={styles.overlay}>
@@ -202,24 +225,29 @@ const ChosenItem = () => {
 
                     <div className={styles.responseQuestionBlock} style={{paddingTop: 40}}>
                         <div className={styles.addResponseOrQuestion} onClick={() => setResponseOrQuestionActive(true)}>
-                            <img src={WhitePlus} alt={`Додати ${responsesOrQuestions === "response" ? "відгук" : "питання"}`}/>
+                            <img src={WhitePlus}
+                                 alt={`Додати ${responsesOrQuestions === "response" ? "відгук" : "питання"}`}/>
                             <div>Додати {responsesOrQuestions === "response" ? "відгук" : "питання"}</div>
                         </div>
                     </div>
 
                     {
                         responsesOrQuestions === "response" ?
-                            <div>{actualResponsesParent.map(el => <ResponseItem  item={el} key={el.id_response}/>)}</div>
+                            <div>{actualResponsesParent.map(el => <ResponseItem item={el} key={el.id_response}/>)}</div>
                             :
-                            null
+                            <div>{actualQuestions.map(el => <QuestionItem item={el} key={el.id_question}/>)}</div>
                     }
 
                     {
                         // todo - below case is for no authorised users
-                        // responseOrQuestionActive && responsesOrQuestions === "response" && <AddResponse_NonAuthorised setResponseOrQuestionActive={setResponseOrQuestionActive}/>
-
                         responseOrQuestionActive && responsesOrQuestions === "response" &&
                         <AddResponse setResponseOrQuestionActive={setResponseOrQuestionActive}/>
+                    }
+
+                    {
+                        // todo - below case is for no authorised users
+                        responseOrQuestionActive && responsesOrQuestions === "question" &&
+                        <AddQuestion setResponseOrQuestionActive={setResponseOrQuestionActive}/>
                     }
                 </div>
             </div>

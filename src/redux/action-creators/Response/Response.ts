@@ -1,7 +1,3 @@
-//     SetResponse_Action | AddResponse_Action | DeleteResponse_Action | EditResponse_Action |
-//     SetLikes_Action | AddLikes_Action | DeleteLikes_Action |
-//     SetParentChildComment_Action | AddParentChildComment_Action | DeleteParentChildComment_Action;
-
 import {Payload} from "../../../modules/Redux/Redux";
 import {
     AddLike_Action, AddParentChildResponse_Action,

@@ -81,13 +81,12 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
                 >
                 </textarea>
                 <div className={styles.leftResponse} onClick={() => handleAddResponse()}>
-                        Залишити відгук
+                        Залишити відповідь
                 </div>
 
                 <h3>Інші відповіді:</h3>
                 {
-                    actualResponses.map(el => <ResponseOnResponseItemUI item={el}
-                                                                        setResponseOnResponseActive={setResponseOnResponseActive}/>)
+                    actualResponses.map(el => <ResponseOnResponseItemUI item={el} setResponseOnResponseActive={setResponseOnResponseActive}/>)
                 }
             </div>
 

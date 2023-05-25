@@ -3,6 +3,7 @@ import styles from "./AddResponse.module.css";
 import {useAction} from "../../../hooks/redux/useAction";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import {useParams} from "react-router-dom";
+import {ActualUser} from "../../../global/user/User";
 
 type AddResponse_Props = {
     setResponseOrQuestionActive: (value: boolean) => void;
@@ -28,7 +29,7 @@ const AddResponse: FC<AddResponse_Props> = ({setResponseOrQuestionActive}) => {
         if (areaText !== "") {
             onAddResponse({
                 id_response: responses.length + 1,
-                id_user: 4,
+                id_user: ActualUser.id,
                 id_product: Number(id),
                 text: areaText,
                 date: new Date(),

@@ -1,0 +1,54 @@
+.overlay{
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.3);
+    z-index: 60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainDiv{
+    width: 470px;
+    background: white;
+    padding: 50px;
+}
+
+
+.leftResponse{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.accountOrMediaCaption{
+    font-size: 11px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 1.2px;
+    line-height: 1.15;
+}
+.leftResponse div{
+    width: 200px;
+    height: 46px;
+    background: black;
+    color: white;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    font-family: Ubuntu,sans-serif;
+    align-items: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+textarea{
+    width: 100%;
+    height: 240px;
+}
