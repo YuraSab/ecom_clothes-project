@@ -6,6 +6,7 @@ import Female from "../../pages/Female/Female.tsx";
 import {DropMenuList} from "../Header/HeaderLinks/ElementList_DropDownMenu";
 import CategoryList from "../../pages/Catalog/List/List/CategoryList";
 import ChosenItem from "../../pages/Catalog/ChosenItem/ChosenItem";
+import Likes from "../../pages/Likes/Likes";
 
 const MainLayout = () => {
     return (
@@ -16,6 +17,8 @@ const MainLayout = () => {
 
                     <Route path={'male/:id'} element={<ChosenItem/>}/>
                     <Route path={'female/:id'} element={<ChosenItem/>}/>
+
+                    <Route path={'user/:userId/likes'} element={<Likes/>}/>
 
                     <Route path={'/male/*'} element={<Male/>}>
                         {

@@ -202,6 +202,31 @@
 }
 
 
+.like_caption_bookmark{
+    font-size: 34px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 0;
+    padding: 0;
+}
+.like_clean_bookmark{
+    text-transform: uppercase;
+    font-size: 11px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 2px;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    color: #000;
+    margin: 25px 0;
+}
+.like_clean_bookmark:hover{
+    border-bottom: 2px solid #696969;
+    color: #696969;
+}
+
+
 @media screen and (max-width: 1225px) {
     .main {
         display: block;

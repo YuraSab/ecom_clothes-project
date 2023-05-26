@@ -6,13 +6,14 @@ import SearchIcon from "../../../assets/icons/search_icon.svg";
 import UserIcon from "../../../assets/icons/person_icon.png";
 import CartIcon from "../../../assets/icons/cart-icon.png";
 import LikeIcon from "../../../assets/icons/like_icon.png";
-import {NavLink, useLocation} from "react-router-dom";
+import {Link, NavLink, useLocation} from "react-router-dom";
 import GenderBar from "../HeaderElements/GenderBarDesktop/GenderBar.tsx";
 import GenderBarMobile from "../HeaderElements/GenderBarMobile/GenderBarMobile";
 import DropDownMenuMobile from "../DropDownMenu/DropDOwnMenuMobile/DropDownMenuMobile";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import CrossSVG from "../../../assets/icons/cross_svg_icon.svg";
 import BurgerMenuSVG from "../../../assets/icons/burger_menu_svg.jpg";
+import {ActualUser} from "../../../global/user/User";
 
 const BottomHeaderMenu: FC = () => {
 
@@ -63,7 +64,7 @@ const BottomHeaderMenu: FC = () => {
                         <img src={ComebackAlive} alt={""}/>
                         <img src={SearchIcon} alt={""} height={25}/>
                         <img src={UserIcon} alt={""} height={25}/>
-                        <img src={LikeIcon} alt={""} height={25}/>
+                        <Link to={`user/${ActualUser.id}/likes`}> <img src={LikeIcon} alt={""} height={25}/></Link>
                         <img src={CartIcon} alt={""} height={25}/>
                     </div>
                 </div>
