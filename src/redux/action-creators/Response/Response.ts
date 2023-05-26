@@ -1,10 +1,10 @@
 import {Payload} from "../../../modules/Redux/Redux";
 import {
-    AddLike_Action, AddParentChildResponse_Action,
-    AddResponse_Action, DeleteLike_Action, DeleteParentChildResponse_Action,
+    AddResponseLike_Action, AddParentChildResponse_Action,
+    AddResponse_Action, DeleteResponseLike_Action, DeleteParentChildResponse_Action,
     DeleteResponse_Action,
     EditResponse_Action,
-    Response_Types, SetLikes_Action, SetParentChildResponses_Action,
+    Response_Types, SetResponseLikes_Action, SetParentChildResponses_Action,
     SetResponses_Action
 } from "../../action-types";
 import {Dispatch} from "react";
@@ -47,26 +47,26 @@ export const onEditResponse = (value: Payload<EditResponse_Action>) => {
 
 
 
-export const onSetLikes = (value: Payload<SetLikes_Action>) => {
-    return(dispatch: Dispatch<SetLikes_Action>) => {
+export const onSetResponseLikes = (value: Payload<SetResponseLikes_Action>) => {
+    return(dispatch: Dispatch<SetResponseLikes_Action>) => {
         dispatch({
-            type: Response_Types.SET_LIKES,
+            type: Response_Types.SET_RESPONSE_LIKES,
             payload: value
         })
     }
 }
-export const onAddLike = (value: Payload<AddLike_Action>) => {
-    return(dispatch: Dispatch<AddLike_Action>) => {
+export const onAddResponseLike = (value: Payload<AddResponseLike_Action>) => {
+    return(dispatch: Dispatch<AddResponseLike_Action>) => {
         dispatch({
-            type: Response_Types.ADD_LIKE,
+            type: Response_Types.ADD_RESPONSE_LIKE,
             payload: value
         })
     }
 }
-export const onDeleteLike = (value: Payload<DeleteLike_Action>) => {
-    return(dispatch: Dispatch<DeleteLike_Action>) => {
+export const onDeleteResponseLike = (value: Payload<DeleteResponseLike_Action>) => {
+    return(dispatch: Dispatch<DeleteResponseLike_Action>) => {
         dispatch({
-            type: Response_Types.DELETE_LIKE,
+            type: Response_Types.DELETE_RESPONSE_LIKE,
             payload: value
         })
     }

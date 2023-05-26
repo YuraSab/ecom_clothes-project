@@ -3,16 +3,16 @@ export enum Response_Types {
     ADD_RESPONSE = "ADD_RESPONSE",
     DELETE_RESPONSE = "DELETE_RESPONSE",
     EDIT_RESPONSE = "EDIT_RESPONSE",
-    SET_LIKES = "SET_LIKES",
-    ADD_LIKE = "ADD_LIKES",
-    DELETE_LIKE = "DELETE_LIKES",
+    SET_RESPONSE_LIKES = "SET_RESPONSE_LIKES",
+    ADD_RESPONSE_LIKE = "ADD_RESPONSE_LIKE",
+    DELETE_RESPONSE_LIKE = "DELETE_RESPONSE_LIKE",
     SET_PARENT_CHILD_RESPONSE = "SET_PARENT_CHILD_RESPONSE",
     ADD_PARENT_CHILD_RESPONSE = "ADD_PARENT_CHILD_RESPONSE",
     DELETE_PARENT_CHILD_RESPONSE = "DELETE_PARENT_CHILD_RESPONSE",
 }
 
-export type Like = {
-    id_like: number,
+export type ResponseLike = {
+    id_response_like: number,
     id_response: number,
     id_user: number,
     date: Date,
@@ -49,16 +49,16 @@ export interface EditResponse_Action {
 }
 
 
-export interface SetLikes_Action {
-    type: Response_Types.SET_LIKES,
-    payload: Like[]
+export interface SetResponseLikes_Action {
+    type: Response_Types.SET_RESPONSE_LIKES,
+    payload: ResponseLike[]
 }
-export interface AddLike_Action {
-    type: Response_Types.ADD_LIKE,
-    payload: Like
+export interface AddResponseLike_Action {
+    type: Response_Types.ADD_RESPONSE_LIKE,
+    payload: ResponseLike
 }
-export interface DeleteLike_Action {
-    type: Response_Types.DELETE_LIKE,
+export interface DeleteResponseLike_Action {
+    type: Response_Types.DELETE_RESPONSE_LIKE,
     payload: number
 }
 
@@ -79,5 +79,5 @@ export interface DeleteParentChildResponse_Action {
 
 export type Response_Actions =
     SetResponses_Action | AddResponse_Action | DeleteResponse_Action | EditResponse_Action |
-    SetLikes_Action | AddLike_Action | DeleteLike_Action |
+    SetResponseLikes_Action | AddResponseLike_Action | DeleteResponseLike_Action |
     SetParentChildResponses_Action | AddParentChildResponse_Action | DeleteParentChildResponse_Action;

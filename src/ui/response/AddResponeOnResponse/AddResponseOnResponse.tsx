@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import styles from "./AddResponseOnResponse.module.css";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
-import {Like, Response} from "../../../redux/action-types";
+import {ResponseLike, Response} from "../../../redux/action-types";
 import {useAction} from "../../../hooks/redux/useAction";
 import ResponseItemUI from "../ResponseItem/ResponseItemUI";
 import ResponseOnResponseItemUI from "../ResponseItem/ResponseOnResponseItemUI";
@@ -9,11 +9,11 @@ import ResponseOnResponseItemUI from "../ResponseItem/ResponseOnResponseItemUI";
 type AddResponseOnResponse_Props = {
     item: Response;
     setResponseOnResponseActive: (value: boolean) => void;
-    handleAddLike: () => void;
-    actualLikes: Like[];
+    handleAddResponseLike: () => void;
+    actualResponseLikes: ResponseLike[];
 }
 
-const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAddLike, actualLikes, setResponseOnResponseActive}) => {
+const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAddResponseLike, actualResponseLikes, setResponseOnResponseActive}) => {
 
     const {parent_child_comments, responses} = useTypedSelector(state => state.responseReducer);
     const {onAddParentChildResponse, onAddResponse} = useAction();
@@ -66,8 +66,8 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
                 <ResponseItemUI
                     item={item}
                     actualResponses={actualResponses}
-                    handleAddLike={handleAddLike}
-                    actualLikes={actualLikes}
+                    handleAddResponseLike={handleAddResponseLike}
+                    actualResponseLikes={actualResponseLikes}
                     setResponseOnResponseActive={setResponseOnResponseActive}
                 />
 

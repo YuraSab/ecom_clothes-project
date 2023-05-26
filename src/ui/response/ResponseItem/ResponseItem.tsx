@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {Like, Response} from "../../../redux/action-types";
+import {ResponseLike, Response} from "../../../redux/action-types";
 import styles from "./ResponseItem.module.css";
 import UserBlack_Icon from "../../../assets/icons/user_black.png";
 import Like_Icon from "../../../assets/icons/like_black_icon.png";
@@ -14,11 +14,11 @@ type ResponseItem_Props = {
 
 const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
 
-    const {likes, parent_child_comments, responses} = useTypedSelector(state => state.responseReducer);
-    const {onAddLike, onDeleteLike} = useAction();
+    const {response_likes, parent_child_comments, responses} = useTypedSelector(state => state.responseReducer);
+    const {onAddResponseLike, onDeleteResponseLike} = useAction();
     const [responseOnResponseActive, setResponseOnResponseActive] = useState<boolean>(false);
 
-    const [actualLikes, setActualLikes] = useState<Like[]>([]);
+    const [actualResponseLikes, setActualResponseLikes] = useState<ResponseLike[]>([]);
     const [actualResponses, setActualResponses] = useState<Response[]>([]);
 
     const user = {
@@ -27,9 +27,9 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
     };
 
     useEffect(() => {
-        const filtered = likes.filter(el => el.id_response === item.id_response);
-        setActualLikes(filtered);
-    }, [likes]);
+        const filtered = response_likes.filter(el => el.id_response === item.id_response);
+        setActualResponseLikes(filtered);
+    }, [response_likes]);
 
     useEffect(() => {
         const actualResponsesOnResponse = parent_child_comments.filter(el => el.id_parent_response === item.id_response && el.id_parent_response);
@@ -38,16 +38,16 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
     }, [responses]);
 
 
-    const handleAddLike = () => {
-        const responseLikes = likes.filter(el => el.id_response === item.id_response);
+    const handleAddResponseLike = () => {
+        const responseLikes = response_likes.filter(el => el.id_response === item.id_response);
         const userLiked = responseLikes.find(el => el.id_user === user.id);
 
         if(userLiked) {
-            onDeleteLike(userLiked.id_like)
+            onDeleteResponseLike(userLiked.id_response_like)
         }else{
-            onAddLike({
+            onAddResponseLike({
                 id_response: item.id_response,
-                id_like: likes.length+1,
+                id_response_like: response_likes.length+1,
                 id_user: user.id,
                 date: new Date(),
             })
@@ -64,9 +64,9 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
                 <div className={styles.userName}>User</div>
                 <div className={styles.text}>{item.text}</div>
                 <div style={{display: "flex", gap: 20, alignItems: "center"}}>
-                    <div onClick={() => handleAddLike()}>
+                    <div onClick={() => handleAddResponseLike()}>
                         <img src={Like_Icon} alt={"like"} width={20}/>
-                        <span style={{marginLeft: 4}}>{actualLikes.length}</span></div>
+                        <span style={{marginLeft: 4}}>{actualResponseLikes.length}</span></div>
                     <div onClick={() => setResponseOnResponseActive(true)}>
                         <img src={Response_Icon} alt={"response"} width={19}/>
                         <span style={{marginLeft: 4}}>{actualResponses.length}</span>
@@ -76,7 +76,7 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
 
 
             {
-                responseOnResponseActive && <AddResponseOnResponse item={item} handleAddLike={handleAddLike} actualLikes={actualLikes} setResponseOnResponseActive={setResponseOnResponseActive}/>
+                responseOnResponseActive && <AddResponseOnResponse item={item} handleAddResponseLike={handleAddResponseLike} actualResponseLikes={actualResponseLikes} setResponseOnResponseActive={setResponseOnResponseActive}/>
             }
         </div>
     );

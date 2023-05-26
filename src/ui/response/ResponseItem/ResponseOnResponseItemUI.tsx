@@ -2,7 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 import UserBlack_Icon from "../../../assets/icons/user_black.png";
 import styles from "./ResponseItem.module.css";
 import Like_Icon from "../../../assets/icons/like_black_icon.png";
-import {Like, Response} from "../../../redux/action-types";
+import {ResponseLike, Response} from "../../../redux/action-types";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import {useAction} from "../../../hooks/redux/useAction";
 
@@ -13,21 +13,21 @@ type ResponseOnResponseItemUI_Props = {
 
 const ResponseOnResponseItemUI: FC<ResponseOnResponseItemUI_Props> = ({item, setResponseOnResponseActive}) => {
 
-    const {likes, parent_child_comments, responses} = useTypedSelector(state => state.responseReducer);
-    const {onAddLike, onDeleteLike} = useAction();
+    const {response_likes, parent_child_comments, responses} = useTypedSelector(state => state.responseReducer);
+    const {onAddResponseLike, onDeleteResponseLike} = useAction();
 
     const user = {
         id: 4,
         name: "user",
     };
 
-    const [actualLikes, setActualLikes] = useState<Like[]>([]);
+    const [actualResponseLikes, setActualResponseLikes] = useState<ResponseLike[]>([]);
     const [actualResponses, setActualResponses] = useState<Response[]>([]);
 
     useEffect(() => {
-        const filtered = likes.filter(el => el.id_response === item.id_response);
-        setActualLikes(filtered);
-    }, [likes]);
+        const filtered = response_likes.filter(el => el.id_response === item.id_response);
+        setActualResponseLikes(filtered);
+    }, [response_likes]);
 
     useEffect(() => {
         const actualResponsesOnResponse = parent_child_comments.filter(el => el.id_parent_response === item.id_response);
@@ -35,16 +35,16 @@ const ResponseOnResponseItemUI: FC<ResponseOnResponseItemUI_Props> = ({item, set
         setActualResponses(filtered);
     }, [responses]);
 
-    const handleAddLike = () => {
-        const responseLikes = likes.filter(el => el.id_response === item.id_response);
+    const handleAddResponseLike = () => {
+        const responseLikes = response_likes.filter(el => el.id_response === item.id_response);
         const userLiked = responseLikes.find(el => el.id_user === user.id);
 
         if(userLiked) {
-            onDeleteLike(userLiked.id_like)
+            onDeleteResponseLike(userLiked.id_response_like)
         }else{
-            onAddLike({
+            onAddResponseLike({
                 id_response: item.id_response,
-                id_like: likes.length+1,
+                id_response_like: response_likes.length+1,
                 id_user: user.id,
                 date: new Date(),
             })
@@ -61,9 +61,9 @@ const ResponseOnResponseItemUI: FC<ResponseOnResponseItemUI_Props> = ({item, set
                 <div className={styles.userName}>User</div>
                 <div className={styles.text}>{item.text}</div>
                 <div style={{display: "flex", gap: 20, alignItems: "center"}}>
-                    <div onClick={() => handleAddLike()}>
+                    <div onClick={() => handleAddResponseLike()}>
                         <img src={Like_Icon} alt={"like"} width={20}/>
-                        <span style={{marginLeft: 4}}>{actualLikes.length}</span>
+                        <span style={{marginLeft: 4}}>{actualResponseLikes.length}</span>
                     </div>
                 </div>
             </div>

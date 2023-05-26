@@ -1,5 +1,5 @@
 import {
-    Like,
+    ResponseLike,
     Parent_Child_response,
     Response,
     Response_Actions,
@@ -8,12 +8,12 @@ import {
 
 type InitialState_type = {
     responses: Response[],
-    likes: Like[],
+    response_likes: ResponseLike[],
     parent_child_comments: Parent_Child_response[],
 }
 const initialState: InitialState_type = {
     responses: [],
-    likes: [],
+    response_likes: [],
     parent_child_comments: [],
 };
 
@@ -48,23 +48,23 @@ export default (state = initialState, action: Response_Actions): InitialState_ty
         }
 
 
-        case Response_Types.SET_LIKES: {
+        case Response_Types.SET_RESPONSE_LIKES: {
             return {
                 ...state,
-                likes: action.payload
+                response_likes: action.payload
             }
         }
-        case Response_Types.ADD_LIKE: {
+        case Response_Types.ADD_RESPONSE_LIKE: {
             return {
                 ...state,
-                likes: [...state.likes, action.payload]
+                response_likes: [...state.response_likes, action.payload]
             }
         }
-        case Response_Types.DELETE_LIKE: {
-            const filtered = state.likes.filter(el => el.id_like !== action.payload);
+        case Response_Types.DELETE_RESPONSE_LIKE: {
+            const filtered = state.response_likes.filter(el => el.id_response_like !== action.payload);
             return {
                 ...state,
-                likes: filtered
+                response_likes: filtered
             }
         }
 
