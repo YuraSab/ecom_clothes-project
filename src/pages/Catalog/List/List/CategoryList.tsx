@@ -1,15 +1,15 @@
 import React, {FC, useEffect, useState} from 'react';
-import {linkType} from "../../../components/Header/HeaderLinks/ElementList_DropDownMenu";
-import {clothesService} from "../../../services/ClothesService";
-import {Cloth} from "../../../db/clothes-db";
+import {linkType} from "../../../../components/Header/HeaderLinks/ElementList_DropDownMenu";
+import {clothesService} from "../../../../services/ClothesService";
+import {Cloth} from "../../../../db/clothes-db";
 import styles from "./CategoryList.module.css";
-import CategoryItem from "../ListItem/CategoryItem";
+import CategoryItem from "../../ListItem/CategoryItem";
 import {useLocation} from "react-router-dom";
 import "./Slider.css";
-import SettingsIcon from "../../../assets/icons/settings.png";
-import CrossIcon from "../../../assets/icons/cross_svg_icon.svg";
-import ReactSliderElement from "./Filter-Sort_elelments/ReactSliderElement";
-import PriceInputMinimal from "./Filter-Sort_elelments/PriceInputElement";
+import SettingsIcon from "../../../../assets/icons/settings.png";
+import CrossIcon from "../../../../assets/icons/cross_svg_icon.svg";
+import ReactSliderElement from "../Filter-Sort_elelments/ReactSliderElement";
+import PriceInputMinimal from "../Filter-Sort_elelments/PriceInputElement";
 
 export type CategoryList_PropsType = {
     category: linkType[] | linkType;

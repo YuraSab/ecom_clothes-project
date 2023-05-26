@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import styles from "../CategoryList.module.css";
+import styles from "../List/CategoryList.module.css";
 
 type SliderValue = { min: number, max: number };
 type PriceInputMinimal_props = {

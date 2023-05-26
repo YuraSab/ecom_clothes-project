@@ -4,7 +4,7 @@ import Main from "./Main.tsx";
 import Male from "../../pages/Male/Male.tsx";
 import Female from "../../pages/Female/Female.tsx";
 import {DropMenuList} from "../Header/HeaderLinks/ElementList_DropDownMenu";
-import CategoryList from "../../pages/Catalog/List/CategoryList";
+import CategoryList from "../../pages/Catalog/List/List/CategoryList";
 import ChosenItem from "../../pages/Catalog/ChosenItem/ChosenItem";
 
 const MainLayout = () => {

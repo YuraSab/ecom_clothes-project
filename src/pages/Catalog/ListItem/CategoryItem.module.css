@@ -32,6 +32,11 @@
     font-weight: bolder;
 }
 
+
+.backgroundImageBlock{
+    width: calc((1170px - 60px)/4);
+}
+
 @media screen and (max-width: 660px){
 
 }

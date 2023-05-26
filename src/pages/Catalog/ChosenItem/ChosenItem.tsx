@@ -4,7 +4,8 @@ import {Cloth} from "../../../db/clothes-db";
 import {ClothesDescription} from "../../../db/cloth-descroptions";
 import styles from "./ChosenItem.module.css";
 import {DropMenuList} from "../../../components/Header/HeaderLinks/ElementList_DropDownMenu";
-import Like from "../../../assets/icons/like_icon.png";
+import Like_think_white from "../../../assets/icons/like_thick_white.png";
+import Like_think_black from "../../../assets/icons/like_thick_black.png";
 import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import {Question, Response} from "../../../redux/action-types";
@@ -13,6 +14,8 @@ import ResponseItem from "../../../ui/response/ResponseItem/ResponseItem";
 import AddResponse from "../../../ui/response/AddResponse/AddResponse";
 import AddQuestion from "../../../ui/question/AddQuestion/AddQuestion";
 import QuestionItem from "../../../ui/question/QuestionItem/QuestionItem";
+import {ActualUser} from "../../../global/user/User";
+import {useAction} from "../../../hooks/redux/useAction";
 
 type PhotoItem = {
     id: number;
@@ -25,6 +28,9 @@ const ChosenItem = () => {
     const {gender} = useTypedSelector(state => state.headerState);
     const {responses, parent_child_comments} = useTypedSelector(state => state.responseReducer);
     const {questions, responses_on_questions} = useTypedSelector(state => state.questionReducer);
+    const {productLikes} = useTypedSelector(state => state.productLike);
+
+    const {onAddProductLike, onDeleteProductLike} = useAction();
 
     const [chosenItem, setChosenItem] = useState<Cloth | null | undefined>(null);
     const [chosenItemDetails, setChosenItemDetails] = useState<ClothesDescription | null | undefined>(null);
@@ -40,6 +46,8 @@ const ChosenItem = () => {
 
     const [actualQuestions, setActualQuestions] = useState<Question[]>([]);
     const [actualQuestionsResponses, setActualQuestionsResponses] = useState<Question[]>([]);
+
+    const [isLiked, setIsLiked] = useState<boolean>(false);
 
     const ClothesService = clothesService;
 
@@ -77,7 +85,6 @@ const ChosenItem = () => {
             }
             setActualResponsesParent(onlyParentMas);
         }
-
         isChild();
     }, [actualResponses]);
 
@@ -99,7 +106,34 @@ const ChosenItem = () => {
         isChild();
     }, [questions]);
 
-    console.log(questions)
+
+    useEffect(() => {
+        const likesOfProduct = productLikes.filter(el => el.id_product === chosenItem?.id);
+        const didUserLike = likesOfProduct.find(el => el.id_user === ActualUser.id);
+        if(didUserLike) {
+            setIsLiked(true)
+        }
+    }, []);
+
+
+    const handleAddLike = () => {
+        const likesOfProduct = productLikes.filter(el => el.id_product === chosenItem?.id);
+        const didUserLike = likesOfProduct.find(el => el.id_user === ActualUser.id);
+        if(didUserLike) {
+            onDeleteProductLike(didUserLike.id_product_like);
+            setIsLiked(false);
+        }else {
+            onAddProductLike({
+                id_product_like: productLikes.length+1,
+                id_user: ActualUser.id,
+                id_product: Number(id),
+                date: new Date(),
+            });
+            setIsLiked(true);
+        }
+    }
+
+
     return (
         <>
             <div className={styles.overlay}>
@@ -151,7 +185,14 @@ const ChosenItem = () => {
                                 <div>
                                     {chosenItem.name}
                                 </div>
-                                <img src={Like} alt={"like"}/>
+                                <span>
+                                    {
+                                        isLiked ?
+                                            <img src={Like_think_black} alt={"like"} width={24} height={24} onClick={() => handleAddLike()}/>
+                                            :
+                                            <img src={Like_think_white} alt={"like"} width={24} height={24} onClick={() => handleAddLike()}/>
+                                    }
+                                </span>
                             </div>
 
                             <div className={styles.infoSpans}>
@@ -182,7 +223,6 @@ const ChosenItem = () => {
                         </div>
                     </div>
                 }
-
             </div>
 
             <div className={styles.descriptionOverlay}>
