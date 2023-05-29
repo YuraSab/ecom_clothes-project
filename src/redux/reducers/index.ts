@@ -1,7 +1,8 @@
 import headerReducer from "./DropDownMenu/DropDownMenu.ts";
 import responseReducer from "./Response/Response.ts";
 import questionReducer from "./Question/Question.ts";
-import productLike from "./ProductLike/ProductLike";
+import productLike from "./ProductLike/ProductLike.ts";
+import wishList from "./WishList/WishList.ts";
 import {combineReducers} from "redux";
 
 export const reducers = combineReducers({
@@ -9,6 +10,7 @@ export const reducers = combineReducers({
     responseReducer: responseReducer,
     questionReducer: questionReducer,
     productLike: productLike,
+    wishList: wishList
 });
 
 

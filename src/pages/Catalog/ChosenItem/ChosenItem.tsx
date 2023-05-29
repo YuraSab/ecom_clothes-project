@@ -8,7 +8,7 @@ import Like_think_white from "../../../assets/icons/like_thick_white.png";
 import Like_think_black from "../../../assets/icons/like_thick_black.png";
 import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
-import {Question, Response} from "../../../redux/action-types";
+import {Question, Response, WishListElement} from "../../../redux/action-types";
 import WhitePlus from "../../../assets/icons/wite_plus.png";
 import ResponseItem from "../../../ui/response/ResponseItem/ResponseItem";
 import AddResponse from "../../../ui/response/AddResponse/AddResponse";
@@ -29,8 +29,10 @@ const ChosenItem = () => {
     const {responses, parent_child_comments} = useTypedSelector(state => state.responseReducer);
     const {questions, responses_on_questions} = useTypedSelector(state => state.questionReducer);
     const {productLikes} = useTypedSelector(state => state.productLike);
+    const {wishList} = useTypedSelector(state => state.wishList);
 
     const {onAddProductLike, onDeleteProductLike} = useAction();
+    const {onAddToWishList, onDeleteFromWishList} = useAction();
 
     const [chosenItem, setChosenItem] = useState<Cloth | null | undefined>(null);
     const [chosenItemDetails, setChosenItemDetails] = useState<ClothesDescription | null | undefined>(null);
@@ -133,6 +135,20 @@ const ChosenItem = () => {
         }
     }
 
+    const handleOnAddProductToWishList = () => {
+        const userWishList = wishList.filter(el => el.id_user === ActualUser.id);
+        const actualProduct = userWishList.find(el => el.id_product === chosenItem?.id) as WishListElement;
+        if(!actualProduct || userWishList.length === 0) {
+            onAddToWishList({
+                id_wishList_element: wishList.length + 1,
+                id_user: ActualUser.id,
+                id_product: Number(id),
+                date: new Date(),
+            })
+        } else {
+            onDeleteFromWishList(actualProduct.id_wishList_element);
+        }
+    }
 
     return (
         <>
@@ -213,7 +229,9 @@ const ChosenItem = () => {
 
 
                             <div className={styles.add}>
-                                <div style={{background: "rgb(0, 94, 15)", color: "rgb(255, 255, 255)"}}>
+                                <div style={{background: "rgb(0, 94, 15)", color: "rgb(255, 255, 255)"}}
+                                    onClick={() => handleOnAddProductToWishList()}
+                                >
                                     Додати в кошик
                                 </div>
                                 <div style={{background: "rgb(199, 199, 199)", color: "black"}}>
