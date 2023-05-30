@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import styles from "./BottomHeaderMenu.module.css";
 import StaffIcon from "../../../assets/pictures/staff_logo.png";
 import ComebackAlive from "../../../assets/pictures/comeback_alive.svg";
@@ -17,11 +17,18 @@ import {ActualUser} from "../../../global/user/User";
 
 const BottomHeaderMenu: FC = () => {
 
+    const {wishList} = useTypedSelector(state => state.wishList);
     const location = useLocation();
 
     const [burgerMenuActive, setBurgerMenuActive] = useState<boolean>(false)
     const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
 
+    const [userWishListLength, setUserWishListLength] = useState<number>(0);
+
+    useEffect(() => {
+        const userWishList = wishList.filter(el => el.id_user === ActualUser.id);
+        setUserWishListLength(userWishList.length);
+    }, [wishList]);
 
     return (
 
@@ -61,12 +68,21 @@ const BottomHeaderMenu: FC = () => {
                     </div>
 
                     <div className={styles.icons_set}>
-                        <img src={ComebackAlive} alt={""}/>
+                        <img className={styles.comebackAlive} src={ComebackAlive} alt={""}/>
                         <img src={SearchIcon} alt={""} height={25}/>
                         <img src={UserIcon} alt={""} height={25}/>
                         <Link to={`user/${ActualUser.id}/likes`}> <img src={LikeIcon} alt={""} height={25}/></Link>
-                        <img src={CartIcon} alt={""} height={25}/>
+                        <Link to={`user/${ActualUser.id}/cart`}>
+                            <div style={{position: "relative"}}>
+                                {
+                                    userWishListLength > 0 &&
+                                    <div className={styles.cartLength}>{userWishListLength > 10 ? "10+" : userWishListLength}</div>
+                                }
+                                <img src={CartIcon} alt={""} height={25}/>
+                            </div>
+                        </Link>
                     </div>
+
                 </div>
 
 

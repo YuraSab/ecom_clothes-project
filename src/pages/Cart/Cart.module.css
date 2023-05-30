@@ -1,0 +1,95 @@
+.main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px 200px 20px;
+}
+.contentBlock {
+    height: 100%;
+    width: 1170px;
+}
+
+.like_caption_bookmark{
+    font-size: 34px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 0;
+    padding: 0;
+}
+.like_clean_bookmark{
+    text-transform: uppercase;
+    font-size: 11px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 2px;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    color: #000;
+    margin: 25px 0;
+}
+.like_clean_bookmark:hover{
+    border-bottom: 2px solid #696969;
+    color: #696969;
+}
+
+.itemAndSum{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 305px;
+}
+
+
+.itemMain{
+    width: 100%;
+    display: flex;
+}
+.productData{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    height: 130px;
+    padding: 30px 0;
+    border-top: 1px solid #b3b3b3;
+}
+.productData img{
+    max-height: 100px;
+    padding-right: 30px;
+}
+.productOrder{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #b3b3b3;
+}
+
+.plusMinusValue{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 24px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 300;
+}
+
+.price{
+    font-family: Ubuntu,sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.productPay{
+    padding: 30px;
+    margin-left: 30px;
+}
+.sumForPay{
+    width: 215px;
+    text-align: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999;
+    margin-bottom: 15px;
+}

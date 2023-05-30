@@ -16,6 +16,7 @@ import AddQuestion from "../../../ui/question/AddQuestion/AddQuestion";
 import QuestionItem from "../../../ui/question/QuestionItem/QuestionItem";
 import {ActualUser} from "../../../global/user/User";
 import {useAction} from "../../../hooks/redux/useAction";
+import OnAddToCart from "../../../ui/cart/OnAddToCart";
 
 type PhotoItem = {
     id: number;
@@ -32,7 +33,7 @@ const ChosenItem = () => {
     const {wishList} = useTypedSelector(state => state.wishList);
 
     const {onAddProductLike, onDeleteProductLike} = useAction();
-    const {onAddToWishList, onDeleteFromWishList} = useAction();
+    const {onAddToWishList} = useAction();
 
     const [chosenItem, setChosenItem] = useState<Cloth | null | undefined>(null);
     const [chosenItemDetails, setChosenItemDetails] = useState<ClothesDescription | null | undefined>(null);
@@ -50,6 +51,7 @@ const ChosenItem = () => {
     const [actualQuestionsResponses, setActualQuestionsResponses] = useState<Question[]>([]);
 
     const [isLiked, setIsLiked] = useState<boolean>(false);
+    const [isAddingToCart, setIsAddingToCart] = useState<"justAdded" | "alreadyAdded" | false>(false);
 
     const ClothesService = clothesService;
 
@@ -143,12 +145,16 @@ const ChosenItem = () => {
                 id_wishList_element: wishList.length + 1,
                 id_user: ActualUser.id,
                 id_product: Number(id),
+                count: 1,
                 date: new Date(),
-            })
+            });
+            setIsAddingToCart("justAdded");
         } else {
-            onDeleteFromWishList(actualProduct.id_wishList_element);
+            // onDeleteFromWishList(actualProduct.id_wishList_element);
+            setIsAddingToCart("alreadyAdded")
         }
     }
+
 
     return (
         <>
@@ -306,6 +312,9 @@ const ChosenItem = () => {
                         // todo - below case is for no authorised users
                         responseOrQuestionActive && responsesOrQuestions === "question" &&
                         <AddQuestion setResponseOrQuestionActive={setResponseOrQuestionActive}/>
+                    }
+                    {
+                        isAddingToCart && <OnAddToCart setIsAddingToCart={setIsAddingToCart} isAddingToCart={isAddingToCart}/>
                     }
                 </div>
             </div>

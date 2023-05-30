@@ -66,6 +66,7 @@
 .icons_set {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 .active_category {
     background: white;
@@ -74,6 +75,21 @@
     display: none;
 }
 
+.cartLength{
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media screen and (max-width: 1235px) {
     .main_block {
@@ -106,9 +122,10 @@
     .burgerMenu:hover{
         filter: invert(35%) sepia(3%) saturate(7%) hue-rotate(24deg) brightness(95%) contrast(92%);
     }
-    .icons_set :first-child {
+    .comebackAlive{
         display: none;
     }
+
     .icons_set {
         padding-left: 20%;
     }

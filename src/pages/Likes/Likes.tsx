@@ -20,7 +20,7 @@ const Likes = () => {
         const userLikes = productLikes.filter(el => el.id_user === Number(userId));
         const likedProducts = userLikes.map(el => ClothesService.getClothesById(el.id_product)) as Cloth[];
         setLikedProductList(likedProducts)
-    }, []);
+    }, [productLikes]);
 
     const onClearUserLikes = () => {
         if (likedProductsList.length !== 0) {
@@ -28,7 +28,7 @@ const Likes = () => {
             for (let i = 0; i < likedProductsList.length; i++) {
                 onDeleteProductLike(userLikes[i].id_product_like);
             }
-            setLikedProductList([])
+            setLikedProductList([]);
         }
     };
 
@@ -38,8 +38,17 @@ const Likes = () => {
             <div className={styles.contentBlock}>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                     <div className={styles.like_caption_bookmark}>Закладки</div>
-                    <div className={styles.like_clean_bookmark} onClick={() => onClearUserLikes()}>Очистити закладки
-                    </div>
+                    {
+                        likedProductsList.length ?
+                            <div className={styles.like_clean_bookmark} onClick={() => onClearUserLikes()}>
+                                Очистити закладки
+                            </div>
+                            :
+                            <div className={styles.like_caption_bookmark} style={{fontSize: 18}}>
+                                <br/>
+                                Немає доданих товарів
+                            </div>
+                    }
                 </div>
 
 

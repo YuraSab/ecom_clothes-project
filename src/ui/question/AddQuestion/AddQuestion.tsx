@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import styles from "./AddQuestion.module.css";
 import {useAction} from "../../../hooks/redux/useAction";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
@@ -14,8 +14,16 @@ const AddQuestion: FC<AddQuestion_Props> = ({setResponseOrQuestionActive}) => {
     const {questions} = useTypedSelector(state => state.questionReducer);
     const {id} = useParams();
 
-
     const [areaText, setAreaText] = useState<any>("");
+
+    useEffect(() => {
+        document.body.style.overflowY = 'hidden';
+
+        return (() => {
+            document.body.style.overflowY = 'auto';
+        })
+    }, []);
+
 
     const handleAddQuestion = () => {
         if (areaText !== "") {
