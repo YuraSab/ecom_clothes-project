@@ -150,8 +150,7 @@ const ChosenItem = () => {
             });
             setIsAddingToCart("justAdded");
         } else {
-            // onDeleteFromWishList(actualProduct.id_wishList_element);
-            setIsAddingToCart("alreadyAdded")
+            setIsAddingToCart("alreadyAdded");
         }
     }
 
@@ -294,20 +293,17 @@ const ChosenItem = () => {
                             <div>Додати {responsesOrQuestions === "response" ? "відгук" : "питання"}</div>
                         </div>
                     </div>
-
                     {
                         responsesOrQuestions === "response" ?
                             <div>{actualResponsesParent.map(el => <ResponseItem item={el} key={el.id_response}/>)}</div>
                             :
                             <div>{actualQuestions.map(el => <QuestionItem item={el} key={el.id_question}/>)}</div>
                     }
-
                     {
                         // todo - below case is for no authorised users
                         responseOrQuestionActive && responsesOrQuestions === "response" &&
                         <AddResponse setResponseOrQuestionActive={setResponseOrQuestionActive}/>
                     }
-
                     {
                         // todo - below case is for no authorised users
                         responseOrQuestionActive && responsesOrQuestions === "question" &&

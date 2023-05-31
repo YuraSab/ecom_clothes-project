@@ -78,8 +78,6 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
                     </div>
                 </div>
 
-
-
                 <div>{item.name}</div>
                 <div><b>{item.price} грн.</b></div>
             </div>

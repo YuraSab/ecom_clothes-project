@@ -36,7 +36,7 @@ const OnAddToCart: FC<OnAddToCart_props> = ({isAddingToCart, setIsAddingToCart})
                                  style={{backgroundColor: "#eee", color: "black"}}>
                                 <img src={BackArrow} alt={"back"} width={20}/> Продовжити покупки
                             </div>
-                            <Link to={`user/${ActualUser.id}/cart`} className={styles.bottomItem}
+                            <Link to={`/user/${ActualUser.id}/cart`} className={styles.bottomItem}
                                   style={{backgroundColor: "black", color: "white"}}>
                                 Перейти до кошика
                             </Link>

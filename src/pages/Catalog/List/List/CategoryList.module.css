@@ -395,6 +395,19 @@
     }
 }
 
+@media screen and (max-width: 660px) {
+    .list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .caption {
+        width: 450px;
+    }
+    .pathList {
+        width: 450px;
+    }
+}
+
+
 @media screen and (max-width: 600px) {
     .list {
         grid-template-columns: repeat(2, 1fr);
@@ -404,5 +417,28 @@
     }
     .pathList {
         width: 450px;
+    }
+}
+
+@media screen and (max-width: 505px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .caption {
+        width: 350px;
+    }
+    .pathList {
+        width: 350px;
+    }
+}
+@media screen and (max-width: 505px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .caption {
+        width: 300px;
+    }
+    .pathList {
+        width: 300px;
     }
 }

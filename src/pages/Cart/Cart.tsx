@@ -57,7 +57,6 @@ const Cart = () => {
         }
     };
 
-    console.log(`wishList`,wishList);
 
     return (
         <div className={styles.main}>
@@ -84,14 +83,18 @@ const Cart = () => {
                             wishedProductsList.map(el => <CartItem item={el.element} id={el.id} key={el.id}/>)
                         }
                     </div>
-                    <div className={styles.productPay}>
-                        <div className={styles.sumForPay}>СУМА ДО ОПЛАТИ ЗА ТОВАР</div>
-                        <div className={styles.sumForPay} style={{fontSize: 24, color: "black"}}>{sum} грн</div>
-                    </div>
+                    {
+                        wishedProductsList.length ?
+                        <div className={styles.productPay}>
+                            <div className={styles.sumForPay}>СУМА ДО ОПЛАТИ ЗА ТОВАР</div>
+                            <div className={styles.sumForPay} style={{fontSize: 24, color: "black"}}>{sum} грн</div>
+                        </div>
+                        :
+                        null
+                    }
                 </div>
             </div>
         </div>
     );
 };
-
 export default Cart;

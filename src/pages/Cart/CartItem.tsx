@@ -4,6 +4,7 @@ import styles from "./Cart.module.css";
 import TrashIcon from "../../assets/icons/trash.png";
 import {useAction} from "../../hooks/redux/useAction";
 import {useTypedSelector} from "../../hooks/redux/useTypedSelector";
+import {Link} from "react-router-dom";
 
 type CartItem_props = {
     item: Cloth,
@@ -39,7 +40,9 @@ const CartItem: FC<CartItem_props> = ({item, id}) => {
         <div className={styles.itemMain}>
             <div className={styles.productData}>
                 <img src={item.photo} alt={"product photo"}/>
-                <div>{item.name}</div>
+                <Link to={`/${item.gender}/${item.id}`} style={{textDecoration: "none", color: "black"}}>
+                    <div>{item.name}</div>
+                </Link>
             </div>
 
             <div className={styles.productOrder}>
