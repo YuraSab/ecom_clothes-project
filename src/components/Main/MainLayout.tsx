@@ -8,6 +8,7 @@ import CategoryList from "../../pages/Catalog/List/List/CategoryList";
 import ChosenItem from "../../pages/Catalog/ChosenItem/ChosenItem";
 import Likes from "../../pages/Likes/Likes";
 import Cart from "../../pages/Cart/Cart";
+import Search from "../../pages/Search/Search";
 
 const MainLayout = () => {
     return (
@@ -21,6 +22,9 @@ const MainLayout = () => {
 
                     <Route path={'user/:userId/likes'} element={<Likes/>}/>
                     <Route path={'user/:userId/cart'} element={<Cart/>}/>
+
+                    <Route path={'search/:searchValue'} element={<Search/>}/>
+
 
                     <Route path={'/male/*'} element={<Male/>}>
                         {

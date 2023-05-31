@@ -14,6 +14,7 @@ import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import CrossSVG from "../../../assets/icons/cross_svg_icon.svg";
 import BurgerMenuSVG from "../../../assets/icons/burger_menu_svg.jpg";
 import {ActualUser} from "../../../global/user/User";
+import SearchBarOverLay from "../SearchBarOverlay/SearchBarOverLay";
 
 const BottomHeaderMenu: FC = () => {
 
@@ -24,6 +25,9 @@ const BottomHeaderMenu: FC = () => {
     const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
 
     const [userWishListLength, setUserWishListLength] = useState<number>(0);
+
+    const [onSearching, setOnSearching] = useState<boolean>(false);
+
 
     useEffect(() => {
         const userWishList = wishList.filter(el => el.id_user === ActualUser.id);
@@ -69,7 +73,7 @@ const BottomHeaderMenu: FC = () => {
 
                     <div className={styles.icons_set}>
                         <img className={styles.comebackAlive} src={ComebackAlive} alt={""}/>
-                        <img src={SearchIcon} alt={""} height={25}/>
+                        <img src={SearchIcon} alt={""} height={25} onClick={() => setOnSearching(true)}/>
                         <img src={UserIcon} alt={""} height={25}/>
                         <Link to={`user/${ActualUser.id}/likes`}> <img src={LikeIcon} alt={""} height={25}/></Link>
                         <Link to={`user/${ActualUser.id}/cart`}>
@@ -107,6 +111,11 @@ const BottomHeaderMenu: FC = () => {
                     dropDownValue && gender !== "" && window.innerWidth < 1026 &&
                     <DropDownMenuMobile setBurgerMenuActive={setBurgerMenuActive}/>
                 }
+
+                {
+                    onSearching && <SearchBarOverLay setOnSearching={setOnSearching}/>
+                }
+
             </div>
         </div>
     );
