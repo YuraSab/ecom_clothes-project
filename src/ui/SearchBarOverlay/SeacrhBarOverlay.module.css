@@ -33,7 +33,9 @@
 .genderOptions{
     height: 110px;
     width: 730px;
-    display: flex;
+    /*display: flex;*/
+    display: grid;
+    grid-template-columns: 175px 1fr 48px;
 }
 .passiveOption{
     width: 174px;

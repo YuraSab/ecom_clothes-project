@@ -14,7 +14,7 @@ import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import CrossSVG from "../../../assets/icons/cross_svg_icon.svg";
 import BurgerMenuSVG from "../../../assets/icons/burger_menu_svg.jpg";
 import {ActualUser} from "../../../global/user/User";
-import SearchBarOverLay from "../SearchBarOverlay/SearchBarOverLay";
+import SearchBarOverLay from "../../../ui/SearchBarOverlay/SearchBarOverLay";
 
 const BottomHeaderMenu: FC = () => {
 

@@ -1,18 +1,22 @@
 import React, {FC, useEffect, useState} from 'react';
 import styles from "./SeacrhBarOverlay.module.css";
-import Cross from "../../../assets/icons/cross_icon.png";
-import DownIcon from "../../../assets/icons/down.png";
-import LoopIcon from "../../../assets/icons/loop_black.png";
-import {DropMenuList} from "../HeaderLinks/ElementList_DropDownMenu";
+import Cross from "../../assets/icons/cross_icon.png";
+import DownIcon from "../../assets/icons/down.png";
+import LoopIcon from "../../assets/icons/loop_black.png";
+import {DropMenuList} from "../../components/Header/HeaderLinks/ElementList_DropDownMenu";
 import {Link} from "react-router-dom";
 
 type SearchBarOverLay_props = {
     setOnSearching: (value: boolean) => void;
 }
+type genderValue_type = {
+    name: "Для всіх" | "Для хлопців" | "Для дівчат",
+    link: "all" | "male" | "female",
+}
 const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
 
     const [onSetGenderActive, setOnSetGenderActive] = useState<boolean>(false);
-    const [genderValue, setGenderValue] = useState<"Для всіх" | "Для хлопців" | "Для дівчат">("Для всіх");
+    const [genderValue, setGenderValue] = useState<genderValue_type>({name: "Для всіх", link: "all"});
     const [searchValue, setSearchValue] = useState<string>("");
     const [searchResults, setSearchResults] = useState<string[]>([]);
     const [searchOptions, setSearchOptions] = useState<string[]>([]);
@@ -47,7 +51,6 @@ const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
         setSearchOptions(uniqueMas)
     }
 
-
     return (
         <div className={styles.overlay}>
             <div className={styles.titleAndCross}>
@@ -64,7 +67,7 @@ const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
                     className={`${styles.passiveOption} ${styles.optionText}`}
                     onClick={() => setOnSetGenderActive(prevState => !prevState)}
                 >
-                    <span>{genderValue}</span>
+                    <span>{genderValue.name}</span>
                     <img src={DownIcon} alt={"more options"} width={14} height={14}/>
                 </div>
 
@@ -77,7 +80,7 @@ const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
                 </div>
 
                 <div className={styles.searchLoop}>
-                    <Link to={`/search/${searchValue}`}>
+                    <Link to={`/search/${genderValue.link}/${searchValue}`}>
                         <img src={LoopIcon} alt={"search"} width={33} height={33}
                              onClick={() => setOnSearching(false)}/>
                     </Link>
@@ -91,7 +94,7 @@ const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
                             <div
                                 onClick={() => {
                                     setOnSetGenderActive(false);
-                                    setGenderValue("Для хлопців");
+                                    setGenderValue({name: "Для хлопців", link: "male"});
                                 }}
                                 className={`${styles.oneOption} ${styles.optionText}`}
                             >
@@ -100,7 +103,7 @@ const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
                             <div
                                 onClick={() => {
                                     setOnSetGenderActive(false);
-                                    setGenderValue("Для дівчат");
+                                    setGenderValue({name: "Для дівчат", link: "female"});
                                 }}
                                 className={`${styles.oneOption} ${styles.optionText}`}
                             >
@@ -116,8 +119,9 @@ const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
                             .map((el, index) => {
                                     return (
                                         index < 9 &&
-                                        <Link to={`/search/${el}`} key={el}
-                                              style={{textDecoration: "none", color: "black"}}>
+                                        <Link
+                                            to={`/search/${genderValue.link}/${el}`} key={el}
+                                            style={{textDecoration: "none", color: "black"}}>
                                             <div className={styles.searchOptionItem} onClick={() => setOnSearching(false)}>
                                                 <img src={LoopIcon} alt={"search"} width={16} height={16}/>
                                                 {el}

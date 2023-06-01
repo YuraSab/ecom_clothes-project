@@ -23,7 +23,8 @@ const MainLayout = () => {
                     <Route path={'user/:userId/likes'} element={<Likes/>}/>
                     <Route path={'user/:userId/cart'} element={<Cart/>}/>
 
-                    <Route path={'search/:searchValue'} element={<Search/>}/>
+                    <Route path={'search/:genderOfLink/:searchingValue'} element={<Search/>}/>
+                    <Route path={'search/:genderOfLink/'} element={<Search/>}/>
 
 
                     <Route path={'/male/*'} element={<Male/>}>
