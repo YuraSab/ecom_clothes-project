@@ -5,10 +5,11 @@ import SearchUI from "../../ui/SearchUI/SearchUI";
 import {Cloth} from "../../db/clothes-db";
 import {
     DropMenuList,
-    DropMenuListSubItem,
     linkType
 } from "../../components/Header/HeaderLinks/ElementList_DropDownMenu";
 import {clothesService} from "../../services/ClothesService";
+import {Gender} from "../../redux/action-types";
+import CategoryItem from "../Catalog/ListItem/CategoryItem";
 
 export type genderValue_type = {
     name: "Для всіх" | "Для хлопців" | "Для дівчат",
@@ -26,7 +27,6 @@ const Search = () => {
     const [searchResults, setSearchResults] = useState<string[]>([]);
     const [searchOptions, setSearchOptions] = useState<string[]>([]);
 
-    const [masOfCategories, setMasOfCategories] = useState<linkType[]>([]);
     const [actualMas, setActualMas] = useState<Cloth[]>([]);
 
     const setOnSearching = () => {
@@ -64,43 +64,31 @@ const Search = () => {
         let linkMas: linkType[] = uniqueMasOfSubCategories.map(el => el.link);
         linkMas = linkMas.filter((x, i, a) => a.indexOf(x) === i);
 
-
-        const masBySubCategories = linkMas.map(el => ClothesService.getClothesByCategory(el, "male"))
+        const masBySubCategories = linkMas.map(el => ClothesService.getClothesByCategory(el, genderOfLink as Gender || "all"));
         uniqueMasOfSubCategories = masBySubCategories.map((item) => item)
             .filter((name, index, currentVal) => currentVal.indexOf(name) === index);
-        // console.log(uniqueMasOfSubCategories);
 
-        const masByName = ClothesService.getClothesByGenderAndSearchWorld( "male", searchingValue as string);
-        // console.log("masByName",masByName);
-
+        let byName = ClothesService.getClothesByGenderAndSearchWorld( genderOfLink as Gender || "all", searchingValue as string);
         let bySubCategory = [];
-        // console.log(uniqueMasOfSubCategories);
         for(let i = 0; i < uniqueMasOfSubCategories.length; i++) {
             for(let j = 0; j < uniqueMasOfSubCategories[i].length; j++) {
                 bySubCategory.push(uniqueMasOfSubCategories[i][j]);
             }
         }
-        // console.log(masBySubCategory)
-
-        let searchResults = [...bySubCategory, ...masByName];
-        // console.log(searchResults);
-
-
-        // let mainMas = [...uniqueMasOfSubCategories, ...masByName];
-        // console.log(mainMas);
-
+        let searchResults = [...bySubCategory, ...byName];
         searchResults = searchResults
             .filter((name, index, currentVal) => currentVal.indexOf(name) === index);
-        searchResults = searchResults.sort(function(a, b) {
+        searchResults = searchResults
+            .sort(function(a, b) {
             return b.id - a.id;
         })
-        console.log(searchResults);
+        setActualMas(searchResults);
     }
 
 
     return (
         <div className={styles.main}>
-            <div className={styles.contentBlock}>
+             <div className={styles.contentBlock}>
 
                 <div className={styles.resultsLabel}>РЕЗУЛЬТАТИ ПОШУКУ</div>
 
@@ -119,8 +107,16 @@ const Search = () => {
                     styles={styles}
                     findSearchResults={findSearchResults}
                 />
+
+                <div className={styles.list}>
+                    {
+                        actualMas.length > 0 &&
+                        actualMas.map(el => <CategoryItem key={el.id} item={el}/>)
+                    }
+                </div>
             </div>
         </div>
+
     );
 };
 

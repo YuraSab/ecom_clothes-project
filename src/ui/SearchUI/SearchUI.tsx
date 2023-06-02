@@ -1,9 +1,7 @@
-import React, {FC, useEffect, useState} from 'react';
-// import styles from "../../components/Header/SearchBarOverlay/SeacrhBarOverlay.module.css";
+import React, {FC} from 'react';
 import DownIcon from "../../assets/icons/down.png";
 import {Link} from "react-router-dom";
 import LoopIcon from "../../assets/icons/loop_black.png";
-import {DropMenuList} from "../../components/Header/HeaderLinks/ElementList_DropDownMenu";
 import {genderValue_type} from "../../pages/Search/Search";
 
 type SearchUI_props = {
@@ -37,25 +35,6 @@ const SearchUI: FC<SearchUI_props> = ({
                                           searchOptions,
                                           findSearchResults,
                                       }) => {
-
-    // const [onSetGenderActive, setOnSetGenderActive] = useState<boolean>(false);
-    // const [genderValue, setGenderValue] = useState<genderValue_type>({name: "Для всіх", link: "all"});
-    // const [searchValue, setSearchValue] = useState<string>("");
-    // const [searchResults, setSearchResults] = useState<string[]>([]);
-    // const [searchOptions, setSearchOptions] = useState<string[]>([]);
-
-
-    // useEffect(() => {
-    //     findSearchResults();
-    // }, []);
-    //
-    // useEffect(() => {
-    //     const lower = searchOptions?.map(el => el.toLowerCase());
-    //     const result = lower?.filter(el => el.includes(searchValue.toLowerCase()));
-    //     setSearchResults(result);
-    // }, [searchValue]);
-
-
 
 
     return (
