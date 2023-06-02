@@ -35,8 +35,6 @@ const Search = () => {
 
     useEffect(() => {
         findSearchResults();
-        // findSearchCategories();
-
     }, [genderOfLink, searchingValue]);
 
     useEffect(() => {
@@ -75,8 +73,28 @@ const Search = () => {
         const masByName = ClothesService.getClothesByGenderAndSearchWorld( "male", searchingValue as string);
         // console.log("masByName",masByName);
 
-        let mainMas = [...uniqueMasOfSubCategories, ...masByName];
-        console.log(mainMas);
+        let bySubCategory = [];
+        // console.log(uniqueMasOfSubCategories);
+        for(let i = 0; i < uniqueMasOfSubCategories.length; i++) {
+            for(let j = 0; j < uniqueMasOfSubCategories[i].length; j++) {
+                bySubCategory.push(uniqueMasOfSubCategories[i][j]);
+            }
+        }
+        // console.log(masBySubCategory)
+
+        let searchResults = [...bySubCategory, ...masByName];
+        // console.log(searchResults);
+
+
+        // let mainMas = [...uniqueMasOfSubCategories, ...masByName];
+        // console.log(mainMas);
+
+        searchResults = searchResults
+            .filter((name, index, currentVal) => currentVal.indexOf(name) === index);
+        searchResults = searchResults.sort(function(a, b) {
+            return b.id - a.id;
+        })
+        console.log(searchResults);
     }
 
 
