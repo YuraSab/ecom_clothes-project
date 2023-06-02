@@ -104,7 +104,6 @@ input:focus{
 .searchOptions{
     width: calc(100% - 78px - 175px);
     max-height: 100px;
-    border-bottom: 2px black solid;
 }
 .searchOptionItem{
     width: 100%;

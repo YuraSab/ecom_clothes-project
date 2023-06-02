@@ -11,13 +11,13 @@ type SearchUI_props = {
     setGenderValue: (value: genderValue_type) => void;
     setSearchValue: (value: string) => void;
     setSearchResults: (value: string[]) => void;
-    setSearchOptions: (value: string[]) => void;
+    // setSearchOptions: (value: string[]) => void;
     onSetGenderActive: boolean;
     genderValue: genderValue_type;
     searchValue: string
     searchResults: string[],
-    searchOptions: string[],
-    findSearchResults: () => void;
+    // searchOptions: string[],
+    // findSearchResults: () => void;
 }
 
 const SearchUI: FC<SearchUI_props> = ({
@@ -27,13 +27,13 @@ const SearchUI: FC<SearchUI_props> = ({
                                           setGenderValue,
                                           setSearchValue,
                                           setSearchResults,
-                                          setSearchOptions,
+                                          // setSearchOptions,
                                           onSetGenderActive,
                                           genderValue,
                                           searchValue,
                                           searchResults,
-                                          searchOptions,
-                                          findSearchResults,
+                                          // searchOptions,
+                                          // findSearchResults,
                                       }) => {
 
 
@@ -53,7 +53,14 @@ const SearchUI: FC<SearchUI_props> = ({
                     <input
                         type={"text"}
                         placeholder={"Введіть текст для пошуку"}
-                        onChange={(event) => setSearchValue(event.target.value)}
+                        // onChange={(event) => setSearchValue(event.target.value)}
+                        onChange={(event) => setSearchValue(
+                            event.target.value
+                                .replace("\n", "")
+                                .replace("-", "")
+                                .replace(",", "")
+                                .replace(" ", " ")
+                        )}
                     />
                 </div>
 
@@ -64,6 +71,7 @@ const SearchUI: FC<SearchUI_props> = ({
                              onClick={() => {
                                  setOnSearching(false);
                                  setSearchResults([]);
+                                 setOnSetGenderActive(false);
                              }}
                         />
                     </Link>
@@ -103,9 +111,19 @@ const SearchUI: FC<SearchUI_props> = ({
                                     return (
                                         index < 9 &&
                                         <Link
-                                            to={`/search/${genderValue.link}/${el}`} key={el}
+                                            // to={`/search/${genderValue.link}/${el
+                                            //     .replace("\n", "")
+                                            //     .replace("-", "")
+                                            //     .replace(",", "")
+                                            //     .replace(" ", "_")}`}
+                                            // to={`/search/${genderValue.link}/${el.split(" ").join("_").split(",").join("")}`}
+                                            to={`/search/${genderValue.link}/${el}`}
+                                            key={el}
                                             style={{textDecoration: "none", color: "black"}}>
-                                            <div className={styles.searchOptionItem} onClick={() => setOnSearching(false)}>
+                                            <div className={styles.searchOptionItem} onClick={() => {
+                                                setOnSearching(false);
+                                                setOnSetGenderActive(false);
+                                            }}>
                                                 <img src={LoopIcon} alt={"search"} width={16} height={16}/>
                                                 {el}
                                             </div>

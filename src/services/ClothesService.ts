@@ -7,6 +7,16 @@ class ClothesService {
     // url on db
     // categoryURL = "";
 
+    getAllByGender(gender: Gender | "all") {
+        // this will be renewed
+        if (gender === "male" || gender === "female") {
+            return clothes
+                .filter(el => el.gender === gender);
+        } else if(gender === "all"){
+            return clothes;
+        }
+
+    }
 
     // todo - make fetch/axios request when will be created db
     getClothesByCategory(category: linkType, gender: Gender | "all") {

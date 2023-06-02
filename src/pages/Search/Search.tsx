@@ -27,7 +27,7 @@ const Search = () => {
     const [searchResults, setSearchResults] = useState<string[]>([]);
     const [searchOptions, setSearchOptions] = useState<string[]>([]);
 
-    const [actualMas, setActualMas] = useState<Cloth[]>([]);
+    const [actualMas, setActualMas] = useState<Cloth[] | undefined>([]);
 
     const setOnSearching = () => {
     };
@@ -57,7 +57,12 @@ const Search = () => {
             }
         }
         uniqueMasOfTitles = uniqueMasOfTitles.filter((x, i, a) => a.indexOf(x) === i);
-        uniqueMasOfTitles = uniqueMasOfTitles.map(el => el.replace("\n", "").replace("-", " ").replace(",", ""));
+        // uniqueMasOfTitles = uniqueMasOfTitles.map(el => el.replace("_", " "));
+        uniqueMasOfTitles = uniqueMasOfTitles.map(el => el.replace("\n", "").replace("-", " ").replace(",", "").replace("_", " "));
+        // uniqueMasOfTitles = uniqueMasOfTitles.map(el => el
+        //     .split("_").join(" ")
+        //     .split("\n").join(" ")
+        //     .split("-").join(" "));
         setSearchOptions(uniqueMasOfTitles);
 
         uniqueMasOfSubCategories = uniqueMasOfSubCategories.filter(el => el.name.toLowerCase().includes(searchValue.toLowerCase()));
@@ -68,10 +73,10 @@ const Search = () => {
         uniqueMasOfSubCategories = masBySubCategories.map((item) => item)
             .filter((name, index, currentVal) => currentVal.indexOf(name) === index);
 
-        let byName = ClothesService.getClothesByGenderAndSearchWorld( genderOfLink as Gender || "all", searchingValue as string);
+        let byName = ClothesService.getClothesByGenderAndSearchWorld(genderOfLink as Gender || "all", searchingValue as string);
         let bySubCategory = [];
-        for(let i = 0; i < uniqueMasOfSubCategories.length; i++) {
-            for(let j = 0; j < uniqueMasOfSubCategories[i].length; j++) {
+        for (let i = 0; i < uniqueMasOfSubCategories.length; i++) {
+            for (let j = 0; j < uniqueMasOfSubCategories[i].length; j++) {
                 bySubCategory.push(uniqueMasOfSubCategories[i][j]);
             }
         }
@@ -79,16 +84,23 @@ const Search = () => {
         searchResults = searchResults
             .filter((name, index, currentVal) => currentVal.indexOf(name) === index);
         searchResults = searchResults
-            .sort(function(a, b) {
-            return b.id - a.id;
-        })
-        setActualMas(searchResults);
+            .sort(function (a, b) {
+                return b.id - a.id;
+            })
+
+        if (searchingValue === "all") {
+            let allElements = ClothesService.getAllByGender(genderOfLink as Gender | "all");
+            allElements &&
+            setActualMas(allElements);
+        } else {
+            setActualMas(searchResults);
+        }
     }
 
 
     return (
         <div className={styles.main}>
-             <div className={styles.contentBlock}>
+            <div className={styles.contentBlock}>
 
                 <div className={styles.resultsLabel}>РЕЗУЛЬТАТИ ПОШУКУ</div>
 
@@ -97,21 +109,20 @@ const Search = () => {
                     setGenderValue={setGenderValue}
                     setSearchValue={setSearchValue}
                     setSearchResults={setSearchResults}
-                    setSearchOptions={setSearchOptions}
+                    // setSearchOptions={setSearchOptions}
                     onSetGenderActive={onSetGenderActive}
                     genderValue={genderValue}
                     searchValue={searchValue}
                     searchResults={searchResults}
-                    searchOptions={searchOptions}
+                    // searchOptions={searchOptions}
                     setOnSearching={setOnSearching}
                     styles={styles}
-                    findSearchResults={findSearchResults}
+                    // findSearchResults={findSearchResults}
                 />
 
                 <div className={styles.list}>
                     {
-                        actualMas.length > 0 &&
-                        actualMas.map(el => <CategoryItem key={el.id} item={el}/>)
+                        actualMas?.map(el => <CategoryItem key={el.id} item={el}/>)
                     }
                 </div>
             </div>
