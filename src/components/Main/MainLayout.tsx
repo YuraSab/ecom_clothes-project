@@ -9,8 +9,7 @@ import ChosenItem from "../../pages/Catalog/ChosenItem/ChosenItem";
 import Likes from "../../pages/Likes/Likes";
 import Cart from "../../pages/Cart/Cart";
 import Search from "../../pages/Search/Search";
-import MaleMainPage from "../../pages/MainPage/MaleMainPage";
-import FemaleMainPage from "../../pages/MainPage/FemaleMainPage";
+import MainPage from "../../pages/MainPage/MainPage";
 
 const MainLayout = () => {
     return (
@@ -30,7 +29,7 @@ const MainLayout = () => {
 
 
                     <Route path={'/male/*'} element={<Male/>}>
-                        <Route index element={<MaleMainPage/>}/>
+                        <Route index element={<MainPage propGender={"male"}/>}/>
                         {
                             DropMenuList[0].clothList.map(
                                 el => {
@@ -65,7 +64,7 @@ const MainLayout = () => {
                     </Route>
 
                     <Route path={'/female/'} element={<Female/>}>
-                        <Route index element={<FemaleMainPage/>}/>
+                        <Route index element={<MainPage propGender={"female"}/>}/>
                         {
                             DropMenuList[1].clothList.map(
                                 el => {
