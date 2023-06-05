@@ -226,6 +226,16 @@
     color: #696969;
 }
 
+.noItems{
+    text-align: center;
+    font-size: 34px;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    padding: 40px 0;
+}
+
 
 @media screen and (max-width: 1225px) {
     .main {

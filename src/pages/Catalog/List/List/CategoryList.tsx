@@ -77,11 +77,12 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
         const trackWindowWidth = () => {
             setWindowWidth(document.body.clientWidth);
         };
-        window.addEventListener("resize", trackWindowWidth)
+        window.addEventListener("resize", trackWindowWidth);
+        window.scrollTo(0, 0);
 
         return (() => {
             window.removeEventListener("resize", trackWindowWidth);
-        })
+        });
     }, []);
 
 
@@ -172,7 +173,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
 
     return (
-
         <div className={styles.main}>
             <div className={styles.contentBlock}>
 
@@ -485,16 +485,16 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                             }
                         </div>
                 }
-
-                <div className={styles.list}>
-                    {
-                        clothesList.length > 0 &&
-                        clothesList.map(el => <CategoryItem key={el.id} item={el}/>)
-                    }
-                </div>
+                {
+                    clothesList.length > 0 ?
+                        <div className={styles.list}>
+                            {clothesList.map(el => <CategoryItem key={el.id} item={el}/>)}
+                        </div>
+                        :
+                        <div className={styles.noItems}>Немає товару в наявності</div>
+                }
             </div>
         </div>
     );
 };
-
 export default CategoryList;

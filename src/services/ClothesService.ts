@@ -59,6 +59,14 @@ class ClothesService {
         }
         return byGender.filter(el => el.name.includes(searchWord));
     }
+
+
+    getNewest(gender: Gender) {
+        let byGender: Cloth[] = clothes.filter(el => el.gender === gender);
+        return byGender.sort(function (a, b) {
+            return b.id - a.id;
+        })
+    }
 }
 
 export const clothesService = new ClothesService();
