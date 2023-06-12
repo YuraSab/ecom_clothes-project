@@ -7,8 +7,8 @@ import UserIcon from "../../../assets/icons/person_icon.png";
 import CartIcon from "../../../assets/icons/cart-icon.png";
 import LikeIcon from "../../../assets/icons/like_icon.png";
 import {Link, NavLink, useLocation} from "react-router-dom";
-import GenderBar from "../HeaderElements/GenderBarDesktop/GenderBar.tsx";
-import GenderBarMobile from "../HeaderElements/GenderBarMobile/GenderBarMobile";
+import GenderBarDesktop from "../HeaderElements/GenderBar/GenderBarDesktop/GenderBarDesktop.tsx";
+import GenderBarMobile from "../HeaderElements/GenderBar/GenderBarMobile/GenderBarMobile";
 import DropDownMenuMobile from "../DropDownMenu/DropDOwnMenuMobile/DropDownMenuMobile";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import CrossSVG from "../../../assets/icons/cross_svg_icon.svg";
@@ -19,28 +19,24 @@ import SearchBarOverLay from "../../../ui/SearchBarOverlay/SearchBarOverLay";
 const BottomHeaderMenu: FC = () => {
 
     const {wishList} = useTypedSelector(state => state.wishList);
+    const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
     const location = useLocation();
 
     const [burgerMenuActive, setBurgerMenuActive] = useState<boolean>(false)
-    const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
-
     const [userWishListLength, setUserWishListLength] = useState<number>(0);
-
     const [onSearching, setOnSearching] = useState<boolean>(false);
-
 
     useEffect(() => {
         const userWishList = wishList.filter(el => el.id_user === ActualUser.id);
         setUserWishListLength(userWishList.length);
     }, [wishList]);
 
+
     return (
-
         <div className={styles.overlay}>
-
             <div className={styles.main_block}>
 
-                <div className={styles.burgerMenu} onClick={() => setBurgerMenuActive(prevState => !prevState)} >
+                <div className={styles.burgerMenu} onClick={() => setBurgerMenuActive(prevState => !prevState)}>
                     {
                         burgerMenuActive ?
                             <img src={CrossSVG}  alt={'burger-menu'} width={19}/>
@@ -55,7 +51,6 @@ const BottomHeaderMenu: FC = () => {
 
                 <div className={styles.menu}>
                     <div className={styles.genderLinks}>
-
                         <NavLink
                             className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
                             to={'/male'}
@@ -80,31 +75,29 @@ const BottomHeaderMenu: FC = () => {
                             <div style={{position: "relative"}}>
                                 {
                                     userWishListLength > 0 &&
-                                    <div className={styles.cartLength}>{userWishListLength > 10 ? "10+" : userWishListLength}</div>
+                                    <div className={styles.cartLength}>
+                                        {userWishListLength > 10 ? "10+" : userWishListLength}
+                                    </div>
                                 }
                                 <img src={CartIcon} alt={""} height={25}/>
                             </div>
                         </Link>
                     </div>
-
                 </div>
-
 
                 <div className={styles.submenu}>
                     {
                         location.pathname.includes("female")
                             ?
-                            <GenderBar propGender={"female"}/>
+                            <GenderBarDesktop propGender={"female"}/>
                             :
-                            <GenderBar propGender={"male"}/>
+                            <GenderBarDesktop propGender={"male"}/>
                     }
                 </div>
 
                 {
                     burgerMenuActive &&
-                    <GenderBarMobile
-                        setBurgerMenuActive={setBurgerMenuActive} burgerMenuActive={burgerMenuActive}
-                    />
+                    <GenderBarMobile setBurgerMenuActive={setBurgerMenuActive} burgerMenuActive={burgerMenuActive}/>
                 }
 
                 {
@@ -113,9 +106,9 @@ const BottomHeaderMenu: FC = () => {
                 }
 
                 {
-                    onSearching && <SearchBarOverLay setOnSearching={setOnSearching}/>
+                    onSearching &&
+                    <SearchBarOverLay setOnSearching={setOnSearching}/>
                 }
-
             </div>
         </div>
     );

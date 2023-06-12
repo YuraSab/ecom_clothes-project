@@ -7,9 +7,7 @@
     padding: 0;
     height: 100%;
     z-index: 60;
-
 }
-
 .mainDiv {
     display: block;
     overflow-y: auto;
@@ -22,14 +20,12 @@
     color: white;
     height: calc(100% - 70px);
 }
-
 .subDiv{
     padding: 0;
     display: flex;
     flex-direction: column;
     height: 270px;
 }
-
 .category {
     text-transform: uppercase;
     font-size: 13px;
@@ -44,7 +40,6 @@
     cursor: pointer;
     line-height: 1.15;
 }
-
 .subCategory {
     text-transform: uppercase;
     font-size: 13px;
@@ -60,7 +55,6 @@
     cursor: pointer;
     line-height: 1.15;
 }
-
 .goBack {
     background: black;
     border-top: #6d6d6d solid 1px;
@@ -72,12 +66,10 @@
     grid-template-rows: 68px;
     align-items: center;
 }
-
 .arrowBack {
     grid-area: arrow;
     padding-left: 20px;
 }
-
 .textBack {
     grid-area: text;
     justify-self: center;
@@ -89,14 +81,11 @@
     position: relative;
     cursor: pointer;
 }
-
-
 .dropDownMenuActive {
     width: 370px;
     transition: all 200ms;
     opacity: 1;
 }
-
 
 @media screen and (max-width: 770px){
     .overlay{

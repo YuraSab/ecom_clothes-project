@@ -59,7 +59,7 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
                         {/*Text or icon*/}
                         <div style={{background: "white",
                             width: 30, height: 30,
-                            zIndex: 10,
+                            // zIndex: 10,
                             border: "1px #D3D3D3 solid",
                             borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center"}}
                              onClick={(e) => {

@@ -1,31 +1,28 @@
 import React, {FC, useEffect} from 'react';
-import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector";
+import {useTypedSelector} from "../../../../../hooks/redux/useTypedSelector";
 import styles from "./GenderBarMobile.module.css";
 import {NavLink} from "react-router-dom";
-import {DropMenuList} from "../../HeaderLinks/ElementList_DropDownMenu";
-import {onSetDropDownMenu} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu";
-import {useAction} from "../../../../hooks/redux/useAction";
-import ComebackAlive from "../../../../assets/pictures/comeback_alive.svg";
-import GooglePlay from "../../../../assets/pictures/google-play.svg";
-import AppStore from "../../../../assets/pictures/app-storesvg.svg";
-import FacebookWhite from "../../../../assets/icons/facebook_white.png";
-import InstagramWhite from "../../../../assets/icons/instagram_white.png";
-import TelegramWhite from "../../../../assets/icons/telegram_white.png";
-import YoutubeWhite from "../../../../assets/icons/youtube_white.png";
+import {DropMenuList} from "../../../HeaderLinks/ElementList_DropDownMenu";
+import {onSetDropDownMenu} from "../../../../../redux/action-creators/DropDownMenu/DropDownMenu";
+import {useAction} from "../../../../../hooks/redux/useAction";
+import ComebackAlive from "../../../../../assets/pictures/comeback_alive.svg";
+import GooglePlay from "../../../../../assets/pictures/google-play.svg";
+import AppStore from "../../../../../assets/pictures/app-storesvg.svg";
+import FacebookWhite from "../../../../../assets/icons/facebook_white.png";
+import InstagramWhite from "../../../../../assets/icons/instagram_white.png";
+import TelegramWhite from "../../../../../assets/icons/telegram_white.png";
+import YoutubeWhite from "../../../../../assets/icons/youtube_white.png";
 import {CSSTransition} from "react-transition-group";
 import "./GenderBarMobileTransition.css";
-
 
 type GenderBarMobile_PropsTypes = {
     setBurgerMenuActive: (value: boolean) => void;
     burgerMenuActive: boolean;
 }
 
-
 const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, burgerMenuActive}) => {
 
     const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
-
     const {onSetDropDownMenu} = useAction();
 
     const genderMas = DropMenuList.find(el => el.gender === gender);
@@ -44,14 +41,12 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                 }
             })
             document.body.style.overflowY = 'auto';
-
         })
     }, []);
 
 
     return (
         gender && genderMas && !dropDownValue ?
-            // gender && genderMas ?
 
             <CSSTransition
                 in={burgerMenuActive}
@@ -60,7 +55,6 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                 unmountOnExit={!burgerMenuActive}
                 appear
             >
-
                 <div
                     onClick={() => setBurgerMenuActive(false)}
                     className={styles.overlay}
@@ -70,6 +64,7 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                     >
 
                         <div className={styles.genderBar}>
+
                             <div className={styles.genderLinks}>
                                 <NavLink
                                     className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
@@ -100,14 +95,13 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                             </div>
 
                             {
-                                genderMas.gender === 'male' && <>
+                                genderMas.gender === 'male' &&
+                                <>
                                     <div className={styles.left_block}>
-                                        <div className={styles.leftLink} style={{color: "white"}}>Staff Basic
-                                        </div>
+                                        <div className={styles.leftLink} style={{color: "white"}}>Staff Basic</div>
                                     </div>
                                     <div className={styles.left_block}>
-                                        <div className={styles.leftLink} style={{color: "white"}}>Staff Tactical
-                                        </div>
+                                        <div className={styles.leftLink} style={{color: "white"}}>Staff Tactical</div>
                                     </div>
                                 </>
                             }
@@ -134,6 +128,7 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                             <div className={styles.comebackAlive}>
                                 <img src={ComebackAlive} alt={""}/>
                             </div>
+
                             <div className={styles.FAQLink}>НОВИНИ І ВІДГУКИ</div>
                             <div className={styles.FAQLink}>МАГАЗИНИ</div>
                             <div className={styles.FAQLink}>ПРО НАС</div>
@@ -146,11 +141,13 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                                 <img src={TelegramWhite} alt={"Telegram"} height={35}/>
                                 <img src={YoutubeWhite} alt={"Youtube"} height={36}/>
                             </div>
+
                             <div className={styles.FAQApps}>
                                 <img src={GooglePlay} alt="GooglePlay" className={styles.FAQApp}/>
                                 <img src={AppStore} alt="AppStore" className={styles.FAQApp}/>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </CSSTransition>

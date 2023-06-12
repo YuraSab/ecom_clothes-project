@@ -15,19 +15,15 @@ const DropDownMenu: FC = () => {
     const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
     const [myList, setMyList] = useState<DropMenuListItem | undefined>(undefined);
 
-
     useEffect(() => {
         const actualGender: DropMenuGenderList = DropMenuList.find(el => el.gender === gender) as DropMenuGenderList;
         const actualCategory: DropMenuListItem = actualGender.clothList.find(el => el.name === dropDownValue) as DropMenuListItem;
         setMyList(actualCategory);
     }, [dropDownValue, gender]);
 
-
     if (!myList) return null
 
-
     return (
-
         <div
             className={styles.mainDiv}
             style={{height: window.innerWidth <= 1025 ? "100%" : 335}}
@@ -48,7 +44,6 @@ const DropDownMenu: FC = () => {
                 }
             </div>
         </div>
-
     );
 };
 

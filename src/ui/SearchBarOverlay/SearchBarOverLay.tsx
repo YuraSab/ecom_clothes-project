@@ -66,15 +66,12 @@ const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
                 setGenderValue={setGenderValue}
                 setSearchValue={setSearchValue}
                 setSearchResults={setSearchResults}
-                // setSearchOptions={setSearchOptions}
                 onSetGenderActive={onSetGenderActive}
                 genderValue={genderValue}
                 searchValue={searchValue}
                 searchResults={searchResults}
-                // searchOptions={searchOptions}
                 setOnSearching={setOnSearching}
                 styles={styles}
-                // findSearchResults={findSearchResults}
             />
         </div>
     );

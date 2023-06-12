@@ -1,11 +1,11 @@
 import React, {FC, useEffect} from 'react';
-import styles from "./GenderBar.module.css";
-import {onSetDropDownMenu, onSetGender} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu.ts";
-import {DropMenuList} from "../../HeaderLinks/ElementList_DropDownMenu.ts";
-import DropDownMenu from "../../DropDownMenu/DropDownMenuDesktop/DropDownMenu.tsx";
-import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
-import {useAction} from "../../../../hooks/redux/useAction.ts";
-import {Gender} from "../../../../redux/action-types";
+import styles from "./GenderBarDesktop.module.css";
+import {onSetDropDownMenu, onSetGender} from "../../../../../redux/action-creators/DropDownMenu/DropDownMenu.ts";
+import {DropMenuList} from "../../../HeaderLinks/ElementList_DropDownMenu.ts";
+import DropDownMenu from "../../../DropDownMenu/DropDownMenuDesktop/DropDownMenu.tsx";
+import {useTypedSelector} from "../../../../../hooks/redux/useTypedSelector.ts";
+import {useAction} from "../../../../../hooks/redux/useAction.ts";
+import {Gender} from "../../../../../redux/action-types";
 import {Link} from "react-router-dom";
 
 
@@ -14,10 +14,9 @@ type GenderBar_PropsTypes = {
 }
 
 
-const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
+const GenderBarDesktop: FC<GenderBar_PropsTypes> = ({propGender}) => {
 
     const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
-
     const {onSetDropDownMenu, onSetGender} = useAction();
 
     useEffect(() => {
@@ -43,7 +42,8 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
                 </div>
 
                 {
-                    genderMas.gender === 'male' && <>
+                    genderMas.gender === 'male' &&
+                    <>
                         <div className={styles.left_block}>
                             <div className={styles.leftLink} style={{color: "white"}}>Staff Basic</div>
                         </div>
@@ -59,7 +59,6 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
                             <div className={styles.right_block}
                                  key={index}
                                  style={{
-                                     // background: dropDownValue === el.name ? "white" : "black",
                                      background: dropDownValue === el.name ? "white" : "none",
                                      color: dropDownValue === el.name ? "black" : "white"
                                  }}
@@ -69,11 +68,10 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
                                 <Link
                                     to={`${gender}/${el.name}`}
                                     className={styles.rightLink}
-                                    style={{color: dropDownValue === el.name ? "black" : "white"
-                                }}>
-                                    <div style={{ display: "flex", justifyContent: "center", height: "25px"}}>
-
-                                    {el.title}
+                                    style={{color: dropDownValue === el.name ? "black" : "white"}}
+                                >
+                                    <div style={{display: "flex", justifyContent: "center", height: "25px"}}>
+                                        {el.title}
                                     </div>
                                 </Link>
 
@@ -91,4 +89,4 @@ const GenderBar: FC<GenderBar_PropsTypes> = ({propGender}) => {
 };
 
 
-export default GenderBar;
+export default GenderBarDesktop;

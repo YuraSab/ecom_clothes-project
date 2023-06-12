@@ -21,10 +21,9 @@ type DropDownMenu_PropsTypes = {
 const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
 
     const {dropDownValue, gender} = useTypedSelector(state => state.headerState);
-
-    const [myList, setMyList] = useState<DropMenuListItem | undefined>(undefined);
     const {onSetDropDownMenu} = useAction();
 
+    const [myList, setMyList] = useState<DropMenuListItem | undefined>(undefined);
 
     useEffect(() => {
         const actualGender: DropMenuGenderList = DropMenuList.find(el => el.gender === gender) as DropMenuGenderList;
@@ -32,11 +31,9 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
         setMyList(actualCategory);
     }, [dropDownValue, gender]);
 
-
     // if (!myList) return null
 
     return (
-
         <div
             onClick={() => {
                 setBurgerMenuActive(false);
@@ -52,7 +49,6 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
                     height: "100%",
                 }}
             >
-
                 <div
                     onClick={event => event.stopPropagation()}
                     className={styles.mainDiv}
@@ -60,7 +56,8 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
                 >
                     <div className={styles.subDiv}>
                         {
-                            window.innerWidth < 1025 && <>
+                            window.innerWidth < 1025 &&
+                            <>
                                 <div className={styles.goBack}
                                      onClick={() => onSetDropDownMenu("")}
                                 >
@@ -85,9 +82,7 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
                         }
                         <div style={{height: 90}}></div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     );

@@ -13,7 +13,6 @@ body, html {
     "header"
     "main"
     "footer";
-    /*grid-template-rows: 123px minmax(300px, 1fr) 700px;*/
     grid-template-rows: 123px minmax(300px, 1fr) 700px;
 }
 header {
@@ -25,7 +24,6 @@ main {
 footer {
     grid-area: footer;
     border-top: 2px solid black;
-    /*padding: 50px 18.5%;*/
 }
 
 @media screen and (max-width: 1025px){

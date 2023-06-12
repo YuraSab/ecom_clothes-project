@@ -27,7 +27,6 @@ const MainLayout = () => {
                     <Route path={'search/:genderOfLink/:searchingValue'} element={<Search/>}/>
                     <Route path={'search/:genderOfLink/'} element={<Search/>}/>
 
-
                     <Route path={'/male/*'} element={<Male/>}>
                         <Route index element={<MainPage propGender={"male"}/>}/>
                         {
@@ -50,7 +49,6 @@ const MainLayout = () => {
                             )
                         }
                         {
-
                             DropMenuList[0].clothList.map(
                                 el => el.categories.map(el =>
                                     <Route

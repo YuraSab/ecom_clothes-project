@@ -4,7 +4,6 @@
     align-items: center;
     padding: 40px 0;
 }
-
 .mainDiv {
     display: flex;
     flex-direction: row;
@@ -12,12 +11,10 @@
     width: 1170px;
     padding: 0 20px;
 }
-
 .catalogList {
     display: flex;
     flex-direction: column;
 }
-
 .catalogList div {
     font-family: Ubuntu, sans-serif;
     font-weight: 700;
@@ -28,7 +25,6 @@
     line-height: 1.15;
 
 }
-
 .catalogList span {
     font-size: 12px;
     font-family: Ubuntu, sans-serif;

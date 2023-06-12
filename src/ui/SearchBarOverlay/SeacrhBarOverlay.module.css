@@ -33,7 +33,6 @@
 .genderOptions{
     height: 110px;
     width: 730px;
-    /*display: flex;*/
     display: grid;
     grid-template-columns: 175px 1fr 48px;
 }
@@ -47,7 +46,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*padding: 27px;*/
     border-right: 1px solid #b3b3b3;
 }
 .passiveOption span{
@@ -64,7 +62,6 @@
     align-items: center;
     background: white;
 }
-
 .searchInput{
     width: 100%;
     background: white;
@@ -72,7 +69,6 @@
     justify-content: center;
     align-items: center;
 }
-
 input{
     width: 475px;
     height: 18px;
@@ -82,7 +78,6 @@ input{
 input:focus{
     outline: none!important;
 }
-
 .oneOption{
     width: 174px;
     background: white;

@@ -19,9 +19,9 @@
     font-weight: 400;
     color: #6d6d6d;
 }
+
 @media screen and (min-width: 1026px){
     .category:hover {
-        /*width: 75%;*/
         padding-bottom: 4px;
         border-bottom: 2px black solid;
     }
@@ -31,9 +31,6 @@
         text-underline-offset: 4px;
     }
 }
-
-
-
 @media screen and (max-width: 1025px){
     .category {
         color: #f0f3f2;
@@ -49,7 +46,6 @@
         cursor: pointer;
         line-height: 1.15;
     }
-
     .subCategory {
         text-transform: uppercase;
         font-size: 13px;
@@ -65,7 +61,4 @@
         cursor: pointer;
         line-height: 1.15;
     }
-
 }
-
-

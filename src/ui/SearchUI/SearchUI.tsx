@@ -39,6 +39,7 @@ const SearchUI: FC<SearchUI_props> = ({
 
     return (
         <div className={styles.parentDiv}>
+
             <div className={styles.searchArea}>
                 <div
                     className={`${styles.passiveOption} ${styles.optionText}`}
@@ -53,7 +54,6 @@ const SearchUI: FC<SearchUI_props> = ({
                     <input
                         type={"text"}
                         placeholder={"Введіть текст для пошуку"}
-                        // onChange={(event) => setSearchValue(event.target.value)}
                         onChange={(event) => setSearchValue(
                             event.target.value
                                 .replace("\n", "")
@@ -77,7 +77,10 @@ const SearchUI: FC<SearchUI_props> = ({
                     </Link>
                 </div>
             </div>
+
+
             <div className={styles.genderOptions}>
+
                 <div className={styles.overlayForGenderOptions}>
                     {
                         onSetGenderActive &&
@@ -103,34 +106,31 @@ const SearchUI: FC<SearchUI_props> = ({
                         </>
                     }
                 </div>
+
                 <div className={styles.searchOptions}>
                     {
                         searchResults.length > 0 && searchValue !== "" &&
-                        searchResults
-                            .map((el, index) => {
-                                    return (
-                                        index < 9 &&
-                                        <Link
-                                            // to={`/search/${genderValue.link}/${el
-                                            //     .replace("\n", "")
-                                            //     .replace("-", "")
-                                            //     .replace(",", "")
-                                            //     .replace(" ", "_")}`}
-                                            // to={`/search/${genderValue.link}/${el.split(" ").join("_").split(",").join("")}`}
-                                            to={`/search/${genderValue.link}/${el}`}
-                                            key={el}
-                                            style={{textDecoration: "none", color: "black"}}>
-                                            <div className={styles.searchOptionItem} onClick={() => {
-                                                setOnSearching(false);
-                                                setOnSetGenderActive(false);
-                                            }}>
-                                                <img src={LoopIcon} alt={"search"} width={16} height={16}/>
-                                                {el}
-                                            </div>
-                                        </Link>
-                                    )
-                                }
-                            )
+                        searchResults.map((el, index) => {
+                                return (
+                                    index < 9 &&
+                                    <Link
+                                        to={`/search/${genderValue.link}/${el}`}
+                                        key={el}
+                                        style={{textDecoration: "none", color: "black"}}
+                                    >
+                                        <div className={styles.searchOptionItem}
+                                             onClick={() => {
+                                                 setOnSearching(false);
+                                                 setOnSetGenderActive(false);
+                                             }}
+                                        >
+                                            <img src={LoopIcon} alt={"search"} width={16} height={16}/>
+                                            {el}
+                                        </div>
+                                    </Link>
+                                )
+                            }
+                        )
                     }
                 </div>
             </div>
