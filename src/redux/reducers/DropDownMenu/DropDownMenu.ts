@@ -7,13 +7,11 @@ type HeaderState = {
 
 const initialState: HeaderState = {
     dropDownValue: "",
-    // gender: "male"
     gender: ""
 };
 
 export default (state = initialState, action: DropDownMenu_Actions): HeaderState => {
     switch (action.type) {
-
         case DropDownMenu_Types.SET_DROP_DOWN_MENU: {
             return {
                 ...state,
@@ -26,7 +24,6 @@ export default (state = initialState, action: DropDownMenu_Actions): HeaderState
                 gender: action.payload
             }
         }
-
         default: {
             return state;
         }

@@ -7,6 +7,8 @@ import {
 } from "../../action-types";
 import {Dispatch} from "react";
 
+// questions
+
 export const onSetQuestions = (value: Payload<SetQuestions_Action>) => {
     return(dispatch: Dispatch<SetQuestions_Action>) => {
         dispatch({
@@ -40,8 +42,7 @@ export const onEditQuestion = (value: Payload<EditQuestion_Action>) => {
     }
 }
 
-
-
+// responses on questions
 
 export const onSetResponsesOnQuestions = (value: Payload<SetResponsesOnQuestions_Action>) => {
     return(dispatch: Dispatch<SetResponsesOnQuestions_Action>) => {

@@ -1,6 +1,5 @@
 import {ProductLike, ProductLike_Actions, ProductLike_Types} from "../../action-types";
 
-
 type InitialState_type = {
     productLikes: ProductLike[]
 }
@@ -8,7 +7,6 @@ type InitialState_type = {
 const initialState: InitialState_type = {
     productLikes: []
 }
-
 
 export default (state = initialState, action: ProductLike_Actions): InitialState_type => {
     switch (action.type) {

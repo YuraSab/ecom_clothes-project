@@ -1,6 +1,5 @@
 import {WishList_Actions, WishList_Types, WishListElement} from "../../action-types";
 
-
 type InitialState_type = {
     wishList: WishListElement[]
 }
@@ -30,7 +29,6 @@ export default (state = initialState, action: WishList_Actions): InitialState_ty
                 wishList: filtered
             }
         }
-
         case WishList_Types.PLUS_COUNT_OF_PRODUCT: {
             let filtered = state.wishList.filter(el => el.id_wishList_element !== action.payload);
             const found = state.wishList.find(el => el.id_wishList_element === action.payload);
@@ -78,6 +76,7 @@ export default (state = initialState, action: WishList_Actions): InitialState_ty
                 wishList: filtered
             }
         }
+
         default: {
             return state
         }

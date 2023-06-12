@@ -17,6 +17,7 @@ export type ResponseLike = {
     id_user: number,
     date: Date,
 };
+
 export type Response = {
     id_response: number,
     id_user: number,
@@ -25,12 +26,14 @@ export type Response = {
     date: Date,
     edited: boolean,
 };
+
 export type Parent_Child_response = {
     id_parent_child_response: number
     id_parent_response: number,
     id_child_response: number,
 }
 
+// responses
 export interface SetResponses_Action {
     type: Response_Types.SET_RESPONSE,
     payload: Response[]
@@ -48,7 +51,7 @@ export interface EditResponse_Action {
     payload: Response
 }
 
-
+// likes on responses
 export interface SetResponseLikes_Action {
     type: Response_Types.SET_RESPONSE_LIKES,
     payload: ResponseLike[]
@@ -62,7 +65,7 @@ export interface DeleteResponseLike_Action {
     payload: number
 }
 
-
+// responses on responses
 export interface SetParentChildResponses_Action {
     type: Response_Types.SET_PARENT_CHILD_RESPONSE,
     payload: Parent_Child_response[]

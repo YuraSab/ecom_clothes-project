@@ -11,7 +11,6 @@ export const onSetDropDownMenu = (value: Payload<SetDropDownMenu_Action>) => {
         })
     }
 };
-
 export const onSetGender = (value: Payload<SetGender_Action>) => {
     return (dispatch: Dispatch<SetGender_Action>) => {
         dispatch({

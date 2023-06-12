@@ -9,7 +9,6 @@ export enum Question_Types {
   EDIT_RESPONSE_ON_QUESTION = "EDIT_RESPONSE_ON_QUESTION",
 }
 
-
 export type Question = {
   id_question: number;
   id_user: number;
@@ -28,7 +27,7 @@ export type ResponseOnQuestion = {
   edited: boolean;
 }
 
-
+// questions
 export interface SetQuestions_Action {
   type: Question_Types.SET_QUESTIONS,
   payload: Question[]
@@ -45,6 +44,8 @@ export interface EditQuestion_Action {
   type: Question_Types.EDIT_QUESTION,
   payload: Question
 }
+
+// responses on questions
 export interface SetResponsesOnQuestions_Action {
   type: Question_Types.SET_RESPONSES_ON_QUESTIONS,
   payload: ResponseOnQuestion[]
@@ -63,7 +64,7 @@ export interface EditResponseOnQuestion_Action {
 }
 
 
-
 export type Question_Actions =
-    SetQuestions_Action | AddQuestion_Action | DeleteQuestion_Action | EditQuestion_Action |
-    SetResponsesOnQuestions_Action | AddResponseOnQuestion_Action | DeleteResponseOnQuestion_Action | EditResponseOnQuestion_Action;
+    SetQuestions_Action | AddQuestion_Action | DeleteQuestion_Action |
+    EditQuestion_Action | SetResponsesOnQuestions_Action | AddResponseOnQuestion_Action |
+    DeleteResponseOnQuestion_Action | EditResponseOnQuestion_Action;

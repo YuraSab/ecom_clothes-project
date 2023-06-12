@@ -17,9 +17,9 @@ const initialState: InitialState_type = {
     parent_child_comments: [],
 };
 
-
 export default (state = initialState, action: Response_Actions): InitialState_type => {
     switch (action.type){
+        // responses
         case Response_Types.SET_RESPONSE: {
             return {
                 ...state,
@@ -47,7 +47,7 @@ export default (state = initialState, action: Response_Actions): InitialState_ty
             }
         }
 
-
+        // likes on responses
         case Response_Types.SET_RESPONSE_LIKES: {
             return {
                 ...state,
@@ -68,7 +68,7 @@ export default (state = initialState, action: Response_Actions): InitialState_ty
             }
         }
 
-
+        // responses on responses
         case Response_Types.SET_PARENT_CHILD_RESPONSE: {
             return {
                 ...state,

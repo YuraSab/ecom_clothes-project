@@ -9,6 +9,8 @@ import {
 } from "../../action-types";
 import {Dispatch} from "react";
 
+// responses
+
 export const onSetResponses = (value: Payload<SetResponses_Action>) => {
     return(dispatch: Dispatch<SetResponses_Action>) => {
         dispatch({
@@ -42,10 +44,7 @@ export const onEditResponse = (value: Payload<EditResponse_Action>) => {
     }
 }
 
-
-
-
-
+// likes
 
 export const onSetResponseLikes = (value: Payload<SetResponseLikes_Action>) => {
     return(dispatch: Dispatch<SetResponseLikes_Action>) => {
@@ -72,12 +71,7 @@ export const onDeleteResponseLike = (value: Payload<DeleteResponseLike_Action>) 
     }
 }
 
-
-
-
-
-
-
+// response on response
 
 export const onSetParentChildResponse = (value: Payload<SetParentChildResponses_Action>) => {
     return(dispatch: Dispatch<SetParentChildResponses_Action>) => {

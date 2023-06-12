@@ -1,6 +1,5 @@
 import {Question, Question_Actions, Question_Types, ResponseOnQuestion} from "../../action-types";
 
-
 type InitialState_type = {
     questions: Question[],
     responses_on_questions: ResponseOnQuestion[],
@@ -11,9 +10,9 @@ const initialState: InitialState_type = {
     responses_on_questions: [],
 }
 
-
 export default (state = initialState, action: Question_Actions): InitialState_type => {
     switch (action.type) {
+        // questions
         case Question_Types.SET_QUESTIONS: {
             return {
                 ...state,
@@ -42,6 +41,7 @@ export default (state = initialState, action: Question_Actions): InitialState_ty
             }
         }
 
+        // responses on questions
         case Question_Types.SET_RESPONSES_ON_QUESTIONS: {
             return {
                 ...state,
@@ -74,5 +74,4 @@ export default (state = initialState, action: Question_Actions): InitialState_ty
             return state
         }
     }
-
 }

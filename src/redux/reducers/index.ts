@@ -13,5 +13,4 @@ export const reducers = combineReducers({
     wishList: wishList
 });
 
-
 export type RootState = ReturnType<typeof reducers>
