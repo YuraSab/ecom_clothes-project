@@ -59,6 +59,7 @@ const MaleMainPage: FC<MaleMainPage_props> = ({propGender}) => {
         handleOnSetImg();
     }, []);
 
+
     return (
         <div>
             <div className={styles.previewImageBlock}>

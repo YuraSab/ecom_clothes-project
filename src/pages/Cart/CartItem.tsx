@@ -56,7 +56,6 @@ const CartItem: FC<CartItem_props> = ({item, id}) => {
                 </div>
                 <img src={TrashIcon} alt={"delete"} width={20} onClick={() => onDeleteFromWishList(id)}/>
             </div>
-
         </div>
     );
 };

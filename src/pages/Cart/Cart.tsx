@@ -8,7 +8,6 @@ import {useAction} from "../../hooks/redux/useAction";
 import CartItem from "./CartItem";
 import {WishListElement} from "../../redux/action-types";
 
-
 type WishListItem_props = {
     id: number,
     element: Cloth,
@@ -18,6 +17,7 @@ const Cart = () => {
 
     const {wishList} = useTypedSelector(state => state.wishList);
     const {onDeleteFromWishList} = useAction();
+
     const ClothesService = clothesService;
     const {userId} = useParams();
 
@@ -28,6 +28,7 @@ const Cart = () => {
     useEffect(() => {
         const userWishes = wishList.filter(el => el.id_user === Number(userId));
         setUserWishList(userWishes);
+
         const wishedProducts = userWishes.map(el => ClothesService.getClothesById(el.id_product)) as Cloth[];
         const wishedItems = [];
         for (let i = 0; i < wishedProducts.length; i++) {
@@ -61,7 +62,6 @@ const Cart = () => {
     return (
         <div className={styles.main}>
             <div className={styles.contentBlock}>
-
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                     <div className={styles.like_caption_bookmark}>КОШИК</div>
                     {
@@ -76,7 +76,6 @@ const Cart = () => {
                             </div>
                     }
                 </div>
-
                 <div className={styles.itemAndSum}>
                     <div>
                         {
@@ -97,4 +96,5 @@ const Cart = () => {
         </div>
     );
 };
+
 export default Cart;

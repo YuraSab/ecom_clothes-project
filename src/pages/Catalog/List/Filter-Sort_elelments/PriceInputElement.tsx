@@ -12,7 +12,6 @@ type PriceInputMinimal_props = {
     setInputMinMax: (cb: (value: SliderValue) => SliderValue) => void;
 };
 
-
 const PriceInputMinimal: FC<PriceInputMinimal_props> = ({typeOfInput, inputActive, inputMinMax, price, onBlur, setInputActive, setInputMinMax}) => {
     return (
         <input

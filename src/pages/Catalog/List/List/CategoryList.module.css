@@ -8,16 +8,12 @@
     height: 100%;
     width: 1170px;
 }
-
-
 .list {
     width: 100%;
     display: grid;
     gap: 50px 20px;
     grid-template-columns: repeat(4, 1fr);
 }
-
-
 .pathBlock {
     display: flex;
     justify-content: center;
@@ -49,8 +45,6 @@
     font-family: Ubuntu, sans-serif;
     font-weight: 400;
 }
-
-
 .filterSortBar {
     width: 100%;
     display: grid;
@@ -59,12 +53,10 @@
     height: 120px;
     padding-bottom: 50px;
 }
-
 .priceBlock {
     display: flex;
     flex-direction: column;
 }
-
 .fromTo {
     color: #777;
     font-family: Ubuntu, sans-serif;
@@ -72,7 +64,6 @@
     font-size: 14px;
     line-height: 1.15;
 }
-
 .priceTitle {
     padding-top: 25px;
     font-size: 13px;
@@ -82,7 +73,6 @@
     letter-spacing: 1.2px;
     color: black;
 }
-
 .priceInput {
     width: 60px;
     padding: 4px;
@@ -95,14 +85,12 @@
     overflow: visible;
     line-height: 1.15;
 }
-
 .sizeBlock {
     width: 100%;
     display: flex;
     justify-content: center;
     height: 120px;
 }
-
 .title {
     text-transform: uppercase;
     width: 90%;
@@ -116,14 +104,12 @@
     font-weight: 700;
     letter-spacing: 1.2px;
 }
-
 .applyBlock {
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: 120px;
 }
-
 .applyBlock .apply {
     height: 50%;
     width: 90%;
@@ -136,7 +122,6 @@
 .applyBlock .apply img {
     padding: 0 10px;
 }
-
 .applyBlock .applyTitle {
     font-size: 13px;
     font-family: Ubuntu, sans-serif;
@@ -145,7 +130,6 @@
     letter-spacing: 1.2px;
     padding: 0 10px;
 }
-
 .unset {
     height: 50%;
     width: 90%;
@@ -158,18 +142,14 @@
     letter-spacing: 1.2px;
     cursor: pointer;
 }
-
-
 .sortBlock {
     width: 100%;
 }
-
 .sort {
     width: 100%;
     background: yellowgreen;
     z-index: 49;
 }
-
 .sortTitle {
     text-transform: uppercase;
     font-size: 13px;
@@ -183,14 +163,12 @@
     height: 60px;
     cursor: pointer;
 }
-
 .sortList {
     position: absolute;
     height: 240px;
     padding: 22px 20px 0 20px;
     z-index: 48;
 }
-
 .sortItem {
     color: #000;
     text-transform: uppercase;
@@ -200,8 +178,6 @@
     font-size: 14px;
     padding-bottom: 30px;
 }
-
-
 .like_caption_bookmark{
     font-size: 34px;
     font-family: Ubuntu,sans-serif;
@@ -252,7 +228,6 @@
         width: 19.5%;
     }
 }
-
 @media screen and (max-width: 1190px) {
     .sortList {
         width: calc(((100vw - 40px) - 60px) - 75% + 20px);
@@ -264,8 +239,6 @@
         height: 270px;
     }
 }
-
-
 @media screen and (max-width: 1025px) {
     .list {
         grid-template-columns: repeat(3, 1fr);
@@ -305,7 +278,6 @@
         width: 90vw;
     }
 }
-
 @media screen and (max-width: 946px) {
     .sortList {
         width: 90%;
@@ -315,7 +287,6 @@
         width: 90%;
     }
 }
-
 @media screen and (max-width: 812px) {
 
     .sortList {
@@ -326,8 +297,6 @@
         width: calc(90% - 4px);
     }
 }
-
-
 @media screen and (max-width: 770px) {
     .filterSortBar_mobile {
         width: 100%;
@@ -404,7 +373,6 @@
         width: calc(100% - 80px);
     }
 }
-
 @media screen and (max-width: 660px) {
     .list {
         grid-template-columns: repeat(3, 1fr);
@@ -416,8 +384,6 @@
         width: 450px;
     }
 }
-
-
 @media screen and (max-width: 600px) {
     .list {
         grid-template-columns: repeat(2, 1fr);
@@ -429,7 +395,6 @@
         width: 450px;
     }
 }
-
 @media screen and (max-width: 505px) {
     .list {
         grid-template-columns: repeat(2, 1fr);

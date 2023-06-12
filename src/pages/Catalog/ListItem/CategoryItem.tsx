@@ -17,6 +17,7 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
     const {gender} = useTypedSelector(state => state.headerState);
     const {productLikes} = useTypedSelector(state => state.productLike);
     const {onAddProductLike, onDeleteProductLike} = useAction();
+
     const [isLiked, setIsLiked] = useState<boolean>(false);
 
     useEffect(() => {
@@ -26,7 +27,6 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
             setIsLiked(true)
         }
     }, []);
-
 
     const handleAddLike = () => {
         const likesOfProduct = productLikes.filter(el => el.id_product === item.id);
@@ -48,18 +48,14 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
     return (
         <Link to={`/${gender}/${item.id}`} style={{textDecoration: "none", color: "black"}}>
             <div className={styles.main}>
-
-
                 <div>
                     <img src={item.photo}
                          alt={item.name}
                          width={"100%"}
                     />
                     <div style={{ left: "80%", bottom: "80%", position: "relative", color: "lime", width: 30, zIndex: 10}}>
-                        {/*Text or icon*/}
                         <div style={{background: "white",
                             width: 30, height: 30,
-                            // zIndex: 10,
                             border: "1px #D3D3D3 solid",
                             borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center"}}
                              onClick={(e) => {
@@ -77,7 +73,6 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
                         </div>
                     </div>
                 </div>
-
                 <div>{item.name}</div>
                 <div><b>{item.price} грн.</b></div>
             </div>

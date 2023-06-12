@@ -1,10 +1,8 @@
 .horizontal-slider {
     width: 100%;
     height: 50px;
-    /*border: 1px solid grey;*/
     z-index: 30;
 }
-
 .horizontal-slider .example-track {
     top: 24px;
     height: 2px;

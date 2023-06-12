@@ -11,6 +11,7 @@ const Likes = () => {
 
     const {productLikes} = useTypedSelector(state => state.productLike);
     const {onDeleteProductLike} = useAction();
+
     const ClothesService = clothesService;
     const {userId} = useParams();
 
@@ -50,8 +51,6 @@ const Likes = () => {
                             </div>
                     }
                 </div>
-
-
                 <div className={styles.list}>
                     {
                         likedProductsList.length > 0 &&

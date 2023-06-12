@@ -15,8 +15,6 @@
     font-size: 50px;
     text-align: center;
 }
-
-
 .main{
     width: 100%;
     display: flex;
@@ -26,7 +24,6 @@
     width: 1170px;
     padding: 40px 20px;
 }
-
 .imgSet{
     width: 100%;
     display: grid;
@@ -46,7 +43,6 @@
     letter-spacing: 1.5px;
     font-size: 12px;
 }
-
 .titleOfList{
     font-family: Ubuntu,sans-serif;
     font-weight: 500;

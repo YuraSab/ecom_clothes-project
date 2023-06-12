@@ -8,7 +8,6 @@
     "price";
     gap: 8px;
 }
-
 .photo{
     grid-area: photo;
 }
@@ -31,8 +30,6 @@
     line-height: 1.15;
     font-weight: bolder;
 }
-
-
 .backgroundImageBlock{
     width: calc((1170px - 60px)/4);
 }
