@@ -12,10 +12,10 @@ const AddResponse: FC<AddResponse_Props> = ({setResponseOrQuestionActive}) => {
 
     const {responses} = useTypedSelector(state => state.responseReducer);
     const {onAddResponse} = useAction();
+
     const {id} = useParams();
 
     const [areaText, setAreaText] = useState<any>("");
-
 
     useEffect(() => {
         document.body.style.overflowY = 'hidden';

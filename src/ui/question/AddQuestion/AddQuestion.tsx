@@ -10,8 +10,9 @@ type AddQuestion_Props = {
 }
 const AddQuestion: FC<AddQuestion_Props> = ({setResponseOrQuestionActive}) => {
 
-    const {onAddQuestion} = useAction();
     const {questions} = useTypedSelector(state => state.questionReducer);
+    const {onAddQuestion} = useAction();
+
     const {id} = useParams();
 
     const [areaText, setAreaText] = useState<any>("");
@@ -23,7 +24,6 @@ const AddQuestion: FC<AddQuestion_Props> = ({setResponseOrQuestionActive}) => {
             document.body.style.overflowY = 'auto';
         })
     }, []);
-
 
     const handleAddQuestion = () => {
         if (areaText !== "") {
@@ -39,6 +39,7 @@ const AddQuestion: FC<AddQuestion_Props> = ({setResponseOrQuestionActive}) => {
         }
     }
 
+
     return (
         <div className={styles.overlay} onClick={() => setResponseOrQuestionActive(false)}>
             <div className={styles.mainDiv} onClick={(event) => event.stopPropagation()}>
@@ -51,9 +52,7 @@ const AddQuestion: FC<AddQuestion_Props> = ({setResponseOrQuestionActive}) => {
                 >
                 </textarea>
                 <div className={styles.leftResponse}>
-                    <div
-                        onClick={() => handleAddQuestion()}
-                    >
+                    <div onClick={() => handleAddQuestion()}>
                         Додати питання
                     </div>
                 </div>

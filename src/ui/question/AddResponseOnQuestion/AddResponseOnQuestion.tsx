@@ -17,14 +17,12 @@ const AddResponseOnQuestion: FC<QuestionItem_Props> = ({item, setResponseToQuest
 
     const [areaText, setAreaText] = useState<any>("");
 
-
     useEffect(() => {
         document.body.style.overflowY = 'hidden';
         return (() => {
             document.body.style.overflowY = 'auto';
         })
     }, [])
-
 
     const handleResponseOnQuestion = () => {
         if(areaText !== "" && ActualUser.role === "admin") {
@@ -40,7 +38,6 @@ const AddResponseOnQuestion: FC<QuestionItem_Props> = ({item, setResponseToQuest
         }
     }
 
-    console.log(`responses_on_questions`,responses_on_questions)
     return (
         <div className={styles.overlay} onClick={() => setResponseToQuestionActive(false)}>
             <div className={styles.mainDiv} onClick={(event) => event.stopPropagation()}>
@@ -70,10 +67,10 @@ const AddResponseOnQuestion: FC<QuestionItem_Props> = ({item, setResponseToQuest
                 >
                 </textarea>
 
-
                 <div className={styles.leftResponse} onClick={() => handleResponseOnQuestion()}>
                     Залишити відповідь
                 </div>
+
             </div>
         </div>
     );

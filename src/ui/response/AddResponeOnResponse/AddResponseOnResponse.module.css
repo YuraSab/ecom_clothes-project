@@ -15,7 +15,6 @@
     width: 800px;
     background: white;
 }
-
 .date{
     font-size: 13px;
     color: #999;
@@ -23,14 +22,12 @@
     font-family: Ubuntu,sans-serif;
     font-weight: 400;
 }
-
 .userName{
     font-size: 16px;
     font-family: Ubuntu,sans-serif;
     font-weight: 500;
     margin-bottom: 10px;
 }
-
 .text{
     word-break: break-word;
     font-family: Ubuntu,sans-serif;
@@ -38,7 +35,6 @@
     font-size: 14px;
     margin-bottom: 10px;
 }
-
 .accountOrMediaCaption{
     font-size: 11px;
     font-family: Ubuntu,sans-serif;
@@ -48,7 +44,6 @@
     letter-spacing: 1.2px;
     line-height: 1.15;
 }
-
 .leftResponse{
     width: 100%;
     display: flex;
@@ -56,7 +51,6 @@
     align-items: center;
     height: 100px;
 }
-
 .addResponseOnResponse{
     height: 800px;
     padding: 40px;

@@ -7,6 +7,7 @@ import Response_Icon from "../../../assets/icons/response_black_icon.png";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import {useAction} from "../../../hooks/redux/useAction";
 import AddResponseOnResponse from "../AddResponeOnResponse/AddResponseOnResponse";
+import {ActualUser} from "../../../global/user/User";
 
 type ResponseItem_Props = {
     item: Response;
@@ -16,15 +17,10 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
 
     const {response_likes, parent_child_comments, responses} = useTypedSelector(state => state.responseReducer);
     const {onAddResponseLike, onDeleteResponseLike} = useAction();
-    const [responseOnResponseActive, setResponseOnResponseActive] = useState<boolean>(false);
 
+    const [responseOnResponseActive, setResponseOnResponseActive] = useState<boolean>(false);
     const [actualResponseLikes, setActualResponseLikes] = useState<ResponseLike[]>([]);
     const [actualResponses, setActualResponses] = useState<Response[]>([]);
-
-    const user = {
-      id: 4,
-      name: "user",
-    };
 
     useEffect(() => {
         const filtered = response_likes.filter(el => el.id_response === item.id_response);
@@ -37,10 +33,9 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
         setActualResponses(filtered);
     }, [responses]);
 
-
     const handleAddResponseLike = () => {
         const responseLikes = response_likes.filter(el => el.id_response === item.id_response);
-        const userLiked = responseLikes.find(el => el.id_user === user.id);
+        const userLiked = responseLikes.find(el => el.id_user === ActualUser.id);
 
         if(userLiked) {
             onDeleteResponseLike(userLiked.id_response_like)
@@ -48,14 +43,13 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
             onAddResponseLike({
                 id_response: item.id_response,
                 id_response_like: response_likes.length+1,
-                id_user: user.id,
+                id_user: ActualUser.id,
                 date: new Date(),
             })
         }
     };
 
     return (
-
         <div style={{display: "flex", padding: "40px 0", borderBottom: "1px solid #d3d3d3"}}>
             <div style={{width: 60}}><img src={UserBlack_Icon} alt={"user-icon"} width={24}/></div>
             <div>
@@ -73,8 +67,6 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
                     </div>
                 </div>
             </div>
-
-
             {
                 responseOnResponseActive && <AddResponseOnResponse item={item} handleAddResponseLike={handleAddResponseLike} actualResponseLikes={actualResponseLikes} setResponseOnResponseActive={setResponseOnResponseActive}/>
             }

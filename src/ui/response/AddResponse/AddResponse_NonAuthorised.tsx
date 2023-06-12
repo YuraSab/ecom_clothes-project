@@ -7,7 +7,6 @@ import ArrowLeft from "../../../assets/icons/arrow_left_black_icon.png";
 
 type AddResponse_Props = {
     setResponseOrQuestionActive: (value: boolean) => void;
-    // setResponseOrQuestionActive: any;
 }
 
 const AddResponse_NonAuthorised: FC<AddResponse_Props> = ({setResponseOrQuestionActive}) => {
@@ -23,6 +22,7 @@ const AddResponse_NonAuthorised: FC<AddResponse_Props> = ({setResponseOrQuestion
     return (
         <div className={styles.overlay} onClick={() => setResponseOrQuestionActive(false)}>
             <div className={styles.mainDiv} onClick={(event) => event.stopPropagation()}>
+
                 <div className={styles.chooseData}>
                     <div className={styles.login}>
                         <div>Вхід</div>
@@ -33,11 +33,11 @@ const AddResponse_NonAuthorised: FC<AddResponse_Props> = ({setResponseOrQuestion
                             <div className={styles.accountOrMediaCaption}>
                                 Через акаунт
                             </div>
-
                             <label>
                                 Номер телефону
                             </label>
-                            <input/><br/><br/>
+                            <input/>
+                            <br/><br/>
                             <label>
                                 Пароль
                             </label><br/>
@@ -54,14 +54,17 @@ const AddResponse_NonAuthorised: FC<AddResponse_Props> = ({setResponseOrQuestion
                         </div>
                     </div>
                 </div>
+
                 <div className={styles.restore_access}>
                     Відновлення доступу
                 </div>
+
                 <div className={styles.log_sign_in}>
                     {/* todo - only if used not authorised, show this (no authorising at now) */}
                     <div style={{color: "black", background: "#eee"}}><img src={ArrowLeft} alt={"sign-in"} height={30}/> Реєстрація</div>
                     <div style={{color: "white", background: "black"}}>Вхід</div>
                 </div>
+
             </div>
         </div>
     );

@@ -116,7 +116,6 @@ input:focus{
 .searchOptionItem img{
     padding-top: 3px;
 }
-
 .overlayForOptions{
     display: flex;
     flex-direction: column;

@@ -17,8 +17,8 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
 
     const {parent_child_comments, responses} = useTypedSelector(state => state.responseReducer);
     const {onAddParentChildResponse, onAddResponse} = useAction();
-    const [areaText, setAreaText] = useState<any>("");
 
+    const [areaText, setAreaText] = useState<any>("");
     const [actualResponses, setActualResponses] = useState<Response[]>([]);
 
     useEffect(() => {
@@ -28,15 +28,11 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
         })
     }, [])
 
-
     useEffect(() => {
         const actualResponsesOnResponse = parent_child_comments.filter(el => el.id_parent_response === item.id_response);
         const filtered: Response[] = actualResponsesOnResponse.map(el => responses.find(item => item.id_response === el.id_child_response)) as Response[];
         setActualResponses(filtered);
     }, [responses]);
-
-
-    console.log("suda nah",actualResponses)
 
     const handleAddResponse = () => {
         if (areaText !== "") {
@@ -61,7 +57,6 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
     return (
         <div className={styles.overlay} onClick={() => setResponseOnResponseActive(false)}>
             <div className={`${styles.mainDiv} ${styles.addResponseOnResponse}`} onClick={(event) => event.stopPropagation()}>
-
                 <h3>Коментар:</h3>
                 <ResponseItemUI
                     item={item}
@@ -70,8 +65,6 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
                     actualResponseLikes={actualResponseLikes}
                     setResponseOnResponseActive={setResponseOnResponseActive}
                 />
-
-
                 <div className={styles.accountOrMediaCaption} style={{paddingTop: 40}}>Додайте відгук</div>
                 <textarea
                     onChange={(e) => setAreaText(e.target.value)}
@@ -83,13 +76,11 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
                 <div className={styles.leftResponse} onClick={() => handleAddResponse()}>
                         Залишити відповідь
                 </div>
-
                 <h3>Інші відповіді:</h3>
                 {
                     actualResponses.map(el => <ResponseOnResponseItemUI item={el} setResponseOnResponseActive={setResponseOnResponseActive}/>)
                 }
             </div>
-
         </div>
     );
 };

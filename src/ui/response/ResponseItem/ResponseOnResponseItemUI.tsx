@@ -5,6 +5,7 @@ import Like_Icon from "../../../assets/icons/like_black_icon.png";
 import {ResponseLike, Response} from "../../../redux/action-types";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import {useAction} from "../../../hooks/redux/useAction";
+import {ActualUser} from "../../../global/user/User";
 
 type ResponseOnResponseItemUI_Props = {
     item: Response;
@@ -15,11 +16,6 @@ const ResponseOnResponseItemUI: FC<ResponseOnResponseItemUI_Props> = ({item, set
 
     const {response_likes, parent_child_comments, responses} = useTypedSelector(state => state.responseReducer);
     const {onAddResponseLike, onDeleteResponseLike} = useAction();
-
-    const user = {
-        id: 4,
-        name: "user",
-    };
 
     const [actualResponseLikes, setActualResponseLikes] = useState<ResponseLike[]>([]);
     const [actualResponses, setActualResponses] = useState<Response[]>([]);
@@ -37,20 +33,19 @@ const ResponseOnResponseItemUI: FC<ResponseOnResponseItemUI_Props> = ({item, set
 
     const handleAddResponseLike = () => {
         const responseLikes = response_likes.filter(el => el.id_response === item.id_response);
-        const userLiked = responseLikes.find(el => el.id_user === user.id);
-
+        const userLiked = responseLikes.find(el => el.id_user === ActualUser.id);
         if(userLiked) {
             onDeleteResponseLike(userLiked.id_response_like)
         }else{
             onAddResponseLike({
                 id_response: item.id_response,
                 id_response_like: response_likes.length+1,
-                id_user: user.id,
+                id_user: ActualUser.id,
                 date: new Date(),
             })
         }
-
     };
+
 
     return (
         <div style={{display: "flex", padding: "40px 0", borderBottom: "1px solid #d3d3d3"}}>

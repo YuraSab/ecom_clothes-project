@@ -8,17 +8,14 @@ class ClothesService {
     // categoryURL = "";
 
     getAllByGender(gender: Gender | "all") {
-        // this will be renewed
         if (gender === "male" || gender === "female") {
             return clothes
                 .filter(el => el.gender === gender);
         } else if(gender === "all"){
             return clothes;
         }
-
     }
 
-    // todo - make fetch/axios request when will be created db
     getClothesByCategory(category: linkType, gender: Gender | "all") {
         // this will be renewed
         if (gender === "male" || "female") {
@@ -59,7 +56,6 @@ class ClothesService {
         }
         return byGender.filter(el => el.name.includes(searchWord));
     }
-
 
     getNewest(gender: Gender) {
         let byGender: Cloth[] = clothes.filter(el => el.gender === gender);

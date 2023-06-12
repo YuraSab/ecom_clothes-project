@@ -5,7 +5,6 @@ import Like_Icon from "../../../assets/icons/like_black_icon.png";
 import Response_Icon from "../../../assets/icons/response_black_icon.png";
 import {ResponseLike, Response} from "../../../redux/action-types";
 
-
 type ResponseItemUi_Props = {
     item: Response;
     actualResponses: Response[];

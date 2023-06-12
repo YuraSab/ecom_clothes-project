@@ -49,14 +49,13 @@ const OnAddToCart: FC<OnAddToCart_props> = ({isAddingToCart, setIsAddingToCart})
                             <div className={styles.error}>
                                 Помилка
                             </div>
-                            <div  className={styles.alreadyAdded}>
+                            <div className={styles.alreadyAdded}>
                                 Товар уже додано у кошик
                             </div>
                         </div>
                         <div className={styles.bottomItems}>
                             <div onClick={() => setIsAddingToCart(false)} className={styles.bottomItem}>
                                 Продовжити
-
                             </div>
                         </div>
                     </div>

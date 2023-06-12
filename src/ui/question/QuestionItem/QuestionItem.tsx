@@ -15,7 +15,6 @@ const QuestionItem: FC<QuestionItem_Props> = ({item}) => {
 
     const {responses_on_questions} = useTypedSelector(state => state.questionReducer);
 
-
     const [responsesToQuestion, setResponsesToQuestion] = useState<ResponseOnQuestion[]>([]);
     const [responseToQuestionActive, setResponseToQuestionActive] = useState<boolean>(false);
 
@@ -24,9 +23,14 @@ const QuestionItem: FC<QuestionItem_Props> = ({item}) => {
         setResponsesToQuestion(filteredResponsesOnQuestion);
     }, [responses_on_questions]);
 
+
     return (
         <div style={{display: "flex", padding: "40px 0", borderBottom: "1px solid #d3d3d3"}}>
-            <div style={{width: 60}}><img src={UserBlack_Icon} alt={"user-icon"} width={24}/></div>
+
+            <div style={{width: 60}}>
+                <img src={UserBlack_Icon} alt={"user-icon"} width={24}/>
+            </div>
+
             <div>
                 <div className={styles.date}>{item.date.toLocaleString()}</div>
                 {/* todo - I would inject and type username if I had made user-table in db (with authorisation etc) */}
@@ -40,8 +44,6 @@ const QuestionItem: FC<QuestionItem_Props> = ({item}) => {
                             <span style={{marginLeft: 4}}>{responsesToQuestion.length}</span>
                         </div>
                     }
-
-
                     <div style={{display: "flex", flexDirection: "column"}}>
                         {
                             responsesToQuestion.map(el =>
@@ -53,8 +55,7 @@ const QuestionItem: FC<QuestionItem_Props> = ({item}) => {
                                         {/* todo - I would inject and type username if I had made user-table in db (with authorisation etc) */}
                                         <div className={styles.userName}>{ActualUser.name}</div>
                                         <div className={styles.text}>{el.text}</div>
-                                        <div style={{display: "flex", gap: 20, alignItems: "center"}}>
-                                        </div>
+                                        <div style={{display: "flex", gap: 20, alignItems: "center"}}></div>
                                     </div>
                                 </div>
                             )
@@ -66,6 +67,7 @@ const QuestionItem: FC<QuestionItem_Props> = ({item}) => {
                     }
                 </div>
             </div>
+
         </div>
     );
 };

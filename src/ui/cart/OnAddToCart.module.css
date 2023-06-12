@@ -35,7 +35,6 @@
     font-size: 15px;
     color: #333;
 }
-
 .bottomItems{
     display: flex;
     height: 56px;
@@ -66,7 +65,6 @@
 .bottomItem img{
     padding-right: 20px;
 }
-
 .topItemsError{
     margin: 50px 100px;
     display: flex;
