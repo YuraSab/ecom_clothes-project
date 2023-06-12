@@ -3,8 +3,8 @@ import {Cloth} from "../../../db/clothes-db";
 import styles from "./CategoryItem.module.css";
 import {Link} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
-import Like_thick_white from "../../../assets/icons/like_thick_white.png";
-import Like_thick_black from "../../../assets/icons/like_thick_black.png";
+import Like_thick_white from "../../../assets/icons/like_thick_white_icom.png";
+import Like_thick_black from "../../../assets/icons/like_thick_black_icon.png";
 import {ActualUser} from "../../../global/user/User";
 import {useAction} from "../../../hooks/redux/useAction";
 

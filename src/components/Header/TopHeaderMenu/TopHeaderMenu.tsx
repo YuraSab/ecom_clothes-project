@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import styles from "./TopHeaderMenu.module.css";
-import Phone_Icon from "../../../assets/icons/phone_icon.png";
+import Phone_Icon from "../../../assets/icons/phone_black_icon.png";
 import ScheduleBlock from "../HeaderElements/SheduleBlock/ScheduleBlock.tsx";
 
 

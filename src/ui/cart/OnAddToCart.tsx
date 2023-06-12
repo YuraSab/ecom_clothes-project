@@ -1,10 +1,10 @@
 import React, {FC, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import {ActualUser} from "../../global/user/User";
-import SuccessImg from "../../assets/pictures/success.png";
+import SuccessImg from "../../assets/icons/success_green_icon.png";
 import styles from "./OnAddToCart.module.css";
-import BackArrow from "../../assets/icons/arrow_left_black.png";
-import ErrorImg from "../../assets/pictures/error.png";
+import BackArrow from "../../assets/icons/arrow_left_black_icon.png";
+import ErrorImg from "../../assets/icons/error_red_icon.png";
 
 type OnAddToCart_props = {
     isAddingToCart: "justAdded" | "alreadyAdded" | false;

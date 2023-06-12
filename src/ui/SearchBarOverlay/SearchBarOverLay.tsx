@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import styles from "./SeacrhBarOverlay.module.css";
-import Cross from "../../assets/icons/cross_icon.png";
+import Cross from "../../assets/icons/cross_white_icon.png";
 import {DropMenuList} from "../../components/Header/HeaderLinks/ElementList_DropDownMenu";
 import SearchUI from "../SearchUI/SearchUI";
 

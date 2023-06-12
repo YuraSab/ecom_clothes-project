@@ -8,7 +8,7 @@ import {
     DropMenuListSubItem
 } from "../../HeaderLinks/ElementList_DropDownMenu.ts";
 import {useTypedSelector} from "../../../../hooks/redux/useTypedSelector.ts";
-import ArrowLeft from "../../../../assets/icons/arrow_left.png";
+import ArrowLeft from "../../../../assets/icons/arrow_left_white_icon.png";
 import {useAction} from "../../../../hooks/redux/useAction";
 import {onSetDropDownMenu} from "../../../../redux/action-creators/DropDownMenu/DropDownMenu";
 import {Link} from "react-router-dom";

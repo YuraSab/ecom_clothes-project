@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {Cloth} from "../../db/clothes-db";
 import styles from "./Cart.module.css";
-import TrashIcon from "../../assets/icons/trash.png";
+import TrashIcon from "../../assets/icons/trash_black_icon.png";
 import {useAction} from "../../hooks/redux/useAction";
 import {useTypedSelector} from "../../hooks/redux/useTypedSelector";
 import {Link} from "react-router-dom";

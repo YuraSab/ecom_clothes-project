@@ -1,9 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ResponseLike, Response} from "../../../redux/action-types";
 import styles from "./ResponseItem.module.css";
-import UserBlack_Icon from "../../../assets/icons/user_black.png";
+import UserBlack_Icon from "../../../assets/icons/user_black_icon.png";
 import Like_Icon from "../../../assets/icons/like_black_icon.png";
-import Response_Icon from "../../../assets/icons/response_icon.png";
+import Response_Icon from "../../../assets/icons/response_black_icon.png";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";
 import {useAction} from "../../../hooks/redux/useAction";
 import AddResponseOnResponse from "../AddResponeOnResponse/AddResponseOnResponse";

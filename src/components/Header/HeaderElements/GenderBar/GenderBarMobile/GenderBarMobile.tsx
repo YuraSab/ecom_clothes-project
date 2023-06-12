@@ -6,12 +6,12 @@ import {DropMenuList} from "../../../HeaderLinks/ElementList_DropDownMenu";
 import {onSetDropDownMenu} from "../../../../../redux/action-creators/DropDownMenu/DropDownMenu";
 import {useAction} from "../../../../../hooks/redux/useAction";
 import ComebackAlive from "../../../../../assets/pictures/comeback_alive.svg";
-import GooglePlay from "../../../../../assets/pictures/google-play.svg";
-import AppStore from "../../../../../assets/pictures/app-storesvg.svg";
-import FacebookWhite from "../../../../../assets/icons/facebook_white.png";
-import InstagramWhite from "../../../../../assets/icons/instagram_white.png";
-import TelegramWhite from "../../../../../assets/icons/telegram_white.png";
-import YoutubeWhite from "../../../../../assets/icons/youtube_white.png";
+import GooglePlay from "../../../../../assets/pictures/google_play.svg";
+import AppStore from "../../../../../assets/pictures/app_store.svg";
+import FacebookWhite from "../../../../../assets/icons/facebook_white_icon.png";
+import InstagramWhite from "../../../../../assets/icons/instagram_white_icon.png";
+import TelegramWhite from "../../../../../assets/icons/telegram_white_icon.png";
+import YoutubeWhite from "../../../../../assets/icons/youtube_white_icon.png";
 import {CSSTransition} from "react-transition-group";
 import "./GenderBarMobileTransition.css";
 

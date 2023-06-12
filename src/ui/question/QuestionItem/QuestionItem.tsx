@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import styles from "./QuestionItem.module.css";
-import UserBlack_Icon from "../../../assets/icons/user_black.png";
-import Response_Icon from "../../../assets/icons/response_icon.png";
+import UserBlack_Icon from "../../../assets/icons/user_black_icon.png";
+import Response_Icon from "../../../assets/icons/response_black_icon.png";
 import {Question, ResponseOnQuestion} from "../../../redux/action-types";
 import {ActualUser} from "../../../global/user/User";
 import {useTypedSelector} from "../../../hooks/redux/useTypedSelector";

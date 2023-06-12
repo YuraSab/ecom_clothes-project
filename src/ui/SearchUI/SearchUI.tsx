@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import DownIcon from "../../assets/icons/down.png";
+import DownIcon from "../../assets/icons/down_black_icon.png";
 import {Link} from "react-router-dom";
-import LoopIcon from "../../assets/icons/loop_black.png";
+import LoopIcon from "../../assets/icons/loop_black_icon.png";
 import {genderValue_type} from "../../pages/Search/Search";
 
 type SearchUI_props = {

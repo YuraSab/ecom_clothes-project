@@ -6,8 +6,8 @@ import styles from "./CategoryList.module.css";
 import CategoryItem from "../../ListItem/CategoryItem";
 import {useLocation} from "react-router-dom";
 import "./Slider.css";
-import SettingsIcon from "../../../../assets/icons/settings.png";
-import CrossIcon from "../../../../assets/icons/cross_svg_icon.svg";
+import SettingsIcon from "../../../../assets/icons/settings_gray_icon.png";
+import CrossIcon from "../../../../assets/icons/cross_black_icon.svg";
 import ReactSliderElement from "../Filter-Sort_elelments/ReactSliderElement";
 import PriceInputMinimal from "../Filter-Sort_elelments/PriceInputElement";
 

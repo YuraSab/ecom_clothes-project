@@ -1,12 +1,12 @@
 import React, {FC} from 'react';
 import styles from "./Footer.module.css";
 import MasterCard_Visa from "../../assets/pictures/mastercard_visa.png";
-import FaceBook_Icon from "../../assets/icons/facebook.png";
-import Instagram_Icon from "../../assets/icons/instagram.png";
-import Telegram_Icon from "../../assets/icons/telegram.png";
-import Youtube_Icon from "../../assets/icons/youtube.png";
-import GooglePlay from "../../assets/pictures/google-play.svg";
-import AppStore from "../../assets/pictures/app-storesvg.svg";
+import FaceBook_Icon from "../../assets/icons/facebook_black_icon.png";
+import Instagram_Icon from "../../assets/icons/instagram_black_icon.png";
+import Telegram_Icon from "../../assets/icons/telegram_black_icon.png";
+import Youtube_Icon from "../../assets/icons/youtube_black_icon.png";
+import GooglePlay from "../../assets/pictures/google_play.svg";
+import AppStore from "../../assets/pictures/app_store.svg";
 import {useLocation} from "react-router-dom";
 
 

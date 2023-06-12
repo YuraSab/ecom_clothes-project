@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import UserBlack_Icon from "../../../assets/icons/user_black.png";
+import UserBlack_Icon from "../../../assets/icons/user_black_icon.png";
 import styles from "./ResponseItem.module.css";
 import Like_Icon from "../../../assets/icons/like_black_icon.png";
-import Response_Icon from "../../../assets/icons/response_icon.png";
+import Response_Icon from "../../../assets/icons/response_black_icon.png";
 import {ResponseLike, Response} from "../../../redux/action-types";
 
 

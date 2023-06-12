@@ -1,9 +1,9 @@
 import React, {FC, useEffect} from 'react';
 import styles from "./AddResponse.module.css";
-import CrossIcon from "../../../assets/icons/cross_svg_icon.svg";
-import FacebookIcon from "../../../assets/icons/facebook.png";
-import GoogleIcon from "../../../assets/icons/google_icon.png";
-import ArrowLeft from "../../../assets/icons/arrow_left_black.png";
+import CrossIcon from "../../../assets/icons/cross_black_icon.svg";
+import FacebookIcon from "../../../assets/icons/facebook_black_icon.png";
+import GoogleIcon from "../../../assets/icons/google_black_icon.png";
+import ArrowLeft from "../../../assets/icons/arrow_left_black_icon.png";
 
 type AddResponse_Props = {
     setResponseOrQuestionActive: (value: boolean) => void;
