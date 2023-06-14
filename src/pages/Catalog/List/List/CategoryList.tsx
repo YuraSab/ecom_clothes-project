@@ -50,16 +50,14 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     ];
 
     useEffect(() => {
-        let minimal;
-        let maximal;
         let clothesList: Cloth[];
         if (Array.isArray(category)) {
             clothesList = ClothesService.getClothesByCategories(category, actualGender);
         } else {
             clothesList = ClothesService.getClothesByCategory(category, actualGender);
         }
-        minimal = Math.min(...clothesList.map(el => el.price));
-        maximal = Math.max(...clothesList.map(el => el.price));
+        let minimal = Math.min(...clothesList.map(el => el.price));
+        let maximal = Math.max(...clothesList.map(el => el.price));
         setMinMax({min: minimal, max: maximal});
         setPrice({min: minimal, max: maximal});
         setInputMinMax({min: minimal, max: maximal});
@@ -110,7 +108,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     useEffect(() => {
         if(mobileSortActive || mobileFiltersActive){
             setShowLikes(false);
-            console.log(`doesnt shoow`)
         }
     }, [mobileSortActive, mobileFiltersActive]);
 
@@ -194,7 +191,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
                 {
                     window.innerWidth >= 770 ?
-
                         <FilterSortBarDesktop
                             clothesList = {clothesList}
                             price = {price}
@@ -216,7 +212,6 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                             dropFilters = {dropFilters}
                         />
                         :
-
                         <FilterSortBarMobile
                             clothesList={clothesList}
                             price={price}
