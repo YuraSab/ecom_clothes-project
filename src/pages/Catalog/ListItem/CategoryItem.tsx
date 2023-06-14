@@ -10,9 +10,10 @@ import {useAction} from "../../../hooks/redux/useAction";
 
 type CategoryItem_propsType = {
     item: Cloth;
+    showLikes?: boolean;
 }
 
-const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
+const CategoryItem: FC<CategoryItem_propsType> = ({item, showLikes }) => {
 
     const {gender} = useTypedSelector(state => state.headerState);
     const {productLikes} = useTypedSelector(state => state.productLike);
@@ -53,16 +54,16 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
                          alt={item.name}
                          width={"100%"}
                     />
-                    <div style={{ left: "80%", bottom: "80%", position: "relative", color: "lime", width: 30, zIndex: 10}}>
-                        <div style={{background: "white",
-                            width: 30, height: 30,
-                            border: "1px #D3D3D3 solid",
-                            borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center"}}
+                    <div style={{left: "80%", bottom: "80%", position: "relative", width: 30, zIndex: 10}}>
+                        <div style={{
+                                 background: "white", width: 30, height: 30, border: "1px #D3D3D3 solid",
+                                 borderRadius: "50%", display: showLikes ? "flex" : "none", justifyContent: "center", alignItems: "center",
+                             }}
                              onClick={(e) => {
                                  e.preventDefault()
                                  e.stopPropagation()
-                                 handleAddLike()}
-                             }
+                                 handleAddLike()
+                             }}
                         >
                             {
                                 isLiked ?
@@ -72,6 +73,7 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item}) => {
                             }
                         </div>
                     </div>
+
                 </div>
                 <div>{item.name}</div>
                 <div><b>{item.price} грн.</b></div>
