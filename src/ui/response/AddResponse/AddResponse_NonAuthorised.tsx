@@ -13,7 +13,6 @@ const AddResponse_NonAuthorised: FC<AddResponse_Props> = ({setResponseOrQuestion
 
     useEffect(() => {
         document.body.style.overflowY = 'hidden';
-
         return (() => {
             document.body.style.overflowY = 'auto';
         })

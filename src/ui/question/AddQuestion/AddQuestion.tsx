@@ -19,7 +19,6 @@ const AddQuestion: FC<AddQuestion_Props> = ({setResponseOrQuestionActive}) => {
 
     useEffect(() => {
         document.body.style.overflowY = 'hidden';
-
         return (() => {
             document.body.style.overflowY = 'auto';
         })

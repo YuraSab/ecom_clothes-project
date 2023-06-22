@@ -19,7 +19,6 @@ const AddResponse: FC<AddResponse_Props> = ({setResponseOrQuestionActive}) => {
 
     useEffect(() => {
         document.body.style.overflowY = 'hidden';
-
         return (() => {
             document.body.style.overflowY = 'auto';
         })
@@ -38,6 +37,7 @@ const AddResponse: FC<AddResponse_Props> = ({setResponseOrQuestionActive}) => {
             setResponseOrQuestionActive(false);
         }
     };
+
 
     return (
         <div className={styles.overlay} onClick={() => setResponseOrQuestionActive(false)}>

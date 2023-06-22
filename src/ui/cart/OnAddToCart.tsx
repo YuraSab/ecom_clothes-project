@@ -15,7 +15,6 @@ const OnAddToCart: FC<OnAddToCart_props> = ({isAddingToCart, setIsAddingToCart})
 
     useEffect(() => {
         document.body.style.overflowY = 'hidden';
-
         return (() => {
             document.body.style.overflowY = 'auto';
         })

@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {ResponseLike, Response} from "../../../redux/action-types";
+import {ResponseLike, Response, Parent_Child_response} from "../../../redux/action-types";
 import styles from "./ResponseItem.module.css";
 import UserBlack_Icon from "../../../assets/icons/user_black_icon.png";
 import Like_Icon from "../../../assets/icons/like_black_icon.png";
@@ -28,7 +28,7 @@ const ResponseItem: FC<ResponseItem_Props> = ({item}) => {
     }, [response_likes]);
 
     useEffect(() => {
-        const actualResponsesOnResponse = parent_child_comments.filter(el => el.id_parent_response === item.id_response && el.id_parent_response);
+        const actualResponsesOnResponse: Parent_Child_response[] = parent_child_comments.filter(el => el.id_parent_response === item.id_response && el.id_parent_response);
         const filtered: Response[] = actualResponsesOnResponse.map(el => responses.find(item => item.id_response === el.id_parent_response)) as Response[];
         setActualResponses(filtered);
     }, [responses]);
