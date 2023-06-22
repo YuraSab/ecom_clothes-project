@@ -80,27 +80,16 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
         // todo - useEffect setting filters to localStorage, when location changes - filters cleanings
         let sortedClothesList;
         if (clothesList.length > 0 && sort === "" || sort === "newer" || sort === "discount") {
-            sortedClothesList = clothesList.sort(function (a, b) {
-                return a.id - b.id;
-            });
+            sortedClothesList = clothesList.sort((a, b) => a.id - b.id);
             setClothesList(sortedClothesList);
-        }
-        if (sort === "older") {
-            sortedClothesList = clothesList.sort(function (a, b) {
-                return b.id - a.id;
-            });
+        } else if (sort === "older") {
+            sortedClothesList = clothesList.sort((a, b) => b.id - a.id);
             setClothesList(sortedClothesList);
-        }
-        if (sort === "higher-price") {
-            sortedClothesList = clothesList.sort(function (a, b) {
-                return b.price - a.price;
-            });
+        } else if (sort === "higher-price") {
+            sortedClothesList = clothesList.sort((a, b) => b.price - a.price);
             setClothesList(sortedClothesList);
-        }
-        if (sort === "lower-price") {
-            sortedClothesList = clothesList.sort(function (a, b) {
-                return a.price - b.price;
-            });
+        } else if (sort === "lower-price") {
+            sortedClothesList = clothesList.sort((a, b) => a.price - b.price);
             setClothesList(sortedClothesList);
         }
     }, [sort]);

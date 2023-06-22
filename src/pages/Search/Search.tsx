@@ -26,7 +26,6 @@ const Search = () => {
     const [searchValue, setSearchValue] = useState<string>("");
     const [searchResults, setSearchResults] = useState<string[]>([]);
     const [searchOptions, setSearchOptions] = useState<string[]>([]);
-
     const [actualMas, setActualMas] = useState<Cloth[] | undefined>([]);
 
     const setOnSearching = () => {
@@ -57,12 +56,7 @@ const Search = () => {
             }
         }
         uniqueMasOfTitles = uniqueMasOfTitles.filter((x, i, a) => a.indexOf(x) === i);
-        // uniqueMasOfTitles = uniqueMasOfTitles.map(el => el.replace("_", " "));
         uniqueMasOfTitles = uniqueMasOfTitles.map(el => el.replace("\n", "").replace("-", " ").replace(",", "").replace("_", " "));
-        // uniqueMasOfTitles = uniqueMasOfTitles.map(el => el
-        //     .split("_").join(" ")
-        //     .split("\n").join(" ")
-        //     .split("-").join(" "));
         setSearchOptions(uniqueMasOfTitles);
 
         uniqueMasOfSubCategories = uniqueMasOfSubCategories.filter(el => el.name.toLowerCase().includes(searchValue.toLowerCase()));
