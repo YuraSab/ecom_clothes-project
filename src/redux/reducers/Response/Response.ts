@@ -33,10 +33,9 @@ export default (state = initialState, action: Response_Actions): InitialState_ty
             }
         }
         case Response_Types.DELETE_RESPONSE: {
-            const filtered = state.responses.filter(el => el.id_response !== action.payload);
             return {
                 ...state,
-                responses: filtered,
+                responses: state.responses.filter(el => el.id_response !== action.payload),
             }
         }
         case Response_Types.EDIT_RESPONSE: {
@@ -61,10 +60,9 @@ export default (state = initialState, action: Response_Actions): InitialState_ty
             }
         }
         case Response_Types.DELETE_RESPONSE_LIKE: {
-            const filtered = state.response_likes.filter(el => el.id_response_like !== action.payload);
             return {
                 ...state,
-                response_likes: filtered
+                response_likes: state.response_likes.filter(el => el.id_response_like !== action.payload)
             }
         }
 
@@ -82,10 +80,9 @@ export default (state = initialState, action: Response_Actions): InitialState_ty
             }
         }
         case Response_Types.DELETE_PARENT_CHILD_RESPONSE: {
-            const filtered = state.parent_child_comments.filter(el => el.id_parent_child_response !== action.payload);
             return {
                 ...state,
-                parent_child_comments: filtered
+                parent_child_comments: state.parent_child_comments.filter(el => el.id_parent_child_response !== action.payload)
             }
         }
 

@@ -23,10 +23,9 @@ export default (state = initialState, action: ProductLike_Actions): InitialState
             }
         }
         case ProductLike_Types.DELETE_PRODUCT_LIKE: {
-            const filtered = state.productLikes.filter(el => el.id_product_like !== action.payload)
             return {
                 ...state,
-                productLikes: filtered
+                productLikes: state.productLikes.filter(el => el.id_product_like !== action.payload)
             }
         }
         default: {

@@ -23,29 +23,27 @@ export default (state = initialState, action: WishList_Actions): InitialState_ty
             }
         }
         case WishList_Types.DELETE_PRODUCT_FROM_WISHLIST: {
-            const filtered = state.wishList.filter(el => el.id_wishList_element !== action.payload);
             return {
                 ...state,
-                wishList: filtered
+                wishList: state.wishList.filter(el => el.id_wishList_element !== action.payload)
             }
         }
         case WishList_Types.PLUS_COUNT_OF_PRODUCT: {
             let filtered = state.wishList.filter(el => el.id_wishList_element !== action.payload);
             const found = state.wishList.find(el => el.id_wishList_element === action.payload);
-            if(found != undefined) {
-
-            const newValue = {
+            if (found != undefined) {
+                const newValue = {
                     id_wishList_element: found.id_wishList_element,
                     id_product: found.id_product,
                     id_user: found.id_user,
                     count: found.count + 1,
                     date: found.date,
+                }
+
+                filtered = [...filtered, newValue];
+                filtered = filtered.sort( (a, b) => a.id_wishList_element - b.id_wishList_element);
             }
-            filtered = [...filtered, newValue];
-            filtered = filtered.sort(function(a, b) {
-                return a.id_wishList_element - b.id_wishList_element;
-            });
-            }
+
             return {
                 ...state,
                 wishList: filtered
@@ -68,9 +66,8 @@ export default (state = initialState, action: WishList_Actions): InitialState_ty
             }
 
             filtered = [...filtered, newValue];
-            filtered = filtered.sort(function(a, b) {
-                return a.id_wishList_element - b.id_wishList_element;
-            });
+            filtered = filtered.sort((a, b) => a.id_wishList_element - b.id_wishList_element);
+
             return {
                 ...state,
                 wishList: filtered

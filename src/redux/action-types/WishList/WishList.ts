@@ -35,4 +35,5 @@ export interface MinusCountOfProduct_Action {
     payload: number
 }
 
+
 export type WishList_Actions = SetWishList_Action | AddProductToWishList_Action | DeleteFromWishList_Action | PlusCountOfProduct_Action | MinusCountOfProduct_Action;

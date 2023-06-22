@@ -26,10 +26,9 @@ export default (state = initialState, action: Question_Actions): InitialState_ty
             }
         }
         case Question_Types.DELETE_QUESTION: {
-            const filtered = state.questions.filter(el => el.id_question !== action.payload);
             return {
                 ...state,
-                questions: filtered,
+                questions: state.questions.filter(el => el.id_question !== action.payload),
             }
         }
         case Question_Types.EDIT_QUESTION: {
@@ -55,10 +54,9 @@ export default (state = initialState, action: Question_Actions): InitialState_ty
             }
         }
         case Question_Types.DELETE_RESPONSE_ON_QUESTION: {
-            const filtered = state.responses_on_questions.filter(el => el.id_response_on_question !== action.payload);
             return {
                 ...state,
-                responses_on_questions: filtered,
+                responses_on_questions: state.responses_on_questions.filter(el => el.id_response_on_question !== action.payload),
             }
         }
         case Question_Types.EDIT_RESPONSE_ON_QUESTION: {
