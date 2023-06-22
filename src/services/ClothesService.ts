@@ -8,33 +8,27 @@ class ClothesService {
     // categoryURL = "";
 
     getAllByGender(gender: Gender | "all") {
-        if (gender === "male" || gender === "female") {
-            return clothes
-                .filter(el => el.gender === gender);
-        } else if(gender === "all"){
-            return clothes;
+        if (gender === "male" || "female") {
+            return clothes.filter(el => el.gender === gender);
         }
+        return clothes;
     }
 
     getClothesByCategory(category: linkType, gender: Gender | "all") {
-        // this will be renewed
         if (gender === "male" || "female") {
             return clothes
                 .filter(el => el.gender === gender)
                 .filter(el => el.subcategory === category);
-        } else {
-            return clothes
-                .filter(el => el.subcategory === category);
         }
+        return clothes.filter(el => el.subcategory === category);
     }
 
     getClothesByCategories(category: linkType[], gender: Gender) {
-        // this will be renewed
-        let clothesMas: Cloth[] = [];
+        const clothesMas: Cloth[] = [];
         const genderFilter = clothes.filter(el => el.gender === gender);
-        for (let i = 0; i < category.length; i++) {
-            let oneOfCategoryList = genderFilter.filter(el => el.subcategory === category[i]);
-            oneOfCategoryList.forEach(el => clothesMas.push(el));
+        for(const el of category){
+                let oneOfCategoryList = genderFilter.filter(el => el.subcategory === el.category);
+                oneOfCategoryList.forEach(el => clothesMas.push(el));
         }
         return clothesMas;
     }
@@ -58,10 +52,8 @@ class ClothesService {
     }
 
     getNewest(gender: Gender) {
-        let byGender: Cloth[] = clothes.filter(el => el.gender === gender);
-        return byGender.sort(function (a, b) {
-            return b.id - a.id;
-        })
+        const byGender: Cloth[] = clothes.filter(el => el.gender === gender);
+        return byGender.sort((a, b) => b.id - a.id);
     }
 }
 
