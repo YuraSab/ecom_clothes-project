@@ -30,7 +30,6 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
 
     useEffect(() => {
         document.body.style.overflowY = 'hidden';
-
         return (() => {
             // todo - save picked categories in localStorage and fetch them when user comeback from desktop to mobile screen
             onSetDropDownMenu("");

@@ -8,11 +8,9 @@ import {useAction} from "../../../../../hooks/redux/useAction.ts";
 import {Gender} from "../../../../../redux/action-types";
 import {Link} from "react-router-dom";
 
-
 type GenderBar_PropsTypes = {
     propGender: Gender;
 }
-
 
 const GenderBarDesktop: FC<GenderBar_PropsTypes> = ({propGender}) => {
 
