@@ -10,6 +10,7 @@ import {
 import {clothesService} from "../../services/ClothesService";
 import {Gender} from "../../redux/action-types";
 import CategoryItem from "../Catalog/ListItem/CategoryItem";
+import SearchRewrite from "./Search_Rewrite";
 
 export type genderValue_type = {
     name: "Для всіх" | "Для хлопців" | "Для дівчат",
@@ -120,6 +121,9 @@ const Search = () => {
                     }
                 </div>
             </div>
+
+
+            <SearchRewrite/>
         </div>
 
     );
