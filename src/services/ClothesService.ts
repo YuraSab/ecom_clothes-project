@@ -26,9 +26,10 @@ class ClothesService {
     getClothesByCategories(category: linkType[], gender: Gender) {
         const clothesMas: Cloth[] = [];
         const genderFilter = clothes.filter(el => el.gender === gender);
+
         for(const el of category){
-                let oneOfCategoryList = genderFilter.filter(el => el.subcategory === el.category);
-                oneOfCategoryList.forEach(el => clothesMas.push(el));
+            let oneOfCategoryList = genderFilter.filter(item => item.subcategory === el );
+            oneOfCategoryList.forEach(item => clothesMas.push(item));
         }
         return clothesMas;
     }

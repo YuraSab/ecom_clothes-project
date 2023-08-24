@@ -18,6 +18,7 @@ const MainLayout = () => {
 
                 <Route path={'/staff-test-project'}  element={<MainPage propGender={"male"}/>}/>
 
+                <Route index element={<Navigate to="/male" replace/>}/>
 
                 <Route path={'/'} element={<Main/>}>
                     <Route index element={<Navigate to="/male" replace/>}/>
