@@ -52,7 +52,10 @@ const SearchBarOverLay: FC<SearchBarOverLay_props> = ({setOnSearching}) => {
     return (
         <div className={styles.overlay}>
             <div className={styles.titleAndCross}>
-                <div>Пошук</div>
+                <div>
+                    {/*Пошук*/}
+                    Search
+                </div>
                 <img
                     src={Cross}
                     alt={"close search"}

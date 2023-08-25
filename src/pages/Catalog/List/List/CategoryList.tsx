@@ -4,7 +4,7 @@ import {clothesService} from "../../../../services/ClothesService";
 import {Cloth} from "../../../../db/clothes-db";
 import styles from "./CategoryList.module.css";
 import CategoryItem from "../../ListItem/CategoryItem";
-import {useLocation} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import "./Slider.css";
 import FilterSortBarDesktop from "../Filter-Sort_Bar/FilterSortBarDesktop";
 import FilterSortBarMobile from "../Filter-Sort_Bar/FilterSortBarMobile";
@@ -20,6 +20,7 @@ export type SortVariant = {title: string, value: SortValue};
 const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
     const ClothesService = clothesService;
+    const params = useParams();
     const location = useLocation();
     const actualGender = location.pathname.includes('female') ? "female" : "male";
 
@@ -161,19 +162,23 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
 
                 <div className={styles.pathBlock}>
                     <div className={styles.caption}>
-                        {name}
+                        {/*{name}*/}
+                        {Object.values(params)[0]?.split("_")?.map(el => el.toUpperCase() === "AND" ? "&" : el).join(" ")}
                     </div>
                     <div className={styles.pathList}>
                         <span>
-                            Магазин
+                            {/*Магазин*/}
+                            Store
                             <span style={{padding: 10}}>&mdash;&mdash;</span>
                         </span>
                         <span>
-                            {actualGender === "male" ? "Для хлопцв" : "Для дівчат"}
+                            {/*{actualGender === "male" ? "Для хлопцв" : "Для дівчат"}*/}
+                            {actualGender === "male" ? "Male" : "Female"}
                             <span style={{padding: 10}}>&mdash;&mdash;</span>
                         </span>
-                        <span style={{color: "black"}}>
-                            {name}
+                        <span style={{color: "black", textTransform: "capitalize"}}>
+                            {/*{name}*/}
+                            {Object.values(params)[0]?.split("_")?.map(el => el.toUpperCase() === "AND" ? "&" : el).join(" ")}
                         </span>
                     </div>
                 </div>

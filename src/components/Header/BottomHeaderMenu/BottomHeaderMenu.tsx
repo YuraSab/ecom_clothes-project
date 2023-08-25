@@ -45,9 +45,9 @@ const BottomHeaderMenu: FC = () => {
                     }
                 </div>
 
-                <div className={styles.logo}>
-                    <img src={StaffIcon} alt={"logo"}/>
-                </div>
+                {/*<div className={styles.logo}>*/}
+                {/*    <img src={StaffIcon} alt={"logo"}/>*/}
+                {/*</div>*/}
 
                 <div className={styles.menu}>
                     <div className={styles.genderLinks}>
@@ -56,18 +56,20 @@ const BottomHeaderMenu: FC = () => {
                             to={'/male'}
                             style={{paddingRight: 60}}
                         >
-                            Для хлопців
+                            {/*Для хлопців*/}
+                            Male
                         </NavLink>
                         <NavLink
                             className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
                             to={'/female'}
                         >
-                            Для дівчат
+                            {/*Для дівчат*/}
+                            Female
                         </NavLink>
                     </div>
 
                     <div className={styles.icons_set}>
-                        <img className={styles.comebackAlive} src={ComebackAlive} alt={""}/>
+                        {/*<img className={styles.comebackAlive} src={ComebackAlive} alt={""}/>*/}
                         <img src={SearchIcon} alt={""} height={25} onClick={() => setOnSearching(true)}/>
                         <img src={UserIcon} alt={""} height={25}/>
                         <Link to={`user/${ActualUser.id}/likes`}> <img src={LikeIcon} alt={""} height={25}/></Link>

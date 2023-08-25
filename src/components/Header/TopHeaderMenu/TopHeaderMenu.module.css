@@ -11,7 +11,8 @@
     justify-content: space-between;
     align-items: center;
     width: 1170px;
-    height: 20px;
+    /*height: 20px;*/
+    height: 23px;
 }
 .child_block{
     display: flex;

@@ -30,12 +30,14 @@ const GenderBarDesktop: FC<GenderBar_PropsTypes> = ({propGender}) => {
             <div className={styles.mainBlock}>
                 <div className={styles.left_block}>
                     <div className={styles.leftLink} style={{color: "#eb001c"}}>
-                        Знижки
+                        {/*Знижки*/}
+                        Discounts
                     </div>
                 </div>
                 <div className={styles.left_block}>
                     <div className={styles.leftLink} style={{color: "#48DD00"}}>
-                        Новинки
+                        {/*Новинки*/}
+                        Novelty
                     </div>
                 </div>
 
@@ -68,8 +70,13 @@ const GenderBarDesktop: FC<GenderBar_PropsTypes> = ({propGender}) => {
                                     className={styles.rightLink}
                                     style={{color: dropDownValue === el.name ? "black" : "white"}}
                                 >
-                                    <div style={{display: "flex", justifyContent: "center", height: "25px"}}>
-                                        {el.title}
+                                    <div className={styles.categoryList}>
+                                        {/*{el.title}*/}
+                                        {el.name
+                                            .split("_")
+                                            .map(word => word === "and" ? "&" : word)
+                                            .join(" ")
+                                        }
                                     </div>
                                 </Link>
 

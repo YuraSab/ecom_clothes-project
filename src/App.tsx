@@ -10,7 +10,8 @@ function App() {
     return (
         <div className={"pageDivineDiv"}>
             <header>
-                <TopHeaderMenu/>
+                {/*<TopHeaderMenu/>*/}
+                <div className={"temporaryBlock"}></div>
                 <BottomHeaderMenu/>
             </header>
             <main>
