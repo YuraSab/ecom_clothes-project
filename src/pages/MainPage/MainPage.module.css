@@ -3,7 +3,9 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    max-height: 510px;
 }
+
 .sideArrows{
     width: calc(100% - 80px);
     position: absolute;
