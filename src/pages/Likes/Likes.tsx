@@ -38,16 +38,21 @@ const Likes = () => {
         <div className={styles.main}>
             <div className={styles.contentBlock}>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                    <div className={styles.like_caption_bookmark}>Закладки</div>
+                    <div className={styles.like_caption_bookmark}>
+                        {/*Закладки*/}
+                        Likes
+                    </div>
                     {
                         likedProductsList.length ?
                             <div className={styles.like_clean_bookmark} onClick={() => onClearUserLikes()}>
-                                Очистити закладки
+                                {/*Очистити закладки*/}
+                                Clean likes
                             </div>
                             :
                             <div className={styles.like_caption_bookmark} style={{fontSize: 18}}>
                                 <br/>
-                                Немає доданих товарів
+                                {/*Немає доданих товарів*/}
+                                No products added
                             </div>
                     }
                 </div>

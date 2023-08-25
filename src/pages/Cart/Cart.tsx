@@ -63,16 +63,18 @@ const Cart = () => {
         <div className={styles.main}>
             <div className={styles.contentBlock}>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                    <div className={styles.like_caption_bookmark}>КОШИК</div>
+                    <div className={styles.like_caption_bookmark}>BASKET{/*КОШИК*/}</div>
                     {
                         wishedProductsList.length ?
                             <div className={styles.like_clean_bookmark} onClick={() => onClearUserWishList()}>
-                                Очистити КОШИК
+                                {/*Очистити КОШИК*/}
+                                Clean basket
                             </div>
                             :
                             <div className={styles.like_caption_bookmark} style={{fontSize: 18}}>
                                 <br/>
-                                Немає доданих товарів
+                                {/*Немає доданих товарів*/}
+                                No products added
                             </div>
                     }
                 </div>
@@ -85,8 +87,15 @@ const Cart = () => {
                     {
                         wishedProductsList.length ?
                         <div className={styles.productPay}>
-                            <div className={styles.sumForPay}>СУМА ДО ОПЛАТИ ЗА ТОВАР</div>
-                            <div className={styles.sumForPay} style={{fontSize: 24, color: "black"}}>{sum} грн</div>
+                            <div className={styles.sumForPay}>
+                                {/*СУМА ДО ОПЛАТИ ЗА ТОВАР*/}
+                                AMOUNT PAYABLE FOR THE GOODS
+                            </div>
+                            <div className={styles.sumForPay} style={{fontSize: 24, color: "black"}}>
+                                {sum} {" "}
+                                {/*грн*/}
+                                UAH
+                            </div>
                         </div>
                         :
                         null

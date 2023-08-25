@@ -9,6 +9,16 @@
     line-height: 1.0;
 }
 
+.categoryList{
+    display: flex;
+    justify-content: center;
+    height: 25px;
+    text-transform: lowercase;
+}
+.categoryList:first-child {
+    text-transform: capitalize;
+}
+
 /*  LEFT   */
 .left_block{
     margin-right: 38px;

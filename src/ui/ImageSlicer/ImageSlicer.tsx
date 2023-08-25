@@ -14,7 +14,8 @@ const ImageSlicer = (props: any) => {
         >
             <CSSTransition
                 key={currentIndex}
-                timeout={500}
+                // timeout={500}
+                timeout={1000}
                 classNames={direction === "next" ? "slide" : "slide_reverse"}
                 exit={false}
             >

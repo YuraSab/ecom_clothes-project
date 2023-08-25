@@ -26,9 +26,17 @@ footer {
     border-top: 2px solid black;
 }
 
+.temporaryBlock {
+    height: 33px;
+    background: black;
+}
+
 @media screen and (max-width: 1025px){
     .pageDivineDiv {
         grid-template-rows: 90px minmax(350px, 1fr) 510px;
+    }
+    .temporaryBlock {
+        display: none;
     }
 }
 @media screen and (max-width: 960px){
@@ -46,3 +54,5 @@ footer {
         grid-template-rows: 70px minmax(300px, 1fr) 255px;
     }
 }
+
+

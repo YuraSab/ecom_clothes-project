@@ -9,7 +9,8 @@ interface DropItemProps {
 const DropItem: FC<DropItemProps> = ({subItem}) => {
 
     function replaceWithBr() {
-        return subItem.name.replace(/\n/g, "<br />")
+        // return subItem.name.replace(/\n/g, "<br />")
+        return subItem.link.split("_").join(" ").replace(/\n/g, "<br />")
     }
 
     return (

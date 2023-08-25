@@ -14,6 +14,7 @@ import SearchRewrite from "./Search_Rewrite";
 
 export type genderValue_type = {
     name: "Для всіх" | "Для хлопців" | "Для дівчат",
+    // name: "Для всіх" | "Для хлопців" | "Для дівчат" | "All" | "Male" | "Female",
     link: "all" | "male" | "female",
 }
 
@@ -24,6 +25,7 @@ const Search = () => {
 
     const [onSetGenderActive, setOnSetGenderActive] = useState<boolean>(false);
     const [genderValue, setGenderValue] = useState<genderValue_type>({name: "Для всіх", link: "all"});
+    // const [genderValue, setGenderValue] = useState<genderValue_type>({name: "All", link: "all"});
     const [searchValue, setSearchValue] = useState<string>("");
     const [searchResults, setSearchResults] = useState<string[]>([]);
     const [searchOptions, setSearchOptions] = useState<string[]>([]);

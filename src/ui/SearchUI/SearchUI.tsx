@@ -46,14 +46,20 @@ const SearchUI: FC<SearchUI_props> = ({
                     // @ts-ignore
                     onClick={() => setOnSetGenderActive(prevState => !prevState)}
                 >
-                    <span>{genderValue.name}</span>
+                    <span>
+                        {/*{genderValue.name}*/}
+                        {genderValue.name === "Для всіх" && "All"}
+                        {genderValue.name === "Для хлопців" && "Male"}
+                        {genderValue.name === "Для дівчат" && "Female"}
+                    </span>
                     <img src={DownIcon} alt={"more options"} width={14} height={14}/>
                 </div>
 
                 <div className={styles.searchInput}>
                     <input
                         type={"text"}
-                        placeholder={"Введіть текст для пошуку"}
+                        // placeholder={"Введіть текст для пошуку"}
+                        placeholder={"Enter text to search"}
                         onChange={(event) => setSearchValue(
                             event.target.value
                                 .replace("\n", "")
@@ -89,19 +95,23 @@ const SearchUI: FC<SearchUI_props> = ({
                                 onClick={() => {
                                     setOnSetGenderActive(false);
                                     setGenderValue({name: "Для хлопців", link: "male"});
+                                    // setGenderValue({name: "Male", link: "male"});
                                 }}
                                 className={`${styles.oneOption} ${styles.optionText}`}
                             >
-                                Для хлопців
+                                {/*Для хлопців*/}
+                                Male
                             </div>
                             <div
                                 onClick={() => {
                                     setOnSetGenderActive(false);
                                     setGenderValue({name: "Для дівчат", link: "female"});
+                                    // setGenderValue({name: "Female", link: "female"});
                                 }}
                                 className={`${styles.oneOption} ${styles.optionText}`}
                             >
-                                Для дівчат
+                                {/*Для дівчат*/}
+                                Female
                             </div>
                         </>
                     }

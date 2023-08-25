@@ -21,42 +21,42 @@ const Footer: FC = () => {
                 {
                     location.pathname.includes('female') ?
                         <div className={`${styles.catalogList} ${styles.catalog}`}>
-                            <div>КАТАЛОГ</div>
-                            <span style={{color: "#EB001C"}}>ЗНИЖКИ</span>
-                            <span style={{color: "#48DD00"}}>НОВИНКИ</span>
-                            <span>ОДЯГ</span>
-                            <span>ВЗУТТЯ</span>
-                            <span>АКСЕСУАРИ</span>
+                            <div>CATALOG{/*КАТАЛОГ*/}</div>
+                            <span style={{color: "#EB001C"}}>Discounts{/*ЗНИЖКИ*/}</span>
+                            <span style={{color: "#48DD00"}}>Novelty{/*НОВИНКИ*/}</span>
+                            <span>CLOTHES{/*ОДЯГ*/}</span>
+                            <span>SHOES{/*ВЗУТТЯ*/}</span>
+                            <span>ACCESSORIES{/*АКСЕСУАРИ*/}</span>
                         </div>
                         :
                         <div className={`${styles.catalogList} ${styles.catalog}`}>
                             <div>КАТАЛОГ</div>
-                            <span style={{color: "#EB001C"}}>ЗНИЖКИ</span>
-                            <span style={{color: "#48DD00"}}>НОВИНКИ</span>
+                            <span style={{color: "#EB001C"}}>Discounts</span>
+                            <span style={{color: "#48DD00"}}>Novelty</span>
                             <span>STAFF BASIC</span>
                             <span>STAFF TACTICAL</span>
-                            <span>ОДЯГ</span>
-                            <span>ВЗУТТЯ</span>
-                            <span>РЮКЗАКИ ТА СУМКИ</span>
-                            <span>АКСЕСУАРИ</span>
+                            <span>CLOTHES{/*ОДЯГ*/}</span>
+                            <span>SHOES{/*ВЗУТТЯ*/}</span>
+                            <span>BAGS AND BACKPACKS{/*РЮКЗАКИ ТА СУМКИ*/}</span>
+                            <span>ACCESSORIES{/*АКСЕСУАРИ*/}</span>
                         </div>
                 }
 
                 <div className={`${styles.catalogList} ${styles.info}`}>
-                    <div>ІНФОРМАЦІЯ</div>
-                    <span>МАГАЗИНИ</span>
-                    <span>ПРО НАС</span>
-                    <span>ДОСТАВКА, ОПЛАТА, ПОВЕРНЕННЯ</span>
-                    <span>НОВИНИ І ВІДГУКИ</span>
+                    <div>INFO{/*ІНФОРМАЦІЯ*/}</div>
+                    <span>STORES{/*МАГАЗИНИ*/}</span>
+                    <span>ABOUT US{/*ПРО НАС*/}</span>
+                    <span>DELIVERY, PAYMENT, RETURN{/*ДОСТАВКА, ОПЛАТА, ПОВЕРНЕННЯ*/}</span>
+                    <span>NEWS AND RESPONDS{/*НОВИНИ І ВІДГУКИ*/}</span>
                 </div>
                 <div className={styles.cooperate_list}>
-                    <span>СПІВРОБІТНИЦТВО</span>
-                    <span>ДОГОВІР ПУБЛІЧНОЇ ОФЕРТИ</span>
-                    <span>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</span>
+                    <span>COOPERATION{/*СПІВРОБІТНИЦТВО*/}</span>
+                    <span>PUBLIC OFFER AGREEMENT{/*ДОГОВІР ПУБЛІЧНОЇ ОФЕРТИ*/}</span>
+                    <span>PRIVACY POLICY{/*ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ*/}</span>
                     <img src={MasterCard_Visa} alt={"visa & mastercard"}/>
                 </div>
                 <div className={styles.catalogList}>
-                    <div className={styles.socialMedia}>СОЦІАЛЬНІ МЕРЕЖІ</div>
+                    <div className={styles.socialMedia}>SOCIAL MEDIAS{/*СОЦІАЛЬНІ МЕРЕЖІ*/}</div>
                     <div className={styles.icon_list}>
                         <img src={FaceBook_Icon} alt={"FaceBook"}/>
                         <img src={Instagram_Icon} alt={"Instagram"}/>
