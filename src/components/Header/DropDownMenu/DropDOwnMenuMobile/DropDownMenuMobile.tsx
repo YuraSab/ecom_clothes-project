@@ -62,7 +62,7 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
                                      onClick={() => onSetDropDownMenu("")}
                                 >
                                     <div className={styles.arrowBack}><img src={ArrowLeft} alt={"go back"}/></div>
-                                    <div className={styles.textBack}>Назад</div>
+                                    <div className={styles.textBack}>Back{/*Назад*/}</div>
                                 </div>
                                 <Link to={`/${gender}/${dropDownValue}`} style={{textDecoration: "none"}}>
                                     <div className={styles.category} style={{padding: "20px 40px 20px 20px"}}>
