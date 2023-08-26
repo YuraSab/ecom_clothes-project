@@ -42,12 +42,20 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
     const [windowWidth, setWindowWidth] = useState<number>(0);
     const [showLikes, setShowLikes] = useState<boolean>(true);
 
+    // const sortVariants: SortVariant[] = [
+    //     {title: "від дешевших до дорощих", value: "lower-price"},
+    //     {title: "від дорогих до дешевших", value: "higher-price"},
+    //     {title: "спочатку нові", value: "newer"},
+    //     {title: "сочатку старі", value: "older"},
+    //     {title: "спочатку зі знижками", value: "discount"},
+    // ];
+
     const sortVariants: SortVariant[] = [
-        {title: "від дешевших до дорощих", value: "lower-price"},
-        {title: "від дорогих до дешевших", value: "higher-price"},
-        {title: "спочатку нові", value: "newer"},
-        {title: "сочатку старі", value: "older"},
-        {title: "спочатку зі знижками", value: "discount"},
+        {title: "From the cheaper", value: "lower-price"},
+        {title: "From the more expensive", value: "higher-price"},
+        {title: "From the latest additions", value: "newer"},
+        {title: "From the older additions", value: "older"},
+        {title: "Discounted", value: "discount"},
     ];
 
     useEffect(() => {

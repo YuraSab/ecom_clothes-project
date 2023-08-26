@@ -99,7 +99,10 @@ const Search = () => {
         <div className={styles.main}>
             <div className={styles.contentBlock}>
 
-                <div className={styles.resultsLabel}>РЕЗУЛЬТАТИ ПОШУКУ</div>
+                <div className={styles.resultsLabel}>
+                    {/*РЕЗУЛЬТАТИ ПОШУКУ*/}
+                    SEARCH RESULTS
+                </div>
 
                 <SearchUI
                     setOnSetGenderActive={setOnSetGenderActive}

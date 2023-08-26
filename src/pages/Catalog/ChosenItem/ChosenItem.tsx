@@ -184,21 +184,27 @@ const ChosenItem = () => {
 
                             <div className={styles.pathBlock}>
                                 <div className={styles.pathList}>
-                                <span>
-                                    Магазин
-                            <span style={{padding: 10}}>&mdash;&mdash;</span>
-                                </span>
                                     <span>
-                                    {gender === "male" ? "Для хлопців" : "Для дівчат"}
+                                        {/*Магазин*/}
+                                        Store
                                         <span style={{padding: 10}}>&mdash;&mdash;</span>
-                                </span>
+                                    </span>
                                     <span>
-                                    {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.title}
+                                        {/*{gender === "male" ? "Для хлопців" : "Для дівчат"}*/}
+                                        {gender === "male" ? "Male" : "Female"}
                                         <span style={{padding: 10}}>&mdash;&mdash;</span>
-                                </span>
-                                    <span style={{color: "black"}}>
-                                    {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.name}
-                                </span>
+                                    </span>
+                                    <span style={{textTransform: "capitalize"}}>
+                                        {/*{DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.title}*/}
+                                        {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.name
+                                            .split("_")?.map(el => el.toUpperCase() === "AND" ? "&" : el).join(" ")}
+                                        <span style={{padding: 10}}>&mdash;&mdash;</span>
+                                    </span>
+                                    <span style={{color: "black", textTransform: "capitalize"}}>
+                                        {/*{DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.name}*/}
+                                        {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.link
+                                            .split("_")?.map(el => el.toUpperCase() === "AND" ? "&" : el).join(" ")}
+                                    </span>
                                 </div>
                             </div>
 
@@ -217,19 +223,25 @@ const ChosenItem = () => {
                             </div>
 
                             <div className={styles.infoSpans}>
-                            <span>
-                            АРТИКУЛ: {chosenItem.id}
-                            </span>
                                 <span>
-                            КАТЕГОРІЯ: {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.name}
-                            </span>
+                                    {/*АРТИКУЛ:*/}
+                                    ARTICLE: {" "} {chosenItem.id}
+                                </span>
                                 <span>
-                            БРЕНД: STAFF
-                            </span>
+                                    {/*КАТЕГОРІЯ: {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.name}*/}
+                                    CATEGORY: {" "}
+                                    {DropMenuList?.find(el => el.gender === gender)?.clothList.find(el => el.name === chosenItem?.category)?.categories?.find(el => el.link === chosenItem?.subcategory)?.link
+                                        .split("_")?.map(el => el.toUpperCase() === "AND" ? "&" : el).join(" ")}
+                                </span>
+                                <span>
+                                    {/*БРЕНД:*/}
+                                    BRAND: STAFF
+                                </span>
                             </div>
 
                             <div className={styles.price}>
-                                {chosenItem.price} грн.
+                                {/*грн.*/}
+                                {chosenItem.price} UAH
                             </div>
 
 
@@ -237,10 +249,12 @@ const ChosenItem = () => {
                                 <div style={{background: "rgb(0, 94, 15)", color: "rgb(255, 255, 255)"}}
                                     onClick={() => handleOnAddProductToWishList()}
                                 >
-                                    Додати в кошик
+                                    {/*Додати в кошик*/}
+                                    Add to cart
                                 </div>
                                 <div style={{background: "rgb(199, 199, 199)", color: "black"}}>
-                                    Купити в один клік
+                                    {/*Купити в один клік*/}
+                                    Buy in one click
                                 </div>
                             </div>
                         </div>
@@ -250,20 +264,14 @@ const ChosenItem = () => {
 
             <div className={styles.descriptionOverlay}>
                 <div className={styles.descriptionBlock}>
-                    <div className={styles.descriptionTitle}>Опис</div>
+                    <div className={styles.descriptionTitle}>Description{/*Опис*/}</div>
                     <div className={styles.descriptionValue}>
-                        <div>{chosenItemDetails?.describe}</div>
-                        <br/>
-                        <div>Матеріал: <br/>{chosenItemDetails?.fabric}</div>
-                        <br/>
-                        <div>Деталі та крій: <br/>{chosenItemDetails?.details_and_cut}</div>
-                        <br/>
-                        <div>Колір: <br/>{chosenItemDetails?.color}</div>
-                        <br/>
-                        <div>Догляд: <br/>{chosenItemDetails?.supervision}</div>
-                        <br/>
-                        <div>На фото: <br/>{chosenItemDetails?.on_the_photo}</div>
-                        <br/>
+                        <div>{chosenItemDetails?.describe}</div><br/>
+                        <div>Material:{/*Матеріал: */}<br/>{chosenItemDetails?.fabric}</div><br/>
+                        <div>Details and cut:{/*Деталі та крій: */}<br/>{chosenItemDetails?.details_and_cut}</div><br/>
+                        <div>Color:{/*Колір: */}<br/>{chosenItemDetails?.color}</div><br/>
+                        <div>Care:{/*Догляд: */}<br/>{chosenItemDetails?.supervision}</div><br/>
+                        <div>On the picture:{/*На фото: */}<br/>{chosenItemDetails?.on_the_photo}</div><br/>
                     </div>
                 </div>
             </div>
@@ -276,13 +284,15 @@ const ChosenItem = () => {
                         <div onClick={() => setResponsesOrQuestions("response")}
                              className={styles.responseQuestionButton}
                              style={{borderBottom: responsesOrQuestions === "response" ? "2px black solid" : "none"}}>
-                            ВІДГУКИ
+                            {/*ВІДГУКИ*/}
+                            RESPONSE
                         </div>
 
                         <div onClick={() => setResponsesOrQuestions("question")}
                              className={styles.responseQuestionButton}
                              style={{borderBottom: responsesOrQuestions === "question" ? "2px black solid" : "none"}}>
-                            ПИТАННЯ
+                            {/*ПИТАННЯ*/}
+                            QUESTION
                         </div>
                     </div>
 
@@ -290,7 +300,8 @@ const ChosenItem = () => {
                         <div className={styles.addResponseOrQuestion} onClick={() => setResponseOrQuestionActive(true)}>
                             <img src={WhitePlus}
                                  alt={`Додати ${responsesOrQuestions === "response" ? "відгук" : "питання"}`}/>
-                            <div>Додати {responsesOrQuestions === "response" ? "відгук" : "питання"}</div>
+                            {/*<div>Додати {responsesOrQuestions === "response" ? "відгук" : "питання"}</div>*/}
+                            <div>Add {responsesOrQuestions === "response" ? "response" : "question"}</div>
                         </div>
                     </div>
                     {

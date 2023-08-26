@@ -27,17 +27,25 @@ const OnAddToCart: FC<OnAddToCart_props> = ({isAddingToCart, setIsAddingToCart})
                     <div style={{background: "white"}} onClick={event => event.stopPropagation()}>
                         <div className={styles.topItems}>
                             <img src={SuccessImg} alt={"successfully added"} width={30}/>
-                            <div className={styles.done}>Виконано</div>
-                            <div className={styles.purchaseAdded}>ТОВАР УСПІШНО ДОДАНО У КОШИК</div>
+                            <div className={styles.done}>
+                                Done{/*Виконано*/}
+                            </div>
+                            <div className={styles.purchaseAdded}>
+                                {/*ТОВАР УСПІШНО ДОДАНО У КОШИК*/}
+                                PRODUCT SUCCESSFULLY ADDED TO CART
+                            </div>
                         </div>
                         <div className={styles.bottomItems}>
                             <div onClick={() => setIsAddingToCart(false)} className={styles.bottomItem}
-                                 style={{backgroundColor: "#eee", color: "black"}}>
-                                <img src={BackArrow} alt={"back"} width={20}/> Продовжити покупки
+                                 style={{backgroundColor: "#eee", color: "black"}}
+                            >
+                                <img src={BackArrow} alt={"back"} width={20}/>
+                                Continue shopping {/*Продовжити покупки*/}
                             </div>
                             <Link to={`/user/${ActualUser.id}/cart`} className={styles.bottomItem}
-                                  style={{backgroundColor: "black", color: "white"}}>
-                                Перейти до кошика
+                                  style={{backgroundColor: "black", color: "white"}}
+                            >
+                                Go to cart{/*Перейти до кошика*/}
                             </Link>
                         </div>
                     </div>
@@ -46,15 +54,16 @@ const OnAddToCart: FC<OnAddToCart_props> = ({isAddingToCart, setIsAddingToCart})
                         <div className={styles.topItemsError}>
                             <img src={ErrorImg} alt={"error"} width={38}/>
                             <div className={styles.error}>
-                                Помилка
+                                Error{/*Помилка*/}
                             </div>
                             <div className={styles.alreadyAdded}>
-                                Товар уже додано у кошик
+                                {/*Товар уже додано у кошик*/}
+                                The product has already been added to the cart
                             </div>
                         </div>
                         <div className={styles.bottomItems}>
                             <div onClick={() => setIsAddingToCart(false)} className={styles.bottomItem}>
-                                Продовжити
+                                Continue{/*Продовжити*/}
                             </div>
                         </div>
                     </div>

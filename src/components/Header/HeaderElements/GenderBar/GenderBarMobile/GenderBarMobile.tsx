@@ -70,25 +70,29 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                                     to={'/male'}
                                     style={{paddingRight: 60}}
                                 >
-                                    Для хлопців
+                                    {/*Для хлопців*/}
+                                    Male
                                 </NavLink>
                                 <NavLink
                                     className={({isActive}) => (isActive ? styles.genderLinkActive : styles.genderLink)}
                                     to={'/female'}
                                 >
-                                    Для дівчат
+                                    {/*Для дівчат*/}
+                                    Female
                                 </NavLink>
                             </div>
 
                             <div>
                                 <div className={styles.left_block}>
                                     <div className={styles.leftLink} style={{color: "#eb001c"}}>
-                                        знижки
+                                        {/*знижки*/}
+                                        Discounts
                                     </div>
                                 </div>
                                 <div className={styles.left_block}>
                                     <div className={styles.leftLink} style={{color: "#48DD00"}}>
-                                        новинки
+                                        {/*новинки*/}
+                                        Novelty
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +120,14 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                                              }}
                                              onClick={() => onSetDropDownMenu(el.name)}
                                         >
-                                            <div className={styles.leftLink}>{el.title}</div>
+                                            <div className={styles.leftLink}>
+                                                {/*{el.title}*/}
+                                                {el.name
+                                                    .split("_")
+                                                    .map(word => word === "and" ? "&" : word)
+                                                    .join(" ")
+                                                }
+                                            </div>
                                         </div>
                                     )
                                 })
@@ -128,11 +139,11 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                                 <img src={ComebackAlive} alt={""}/>
                             </div>
 
-                            <div className={styles.FAQLink}>НОВИНИ І ВІДГУКИ</div>
-                            <div className={styles.FAQLink}>МАГАЗИНИ</div>
-                            <div className={styles.FAQLink}>ПРО НАС</div>
-                            <div className={styles.FAQLink}>СПІВРОБІТНИЦТВО</div>
-                            <div className={styles.FAQLink}>ДОГОВІР ПУБЛІЧНОЇ ОФЕРТИ</div>
+                            <div className={styles.FAQLink}>NEWS AND RESPONDS{/*НОВИНИ І ВІДГУКИ*/}</div>
+                            <div className={styles.FAQLink}>STORES{/*МАГАЗИНИ*/}</div>
+                            <div className={styles.FAQLink}>ABOUT US{/*ПРО НАС*/}</div>
+                            <div className={styles.FAQLink}>COOPERATION{/*СПІВРОБІТНИЦТВО*/}</div>
+                            <div className={styles.FAQLink}>PUBLIC OFFER AGREEMENT{/*ДОГОВІР ПУБЛІЧНОЇ ОФЕРТИ*/}</div>
 
                             <div className={styles.FAQMedias}>
                                 <img src={FacebookWhite} alt={"Facebook"} height={39}/>

@@ -42,7 +42,7 @@ const AddQuestion: FC<AddQuestion_Props> = ({setResponseOrQuestionActive}) => {
     return (
         <div className={styles.overlay} onClick={() => setResponseOrQuestionActive(false)}>
             <div className={styles.mainDiv} onClick={(event) => event.stopPropagation()}>
-                <div className={styles.accountOrMediaCaption}>Додайте питання</div>
+                <div className={styles.accountOrMediaCaption}>Add question{/*Додайте питання*/}</div>
                 <textarea
                     onChange={(e) => setAreaText(e.target.value)}
                     rows={5}
@@ -52,7 +52,8 @@ const AddQuestion: FC<AddQuestion_Props> = ({setResponseOrQuestionActive}) => {
                 </textarea>
                 <div className={styles.leftResponse}>
                     <div onClick={() => handleAddQuestion()}>
-                        Додати питання
+                        {/*Додати питання*/}
+                        Add question
                     </div>
                 </div>
             </div>
