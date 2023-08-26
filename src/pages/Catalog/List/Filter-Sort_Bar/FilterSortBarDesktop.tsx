@@ -54,7 +54,8 @@ const FilterSortBarDesktop: FC<FilterSortBarDesktop_props> = ({
 
             <div className={styles.priceBlock}>
                 <label className={styles.priceTitle}>
-                    ЦІНА
+                    {/*ЦІНА*/}
+                    PRICE
                 </label>
                 <div>
                     {
@@ -69,7 +70,10 @@ const FilterSortBarDesktop: FC<FilterSortBarDesktop_props> = ({
                 </div>
                 <div style={{display: "flex", justifyContent: "space-between"}}>
                     <div>
-                        <span className={styles.fromTo}>від:</span>
+                        <span className={styles.fromTo}>
+                            {/*від:*/}
+                            from:
+                        </span>
                         <PriceInputMinimal
                             typeOfInput={"min"}
                             inputActive={inputActive}
@@ -81,7 +85,10 @@ const FilterSortBarDesktop: FC<FilterSortBarDesktop_props> = ({
                         />
                     </div>
                     <div>
-                        <span className={styles.fromTo}>до:</span>
+                        <span className={styles.fromTo}>
+                            {/*до:*/}
+                            to:
+                        </span>
                         <PriceInputMinimal
                             typeOfInput={"max"}
                             inputActive={inputActive}
@@ -96,7 +103,10 @@ const FilterSortBarDesktop: FC<FilterSortBarDesktop_props> = ({
             </div>
 
             <div className={styles.sizeBlock}>
-                <div className={styles.title}>Розмір</div>
+                <div className={styles.title}>
+                    {/*Розмір*/}
+                    Size
+                </div>
             </div>
 
             <div className={styles.applyBlock}>
@@ -106,14 +116,16 @@ const FilterSortBarDesktop: FC<FilterSortBarDesktop_props> = ({
                         className={styles.applyTitle}
                         style={{color: filterCondition ? "grey" : "black"}}
                     >
-                        ЗАСТОСУВАТИ
+                        {/*ЗАСТОСУВАТИ*/}
+                        APPLY FILTERS
                     </div>
                 </div>
                 <div className={styles.unset}
                      onClick={() => dropFilters()}
                      style={{color: filterCondition ? "grey" : "black"}}
                 >
-                    скинути фільтр
+                    {/*скинути фільтр*/}
+                    reset filter
                 </div>
             </div>
 
@@ -130,7 +142,8 @@ const FilterSortBarDesktop: FC<FilterSortBarDesktop_props> = ({
                          }}
                          onClick={() => setSortActive(true)}
                     >
-                        Сортування
+                        {/*Сортування*/}
+                        Sort
                         {
                             sortActive &&
                             <img src={CrossIcon}

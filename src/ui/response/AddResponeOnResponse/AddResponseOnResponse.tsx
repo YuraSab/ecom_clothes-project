@@ -57,7 +57,7 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
     return (
         <div className={styles.overlay} onClick={() => setResponseOnResponseActive(false)}>
             <div className={`${styles.mainDiv} ${styles.addResponseOnResponse}`} onClick={(event) => event.stopPropagation()}>
-                <h3>Коментар:</h3>
+                <h3>Comment:{/*Коментар:*/}</h3>
                 <ResponseItemUI
                     item={item}
                     actualResponses={actualResponses}
@@ -65,7 +65,7 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
                     actualResponseLikes={actualResponseLikes}
                     setResponseOnResponseActive={setResponseOnResponseActive}
                 />
-                <div className={styles.accountOrMediaCaption} style={{paddingTop: 40}}>Додайте відгук</div>
+                <div className={styles.accountOrMediaCaption} style={{paddingTop: 40}}>Add answer{/*Додайте відгук*/}</div>
                 <textarea
                     onChange={(e) => setAreaText(e.target.value)}
                     rows={5}
@@ -74,9 +74,13 @@ const AddResponseOnResponse: FC<AddResponseOnResponse_Props> = ({item, handleAdd
                 >
                 </textarea>
                 <div className={styles.leftResponse} onClick={() => handleAddResponse()}>
-                        Залишити відповідь
+                    {/*Залишити відповідь*/}
+                    Save answer
                 </div>
-                <h3>Інші відповіді:</h3>
+                {
+                    actualResponses.length > 0 &&
+                    <h3>Other answers{/*Інші відповіді:*/}</h3>
+                }
                 {
                     actualResponses.map(el => <ResponseOnResponseItemUI item={el} setResponseOnResponseActive={setResponseOnResponseActive}/>)
                 }
