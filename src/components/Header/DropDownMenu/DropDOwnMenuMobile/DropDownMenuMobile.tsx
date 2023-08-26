@@ -66,7 +66,7 @@ const DropDownMenu: FC<DropDownMenu_PropsTypes> = ({setBurgerMenuActive}) => {
                                 </div>
                                 <Link to={`/${gender}/${dropDownValue}`} style={{textDecoration: "none"}}>
                                     <div className={styles.category} style={{padding: "20px 40px 20px 20px"}}>
-                                        Всі товари
+                                        All goods {/*Всі товари*/}
                                     </div>
                                 </Link>
                             </>

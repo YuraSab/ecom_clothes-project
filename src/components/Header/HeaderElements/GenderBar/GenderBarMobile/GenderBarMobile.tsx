@@ -135,9 +135,9 @@ const GenderBarMobile: FC<GenderBarMobile_PropsTypes> = ({setBurgerMenuActive, b
                         </div>
 
                         <div className={styles.FAQBar}>
-                            <div className={styles.comebackAlive}>
-                                <img src={ComebackAlive} alt={""}/>
-                            </div>
+                            {/*<div className={styles.comebackAlive}>*/}
+                            {/*    <img src={ComebackAlive} alt={""}/>*/}
+                            {/*</div>*/}
 
                             <div className={styles.FAQLink}>NEWS AND RESPONDS{/*НОВИНИ І ВІДГУКИ*/}</div>
                             <div className={styles.FAQLink}>STORES{/*МАГАЗИНИ*/}</div>
