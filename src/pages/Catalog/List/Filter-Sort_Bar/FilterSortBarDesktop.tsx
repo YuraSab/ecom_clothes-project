@@ -173,7 +173,9 @@ const FilterSortBarDesktop: FC<FilterSortBarDesktop_props> = ({
                     }
                 </div>
                 <div className={styles.unset}>
-                    {sort === "" ? "спочатку нові" : sortVariants.find((el: SortVariant) => el.value === sort)?.title}
+
+                    {sort === "new" ? "спочатку нові": sortVariants.find((el: SortVariant) => el.value === sort)?.title}
+                    {/*{sort === "new" ? "new": sortVariants.find((el: SortVariant) => el.value === sort)?.title}*/}
                 </div>
             </div>
         </div>

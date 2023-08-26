@@ -248,7 +248,7 @@ const CategoryList: FC<CategoryList_PropsType> = ({category, name}) => {
                             {clothesList.map(el => <CategoryItem showLikes={showLikes} key={el.id} item={el}/>)}
                         </div>
                         :
-                        <div className={styles.noItems}>Немає товару в наявності</div>
+                        <div className={styles.noItems}>NO PRODUCT IN STOCK{/*Немає товару в наявності*/}</div>
                 }
             </div>
         </div>

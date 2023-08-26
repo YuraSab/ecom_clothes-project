@@ -76,7 +76,7 @@ const CategoryItem: FC<CategoryItem_propsType> = ({item, showLikes }) => {
 
                 </div>
                 <div>{item.name}</div>
-                <div><b>{item.price} грн.</b></div>
+                <div><b>{item.price} UAH{/*грн.*/}</b></div>
             </div>
         </Link>
     );
