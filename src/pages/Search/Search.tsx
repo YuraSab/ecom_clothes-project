@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import styles from "./Search.module.css";
 import SearchUI from "../../ui/SearchUI/SearchUI";
@@ -24,6 +24,7 @@ const Search = () => {
     const ClothesService = clothesService;
 
     const [onSetGenderActive, setOnSetGenderActive] = useState<boolean>(false);
+    // const [genderValue, setGenderValue] = useState<genderValue_type>({name: "Для всіх", link: "all"});
     const [genderValue, setGenderValue] = useState<genderValue_type>({name: "Для всіх", link: "all"});
     // const [genderValue, setGenderValue] = useState<genderValue_type>({name: "All", link: "all"});
     const [searchValue, setSearchValue] = useState<string>("");
@@ -31,13 +32,45 @@ const Search = () => {
     const [searchOptions, setSearchOptions] = useState<string[]>([]);
     const [actualMas, setActualMas] = useState<Cloth[] | undefined>([]);
 
-    const setOnSearching = () => {
-    };
+
+    const params = useParams<any>();
+
+
+    useLayoutEffect(() => {
+        console.log("initial search values: ", params.pagenderOfLink, params.searchingValue);
+    }, []);
+
+
+
+    const genderSetter = (gender: Gender | "all") => {
+        switch (gender) {
+            case "male":
+                setGenderValue({name: "Для хлопців", link: "male"})
+                break;
+            case "female":
+                setGenderValue({name: "Для дівчат", link: "female"})
+                break;
+            case "all":
+            case "":
+                setGenderValue({name: "Для всіх", link: "all"})
+                break;
+        }
+    }
 
 
     useEffect(() => {
+        console.log("params", params);
+        genderSetter(params.genderOfLink as Gender)
+        setSearchValue(params.searchingValue || "");
+    }, []);
+
+    const setOnSearching = () => {
+    };
+
+    useEffect(() => {
         findSearchResults();
-    }, [genderOfLink, searchingValue]);
+    //     searchValue - відповідає за динамічний пошук
+    }, [genderOfLink, searchingValue, genderValue]);
 
     useEffect(() => {
         const lower = searchOptions?.map(el => el.toLowerCase());

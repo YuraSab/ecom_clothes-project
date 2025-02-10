@@ -60,6 +60,7 @@ const SearchUI: FC<SearchUI_props> = ({
                         type={"text"}
                         // placeholder={"Введіть текст для пошуку"}
                         placeholder={"Enter text to search"}
+                        value={searchValue}
                         onChange={(event) => setSearchValue(
                             event.target.value
                                 .replace("\n", "")
@@ -90,7 +91,19 @@ const SearchUI: FC<SearchUI_props> = ({
                 <div className={styles.overlayForGenderOptions}>
                     {
                         onSetGenderActive &&
-                        <>
+                        <div style={{position: "relative", borderRight: "1px solid #b3b3b3", borderBottom: "1px solid #b3b3b3"}}>
+                            {/*<Link to={`/search/${genderValue.link}/${searchValue === "" ? "all" : searchValue}`}>*/}
+                            <div
+                                onClick={() => {
+                                    setOnSetGenderActive(false);
+                                    setGenderValue({name: "Для всіх", link: "all"});
+                                }}
+                                className={`${styles.oneOption} ${styles.optionText}`}
+                            >
+                                All
+                            </div>
+                            {/*</Link>*/}
+                            {/*<Link to={`/search/${genderValue.link}/${searchValue === "" ? "all" : searchValue}`}>*/}
                             <div
                                 onClick={() => {
                                     setOnSetGenderActive(false);
@@ -99,9 +112,10 @@ const SearchUI: FC<SearchUI_props> = ({
                                 }}
                                 className={`${styles.oneOption} ${styles.optionText}`}
                             >
-                                {/*Для хлопців*/}
                                 Male
                             </div>
+                            {/*</Link>*/}
+                            {/*<Link to={`/search/${genderValue.link}/${searchValue === "" ? "all" : searchValue}`}>*/}
                             <div
                                 onClick={() => {
                                     setOnSetGenderActive(false);
@@ -110,39 +124,40 @@ const SearchUI: FC<SearchUI_props> = ({
                                 }}
                                 className={`${styles.oneOption} ${styles.optionText}`}
                             >
-                                {/*Для дівчат*/}
                                 Female
                             </div>
-                        </>
+                            {/*</Link>*/}
+                        </div>
                     }
                 </div>
 
-                <div className={styles.searchOptions}>
-                    {
-                        searchResults.length > 0 && searchValue !== "" &&
-                        searchResults.map((el, index) => {
-                                return (
-                                    index < 9 &&
-                                    <Link
-                                        to={`/search/${genderValue.link}/${el}`}
-                                        key={el}
-                                        style={{textDecoration: "none", color: "black"}}
-                                    >
-                                        <div className={styles.searchOptionItem}
-                                             onClick={() => {
-                                                 setOnSearching(false);
-                                                 setOnSetGenderActive(false);
-                                             }}
-                                        >
-                                            <img src={LoopIcon} alt={"search"} width={16} height={16}/>
-                                            {el}
-                                        </div>
-                                    </Link>
-                                )
-                            }
-                        )
-                    }
-                </div>
+                {/*<div className={styles.searchOptions}>*/}
+                {/*    {*/}
+                {/*        searchResults.length > 0 && searchValue !== "" &&*/}
+                {/*        searchResults.map((el, index) => {*/}
+                {/*            return (*/}
+                {/*                index < 9 &&*/}
+                {/*                <Link*/}
+                {/*                    to={`/search/${genderValue.link}/${el}`}*/}
+                {/*                    key={el}*/}
+                {/*                    style={{textDecoration: "none", color: "black"}}*/}
+                {/*                    >*/}
+                {/*                        <div className={styles.searchOptionItem}*/}
+                {/*                             onClick={() => {*/}
+                {/*                                 setOnSearching(false);*/}
+                {/*                                 setOnSetGenderActive(false);*/}
+                {/*                                 console.log("oj")*/}
+                {/*                             }}*/}
+                {/*                        >*/}
+                {/*                            <img src={LoopIcon} alt={"search"} width={16} height={16}/>*/}
+                {/*                            {el}*/}
+                {/*                        </div>*/}
+                {/*                    </Link>*/}
+                {/*                )*/}
+                {/*            }*/}
+                {/*        )*/}
+                {/*    }*/}
+                {/*</div>*/}
             </div>
         </div>
     );
