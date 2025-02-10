@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/ecom_clothes-project/static/css/main.ab55e399.css",
+    "main.js": "/ecom_clothes-project/static/js/main.54c017d8.js",
+    "static/media/main_page_female_2.jpeg": "/ecom_clothes-project/static/media/main_page_female_2.c9607af6b80850c57b16.jpeg",
+    "static/media/main_page_female_1.jpeg": "/ecom_clothes-project/static/media/main_page_female_1.c845b59e447bcb34efb7.jpeg",
+    "static/media/main_page_male_2.jpeg": "/ecom_clothes-project/static/media/main_page_male_2.0f79a1b76afbad9cfb28.jpeg",
+    "static/media/main_page_male_1.jpeg": "/ecom_clothes-project/static/media/main_page_male_1.34806c2a999c6fb182bf.jpeg",
+    "static/media/MaleMainPage_pants.jpeg": "/ecom_clothes-project/static/media/MaleMainPage_pants.807da6f53ad0a7e030d9.jpeg",
+    "static/media/FemaleMainPage_t-shirts.jpeg": "/ecom_clothes-project/static/media/FemaleMainPage_t-shirts.7b120e6844160b66ff67.jpeg",
+    "static/media/MaleMainPage_sneakers.jpeg": "/ecom_clothes-project/static/media/MaleMainPage_sneakers.33d23eea38e0f4d1bb9e.jpeg",
+    "static/media/FemaleMainPage_shorts.jpeg": "/ecom_clothes-project/static/media/FemaleMainPage_shorts.84d2a541eddaeb377e1a.jpeg",
+    "static/media/MaleMainPage_t-shirts.jpeg": "/ecom_clothes-project/static/media/MaleMainPage_t-shirts.126cd65c64c413d4700c.jpeg",
+    "static/media/FemaleMainPage_dresses.jpeg": "/ecom_clothes-project/static/media/FemaleMainPage_dresses.9eb66aa9ce5eedf6b9db.jpeg",
+    "static/media/FemaleMainPage_pants.jpeg": "/ecom_clothes-project/static/media/FemaleMainPage_pants.d1547ad2e279a8313008.jpeg",
+    "static/media/MaleMainPage_sweat-shirts.jpeg": "/ecom_clothes-project/static/media/MaleMainPage_sweat-shirts.f8f0156715d12a0f5025.jpeg",
+    "static/media/google_play.svg": "/ecom_clothes-project/static/media/google_play.625c680a15560964c9cd52f9c495af6b.svg",
+    "static/media/app_store.svg": "/ecom_clothes-project/static/media/app_store.b264a583141c9912cd35db5d14a9455d.svg",
+    "static/media/cross_black_icon.svg": "/ecom_clothes-project/static/media/cross_black_icon.6a1d38e291ce3f5f366f0d33eaf3465e.svg",
+    "index.html": "/ecom_clothes-project/index.html",
+    "static/media/search_white_icon.svg": "/ecom_clothes-project/static/media/search_white_icon.185c2e4fe8dcf508d83bfccdb40a290b.svg",
+    "main.ab55e399.css.map": "/ecom_clothes-project/static/css/main.ab55e399.css.map",
+    "main.54c017d8.js.map": "/ecom_clothes-project/static/js/main.54c017d8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab55e399.css",
+    "static/js/main.54c017d8.js"
+  ]
+}
